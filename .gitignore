@@ -1,0 +1,57 @@
+# Ignore the following files in GIT #
+######################################
+
+# Python compiled files #
+#########################
+*.pyc
+*.orig
+
+# temporary files for calculation #
+#########################
+/gmlfiles
+/GML-Example-files
+/Scripts
+/results
+# temporary boundary condition files #
+######################################
+
+testing_teaserplus_lxml.py
+#TEASER+_Gui.py
+#gui_functions.py
+# Output-Files #
+########################
+/teaser/OutputData/
+
+#Eclipse Settings #
+#####################
+/.settings
+.project
+.pydevproject
+
+#Spyder Settings #
+#####################
+.spyderproject
+
+#PyCharm Settings #
+#####################
+.idea
+
+#Unit tests #
+#####################
+.cache/
+__pycache__/
+.coverage
+.pytest_cache
+
+#pip install #
+#####################
+*.egg-info/
+*.egg/
+*.eggs
+dist
+*.pypirc
+
+#ignore docs#
+#####################
+
+doc/_build
