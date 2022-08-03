@@ -12,7 +12,7 @@ from teaser.logic.buildingobjects.calculation.one_element import OneElement
 from teaser.logic.buildingobjects.calculation.two_element import TwoElement
 from teaser.logic.buildingobjects.calculation.three_element import ThreeElement
 from teaser.logic.buildingobjects.calculation.four_element import FourElement
-from teaser.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
+from teco.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
 
 
 class ThermalZone(object):

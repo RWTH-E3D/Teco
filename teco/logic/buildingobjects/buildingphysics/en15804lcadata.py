@@ -3,10 +3,10 @@
 
 import uuid
 
-from teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue import En15804IndicatorValue
+from teco.logic.buildingobjects.buildingphysics.en15804indicatorvalue import En15804IndicatorValue
 
-import teaser.data.input.lca_data_input as lca_data_input
-import teaser.data.output.lca_data_output as lca_data_output
+import teco.data.input.lca_data_input as lca_data_input
+import teco.data.output.lca_data_output as lca_data_output
 
 class En15804LcaData(object):
     """En15804LcaData class

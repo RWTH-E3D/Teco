@@ -3,7 +3,7 @@
 
 
 
-from teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue import En15804IndicatorValue
+from teco.logic.buildingobjects.buildingphysics.en15804indicatorvalue import En15804IndicatorValue
 
 
 def load_en15804_lca_data_id(lca_data, lca_id, data_class):

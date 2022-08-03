@@ -1,6 +1,6 @@
 """This module contains function to load material classes."""
 
-from teaser.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
+from teco.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
 
 def load_material(material, mat_name, data_class):
     """Material loader with name as identification.

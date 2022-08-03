@@ -75,9 +75,9 @@ def get_full_path(rel_path):
     """
 
     directory = os.path.dirname(__file__)
-    src = "teaser"
+    src = "teco"
     last_index = directory.rfind(src)
-    first_path = os.path.join(directory[:last_index], "teaser")
+    first_path = os.path.join(directory[:last_index], "teco")
     full_path = os.path.join(first_path, rel_path)
 
     return full_path

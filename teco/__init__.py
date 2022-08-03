@@ -33,3 +33,10 @@ if sys.platform.startswith('win'):
     import mako.util
     mako.util.read_file = read_file
     del read_file
+
+from teco.logic.archetypebuildings.residential import Residential
+from teco.logic.archetypebuildings.bmvbs.singlefamilydwelling import SingleFamilyDwelling
+from teco.logic.buildingobjects.building import Building
+from teco.logic.buildingobjects.buildingphysics.buildingelement import BuildingElement
+from teco.logic.buildingobjects.buildingphysics.material import Material
+from teco.data.dataclass import DataClass

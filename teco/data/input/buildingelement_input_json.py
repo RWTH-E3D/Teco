@@ -1,9 +1,9 @@
 """This module contains function to load building element classes."""
 
 from teaser.logic.buildingobjects.buildingphysics.layer import Layer
-from teaser.logic.buildingobjects.buildingphysics.material import Material
-import teaser.data.input.material_input_json as mat_input
-from teaser.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
+from teco.logic.buildingobjects.buildingphysics.material import Material
+import teco.data.input.material_input_json as mat_input
+from teco.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
 
 def load_type_element(element, year, construction, data_class):
     """Load BuildingElement from json.

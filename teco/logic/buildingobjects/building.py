@@ -8,11 +8,10 @@ import random
 import uuid
 import re
 import warnings
-from teaser.logic.buildingobjects.calculation.aixlib import AixLib
-from teaser.logic.buildingobjects.calculation.ibpsa import IBPSA
-from teaser.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
-
-from teaser.logic.buildingobjects.buildingsystems.buildingahu import BuildingAHU
+from teco.logic.buildingobjects.calculation.aixlib import AixLib
+from teco.logic.buildingobjects.calculation.ibpsa import IBPSA
+from teco.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
+from teco.logic.buildingobjects.buildingsystems.buildingahu import BuildingAHU
 
 
 class Building(object):
