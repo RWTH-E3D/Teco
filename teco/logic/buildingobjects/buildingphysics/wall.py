@@ -1,8 +1,8 @@
 """asd"""
-from teaser.logic.buildingobjects.buildingphysics.buildingelement \
+from teco.logic.buildingobjects.buildingphysics.buildingelement \
     import BuildingElement
 from teaser.logic.buildingobjects.buildingphysics.layer import Layer
-from teaser.logic.buildingobjects.buildingphysics.material import Material
+from teco.logic.buildingobjects.buildingphysics.material import Material
 import numpy as np
 import warnings
 

@@ -4,7 +4,7 @@ from __future__ import division
 from teaser.logic.buildingobjects.buildingphysics.layer import Layer
 from teco.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
 
-import teaser.data.input.buildingelement_input_json as buildingelement_input
+import teco.data.input.buildingelement_input_json as buildingelement_input
 import numpy as np
 import random
 import re
