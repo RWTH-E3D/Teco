@@ -34,10 +34,9 @@ if sys.platform.startswith('win'):
     mako.util.read_file = read_file
     del read_file
 
-import teco.teco_module_modifications
-from teco.logic.archetypebuildings.residential import Residential
-from teco.logic.archetypebuildings.bmvbs.singlefamilydwelling import SingleFamilyDwelling
+from teco.logic.utilities import division_from_json
 from teco.logic.buildingobjects.building import Building
 from teco.logic.buildingobjects.buildingphysics.buildingelement import BuildingElement
-from teco.logic.buildingobjects.buildingphysics.material import Material
 from teco.data.dataclass import DataClass
+from teco.logic.buildingobjects.thermalzone import ThermalZone
+import teco.teco_module_modifications

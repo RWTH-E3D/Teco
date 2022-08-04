@@ -1,10 +1,11 @@
 """asd"""
-from teco.logic.buildingobjects.buildingphysics.buildingelement \
+from teaser.logic.buildingobjects.buildingphysics.buildingelement \
     import BuildingElement
 from teaser.logic.buildingobjects.buildingphysics.layer import Layer
-from teco.logic.buildingobjects.buildingphysics.material import Material
+from teaser.logic.buildingobjects.buildingphysics.material import Material
 import numpy as np
 import warnings
+
 
 class Wall(BuildingElement):
     """Wall class

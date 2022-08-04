@@ -2,12 +2,12 @@
 # by TEASER4 Development Team
 
 from teco.logic.archetypebuildings.residential import Residential
-from teco.logic.buildingobjects.useconditions import UseConditions as UseCond
+from teaser.logic.buildingobjects.useconditions import UseConditions as UseCond
 from teco.logic.buildingobjects.buildingphysics.ceiling import Ceiling
 from teco.logic.buildingobjects.buildingphysics.floor import Floor
 from teco.logic.buildingobjects.buildingphysics.groundfloor import GroundFloor
 from teco.logic.buildingobjects.buildingphysics.innerwall import InnerWall
-from teco.logic.buildingobjects.buildingphysics.outerwall import OuterWall
+from teaser.logic.buildingobjects.buildingphysics.outerwall import OuterWall
 from teco.logic.buildingobjects.buildingphysics.rooftop import Rooftop
 from teco.logic.buildingobjects.buildingphysics.window import Window
 from teco.logic.buildingobjects.thermalzone import ThermalZone

@@ -2,6 +2,8 @@
 which includes the Project class, which is the API for TEASER."""
 
 from teaser import project
+import teco.logic.utilities as utilities
+import teco.data.dataclass as dataclass
 
 
 class Project(project.Project):
@@ -14,6 +16,9 @@ class Project(project.Project):
         to stage B4. Otherwise they are added seperatly to the other stages
 
     """
+
+    utilities = utilities
+    dataclass = dataclass
 
     def __init__(self, load_data):
         """Constructor of Teco Project
