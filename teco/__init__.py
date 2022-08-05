@@ -1,8 +1,7 @@
 '''
-teaser
+teco
 =========
-
-Tool for Energy Analysis and Simulation for Efficient Retrofit
+An extension to TEASER (Tool for Energy Analysis and Simulation for Efficient Retrofit) and TEASERplus
 '''
 import sys
 import os

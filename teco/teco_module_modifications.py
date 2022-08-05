@@ -1,4 +1,4 @@
-"""This module switches modules from teaserplus with modules from teco."""
+"""This module replaces modules from teaser or teaserplus with modules from teco."""
 
 import sys
 import teaser.data.dataclass
