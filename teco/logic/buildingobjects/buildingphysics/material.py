@@ -4,10 +4,9 @@
 
 import re
 import uuid
-import teaser.data.input.material_input_json as material_input
+import teco.data.input.material_input_json as material_input
 import teaser.data.output.material_output as material_output
 from teco.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
-
 
 
 class Material(object):
