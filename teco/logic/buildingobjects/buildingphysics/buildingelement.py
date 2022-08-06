@@ -17,8 +17,6 @@ class BuildingElement(BuildingElement):
         service_life of the building element in years
     """
 
-
-
     def __init__(self, parent=None):
         """Constructor for BuildingElement
         """

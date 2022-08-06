@@ -34,8 +34,8 @@ if sys.platform.startswith('win'):
     del read_file
 
 from teco.logic.utilities import division_from_json
-from teco.logic.buildingobjects.building import Building
 from teco.logic.buildingobjects.buildingphysics.buildingelement import BuildingElement
+from teco.logic.buildingobjects.building import Building
 from teco.data.dataclass import DataClass
 from teco.logic.buildingobjects.thermalzone import ThermalZone
 import teco.teco_module_modifications

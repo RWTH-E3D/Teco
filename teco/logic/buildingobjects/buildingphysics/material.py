@@ -4,48 +4,14 @@
 
 import re
 import uuid
+from teaser.logic.buildingobjects.buildingphysics.material import Material
 import teco.data.input.material_input_json as material_input
-import teaser.data.output.material_output as material_output
+import teco.data.output.material_output as material_output
 from teco.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
 
 
-class Material(object):
-    """Material class
-
-    This class holds information of Material used for building element layer.
-
-
-    Parameters
-    ----------
-    parent : Layer
-        The parent class of this object, the layer the material
-        belongs to. Allows for better control of hierarchical structures. If
-        not None this adds this Material to Layer.material.
-        Default is None
-
-    Attributes
-    ----------
-    name : str
-        Name of material
-    density : float [kg/m3]
-        Density of material
-    thermal_conduc : float [W/(m*K)]
-        Thermal conductivity of material
-    heat_capac : float [kJ/(kg*K)]
-        Specific heat capacity of material
-    solar_absorp : float [-]
-        Coefficient of absorption of solar short wave
-    ir_emissivity : float [-]
-        Coefficient of longwave emissivity of material
-    transmittance : float [-]
-        Coefficient of transmittance of material
-    thickness_default : float [m]
-        Default value for material thickness
-    thickness_list : list
-        List of usual values for material thickness, float [m]
-    material_id : str(uuid)
-        UUID of material, this is used to have similar behaviour like foreign
-        key in SQL data bases for use in TypeBuildingElements and Material json
+class Material(Material):
+    """
     lca_data : En15804LcaData
         material environmental product declaration indicators according to 
         EN 15804
@@ -57,99 +23,86 @@ class Material(object):
     def __init__(self, parent=None):
         """Constructor of Material.
         """
-
-        self.parent = parent
-        self._name = ""
-        self._density = 0.0
-        self._thermal_conduc = 0.0
-        self._heat_capac = 0.0
-        self._solar_absorp = 0.0
-        if parent is not None:
-            if type(self.parent.parent).__name__ != "Window":
-                self._solar_absorp = 0.7
-        self._ir_emissivity = 0.9
-        self._transmittance = 0.0
-        self._thickness_default = 0.0
-        self._thickness_list = []
+        super(Material, self).__init__(
+            parent,
+        )
         self._lca_data = None
         self._service_life = None
 
-        self.material_id = str(uuid.uuid1())
-
-    def load_material_template(self, mat_name, data_class=None):
-        """Material loader.
-
-        Loads Material specified in the json.
-
-        Parameters
-        ----------
-
-        mat_name : str
-            Code list for Material
-
-        data_class : DataClass()
-            DataClass containing the bindings for TypeBuildingElement and
-            Material (typically this is the data class stored in prj.data,
-            but the user can individually change that. Default is
-            self.parent.parent.parent.parent.data which is data in project
-
-        """
-
-        if data_class is None:
-            data_class = self.parent.parent.parent.parent.data
-        else:
-            data_class = data_class
-
-        material_input.load_material(material=self,
-                                     mat_name=mat_name,
-                                     data_class=data_class)
-
-    def save_material_template(self, data_class):
-        """Material saver.
-
-        Saves Material specified in the json.
-
-        Parameters
-        ----------
-
-        data_class : DataClass()
-            DataClass containing the bindings for TypeBuildingElement and
-            Material (typically this is the data class stored in prj.data,
-            but the user can individually change that. Default is
-            self.parent.parent.parent.parent.data which is data in project
-
-        """
-
-        if data_class is None:
-            data_class = self.parent.parent.parent.parent.data
-        else:
-            data_class = data_class
-
-        material_output.save_material(
-            material=self, data_class=data_class)
-
-    def modify_material_template(self, data_class):
-        """Material modifier.
-
-        Modify Material specified in the json.
-
-        Parameters
-        ----------
-
-        data_class : DataClass()
-            DataClass containing the bindings for TypeBuildingElement and
-            Material (typically this is the data class stored in prj.data,
-            but the user can individually change that. Default is
-            self.parent.parent.parent.parent.data which is data in project
-
-        """
-
-        if data_class is None:
-            data_class = self.parent.parent.parent.parent.data
-        else:
-            data_class = data_class
-
-        material_output.modify_material(material=self, data_class=data_class)
+    # def load_material_template(self, mat_name, data_class=None):
+    #     """Material loader.
+    #
+    #     Loads Material specified in the json.
+    #
+    #     Parameters
+    #     ----------
+    #
+    #     mat_name : str
+    #         Code list for Material
+    #
+    #     data_class : DataClass()
+    #         DataClass containing the bindings for TypeBuildingElement and
+    #         Material (typically this is the data class stored in prj.data,
+    #         but the user can individually change that. Default is
+    #         self.parent.parent.parent.parent.data which is data in project
+    #
+    #     """
+    #
+    #     if data_class is None:
+    #         data_class = self.parent.parent.parent.parent.data
+    #     else:
+    #         data_class = data_class
+    #
+    #     material_input.load_material(material=self,
+    #                                  mat_name=mat_name,
+    #                                  data_class=data_class)
+    #
+    # def save_material_template(self, data_class):
+    #     """Material saver.
+    #
+    #     Saves Material specified in the json.
+    #
+    #     Parameters
+    #     ----------
+    #
+    #     data_class : DataClass()
+    #         DataClass containing the bindings for TypeBuildingElement and
+    #         Material (typically this is the data class stored in prj.data,
+    #         but the user can individually change that. Default is
+    #         self.parent.parent.parent.parent.data which is data in project
+    #
+    #     """
+    #
+    #     if data_class is None:
+    #         data_class = self.parent.parent.parent.parent.data
+    #     else:
+    #         data_class = data_class
+    #
+    #     material_output.save_material(
+    #         material=self, data_class=data_class)
+    #
+    # def modify_material_template(self, data_class):
+    #     """Material modifier.
+    #
+    #     Modify Material specified in the json.
+    #
+    #     Parameters
+    #     ----------
+    #
+    #     data_class : DataClass()
+    #         DataClass containing the bindings for TypeBuildingElement and
+    #         Material (typically this is the data class stored in prj.data,
+    #         but the user can individually change that. Default is
+    #         self.parent.parent.parent.parent.data which is data in project
+    #
+    #     """
+    #
+    #     if data_class is None:
+    #         data_class = self.parent.parent.parent.parent.data
+    #     else:
+    #         data_class = data_class
+    #
+    #     material_output.modify_material(material=self, data_class=data_class)
 
     @property
     def material_id(self):
