@@ -39,6 +39,9 @@ Teco can be used by cloning or downloading the whole Teco package from the GIT R
 
 You are invited to contribute to the development of Teco. You may report any issues by sending us an email to [schildt@e3d.rwth-aachen.de](mailto:schildt@e3d.rwth-aachen.de).
 
+## How to cite Teco
+This is where we will add our publications at ASHRAE SimBuild 22 Chicago and Energy and Buildings Journal.
+
 ## How to cite TEASER+
 The following articles can be used to cite TEASER+:
 + Urban energy simulations using open CityGML models: A comparative analysis. Malhotra, A., Shamovich, M., Frisch, J., & van Treeck, C.. Energy and Buildings, 255, 111658, January 2022.
