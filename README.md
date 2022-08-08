@@ -39,6 +39,9 @@ Teco can be used by cloning or downloading the whole Teco package from the GIT R
 
 You are invited to contribute to the development of Teco. You may report any issues by sending us an email to [schildt@e3d.rwth-aachen.de](mailto:schildt@e3d.rwth-aachen.de).
 
+## How to cite Teco
+This is where we will put our publications at ASHRAE SimBuild 22 Chicago and Energy and Buildings Journal
+
 ## How to cite TEASER+
 The following articles can be used to cite TEASER+:
 + Urban energy simulations using open CityGML models: A comparative analysis. Malhotra, A., Shamovich, M., Frisch, J., & van Treeck, C.. Energy and Buildings, 255, 111658, January 2022.
@@ -50,7 +53,7 @@ The following articles can be used to cite TEASER+:
 ## How to cite original TEASER
 
 + TEASER: an open tool for urban energy modelling of building stocks. Remmen P., Lauster M., Mans M., Fuchs M., Osterhage T., Müller D.. Journal of Building Performance Simulation, February 2017,
-[pdf](http://dx.doi.org/10.1080/19401493.2017.1283539),
+[pdf](http://dx.doi.org/10.1080/19401493.2017.1283539), 
 [bibtex](https://github.com/RWTH-EBC/TEASER/tree/master/doc/cite_jbps.bib)
 
 ### TEASER related publications
@@ -196,7 +199,7 @@ The workflow for changes is described in our [Wiki](https://github.com/RWTH-EBC/
 ## How to cite TEASER
 
 + TEASER: an open tool for urban energy modelling of building stocks. Remmen P., Lauster M., Mans M., Fuchs M., Osterhage T., Müller D.. Journal of Building Performance Simulation, February 2017,
-[pdf](http://dx.doi.org/10.1080/19401493.2017.1283539),
+[pdf](http://dx.doi.org/10.1080/19401493.2017.1283539), 
 [bibtex](https://github.com/RWTH-EBC/TEASER/tree/master/doc/cite_jbps.bib)
 
 ### TEASER related publications
