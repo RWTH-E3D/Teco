@@ -33,7 +33,7 @@ Teco is currently being developed using Python 3.5+ and PySide2. Beside the basi
 
 ### Installation
 
-Teco can be used by cloning or downloading the whole Teco package from the GIT Repository. In future, the user can to run the "main.py" for loading the GUI.
+Teco can be used by cloning or downloading the whole Teco package from the GIT Repository. The TEASER+ repo needs to be installed analogously.
 
 ### How to contribute to the development of Teco
 
