@@ -1,9 +1,10 @@
 """This module contains function to save material classes."""
 import warnings
 import json
-import teaser.logic.utilities as utilities
+import teco.logic.utilities as utilities
 import collections
 
+#ToDO: Test output -> is the change to teco utilities enough?
 
 def save_material(material, data_class):
     """Material saver.

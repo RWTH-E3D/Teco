@@ -1,10 +1,11 @@
 """This module contains function to save building element classes."""
 
-import teaser.logic.utilities as utilities
+import teco.logic.utilities as utilities
 import warnings
 import collections
 import json
 
+#ToDO: Test output -> is the change to teco utilities enough?
 
 def save_type_element(element, data_class):
     """Save information about building element to json.
