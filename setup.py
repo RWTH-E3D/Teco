@@ -12,17 +12,17 @@ setup(
     author_email="e3dr@e3d.rwth-aachen.de",
     license="MIT",
     packages=[
-        "teaser",
-        "teaser.logic",
-        "teaser.logic.buildingobjects",
-        "teaser.logic.buildingobjects.buildingphysics",
-        "teaser.data",
-        "teaser.data.input",
-        "teaser.data.input.inputdata",
-        "teaser.data.output",
+        "teco",
+        "teco.logic",
+        "teco.logic.buildingobjects",
+        "teco.logic.buildingobjects.buildingphysics",
+        "teco.data",
+        "teco.data.input",
+        "teco.data.input.inputdata",
+        "teco.data.output",
     ],
     package_data={
-        "teaser.data.input.inputdata": ["*.json"]
+        "teco.data.input.inputdata": ["*.json"]
     },
     classifiers=[
         "License :: OSI Approved :: MIT License",
