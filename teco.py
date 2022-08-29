@@ -22,8 +22,8 @@ from PySide2 import QtWidgets, QtGui
 import gui_functions as gf
 import tplusselection as sel
 from teaser.project import Project
-import simulate as sim
-from teco.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
+# import simulate as sim
+from teaser.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
 
 
 # setting environment variable for PySide2

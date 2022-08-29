@@ -5,7 +5,7 @@ Original Repo for CityLDT: https://gitlab.e3d.rwth-aachen.de/e3d-software-tools/
 """
 
 import os
-import teaserplus_gui as tg
+import teco as tg
 from PySide2 import QtWidgets, QtGui, QtCore
 
 
