@@ -1,28 +1,74 @@
 from setuptools import setup
 
-#TODO: Max or Linus should have a look:)
-
 setup(
-    name="teco",
-    version="0.2.0",
-    description="TECO - LCA calculation extension for TEASER and TEASERplus",
+    name="teaser",
+    version="0.7.6",
+    description="Tool for Energy Analysis and Simulation for " "Efficient Retrofit ",
     url="https://github.com/RWTH-EBC/TEASER",
-    author="RWTH Aachen University, E3D, "
-    "Institute of Energy Efficiency and Sustainable Building",
-    author_email="e3dr@e3d.rwth-aachen.de",
+    author="RWTH Aachen University, E.ON Energy Research Center, "
+    "Institute of Energy Efficient Buildings and Indoor Climate",
+    author_email="ebc-teaser@eonerc.rwth-aachen.de",
     license="MIT",
     packages=[
-        "teco",
-        "teco.logic",
-        "teco.logic.buildingobjects",
-        "teco.logic.buildingobjects.buildingphysics",
-        "teco.data",
-        "teco.data.input",
-        "teco.data.input.inputdata",
-        "teco.data.output",
+        "teaser",
+        "teaser.logic",
+        "teaser.logic.archetypebuildings",
+        "teaser.logic.archetypebuildings.tabula",
+        "teaser.logic.archetypebuildings.tabula.de",
+        "teaser.logic.archetypebuildings.tabula.dk",
+        "teaser.logic.archetypebuildings.bmvbs",
+        "teaser.logic.archetypebuildings.bmvbs.custom",
+        "teaser.logic.archetypebuildings.urbanrenet",
+        "teaser.logic.buildingobjects",
+        "teaser.logic.buildingobjects.buildingphysics",
+        "teaser.logic.buildingobjects.buildingsystems",
+        "teaser.logic.buildingobjects.calculation",
+        "teaser.logic.simulation",
+        "teaser.data",
+        "teaser.data.input",
+        "teaser.data.input.inputdata",
+        "teaser.data.input.inputdata.weatherdata",
+        "teaser.data.output",
+        "teaser.data.output.modelicatemplate",
+        "teaser.data.output.modelicatemplate.AixLib",
+        "teaser.data.output.modelicatemplate.IBPSA",
+        "teaser.examples",
+        "teaser.examples.verification",
+        "teaser.examples.examplefiles",
     ],
     package_data={
-        "teco.data.input.inputdata": ["*.json"]
+        "teaser.data.input.inputdata": ["*.json"],
+        "teaser.data.input.inputdata.weatherdata": [
+            "DEU_BW_Mannheim_107290_TRY2010_12_Jahr_BBSR.mos",
+            "ASHRAE140.mos",
+        ],
+        "teaser.data.output.modelicatemplate": [
+            "package",
+            "package_order",
+            "conversion",
+            "modelica_language",
+            "modelica_test_script",
+        ],
+        "teaser.data.output.modelicatemplate.AixLib": [
+            "AixLib_Multizone",
+            "AixLib_ThermalZoneRecord_OneElement",
+            "AixLib_ThermalZoneRecord_TwoElement",
+            "AixLib_ThermalZoneRecord_ThreeElement",
+            "AixLib_ThermalZoneRecord_FourElement",
+        ],
+        "teaser.data.output.modelicatemplate.IBPSA": [
+            "IBPSA_OneElement",
+            "IBPSA_TwoElements",
+            "IBPSA_ThreeElements",
+            "IBPSA_FourElements",
+        ],
+        "teaser.data.output.texttemplate": [
+            "ReadableBuilding_OneElement",
+            "ReadableBuilding_TwoElement",
+            "ReadableBuilding_ThreeElement",
+            "ReadableBuilding_FourElement",
+        ],
+        "teaser.examples.examplefiles": ["*.json"],
     },
     classifiers=[
         "License :: OSI Approved :: MIT License",
@@ -35,5 +81,5 @@ setup(
         "Topic :: Scientific/Engineering",
         "Topic :: Utilities",
     ],
-    install_requires=["teaserplus"],
+    install_requires=["mako", "pytest", "pandas", "numpy", "lxml", "buildingspy", "PySide2"],
 )

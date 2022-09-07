@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-TEASER+
+Teco GUI extension to TEASER+
 Contact:
-M.Sc. Avichal Malhotra: malhotra@e3d.rwth-aachen.de
-B.Sc. Maxim Shamovich: maxim.shamovich@rwth-aachen.de
+M.Sc. Maximilian Schildt: schildt@e3d.rwth-aachen.de
+M.Sc. Maxim Shamovich: maxim.shamovich@rwth-aachen.de
 
 www.e3d.rwth-aachen.de
 Mathieustr. 30
@@ -22,7 +22,7 @@ from PySide2 import QtWidgets, QtGui
 import gui_functions as gf
 import tplusselection as sel
 from teaser.project import Project
-import simulate as sim
+# import simulate as sim
 from teco.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
 
 
