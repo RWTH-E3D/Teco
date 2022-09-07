@@ -7,7 +7,7 @@ from teaser.logic.buildingobjects.buildingphysics.innerwall import InnerWall
 from teaser.project import Project
 from teaser.logic.buildingobjects.buildingphysics.material import Material
 from teaser.data.input.citygml_input import load_gml_lxml
-from teaser.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
+from teco.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
 import simulate as sim
 
 from pathlib import Path
@@ -27,11 +27,11 @@ if __name__ == '__main__':
         height_of_floors=2.5,
         net_leased_area=167)  # building is added. method and usage specify the enrichment method
 """
-    load_gml_lxml(path = "C:\\Users\\feldman\\Examples_GML\\FZK-Haus-LoD2-KIT-IAI-KHH-B36-V1.gml", prj = prj, method = "tabula_de")
+    load_gml_lxml(path = "D:\\Users\\MSchildt\\Documents\\repos\\e3d_gitlab\\teco\\Examples\\FZK-Haus-LoD2-KIT-IAI-KHH-B36-V1.gml", prj = prj, method = "tabula_de")
     prj.calc_all_buildings()  # simulation parameters are calculated
 
     prj.export_aixlib()  # model export
 
     # Simulation is started. Please exchange the file paths ;)
-    sim.simulate(path="C:\\Users\\feldman\\TEASEROutput", prj=prj, loading_time=3600,
-                 result_path="C:\\Users\\feldman\\TEASEROutput\\results")
+    sim.simulate(path="C:\\Users\\MSchildt\\TEASEROutput", prj=prj, loading_time=3600,
+                 result_path="C:\\Users\\MSchildt\\TEASEROutput\\results")

@@ -2,7 +2,7 @@
 """
 Created on Mon Dec  6 15:30:02 2021
 
-@author: Linus
+@author: Linus Cuypers (cuypers@e3d.rwth-aachen.de)
 """
 
 
