@@ -7,7 +7,7 @@ Created on Mon Dec  6 15:30:02 2021
 
 
 
-from teaser.project import Project
+from teco.project import Project
 from teco.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
 import csv
 
