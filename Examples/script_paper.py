@@ -7,7 +7,7 @@ Created on Mon Dec  6 15:30:02 2021
 
 
 
-from teaser.project import Project
+from teco.project import Project
 from teco.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
 import csv
 
@@ -29,17 +29,17 @@ def export_building_gwp_csv(project, path="building_gwp_export.csv"):
     type3 = En15804LcaData()
     type4 = En15804LcaData()
     
-    for building in project.buildings:
-        if building.name.endswith("_I"):
-            type1 = type1 + building.lca_data
-        elif building.name.endswith("_II"):
-            type2 = type2 + building.lca_data
-        elif building.name.endswith("_III"):
-            type3 = type3 + building.lca_data
-        elif building.name.endswith("_IV"):
-            type4 = type4 + building.lca_data
+    for building_ in project.buildings:
+        if building_.name.endswith("_I"):
+            type1 = type1 + building_.lca_data
+        elif building_.name.endswith("_II"):
+            type2 = type2 + building_.lca_data
+        elif building_.name.endswith("_III"):
+            type3 = type3 + building_.lca_data
+        elif building_.name.endswith("_IV"):
+            type4 = type4 + building_.lca_data
         else:
-            print(building.name)
+            print(building_.name)
     
     head_row = ["building type", "a1", "a2", "a3", "a1_a3", "a4", "a5", "b1", "b2", "b3", "b4", "b5", "b6", "b7", "c1", "c2", "c3", "c4", "d", "sum", "sum with d"]
     
@@ -60,10 +60,7 @@ def export_building_gwp_csv(project, path="building_gwp_export.csv"):
     with open(path, "w", newline = "") as csvfile:
         writer = csv.writer(csvfile, dialect = "excel")
         writer.writerows(export_list)
-    
-                  
-    
-    
+
             
 def export_be_gwp_csv(project, path="buildingelement_gwp_export.csv"):
     outer_walls = En15804LcaData()
@@ -199,7 +196,7 @@ if __name__ == '__main__':
     prj.add_residential(
         method="tabula_de",
         usage="single_family_house",
-        name="Typ I",
+        name="Typ_I",
         year_of_construction=2015,
         number_of_floors=2,
         height_of_floors=2.5,
@@ -209,9 +206,9 @@ if __name__ == '__main__':
     
     prj.calc_all_buildings()
 
-    prj.export_aixlib(path = "C:\\Users\\MSchildt\\TEASEROutput")
+    prj.export_aixlib(path = "C:\\Users\\tayeb\\TEASEROutput")
 
-    sim.simulate(path = "C:\\Users\\MSchildt\\TEASEROutput", prj = prj, loading_time = 3600, result_path = "C:\\Users\\MSchildt\\TEASEROutput\\results")
+    sim.simulate(path = "C:\\Users\\tayeb\\TEASEROutput", prj = prj, loading_time = 3600, result_path = "C:\\Users\\tayeb\\TEASEROutput\\results")
     
     lca_data_elec = En15804LcaData()
     lca_data_elec.load_lca_data_template("c869c47e-ce43-45b4-b640-b0cd1746e450", prj.data)
