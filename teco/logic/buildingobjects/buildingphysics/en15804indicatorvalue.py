@@ -645,7 +645,7 @@ class En15804IndicatorValue(object):
 
         return_dict["unit"] = self.unit
         
-        return(return_dict)
+        return return_dict
                     
 
            
