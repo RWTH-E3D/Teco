@@ -663,7 +663,7 @@ class En15804IndicatorValue(object):
                 required_stages = self.parent.parent.parent.parent.parent.required_stages
 
         for stage in required_stages:
-            if stage is not in self.stages:
+            if stage not in self.stages():
                 if self.parent is not None:
                     raise ValueError(f"LCA-Dataset '{parent.name}' (ID: {parent.id}) has no value for the required stage '{stage}'!")
                 else:
