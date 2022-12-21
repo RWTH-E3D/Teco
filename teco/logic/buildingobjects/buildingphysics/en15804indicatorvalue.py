@@ -107,13 +107,13 @@ class En15804IndicatorValue(object):
 
         """
         if isinstance(value, float):
-            return(value)
+            return value
         else:
             if not value:
-                return(None)
+                return None
             try:
                 value = float(value)
-                return(value)
+                return value
             except ValueError:
                 print("Can't convert value of '{}' to float".format(stage_name))       
             except TypeError:
@@ -122,7 +122,7 @@ class En15804IndicatorValue(object):
                 
     @property
     def unit(self):
-        return(self._unit)
+        return self._unit
     
     @unit.setter
     def unit(self, value):
@@ -136,7 +136,7 @@ class En15804IndicatorValue(object):
 
     @property
     def a1(self):
-        return(self._a1)
+        return self._a1
     
     @a1.setter
     def a1(self, value):
@@ -144,7 +144,7 @@ class En15804IndicatorValue(object):
        
     @property
     def a2(self):
-        return(self._a2)
+        return self._a2
     
     @a2.setter
     def a2(self, value):
@@ -152,7 +152,7 @@ class En15804IndicatorValue(object):
        
     @property
     def a3(self):
-        return(self._a3)
+        return self._a3
     
     @a3.setter
     def a3(self, value):
@@ -160,7 +160,7 @@ class En15804IndicatorValue(object):
     
     @property
     def a1_a3(self):
-        return(self._a1_a3)
+        return self._a1_a3
     
     @a1_a3.setter
     def a1_a3(self, value):
@@ -168,7 +168,7 @@ class En15804IndicatorValue(object):
        
     @property
     def a4(self):
-        return(self._a4)
+        return self._a4
     
     @a4.setter
     def a4(self, value):
@@ -176,7 +176,7 @@ class En15804IndicatorValue(object):
        
     @property
     def a5(self):
-        return(self._a5)
+        return self._a5
     
     @a5.setter
     def a5(self, value):
@@ -184,7 +184,7 @@ class En15804IndicatorValue(object):
        
     @property
     def b1(self):
-        return(self._b1)
+        return self._b1
     
     @b1.setter
     def b1(self, value):
@@ -192,7 +192,7 @@ class En15804IndicatorValue(object):
        
     @property
     def b2(self):
-        return(self._b2)
+        return self._b2
     
     @b2.setter
     def b2(self, value):
@@ -200,7 +200,7 @@ class En15804IndicatorValue(object):
        
     @property
     def b3(self):
-        return(self._b3)
+        return self._b3
     
     @b3.setter
     def b3(self, value):
@@ -208,7 +208,7 @@ class En15804IndicatorValue(object):
        
     @property
     def b4(self):
-        return(self._b4)
+        return self._b4
     
     @b4.setter
     def b4(self, value):
@@ -216,7 +216,7 @@ class En15804IndicatorValue(object):
        
     @property
     def b5(self):
-        return(self._b5)
+        return self._b5
     
     @b5.setter
     def b5(self, value):
@@ -224,7 +224,7 @@ class En15804IndicatorValue(object):
        
     @property
     def b6(self):
-        return(self._b6)
+        return self._b6
     
     @b6.setter
     def b6(self, value):
@@ -232,7 +232,7 @@ class En15804IndicatorValue(object):
        
     @property
     def b7(self):
-        return(self._b7)
+        return self._b7
     
     @b7.setter
     def b7(self, value):
@@ -240,7 +240,7 @@ class En15804IndicatorValue(object):
        
     @property
     def c1(self):
-        return(self._c1)
+        return self._c1
     
     @c1.setter
     def c1(self, value):
@@ -248,7 +248,7 @@ class En15804IndicatorValue(object):
        
     @property
     def c2(self):
-        return(self._c2)
+        return self._c2
     
     @c2.setter
     def c2(self, value):
@@ -256,7 +256,7 @@ class En15804IndicatorValue(object):
        
     @property
     def c3(self):
-        return(self._c3)
+        return self._c3
     
     @c3.setter
     def c3(self, value):
@@ -264,7 +264,7 @@ class En15804IndicatorValue(object):
        
     @property
     def c4(self):
-        return(self._c4)
+        return self._c4
     
     @c4.setter
     def c4(self, value):
@@ -272,7 +272,7 @@ class En15804IndicatorValue(object):
        
     @property
     def d(self):
-        return(self._d)
+        return self._d
     
     @d.setter
     def d(self, value):
@@ -316,15 +316,15 @@ class En15804IndicatorValue(object):
         or None
         """
         if addend1 and addend2:
-            return(addend1 + addend2)
+            return addend1 + addend2
         else:
             if not addend1 and not addend2:
-                return(None)
+                return None
             else:
                 if addend1:
-                    return(addend1)
+                    return addend1
                 else:
-                    return(addend2)
+                    return addend2
                 
     def __add__(self, other):
         """Adds two En15804IndicatorValue-Objects. Every stage is summed up 
@@ -373,7 +373,7 @@ class En15804IndicatorValue(object):
                 
                 new = En15804IndicatorValue()
                 new.set_values(**values)
-                return(new)
+                return new
             
             else:
                 print("Addends must have the same unit!")
@@ -398,9 +398,9 @@ class En15804IndicatorValue(object):
 
         """
         if not factor1 or not factor2:
-            return(None)
+            return None
         else:
-            return(factor1 * factor2)
+            return factor1 * factor2
         
     def __mul__(self, scalar):
         """Multiplies every stage-value with a scalar
@@ -441,7 +441,7 @@ class En15804IndicatorValue(object):
             
             new = En15804IndicatorValue()
             new.set_values(**values)
-            return(new)
+            return new
             
         except ValueError:
             print("Can't convert value of '{}' to float. Please insert scalar!".format(scalar))
@@ -489,7 +489,7 @@ class En15804IndicatorValue(object):
         if self.c4: addends.append(self.c4)
         if self.d and add_stage_d: addends.append(self.d)
         
-        return(sum(addends))
+        return sum(addends)
 
     def stages(self):
         """returns a list with all stages that are not None
@@ -599,7 +599,7 @@ class En15804IndicatorValue(object):
             print("Addend must be an 'En15804IndicatorValue'-Object!")
                 
         
-        return(result)
+        return result
     
     def get_values_as_dict(self):
         return_dict = {}
