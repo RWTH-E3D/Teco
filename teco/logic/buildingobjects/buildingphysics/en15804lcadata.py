@@ -608,6 +608,8 @@ class En15804LcaData(object):
                                      lca_id=lca_id,
                                      data_class=data_class)
 
+        self.check_required_stages(self.parent.parent.parent.parent.required_stages)
+
     def check_required_stages(self, required_stages = None):
         """Function that checks whether all required stages have a value. If this is not the case, an error is raised.
 
