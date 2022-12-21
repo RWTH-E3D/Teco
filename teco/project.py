@@ -30,7 +30,7 @@ class Project(project.Project):
 
         self._period_lca_scenario = 50
         self._use_b4 = False
-        self._required_stages = ["a1_a3", "c3", "c4"]
+        self.required_stages = ["a1_a3", "c3", "c4"]
 
     @property
     def use_b4(self):
