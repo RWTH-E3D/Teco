@@ -14,6 +14,9 @@ class Project(project.Project):
     use_b4 : bool
         if true environmental indicators of replaced buildingelements are added
         to stage B4. Otherwise they are added seperatly to the other stages
+    required_stages : list of strings
+        List of stages that must be present in the data sets for the LCA. The program issues an error if a data set does
+        not contain values for one of the required stages. Stages A1-A3, C3 and C4 are required as default.
 
     """
 
@@ -27,6 +30,7 @@ class Project(project.Project):
 
         self._period_lca_scenario = 50
         self._use_b4 = False
+        self._required_stages = ["a1_a3", "c3", "c4"]
 
     @property
     def use_b4(self):
