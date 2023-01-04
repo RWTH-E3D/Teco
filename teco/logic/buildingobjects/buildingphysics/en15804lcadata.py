@@ -603,14 +603,19 @@ class En15804LcaData(object):
 
         """
         
-        if data_class == None:
+        if data_class is None:
             data_class = self.parent.parent.parent.parent.data
+        if self.parent is not None:
+            required_stages = self.parent.parent.parent.parent.parent.parent.required_stages
+        else:
+            required_stages = []
+
 
         lca_data_input.load_en15804_lca_data_id(lca_data=self,
                                      lca_id=lca_id,
                                      data_class=data_class)
 
-        self.check_required_stages(self.parent.parent.parent.parent.required_stages)
+        self.check_required_stages(required_stages)
 
     def check_required_stages(self, required_stages = None):
         """Function that checks whether all required stages have a value. If this is not the case, an error is raised.
@@ -688,7 +693,7 @@ class En15804LcaData(object):
         None.
 
         """
-        if fallback_dictonarie:
+        if fallback_dictonarie is not None:
             self.fallback = {}
             for stage in fallback_dictonarie:
                 
