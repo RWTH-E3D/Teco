@@ -109,7 +109,7 @@ class En15804IndicatorValue(object):
         if isinstance(value, float):
             return value
         else:
-            if not value:
+            if value is None:
                 return None
             try:
                 value = float(value)
@@ -164,6 +164,7 @@ class En15804IndicatorValue(object):
     
     @a1_a3.setter
     def a1_a3(self, value):
+
        self._a1_a3 = self._validate_stage_value(value, "A1-A3")
        
     @property
