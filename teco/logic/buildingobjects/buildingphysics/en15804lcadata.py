@@ -502,6 +502,7 @@ class En15804LcaData(object):
         
         
         values = {"pere": self._ignore_none_mul(self.pere , scalar),
+                "perm": self._ignore_none_mul(self.perm , scalar),
                 "pert": self._ignore_none_mul(self.pert , scalar),
                 "penre": self._ignore_none_mul(self.penre , scalar),
                 "penrm": self._ignore_none_mul(self.penrm , scalar),
@@ -552,6 +553,7 @@ class En15804LcaData(object):
         if isinstance(other, En15804LcaData):
 
             values = {"pere": self.pere + other.pere,
+                      "perm": self.perm + other.perm,
                         "pert": self.pert + other.pert,
                         "penre": self.penre + other.penre,
                         "penrm": self.penrm + other.penrm,
@@ -805,6 +807,7 @@ class En15804LcaData(object):
         result = En15804LcaData()
         
         values = {"pere": En15804IndicatorValue() ,
+                "perm": En15804IndicatorValue(),
                 "pert": En15804IndicatorValue(),
                 "penre": En15804IndicatorValue(),
                 "penrm": En15804IndicatorValue(),
@@ -833,6 +836,7 @@ class En15804LcaData(object):
             }
         
         values["pere"].unit = self.pere.unit
+        values["perm"].unit = self.perm.unit
         values["pert"].unit = self.pert.unit
         values["penre"].unit = self.penre.unit
         values["penrm"].unit = self.penrm.unit
@@ -859,6 +863,7 @@ class En15804LcaData(object):
 
         
         values["pere"].b4 = self.pere.sum_stages()
+        values["perm"].b4 = self.perm.sum_stages()
         values["pert"].b4 = self.pert.sum_stages()
         values["penre"].b4 = self.penre.sum_stages()
         values["penrm"].b4 = self.penrm.sum_stages()
@@ -900,8 +905,8 @@ class En15804LcaData(object):
         if self._fallback_added is False:
             
             pere_backup = self.pere
-            pert_backup = self.pert
             perm_backup = self.perm
+            pert_backup = self.pert
             penre_backup = self.penre
             penrm_backup = self.penrm
             penrt_backup = self.penrt
