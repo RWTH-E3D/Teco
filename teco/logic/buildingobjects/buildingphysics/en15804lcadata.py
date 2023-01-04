@@ -716,7 +716,7 @@ class En15804LcaData(object):
 
         """
 
-        if data_class == None:
+        if data_class is None:
             data_class = self.parent.parent.parent.parent.data
 
         lca_data_input.load_en15804_lca_data_fallback_id(lca_data=self,
@@ -901,6 +901,7 @@ class En15804LcaData(object):
             
             pere_backup = self.pere
             pert_backup = self.pert
+            perm_backup = self.perm
             penre_backup = self.penre
             penrm_backup = self.penrm
             penrt_backup = self.penrt
@@ -944,6 +945,7 @@ class En15804LcaData(object):
                              "{} to {}".format( self.fallback[stage].ref_flow_unit, self.ref_flow_unit))
                         
                         self.pere = pere_backup
+                        self.perm = perm_backup
                         self.pert = pert_backup
                         self.penre = penre_backup
                         self.penrm = penrm_backup
@@ -975,6 +977,7 @@ class En15804LcaData(object):
                     
                 
                 self.pere = self.pere.add_stage(stage, self.fallback[stage].pere)
+                self.perm = self.pere.add_stage(stage, self.fallback[stage].perm)
                 self.pert = self.pert.add_stage(stage, self.fallback[stage].pert)
                 self.penre = self.penre.add_stage(stage, self.fallback[stage].penre)
                 self.penrm = self.penrm.add_stage(stage, self.fallback[stage].penrm)
