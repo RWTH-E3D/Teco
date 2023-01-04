@@ -398,7 +398,7 @@ class En15804IndicatorValue(object):
             Product of factors or None
 
         """
-        if factor1 is not None or factor2 is not None:
+        if factor1 is None or factor2 is None:
             return None
         else:
             return factor1 * factor2
