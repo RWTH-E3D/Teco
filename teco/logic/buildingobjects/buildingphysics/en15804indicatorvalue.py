@@ -126,7 +126,7 @@ class En15804IndicatorValue(object):
     
     @unit.setter
     def unit(self, value):
-        if value != None:
+        if value is not None:
             if isinstance(value, str):
                 self._unit = value
             else:
@@ -316,13 +316,13 @@ class En15804IndicatorValue(object):
         sum of addends : int, float
         or None
         """
-        if addend1 and addend2:
+        if addend1 is not None and addend2 is not None:
             return addend1 + addend2
         else:
-            if not addend1 and not addend2:
+            if addend1 is None and addend2 is None:
                 return None
             else:
-                if addend1:
+                if addend1 is not None:
                     return addend1
                 else:
                     return addend2
@@ -469,26 +469,26 @@ class En15804IndicatorValue(object):
         
         
         
-        if self.a1_a3:
+        if self.a1_a3 is not None:
             addends.append(self.a1_a3)
         else:
-            if self.a1: addends.append(self.a1)
-            if self.a2: addends.append(self.a2)
-            if self.a3: addends.append(self.a3)
-        if self.a4: addends.append(self.a4)
-        if self.a5: addends.append(self.a5)
-        if self.b1: addends.append(self.b1)
-        if self.b2: addends.append(self.b2)
-        if self.b3: addends.append(self.b3)
-        if self.b4: addends.append(self.b4)
-        if self.b5: addends.append(self.b5)
-        if self.b6: addends.append(self.b6)
-        if self.b7: addends.append(self.b7)
-        if self.c1: addends.append(self.c1)
-        if self.c2: addends.append(self.c2)
-        if self.c3: addends.append(self.c3)
-        if self.c4: addends.append(self.c4)
-        if self.d and add_stage_d: addends.append(self.d)
+            if self.a1 is not None: addends.append(self.a1)
+            if self.a2 is not None: addends.append(self.a2)
+            if self.a3 is not None: addends.append(self.a3)
+        if self.a4 is not None: addends.append(self.a4)
+        if self.a5 is not None: addends.append(self.a5)
+        if self.b1 is not None: addends.append(self.b1)
+        if self.b2 is not None: addends.append(self.b2)
+        if self.b3 is not None: addends.append(self.b3)
+        if self.b4 is not None: addends.append(self.b4)
+        if self.b5 is not None: addends.append(self.b5)
+        if self.b6 is not None: addends.append(self.b6)
+        if self.b7 is not None: addends.append(self.b7)
+        if self.c1 is not None: addends.append(self.c1)
+        if self.c2 is not None: addends.append(self.c2)
+        if self.c3 is not None: addends.append(self.c3)
+        if self.c4 is not None: addends.append(self.c4)
+        if self.d is not None and add_stage_d is not None: addends.append(self.d)
         
         return sum(addends)
 
