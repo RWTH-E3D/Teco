@@ -126,9 +126,6 @@ def get_utility_OEKOBAUDAT(utility, bereich=1):
     return utility_link
 
 
-from teco.logic.buildingobjects.buildingsystems.utility import Utility
-from teaser.logic.buildingobjects.building import Building
-import teco.data.input.utility_input_json
 
 # TABULA_DE()  # loads to utilities.json
 df = pd.read_excel("C:/Users/tayeb/Documents/Teaser+,Teco/TABULA-Analyses_DE-Typology_ResultData.xlsx",
