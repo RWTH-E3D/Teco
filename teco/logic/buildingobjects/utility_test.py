@@ -72,8 +72,9 @@ def TABULA_DE():
 
 
 def get_utility_OEKOBAUDAT(utility, bereich=1):
+
     link = "https://www.oekobaudat.de/no_cache/en/database/search.html"
-    driver = webdriver.Firefox()  # seconds
+    driver = webdriver.Firefox()
     driver.get(link)
     actions = ActionChains(driver)
     # time.sleep(3)
@@ -163,9 +164,7 @@ for Code_Building, Code_BuiSysCombi, Description_SysH, Description_SysW, Year1_B
                                       "Code_BuiSysCombi": Code_BuiSysCombi,
                                       "Description_SystemHeating": Description_SysH,
                                       "Description_SystemWaterHeating": Description_SysW,
-                                      "Utilities": '',
-                                      "lca_data": {},
-                                      "Unit": ''
+                                      "Utilities": []
                                       }})
 
     print(Description_SysH)
@@ -173,41 +172,90 @@ for Code_Building, Code_BuiSysCombi, Description_SysH, Description_SysW, Year1_B
     # check for gas/oil condensing boiler case
     if 'gas central heating' in Description_SysH:
         if 'condensing boiler' in Description_SysH:
-            json_dict[Code_Building]["Utilities"] = 'Gas condensing boiler'
+
             link = get_utility_OEKOBAUDAT('Gas condensing boiler')
-            json_dict[Code_Building]["Unit"], json_dict[Code_Building]["lca_data"] = get_indicator_values(link)
+            unit, lca_data = get_indicator_values(link)
+
+            json_dict[Code_Building]["Utilities"] += {"name": 'Gas condensing boiler', "lca_data": lca_data, "Unit": unit}
 
         elif 'low temperature' in Description_SysH:
-            json_dict[Code_Building]["Utilities"] = 'Gas low temperature'
+
             link = get_utility_OEKOBAUDAT('Gas low temperature')
-            json_dict[Code_Building]["Unit"], json_dict[Code_Building]["lca_data"] = get_indicator_values(link)
+            unit, lca_data = get_indicator_values(link)
+
+            json_dict[Code_Building]["Utilities"] += {"name": 'Gas low temperature', "lca_data": lca_data, "Unit": unit}
 
     if 'oil central heating' in Description_SysH:
         if 'condensing boiler' in Description_SysH:
-            json_dict[Code_Building]["Utilities"] = 'Oil condensing boiler'
+
             link = get_utility_OEKOBAUDAT('Oil condensing boiler')
-            json_dict[Code_Building]["Unit"], json_dict[Code_Building]["lca_data"] = get_indicator_values(link)
+            unit, lca_data = get_indicator_values(link)
+
+            json_dict[Code_Building]["Utilities"] += {"name": 'Oil condensing boiler', "lca_data": lca_data, "Unit": unit}
+
         elif 'low temperature' in Description_SysH:
-            json_dict[Code_Building]["Utilities"] = 'Oil low temperature'
+
             link = get_utility_OEKOBAUDAT('Oil low temperature')
-            json_dict[Code_Building]["Unit"], json_dict[Code_Building]["lca_data"] = get_indicator_values(link)
+            unit, lca_data = get_indicator_values(link)
+
+            json_dict[Code_Building]["Utilities"] += {"name": 'Oil low temperature', "lca_data": lca_data, "Unit": unit}
 
     for utility in dict_SysH:
         if dict_SysH[utility] in Description_SysH:
-            json_dict[Code_Building]["Utilities"] = utility
+
             link = get_utility_OEKOBAUDAT(utility)
-            json_dict[Code_Building]["Unit"], json_dict[Code_Building]["lca_data"] = get_indicator_values(link)
+            unit, lca_data = get_indicator_values(link)
+
+            json_dict[Code_Building]["Utilities"] += {"name": utility, "lca_data": lca_data, "Unit": unit}
 
     print(Description_SysW)
 
     for utility in dict_SysW:
         if dict_SysW[utility] in Description_SysW:
-            json_dict[Code_Building]["Utilities"] = utility
+
             link = get_utility_OEKOBAUDAT(utility)
-            json_dict[Code_Building]["Unit"], json_dict[Code_Building]["lca_data"] = get_indicator_values(link)
+            unit, lca_data = get_indicator_values(link)
+
+            json_dict[Code_Building]["Utilities"] += {"name": utility, "lca_data": lca_data, "Unit": unit}
 
 with open("utilities.json", 'w') as writer:
     writer.write(json.dumps(json_dict, ensure_ascii=False))
+
+
+def get_all_heating_utilities():
+
+    link = "https://www.oekobaudat.de/no_cache/en/database/search.html"
+    driver = webdriver.Firefox()
+
+    driver.get(link)
+    actions = ActionChains(driver)
+    # time.sleep(3)
+    wait = WebDriverWait(driver, 10)
+
+    # click on category browser
+    button = wait.until(EC.element_to_be_clickable(
+        (By.XPATH, '//*[@id="c1552"]/s4lca-root-0/div/s4lca-process/div/p-table/div/div[1]/div[2]/p-togglebutton')))
+    button.click()
+
+    # click on 8. Building service engineering
+    element = wait.until(EC.presence_of_element_located(
+        (By.XPATH,
+         "//div[contains(@class, 'ui-treenode-content')]//*[text()[contains(., 'engineering')]]/../../..")))
+    actions.move_to_element(element).click().perform()
+
+    # open tree
+    element = WebDriverWait(element, 10).until(EC.presence_of_element_located((By.CLASS_NAME, 'ui-tree-toggler')))
+    actions.move_to_element(element).click().perform()
+
+    # click on Heating
+    element = WebDriverWait(element, 10).until(EC.presence_of_element_located(
+        (By.XPATH, "//ul[contains(@class, 'ui-treenode-children')]//*[text()[contains(., 'Heating')]]")))
+    # element = element.find_element(By.XPATH, '//*[@id="lang-en"]/div[3]/div/div[2]/div/div[2]/s4lca-categories/p-tree/div/div/ul/p-treenode[8]/li/ul/p-treenode[1]/li/div/span[1]')
+    actions.move_to_element(element).click().perform()
+
+    return
+
+
 # utility.add_utilities_to_json()
 # divide archetypes from excel sheet according to building age class, then, for each building class, for each archetype, get utility objects
 # build utility_input_json for this? based on buildingelement_input_json.py
