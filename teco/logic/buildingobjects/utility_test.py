@@ -48,12 +48,13 @@ def get_indicator_values(link):
 def TABULA_DE():
     df = pd.read_excel("C:/Users/tayeb/Documents/Teaser+,Teco/TABULA-Analyses_DE-Typology_ResultData.xlsx",
                        sheet_name=0)
-
-    Code_Building = df['Code_Building'][556:1359]
-    Code_BuiSysCombi = df['Code_BuiSysCombi'][556:1359]
-    Description_SystemType = df['Description_SystemType'][556:1359]
-    Year1_Building = df['Year1_Building'][556:1359]
-    Year2_Building = df['Year2_Building'][556:1359]
+    a = 556
+    b = 1359
+    Code_Building = df['Code_Building'][a:b]
+    Code_BuiSysCombi = df['Code_BuiSysCombi'][a:b]
+    Description_SystemType = df['Description_SystemType'][a:b]
+    Year1_Building = df['Year1_Building'][a:b]
+    Year2_Building = df['Year2_Building'][a:b]
 
     with open("utilities.json", 'w') as writer:
         writer.write(json.dumps([{Code_Building: {"building_age_group": [Year1_Building, Year2_Building],
@@ -131,12 +132,14 @@ def get_utility_OEKOBAUDAT(utility, bereich=1):
 df = pd.read_excel("C:/Users/tayeb/Documents/Teaser+,Teco/TABULA-Analyses_DE-Typology_ResultData.xlsx",
                    sheet_name=0)
 
-Code_Building = df['Code_Building'][556:1359]
-Code_BuiSysCombi = df['Code_BuiSysCombi'][556:1359]
-Description_SysH = df['Description_SysH'][556:1359]
-Description_SysW = df['Description_SysW'][556:1359]
-Year1_Building = df['Year1_Building'][556:1359]
-Year2_Building = df['Year2_Building'][556:1359]
+a = 556
+b = 656
+Code_Building = df['Code_Building'][a:b]
+Code_BuiSysCombi = df['Code_BuiSysCombi'][a:b]
+Description_SysH = df['Description_SysH'][a:b]
+Description_SysW = df['Description_SysW'][a:b]
+Year1_Building = df['Year1_Building'][a:b]
+Year2_Building = df['Year2_Building'][a:b]
 
 
 dict_SysH = {'EPDM foam': 'poor insulation of pipes',  # /good insulation of pipes
