@@ -136,7 +136,7 @@ df = pd.read_excel("C:/Users/tayeb/Documents/Teaser+,Teco/TABULA-Analyses_DE-Typ
                    sheet_name=0)
 
 a = 556
-b = 560
+b = 700
 Code_BuildingVariant = df['Code_BuildingVariant'][a:b]
 Code_BuiSysCombi = df['Code_BuiSysCombi'][a:b]
 Description_SysH = df['Description_SysH'][a:b]
@@ -155,7 +155,7 @@ dict_SysH = {'EPDM foam': 'poor insulation of pipes',  # /good insulation of pip
              # 'Chimney', 'Transfer station', 'Circulating pump'}
              }
 
-dict_SysW = {'Elelectric continuous flow heaters': 'decentral electric: instantaneous water heaters',
+dict_SysW = {'Electric continuous flow heater': 'decentral electric: instantaneous water heaters',
              # 'solar collector': 'solar'
              }
 
