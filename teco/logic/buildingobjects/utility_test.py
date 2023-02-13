@@ -27,14 +27,12 @@ for link in df.loc['URL']:
 """
 
 
-def get_indicator_values(link):
+def get_indicator_values(link, indicator='Global warming potential (GWP)'):
     table = pd.read_html(link)
 
     df = table[len(table) - 1]  # make this better?
 
-    row = df.loc[df['Indicator'] == 'Global warming potential (GWP)']
-
-    print(row.iloc[0, 0])
+    row = df.loc[df['Indicator'] == indicator]
 
     json_dict = {}
 
@@ -101,8 +99,9 @@ def get_utility_OEKOBAUDAT(utility, bereich=1):
     # element = element.find_element(By.XPATH, '//*[@id="lang-en"]/div[3]/div/div[2]/div/div[2]/s4lca-categories/p-tree/div/div/ul/p-treenode[8]/li/ul/p-treenode[1]/li/div/span[1]')
     actions.move_to_element(element).click().perform()
 
+
     # use search bar to find utility object in OEKOBAUDAT
-    element = element.find_element(By.XPATH,
+    element = driver.find_element(By.XPATH,
                                    f"//div[contains(@id,'bereich{bereich}')]//input[contains(@data-testid,'column-name-input')]")
     element.send_keys(str(utility))
 
@@ -119,6 +118,7 @@ def get_utility_OEKOBAUDAT(utility, bereich=1):
         except NoSuchElementException:
             print("utility not found")
             utility_link = None
+            pass
 
     # click to open page
     # element = element.find_element(By.XPATH, f"//div[contains(@id,'bereich{bereich}')]//tr/*//a[contains(text(),'Liquefied gas tank 2700')]")
@@ -136,7 +136,7 @@ df = pd.read_excel("C:/Users/tayeb/Documents/Teaser+,Teco/TABULA-Analyses_DE-Typ
                    sheet_name=0)
 
 a = 556
-b = 700
+b = 1359
 Code_BuildingVariant = df['Code_BuildingVariant'][a:b]
 Code_BuiSysCombi = df['Code_BuiSysCombi'][a:b]
 Description_SysH = df['Description_SysH'][a:b]
@@ -146,88 +146,139 @@ Year2_Building = df['Year2_Building'][a:b]
 
 dict_SysH = {'EPDM foam': 'poor insulation of pipes',  # /good insulation of pipes
              # 'Liquefied gas tank': '???',
-             'Underfloor heating': 'heat source ground',  # not sure
+             'Underfloor heating system copper (100mm distance)': 'heat source ground',
+             # not sure if its ths same thing (took the underfloor heating with the biggest gwp)
              'Gas heat pump': 'air source heat pump',  # not sure
              # 'Woodchip boiler': '???',
-             'Pellet boiler': 'woodpellets boiler',  # whats the difference?
+             'Pellet boiler': 'woodpellets boiler',  # whats the difference between woodchip and pellet?
              # 'Oil tank': '???',
-             'Electric heat pump': 'electrical heatpump'
-             # 'Chimney', 'Transfer station', 'Circulating pump'}
+             'Electric heat pump (brine-water, geothermal probe)': 'electrical heatpump, heat source ground', # geothermal probe has bigger gwp than collector
+             'Electric heat pump (water-water)': 'electrical heatpump, heat source water',
+             'Electric heat pump (air-water)': 'electrical heatpump, heat source external air',
+             # 'Chimney',
+             # 'Circulating pump'}
              }
 
-dict_SysW = {'Electric continuous flow heater': 'decentral electric: instantaneous water heaters',
+dict_SysW = {'Electric continuous flow heater (21 kW)': 'decentral electric: instantaneous water heaters',
+             # 'District heating transfer station': 'district heating, transfer station'  (not in DE Tabula)
              # 'solar collector': 'solar'
              }
 
 json_dict = {}
 
+capacities1 = {'SFH': ' < 20 kW',
+               'TH': ' < 20 kW',
+               'MFH': ' 20-120 kW',
+               'AB': ' 20-120 kW'  # or '120-400 kW'
+               }
+
+# Electric heat pump (brine-water)/(water-water)
+capacities2 = {'SFH': ' 10 kW',
+               'TH': ' 20 kW',
+               'MFH': ' 20 kW',
+               'AB': ' 70 kW'
+               }
+
+# Electric heat pump (air-water)
+capacities3 = {'SFH': ' 7 kW',
+               'TH': ' 10 kW',
+               'MFH': ' 10 kW',
+               'AB': ' 14 kW'
+               }
+
 for Code_BuildingVariant, Code_BuiSysCombi, Description_SysH, Description_SysW, Year1_Building, Year2_Building in zip(
         Code_BuildingVariant, Code_BuiSysCombi, Description_SysH, Description_SysW, Year1_Building, Year2_Building):
 
-    json_dict.update({Code_BuildingVariant: {"Building_age_group": [Year1_Building, Year2_Building],
-                                             "Code_BuiSysCombi": Code_BuiSysCombi,
-                                             "Description_SystemHeating": Description_SysH,
-                                             "Description_SystemWaterHeating": Description_SysW,
-                                             "Utilities": []
-                                             }})
-    print(Description_SysH)
+    try:
+        json_dict.update({Code_BuildingVariant: {"Building_age_group": [Year1_Building, Year2_Building],
+                                                 "Code_BuiSysCombi": Code_BuiSysCombi,
+                                                 "Description_SystemHeating": Description_SysH,
+                                                 "Description_SystemWaterHeating": Description_SysW,
+                                                 "Utilities": []
+                                                 }})
 
-    # check for gas/oil condensing boiler case
-    if 'gas central heating' in Description_SysH:
-        if 'condensing boiler' in Description_SysH:
+        Building_type = Code_BuildingVariant[
+                        Code_BuildingVariant.find('.', 4) + 1: Code_BuildingVariant.find('.', Code_BuildingVariant.find('.', 4) + 1)]
 
-            link = get_utility_OEKOBAUDAT('Gas condensing boiler')
-            unit, lca_data = get_indicator_values(link)
+        # check for gas/oil condensing boiler case
+        if 'gas central heating' in Description_SysH:
+            if 'condensing boiler' in Description_SysH:
 
-            json_dict[Code_BuildingVariant]["Utilities"].append(
-                {"name": 'Gas condensing boiler', "lca_data": lca_data, "Unit": unit})
+                link = get_utility_OEKOBAUDAT('Gas condensing boiler' + capacities1[Building_type])
+                unit, lca_data = get_indicator_values(link)
 
-        elif 'low temperature' in Description_SysH:
+                json_dict[Code_BuildingVariant]["Utilities"].append(
+                    {"name": 'Gas condensing boiler', "lca_data": lca_data, "Unit": unit})
 
-            link = get_utility_OEKOBAUDAT('Gas low temperature')
-            unit, lca_data = get_indicator_values(link)
+            elif 'low temperature' in Description_SysH:
 
-            json_dict[Code_BuildingVariant]["Utilities"].append(
-                {"name": 'Gas low temperature', "lca_data": lca_data, "Unit": unit})
+                link = get_utility_OEKOBAUDAT('Gas low temperature boiler' + capacities1[Building_type])
+                unit, lca_data = get_indicator_values(link)
 
-    if 'oil central heating' in Description_SysH:
-        if 'condensing boiler' in Description_SysH:
+                json_dict[Code_BuildingVariant]["Utilities"].append(
+                    {"name": 'Gas low temperature', "lca_data": lca_data, "Unit": unit})
 
-            link = get_utility_OEKOBAUDAT('Oil condensing boiler')
-            unit, lca_data = get_indicator_values(link)
+        if 'oil central heating' in Description_SysH:
+            if 'condensing boiler' in Description_SysH:
 
-            json_dict[Code_BuildingVariant]["Utilities"].append(
-                {"name": 'Oil condensing boiler', "lca_data": lca_data, "Unit": unit})
+                link = get_utility_OEKOBAUDAT('Oil condensing boiler' + capacities1[Building_type])
+                unit, lca_data = get_indicator_values(link)
 
-        elif 'low temperature' in Description_SysH:
+                json_dict[Code_BuildingVariant]["Utilities"].append(
+                    {"name": 'Oil condensing boiler', "lca_data": lca_data, "Unit": unit})
 
-            link = get_utility_OEKOBAUDAT('Oil low temperature')
-            unit, lca_data = get_indicator_values(link)
+            elif 'low temperature' in Description_SysH:
 
-            json_dict[Code_BuildingVariant]["Utilities"].append(
-                {"name": 'Oil low temperature', "lca_data": lca_data, "Unit": unit})
+                link = get_utility_OEKOBAUDAT('Oil low temperature boiler' + capacities1[Building_type])
+                unit, lca_data = get_indicator_values(link)
 
-    for utility in dict_SysH:
-        if dict_SysH[utility] in Description_SysH:
-            link = get_utility_OEKOBAUDAT(utility)
-            unit, lca_data = get_indicator_values(link)
+                json_dict[Code_BuildingVariant]["Utilities"].append(
+                    {"name": 'Oil low temperature', "lca_data": lca_data, "Unit": unit})
 
-            json_dict[Code_BuildingVariant]["Utilities"].append({"name": utility, "lca_data": lca_data, "Unit": unit})
+        for utility in dict_SysH:
+            if dict_SysH[utility] in Description_SysH:
 
-    print(Description_SysW)
+                if utility == 'Pellet boiler':
+                    utility += capacities1[Building_type]
 
-    for utility in dict_SysW:
-        if dict_SysW[utility] in Description_SysW:
-            link = get_utility_OEKOBAUDAT(utility)
-            unit, lca_data = get_indicator_values(link)
+                if 'Electric heat pump' in utility:
+                    if '(air-water)' in utility:
+                        utility += capacities3[Building_type]
+                    else:
+                        utility += capacities2[Building_type]
 
-            json_dict[Code_BuildingVariant]["Utilities"].append({"name": utility, "lca_data": lca_data, "Unit": unit})
+                try:
+                    link = get_utility_OEKOBAUDAT(utility)
+                    unit, lca_data = get_indicator_values(link)
+                except Exception as e:
+                    lca_data = 'utility not found: ' + str(e)
+                    unit = None
+                    pass
+
+                json_dict[Code_BuildingVariant]["Utilities"].append({"name": utility, "lca_data": lca_data, "Unit": unit})
+
+
+        for utility in dict_SysW:
+            if dict_SysW[utility] in Description_SysW:
+                link = get_utility_OEKOBAUDAT(utility)
+                unit, lca_data = get_indicator_values(link)
+
+                json_dict[Code_BuildingVariant]["Utilities"].append({"name": utility, "lca_data": lca_data, "Unit": unit})
+    except Exception as e:
+        print("ERROR: ", e, " in:")
+        print({Code_BuildingVariant: {"Building_age_group": [Year1_Building, Year2_Building],
+                                      "Code_BuiSysCombi": Code_BuiSysCombi,
+                                      "Description_SystemHeating": Description_SysH,
+                                      "Description_SystemWaterHeating": Description_SysW,
+                                      }})
+        pass
 
 with open("utilities.json", 'w') as writer:
     writer.write(json.dumps(json_dict, ensure_ascii=False))
 
 
 def get_all_heating_utilities():
+
     link = "https://www.oekobaudat.de/no_cache/en/database/search.html"
     driver = webdriver.Firefox()
 
