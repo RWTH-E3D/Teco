@@ -1,0 +1,1531 @@
+{
+  "DE.N.SFH.11.Gen.ReEx.001.003": {
+    "Building_age_group": [
+      2010,
+      2015
+    ],
+    "Code_BuiSysCombi": "<DE.N.SFH.11.Gen.ReEx.001.003>.<DE.<Gas.B_C.SUH.02>.<Gas.B_C+Solar.SUH.04>.<Bal_Rec.Gen.02>.<->.<DE.002>>",
+    "Description_SystemHeating": "gas central heating system, high efficiency: condensing boiler, good insulation of pipes, , distribution inside of thermal envelope",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (condensing boiler) + thermal solar system, solar storage, no circulation loop",
+    "Utilities": [
+      {
+        "name": "Gas condensing boiler",
+        "lca_data": {
+          "a1_a3": 3422.0,
+          "c2": 9.499,
+          "c3": 161.5,
+          "c4": 1.803,
+          "d": -1358.0
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.SFH.11.Gen.ReEx.001.011": {
+    "Building_age_group": [
+      2010,
+      2015
+    ],
+    "Code_BuiSysCombi": "<DE.N.SFH.11.Gen.ReEx.001.011>.<DE.<Bio_WP.B_WP.SUH.02>.<Bio_WP.B_WP.SUH.03>.<Exh.Gen.01>.<->.<DE.002>>",
+    "Description_SystemHeating": "biomass central heating system, high efficiency: woodpellets boiler,  minimised distribution heat losses",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (woodpellets boiler), DHW storage, circulation loop",
+    "Utilities": [
+      {
+        "name": "Pellet boiler",
+        "lca_data": {
+          "a1_a3": 2329.0,
+          "c2": 7.793,
+          "c3": 3.299,
+          "c4": 1.803,
+          "d": -1022.0
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.SFH.11.Gen.ReEx.001.012": {
+    "Building_age_group": [
+      2010,
+      2015
+    ],
+    "Code_BuiSysCombi": "<DE.N.SFH.11.Gen.ReEx.001.012>.<DE.<Bio_WP.B_WP.SUH.02>.<Bio_WP.B_WP.SUH.01>.<Exh.Gen.01>.<->.<DE.002>>",
+    "Description_SystemHeating": "biomass central heating system, high efficiency: woodpellets boiler,  minimised distribution heat losses",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (woodpellets boiler), DHW storage, no circulation loop",
+    "Utilities": [
+      {
+        "name": "Pellet boiler",
+        "lca_data": {
+          "a1_a3": 2329.0,
+          "c2": 7.793,
+          "c3": 3.299,
+          "c4": 1.803,
+          "d": -1022.0
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.SFH.11.Gen.ReEx.001.013": {
+    "Building_age_group": [
+      2010,
+      2015
+    ],
+    "Code_BuiSysCombi": "<DE.N.SFH.11.Gen.ReEx.001.013>.<DE.<Bio_WP.B_WP.SUH.02>.<Bio_WP.B_WP+Solar.SUH.01>.<Bal_Rec.Gen.02>.<->.<DE.002>>",
+    "Description_SystemHeating": "biomass central heating system, high efficiency: woodpellets boiler,  minimised distribution heat losses",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (condensing boiler) + thermal solar system, solar storage, no circulation loop",
+    "Utilities": [
+      {
+        "name": "Pellet boiler",
+        "lca_data": {
+          "a1_a3": 2329.0,
+          "c2": 7.793,
+          "c3": 3.299,
+          "c4": 1.803,
+          "d": -1022.0
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.SFH.11.Gen.ReEx.001.021": {
+    "Building_age_group": [
+      2010,
+      2015
+    ],
+    "Code_BuiSysCombi": "<DE.N.SFH.11.Gen.ReEx.001.021>.<DE.<El_OP+El.HP_Air+E_Immersion.SUH.02>.<El_OP+El.HP_Air+E_Immersion.SUH.02>.<Exh.Gen.01>.<->.<DE.002>>",
+    "Description_SystemHeating": "electrical heatpump, heat source external air, including direct electric fraction, minimised distribution heat losses",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (electrical heat pump / heat source external air; including el. heating rod), DHW storage, circulation loop",
+    "Utilities": [
+      {
+        "name": "Electric heat pump",
+        "lca_data": {
+          "a1_a3": 459.0,
+          "c2": 1.297,
+          "c3": 30.09,
+          "c4": 4.282,
+          "d": -241.5
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.SFH.11.Gen.ReEx.001.022": {
+    "Building_age_group": [
+      2010,
+      2015
+    ],
+    "Code_BuiSysCombi": "<DE.N.SFH.11.Gen.ReEx.001.022>.<DE.<El_OP.HP_Ground.SUH.02>.<El_OP.HP_Ground.SUH.01>.<Exh.Gen.01>.<->.<DE.002>>",
+    "Description_SystemHeating": "electrical heatpump, heat source ground, without buffer storage; minimised heat distribution losses",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (electrical heat pump / heat source ground), DHW storage, no circulation loop",
+    "Utilities": [
+      {
+        "name": "Underfloor heating",
+        "lca_data": {
+          "a1_a3": 22.32,
+          "c2": 0.05333,
+          "c3": 3.173,
+          "d": -6.791
+        },
+        "Unit": "kg CO2 eq."
+      },
+      {
+        "name": "Electric heat pump",
+        "lca_data": {
+          "a1_a3": 459.0,
+          "c2": 1.297,
+          "c3": 30.09,
+          "c4": 4.282,
+          "d": -241.5
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.SFH.11.Gen.ReEx.001.023": {
+    "Building_age_group": [
+      2010,
+      2015
+    ],
+    "Code_BuiSysCombi": "<DE.N.SFH.11.Gen.ReEx.001.023>.<DE.<El_OP.HP_Ground.SUH.02>.<El_OP.HP_Ground.SUH.01>.<Bal_Rec.Gen.02>.<PV.H+W+A.Gen.002>.<DE.002>>",
+    "Description_SystemHeating": "electrical heatpump, heat source ground, without buffer storage; minimised heat distribution losses",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (electrical heat pump / heat source ground), DHW storage, no circulation loop",
+    "Utilities": [
+      {
+        "name": "Underfloor heating",
+        "lca_data": {
+          "a1_a3": 22.32,
+          "c2": 0.05333,
+          "c3": 3.173,
+          "d": -6.791
+        },
+        "Unit": "kg CO2 eq."
+      },
+      {
+        "name": "Electric heat pump",
+        "lca_data": {
+          "a1_a3": 459.0,
+          "c2": 1.297,
+          "c3": 30.09,
+          "c4": 4.282,
+          "d": -241.5
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.TH.11.Gen.ReEx.001.001": {
+    "Building_age_group": [
+      2010,
+      2015
+    ],
+    "Code_BuiSysCombi": "<DE.N.TH.11.Gen.ReEx.001.001>.<DE.<Gas.B_C.SUH.02>.<Gas.B_C+Solar.SUH.03>.<Exh.Gen.01>.<->.<DE.002>>",
+    "Description_SystemHeating": "gas central heating system, high efficiency: condensing boiler, good insulation of pipes, , distribution inside of thermal envelope",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (condensing boiler) + thermal solar system, solar storage, circulation loop",
+    "Utilities": [
+      {
+        "name": "Gas condensing boiler",
+        "lca_data": {
+          "a1_a3": 3422.0,
+          "c2": 9.499,
+          "c3": 161.5,
+          "c4": 1.803,
+          "d": -1358.0
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.TH.11.Gen.ReEx.001.002": {
+    "Building_age_group": [
+      2010,
+      2015
+    ],
+    "Code_BuiSysCombi": "<DE.N.TH.11.Gen.ReEx.001.002>.<DE.<Gas.B_C.SUH.02>.<Gas.B_C+Solar.SUH.04>.<Bal_Rec.Gen.02>.<->.<DE.002>>",
+    "Description_SystemHeating": "gas central heating system, high efficiency: condensing boiler, good insulation of pipes, , distribution inside of thermal envelope",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (condensing boiler) + thermal solar system, solar storage, no circulation loop",
+    "Utilities": [
+      {
+        "name": "Gas condensing boiler",
+        "lca_data": {
+          "a1_a3": 3422.0,
+          "c2": 9.499,
+          "c3": 161.5,
+          "c4": 1.803,
+          "d": -1358.0
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.TH.11.Gen.ReEx.001.003": {
+    "Building_age_group": [
+      2010,
+      2015
+    ],
+    "Code_BuiSysCombi": "<DE.N.TH.11.Gen.ReEx.001.003>.<DE.<Gas.B_C.SUH.02>.<Gas.B_C+Solar.SUH.04>.<Bal_Rec.Gen.02>.<->.<DE.002>>",
+    "Description_SystemHeating": "gas central heating system, high efficiency: condensing boiler, good insulation of pipes, , distribution inside of thermal envelope",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (condensing boiler) + thermal solar system, solar storage, no circulation loop",
+    "Utilities": [
+      {
+        "name": "Gas condensing boiler",
+        "lca_data": {
+          "a1_a3": 3422.0,
+          "c2": 9.499,
+          "c3": 161.5,
+          "c4": 1.803,
+          "d": -1358.0
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.TH.11.Gen.ReEx.001.011": {
+    "Building_age_group": [
+      2010,
+      2015
+    ],
+    "Code_BuiSysCombi": "<DE.N.TH.11.Gen.ReEx.001.011>.<DE.<Bio_WP.B_WP.SUH.02>.<Bio_WP.B_WP.SUH.03>.<Exh.Gen.01>.<->.<DE.002>>",
+    "Description_SystemHeating": "biomass central heating system, high efficiency: woodpellets boiler,  minimised distribution heat losses",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (woodpellets boiler), DHW storage, circulation loop",
+    "Utilities": [
+      {
+        "name": "Pellet boiler",
+        "lca_data": {
+          "a1_a3": 2329.0,
+          "c2": 7.793,
+          "c3": 3.299,
+          "c4": 1.803,
+          "d": -1022.0
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.TH.11.Gen.ReEx.001.012": {
+    "Building_age_group": [
+      2010,
+      2015
+    ],
+    "Code_BuiSysCombi": "<DE.N.TH.11.Gen.ReEx.001.012>.<DE.<Bio_WP.B_WP.SUH.02>.<Bio_WP.B_WP.SUH.01>.<Exh.Gen.01>.<->.<DE.002>>",
+    "Description_SystemHeating": "biomass central heating system, high efficiency: woodpellets boiler,  minimised distribution heat losses",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (woodpellets boiler), DHW storage, no circulation loop",
+    "Utilities": [
+      {
+        "name": "Pellet boiler",
+        "lca_data": {
+          "a1_a3": 2329.0,
+          "c2": 7.793,
+          "c3": 3.299,
+          "c4": 1.803,
+          "d": -1022.0
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.TH.11.Gen.ReEx.001.013": {
+    "Building_age_group": [
+      2010,
+      2015
+    ],
+    "Code_BuiSysCombi": "<DE.N.TH.11.Gen.ReEx.001.013>.<DE.<Bio_WP.B_WP.SUH.02>.<Bio_WP.B_WP+Solar.SUH.01>.<Bal_Rec.Gen.02>.<->.<DE.002>>",
+    "Description_SystemHeating": "biomass central heating system, high efficiency: woodpellets boiler,  minimised distribution heat losses",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (condensing boiler) + thermal solar system, solar storage, no circulation loop",
+    "Utilities": [
+      {
+        "name": "Pellet boiler",
+        "lca_data": {
+          "a1_a3": 2329.0,
+          "c2": 7.793,
+          "c3": 3.299,
+          "c4": 1.803,
+          "d": -1022.0
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.TH.11.Gen.ReEx.001.021": {
+    "Building_age_group": [
+      2010,
+      2015
+    ],
+    "Code_BuiSysCombi": "<DE.N.TH.11.Gen.ReEx.001.021>.<DE.<El_OP+El.HP_Air+E_Immersion.SUH.02>.<El_OP+El.HP_Air+E_Immersion.SUH.02>.<Exh.Gen.01>.<->.<DE.002>>",
+    "Description_SystemHeating": "electrical heatpump, heat source external air, including direct electric fraction, minimised distribution heat losses",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (electrical heat pump / heat source external air; including el. heating rod), DHW storage, circulation loop",
+    "Utilities": [
+      {
+        "name": "Electric heat pump",
+        "lca_data": {
+          "a1_a3": 459.0,
+          "c2": 1.297,
+          "c3": 30.09,
+          "c4": 4.282,
+          "d": -241.5
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.TH.11.Gen.ReEx.001.022": {
+    "Building_age_group": [
+      2010,
+      2015
+    ],
+    "Code_BuiSysCombi": "<DE.N.TH.11.Gen.ReEx.001.022>.<DE.<El_OP.HP_Ground.SUH.02>.<El_OP.HP_Ground.SUH.01>.<Exh.Gen.01>.<->.<DE.002>>",
+    "Description_SystemHeating": "electrical heatpump, heat source ground, without buffer storage; minimised heat distribution losses",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (electrical heat pump / heat source ground), DHW storage, no circulation loop",
+    "Utilities": [
+      {
+        "name": "Underfloor heating",
+        "lca_data": {
+          "a1_a3": 22.32,
+          "c2": 0.05333,
+          "c3": 3.173,
+          "d": -6.791
+        },
+        "Unit": "kg CO2 eq."
+      },
+      {
+        "name": "Electric heat pump",
+        "lca_data": {
+          "a1_a3": 459.0,
+          "c2": 1.297,
+          "c3": 30.09,
+          "c4": 4.282,
+          "d": -241.5
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.TH.11.Gen.ReEx.001.023": {
+    "Building_age_group": [
+      2010,
+      2015
+    ],
+    "Code_BuiSysCombi": "<DE.N.TH.11.Gen.ReEx.001.023>.<DE.<El_OP.HP_Ground.SUH.02>.<El_OP.HP_Ground.SUH.01>.<Bal_Rec.Gen.02>.<PV.H+W+A.Gen.002>.<DE.002>>",
+    "Description_SystemHeating": "electrical heatpump, heat source ground, without buffer storage; minimised heat distribution losses",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (electrical heat pump / heat source ground), DHW storage, no circulation loop",
+    "Utilities": [
+      {
+        "name": "Underfloor heating",
+        "lca_data": {
+          "a1_a3": 22.32,
+          "c2": 0.05333,
+          "c3": 3.173,
+          "d": -6.791
+        },
+        "Unit": "kg CO2 eq."
+      },
+      {
+        "name": "Electric heat pump",
+        "lca_data": {
+          "a1_a3": 459.0,
+          "c2": 1.297,
+          "c3": 30.09,
+          "c4": 4.282,
+          "d": -241.5
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.MFH.11.Gen.ReEx.001.001": {
+    "Building_age_group": [
+      2010,
+      2015
+    ],
+    "Code_BuiSysCombi": "<DE.N.MFH.11.Gen.ReEx.001.001>.<DE.<Gas.B_C.MUH.02>.<Gas.B_C+Solar.MUH.02>.<Exh.Gen.01>.<->.<DE.002>>",
+    "Description_SystemHeating": "gas central heating system, high efficiency (condensing boiler); minimised heat distribution losses",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (condensing boiler) + thermal solar system, well insulated circulation loop",
+    "Utilities": [
+      {
+        "name": "Gas condensing boiler",
+        "lca_data": {
+          "a1_a3": 3422.0,
+          "c2": 9.499,
+          "c3": 161.5,
+          "c4": 1.803,
+          "d": -1358.0
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.MFH.11.Gen.ReEx.001.002": {
+    "Building_age_group": [
+      2010,
+      2015
+    ],
+    "Code_BuiSysCombi": "<DE.N.MFH.11.Gen.ReEx.001.002>.<DE.<Gas.B_C.MUH.02>.<Gas.B_C+Solar.MUH.02>.<Exh.Gen.01>.<->.<DE.002>>",
+    "Description_SystemHeating": "gas central heating system, high efficiency (condensing boiler); minimised heat distribution losses",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (condensing boiler) + thermal solar system, well insulated circulation loop",
+    "Utilities": [
+      {
+        "name": "Gas condensing boiler",
+        "lca_data": {
+          "a1_a3": 3422.0,
+          "c2": 9.499,
+          "c3": 161.5,
+          "c4": 1.803,
+          "d": -1358.0
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.MFH.11.Gen.ReEx.001.003": {
+    "Building_age_group": [
+      2010,
+      2015
+    ],
+    "Code_BuiSysCombi": "<DE.N.MFH.11.Gen.ReEx.001.003>.<DE.<Gas.B_C+CHP+Solar.MUH.01>.<Gas.B_C+CHP+Solar.MUH.01>.<Bal_Rec.Gen.02>.<CHP.Exp.Gen.001>.<DE.002>>",
+    "Description_SystemHeating": "gas central heating, high efficiency / condensing boiler + chp + solar",
+    "Description_SystemWaterHeating": "gas-fueled central hot water system: condensing boiler + chp + solar; well insulated circulation loop",
+    "Utilities": [
+      {
+        "name": "Gas condensing boiler",
+        "lca_data": {
+          "a1_a3": 3422.0,
+          "c2": 9.499,
+          "c3": 161.5,
+          "c4": 1.803,
+          "d": -1358.0
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.MFH.11.Gen.ReEx.001.011": {
+    "Building_age_group": [
+      2010,
+      2015
+    ],
+    "Code_BuiSysCombi": "<DE.N.MFH.11.Gen.ReEx.001.011>.<DE.<Bio_WP.B_WP.MUH.02>.<Bio_WP.B_WP.MUH.02>.<Exh.Gen.01>.<->.<DE.002>>",
+    "Description_SystemHeating": "biomass central heating system, high efficiency: woodpellets boiler; minimised heat distribution losses",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (woodpellets boiler), well insulated circulation loop",
+    "Utilities": [
+      {
+        "name": "Pellet boiler",
+        "lca_data": {
+          "a1_a3": 2329.0,
+          "c2": 7.793,
+          "c3": 3.299,
+          "c4": 1.803,
+          "d": -1022.0
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.MFH.11.Gen.ReEx.001.012": {
+    "Building_age_group": [
+      2010,
+      2015
+    ],
+    "Code_BuiSysCombi": "<DE.N.MFH.11.Gen.ReEx.001.012>.<DE.<Bio_WP.B_WP.MUH.02>.<Bio_WP.B_WP.MUH.02>.<Exh.Gen.01>.<->.<DE.002>>",
+    "Description_SystemHeating": "biomass central heating system, high efficiency: woodpellets boiler; minimised heat distribution losses",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (woodpellets boiler), well insulated circulation loop",
+    "Utilities": [
+      {
+        "name": "Pellet boiler",
+        "lca_data": {
+          "a1_a3": 2329.0,
+          "c2": 7.793,
+          "c3": 3.299,
+          "c4": 1.803,
+          "d": -1022.0
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.MFH.11.Gen.ReEx.001.013": {
+    "Building_age_group": [
+      2010,
+      2015
+    ],
+    "Code_BuiSysCombi": "<DE.N.MFH.11.Gen.ReEx.001.013>.<DE.<Bio_Gas.CHP.MUH.01>.<Bio_Gas.CHP+Solar.MUH.01>.<Bal_Rec.Gen.02>.<PV.A.Gen.012>.<DE.002>>",
+    "Description_SystemHeating": "central heating system fueled by biomass and natural gas, high efficiency: bio-methan CHP, good insulation of pipes",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (bio-methan CHP) + thermal solar system; solar storage; well insulated circulation loop",
+    "Utilities": []
+  },
+  "DE.N.MFH.11.Gen.ReEx.001.021": {
+    "Building_age_group": [
+      2010,
+      2015
+    ],
+    "Code_BuiSysCombi": "<DE.N.MFH.11.Gen.ReEx.001.021>.<DE.<El_OP+El.HP_Air+E_Immersion.MUH.01>.<El_OP+El.HP_Air+E_Immersion.MUH.01>.<Exh.Gen.01>.<->.<DE.002>>",
+    "Description_SystemHeating": "electric heat pump, heat source external air, including direct electric fraction",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (air source heat pump); including el. heating rod for peak power",
+    "Utilities": []
+  },
+  "DE.N.MFH.11.Gen.ReEx.001.022": {
+    "Building_age_group": [
+      2010,
+      2015
+    ],
+    "Code_BuiSysCombi": "<DE.N.MFH.11.Gen.ReEx.001.022>.<DE.<El_OP.HP_Ground.MUH.01>.<El_OP.HP_Ground.MUH.01>.<Exh.Gen.01>.<->.<DE.002>>",
+    "Description_SystemHeating": "electric heat pump, heat source ground",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (ground source heat pump), well insulated circulation loop",
+    "Utilities": [
+      {
+        "name": "Underfloor heating",
+        "lca_data": {
+          "a1_a3": 22.32,
+          "c2": 0.05333,
+          "c3": 3.173,
+          "d": -6.791
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.MFH.11.Gen.ReEx.001.023": {
+    "Building_age_group": [
+      2010,
+      2015
+    ],
+    "Code_BuiSysCombi": "<DE.N.MFH.11.Gen.ReEx.001.023>.<DE.<El_OP.HP_Ground.MUH.01>.<El_OP.HP_Ground.MUH.01>.<Bal_Rec.Gen.02>.<PV.H+W+A.Gen.012>.<DE.002>>",
+    "Description_SystemHeating": "electric heat pump, heat source ground",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (ground source heat pump), well insulated circulation loop",
+    "Utilities": [
+      {
+        "name": "Underfloor heating",
+        "lca_data": {
+          "a1_a3": 22.32,
+          "c2": 0.05333,
+          "c3": 3.173,
+          "d": -6.791
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.SFH.12.Gen.ReEx.001.001": {
+    "Building_age_group": [
+      2016,
+      9999
+    ],
+    "Code_BuiSysCombi": "<DE.N.SFH.12.Gen.ReEx.001.001>.<DE.<Gas.B_C.SUH.02>.<Gas.B_C+Solar.SUH.04>.<Exh.Gen.01>.<->.<DE.002>>",
+    "Description_SystemHeating": "gas central heating system, high efficiency: condensing boiler, good insulation of pipes, , distribution inside of thermal envelope",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (condensing boiler) + thermal solar system, solar storage, no circulation loop",
+    "Utilities": [
+      {
+        "name": "Gas condensing boiler",
+        "lca_data": {
+          "a1_a3": 3422.0,
+          "c2": 9.499,
+          "c3": 161.5,
+          "c4": 1.803,
+          "d": -1358.0
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.SFH.12.Gen.ReEx.001.002": {
+    "Building_age_group": [
+      2016,
+      9999
+    ],
+    "Code_BuiSysCombi": "<DE.N.SFH.12.Gen.ReEx.001.002>.<DE.<Gas.B_C.SUH.02>.<Gas.B_C+Solar.SUH.04>.<Bal_Rec.Gen.02>.<->.<DE.002>>",
+    "Description_SystemHeating": "gas central heating system, high efficiency: condensing boiler, good insulation of pipes, , distribution inside of thermal envelope",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (condensing boiler) + thermal solar system, solar storage, no circulation loop",
+    "Utilities": [
+      {
+        "name": "Gas condensing boiler",
+        "lca_data": {
+          "a1_a3": 3422.0,
+          "c2": 9.499,
+          "c3": 161.5,
+          "c4": 1.803,
+          "d": -1358.0
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.SFH.12.Gen.ReEx.001.003": {
+    "Building_age_group": [
+      2016,
+      9999
+    ],
+    "Code_BuiSysCombi": "<DE.N.SFH.12.Gen.ReEx.001.003>.<DE.<Gas.B_C.SUH.02>.<Gas.B_C+Solar.SUH.04>.<Bal_Rec.Gen.02>.<->.<DE.002>>",
+    "Description_SystemHeating": "gas central heating system, high efficiency: condensing boiler, good insulation of pipes, , distribution inside of thermal envelope",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (condensing boiler) + thermal solar system, solar storage, no circulation loop",
+    "Utilities": [
+      {
+        "name": "Gas condensing boiler",
+        "lca_data": {
+          "a1_a3": 3422.0,
+          "c2": 9.499,
+          "c3": 161.5,
+          "c4": 1.803,
+          "d": -1358.0
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.SFH.12.Gen.ReEx.001.011": {
+    "Building_age_group": [
+      2016,
+      9999
+    ],
+    "Code_BuiSysCombi": "<DE.N.SFH.12.Gen.ReEx.001.011>.<DE.<Bio_WP.B_WP.SUH.02>.<Bio_WP.B_WP.SUH.01>.<Exh.Gen.01>.<->.<DE.002>>",
+    "Description_SystemHeating": "biomass central heating system, high efficiency: woodpellets boiler,  minimised distribution heat losses",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (woodpellets boiler), DHW storage, no circulation loop",
+    "Utilities": [
+      {
+        "name": "Pellet boiler",
+        "lca_data": {
+          "a1_a3": 2329.0,
+          "c2": 7.793,
+          "c3": 3.299,
+          "c4": 1.803,
+          "d": -1022.0
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.SFH.12.Gen.ReEx.001.012": {
+    "Building_age_group": [
+      2016,
+      9999
+    ],
+    "Code_BuiSysCombi": "<DE.N.SFH.12.Gen.ReEx.001.012>.<DE.<Bio_WP.B_WP.SUH.02>.<Bio_WP.B_WP.SUH.01>.<Exh.Gen.01>.<->.<DE.002>>",
+    "Description_SystemHeating": "biomass central heating system, high efficiency: woodpellets boiler,  minimised distribution heat losses",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (woodpellets boiler), DHW storage, no circulation loop",
+    "Utilities": [
+      {
+        "name": "Pellet boiler",
+        "lca_data": {
+          "a1_a3": 2329.0,
+          "c2": 7.793,
+          "c3": 3.299,
+          "c4": 1.803,
+          "d": -1022.0
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.SFH.12.Gen.ReEx.001.013": {
+    "Building_age_group": [
+      2016,
+      9999
+    ],
+    "Code_BuiSysCombi": "<DE.N.SFH.12.Gen.ReEx.001.013>.<DE.<Bio_WP.B_WP.SUH.02>.<Bio_WP.B_WP+Solar.SUH.01>.<Bal_Rec.Gen.02>.<->.<DE.002>>",
+    "Description_SystemHeating": "biomass central heating system, high efficiency: woodpellets boiler,  minimised distribution heat losses",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (condensing boiler) + thermal solar system, solar storage, no circulation loop",
+    "Utilities": [
+      {
+        "name": "Pellet boiler",
+        "lca_data": {
+          "a1_a3": 2329.0,
+          "c2": 7.793,
+          "c3": 3.299,
+          "c4": 1.803,
+          "d": -1022.0
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.SFH.12.Gen.ReEx.001.021": {
+    "Building_age_group": [
+      2016,
+      9999
+    ],
+    "Code_BuiSysCombi": "<DE.N.SFH.12.Gen.ReEx.001.021>.<DE.<El_OP.HP_Ground.SUH.02>.<El_OP.HP_Ground.SUH.01>.<Exh.Gen.01>.<->.<DE.002>>",
+    "Description_SystemHeating": "electrical heatpump, heat source ground, without buffer storage; minimised heat distribution losses",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (electrical heat pump / heat source ground), DHW storage, no circulation loop",
+    "Utilities": [
+      {
+        "name": "Underfloor heating",
+        "lca_data": {
+          "a1_a3": 22.32,
+          "c2": 0.05333,
+          "c3": 3.173,
+          "d": -6.791
+        },
+        "Unit": "kg CO2 eq."
+      },
+      {
+        "name": "Electric heat pump",
+        "lca_data": {
+          "a1_a3": 459.0,
+          "c2": 1.297,
+          "c3": 30.09,
+          "c4": 4.282,
+          "d": -241.5
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.SFH.12.Gen.ReEx.001.022": {
+    "Building_age_group": [
+      2016,
+      9999
+    ],
+    "Code_BuiSysCombi": "<DE.N.SFH.12.Gen.ReEx.001.022>.<DE.<El_OP.HP_Ground.SUH.02>.<El_OP.HP_Ground.SUH.01>.<Exh.Gen.01>.<->.<DE.002>>",
+    "Description_SystemHeating": "electrical heatpump, heat source ground, without buffer storage; minimised heat distribution losses",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (electrical heat pump / heat source ground), DHW storage, no circulation loop",
+    "Utilities": [
+      {
+        "name": "Underfloor heating",
+        "lca_data": {
+          "a1_a3": 22.32,
+          "c2": 0.05333,
+          "c3": 3.173,
+          "d": -6.791
+        },
+        "Unit": "kg CO2 eq."
+      },
+      {
+        "name": "Electric heat pump",
+        "lca_data": {
+          "a1_a3": 459.0,
+          "c2": 1.297,
+          "c3": 30.09,
+          "c4": 4.282,
+          "d": -241.5
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.SFH.12.Gen.ReEx.001.023": {
+    "Building_age_group": [
+      2016,
+      9999
+    ],
+    "Code_BuiSysCombi": "<DE.N.SFH.12.Gen.ReEx.001.023>.<DE.<El_OP.HP_Ground.SUH.02>.<El_OP.HP_Ground.SUH.01>.<Bal_Rec.Gen.02>.<PV.H+W+A.Gen.002>.<DE.002>>",
+    "Description_SystemHeating": "electrical heatpump, heat source ground, without buffer storage; minimised heat distribution losses",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (electrical heat pump / heat source ground), DHW storage, no circulation loop",
+    "Utilities": [
+      {
+        "name": "Underfloor heating",
+        "lca_data": {
+          "a1_a3": 22.32,
+          "c2": 0.05333,
+          "c3": 3.173,
+          "d": -6.791
+        },
+        "Unit": "kg CO2 eq."
+      },
+      {
+        "name": "Electric heat pump",
+        "lca_data": {
+          "a1_a3": 459.0,
+          "c2": 1.297,
+          "c3": 30.09,
+          "c4": 4.282,
+          "d": -241.5
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.TH.12.Gen.ReEx.001.001": {
+    "Building_age_group": [
+      2016,
+      9999
+    ],
+    "Code_BuiSysCombi": "<DE.N.TH.12.Gen.ReEx.001.001>.<DE.<Gas.B_C.SUH.02>.<Gas.B_C+Solar.SUH.04>.<Exh.Gen.01>.<->.<DE.002>>",
+    "Description_SystemHeating": "gas central heating system, high efficiency: condensing boiler, good insulation of pipes, , distribution inside of thermal envelope",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (condensing boiler) + thermal solar system, solar storage, no circulation loop",
+    "Utilities": [
+      {
+        "name": "Gas condensing boiler",
+        "lca_data": {
+          "a1_a3": 3422.0,
+          "c2": 9.499,
+          "c3": 161.5,
+          "c4": 1.803,
+          "d": -1358.0
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.TH.12.Gen.ReEx.001.002": {
+    "Building_age_group": [
+      2016,
+      9999
+    ],
+    "Code_BuiSysCombi": "<DE.N.TH.12.Gen.ReEx.001.002>.<DE.<Gas.B_C.SUH.02>.<Gas.B_C+Solar.SUH.04>.<Bal_Rec.Gen.02>.<->.<DE.002>>",
+    "Description_SystemHeating": "gas central heating system, high efficiency: condensing boiler, good insulation of pipes, , distribution inside of thermal envelope",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (condensing boiler) + thermal solar system, solar storage, no circulation loop",
+    "Utilities": [
+      {
+        "name": "Gas condensing boiler",
+        "lca_data": {
+          "a1_a3": 3422.0,
+          "c2": 9.499,
+          "c3": 161.5,
+          "c4": 1.803,
+          "d": -1358.0
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.TH.12.Gen.ReEx.001.003": {
+    "Building_age_group": [
+      2016,
+      9999
+    ],
+    "Code_BuiSysCombi": "<DE.N.TH.12.Gen.ReEx.001.003>.<DE.<Gas.B_C.SUH.02>.<Gas.B_C+Solar.SUH.04>.<Bal_Rec.Gen.02>.<->.<DE.002>>",
+    "Description_SystemHeating": "gas central heating system, high efficiency: condensing boiler, good insulation of pipes, , distribution inside of thermal envelope",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (condensing boiler) + thermal solar system, solar storage, no circulation loop",
+    "Utilities": [
+      {
+        "name": "Gas condensing boiler",
+        "lca_data": {
+          "a1_a3": 3422.0,
+          "c2": 9.499,
+          "c3": 161.5,
+          "c4": 1.803,
+          "d": -1358.0
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.TH.12.Gen.ReEx.001.011": {
+    "Building_age_group": [
+      2016,
+      9999
+    ],
+    "Code_BuiSysCombi": "<DE.N.TH.12.Gen.ReEx.001.011>.<DE.<Bio_WP.B_WP.SUH.02>.<Bio_WP.B_WP.SUH.01>.<Exh.Gen.01>.<->.<DE.002>>",
+    "Description_SystemHeating": "biomass central heating system, high efficiency: woodpellets boiler,  minimised distribution heat losses",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (woodpellets boiler), DHW storage, no circulation loop",
+    "Utilities": [
+      {
+        "name": "Pellet boiler",
+        "lca_data": {
+          "a1_a3": 2329.0,
+          "c2": 7.793,
+          "c3": 3.299,
+          "c4": 1.803,
+          "d": -1022.0
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.TH.12.Gen.ReEx.001.012": {
+    "Building_age_group": [
+      2016,
+      9999
+    ],
+    "Code_BuiSysCombi": "<DE.N.TH.12.Gen.ReEx.001.012>.<DE.<Bio_WP.B_WP.SUH.02>.<Bio_WP.B_WP.SUH.01>.<Exh.Gen.01>.<->.<DE.002>>",
+    "Description_SystemHeating": "biomass central heating system, high efficiency: woodpellets boiler,  minimised distribution heat losses",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (woodpellets boiler), DHW storage, no circulation loop",
+    "Utilities": [
+      {
+        "name": "Pellet boiler",
+        "lca_data": {
+          "a1_a3": 2329.0,
+          "c2": 7.793,
+          "c3": 3.299,
+          "c4": 1.803,
+          "d": -1022.0
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.TH.12.Gen.ReEx.001.013": {
+    "Building_age_group": [
+      2016,
+      9999
+    ],
+    "Code_BuiSysCombi": "<DE.N.TH.12.Gen.ReEx.001.013>.<DE.<Bio_WP.B_WP.SUH.02>.<Bio_WP.B_WP+Solar.SUH.01>.<Bal_Rec.Gen.02>.<->.<DE.002>>",
+    "Description_SystemHeating": "biomass central heating system, high efficiency: woodpellets boiler,  minimised distribution heat losses",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (condensing boiler) + thermal solar system, solar storage, no circulation loop",
+    "Utilities": [
+      {
+        "name": "Pellet boiler",
+        "lca_data": {
+          "a1_a3": 2329.0,
+          "c2": 7.793,
+          "c3": 3.299,
+          "c4": 1.803,
+          "d": -1022.0
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.TH.12.Gen.ReEx.001.021": {
+    "Building_age_group": [
+      2016,
+      9999
+    ],
+    "Code_BuiSysCombi": "<DE.N.TH.12.Gen.ReEx.001.021>.<DE.<El_OP.HP_Ground.SUH.02>.<El_OP.HP_Ground.SUH.01>.<Exh.Gen.01>.<->.<DE.002>>",
+    "Description_SystemHeating": "electrical heatpump, heat source ground, without buffer storage; minimised heat distribution losses",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (electrical heat pump / heat source ground), DHW storage, no circulation loop",
+    "Utilities": [
+      {
+        "name": "Underfloor heating",
+        "lca_data": {
+          "a1_a3": 22.32,
+          "c2": 0.05333,
+          "c3": 3.173,
+          "d": -6.791
+        },
+        "Unit": "kg CO2 eq."
+      },
+      {
+        "name": "Electric heat pump",
+        "lca_data": {
+          "a1_a3": 459.0,
+          "c2": 1.297,
+          "c3": 30.09,
+          "c4": 4.282,
+          "d": -241.5
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.TH.12.Gen.ReEx.001.022": {
+    "Building_age_group": [
+      2016,
+      9999
+    ],
+    "Code_BuiSysCombi": "<DE.N.TH.12.Gen.ReEx.001.022>.<DE.<El_OP.HP_Ground.SUH.02>.<El_OP.HP_Ground.SUH.01>.<Exh.Gen.01>.<->.<DE.002>>",
+    "Description_SystemHeating": "electrical heatpump, heat source ground, without buffer storage; minimised heat distribution losses",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (electrical heat pump / heat source ground), DHW storage, no circulation loop",
+    "Utilities": [
+      {
+        "name": "Underfloor heating",
+        "lca_data": {
+          "a1_a3": 22.32,
+          "c2": 0.05333,
+          "c3": 3.173,
+          "d": -6.791
+        },
+        "Unit": "kg CO2 eq."
+      },
+      {
+        "name": "Electric heat pump",
+        "lca_data": {
+          "a1_a3": 459.0,
+          "c2": 1.297,
+          "c3": 30.09,
+          "c4": 4.282,
+          "d": -241.5
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.TH.12.Gen.ReEx.001.023": {
+    "Building_age_group": [
+      2016,
+      9999
+    ],
+    "Code_BuiSysCombi": "<DE.N.TH.12.Gen.ReEx.001.023>.<DE.<El_OP.HP_Ground.SUH.02>.<El_OP.HP_Ground.SUH.01>.<Bal_Rec.Gen.02>.<PV.H+W+A.Gen.002>.<DE.002>>",
+    "Description_SystemHeating": "electrical heatpump, heat source ground, without buffer storage; minimised heat distribution losses",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (electrical heat pump / heat source ground), DHW storage, no circulation loop",
+    "Utilities": [
+      {
+        "name": "Underfloor heating",
+        "lca_data": {
+          "a1_a3": 22.32,
+          "c2": 0.05333,
+          "c3": 3.173,
+          "d": -6.791
+        },
+        "Unit": "kg CO2 eq."
+      },
+      {
+        "name": "Electric heat pump",
+        "lca_data": {
+          "a1_a3": 459.0,
+          "c2": 1.297,
+          "c3": 30.09,
+          "c4": 4.282,
+          "d": -241.5
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.MFH.12.Gen.ReEx.001.001": {
+    "Building_age_group": [
+      2016,
+      9999
+    ],
+    "Code_BuiSysCombi": "<DE.N.MFH.12.Gen.ReEx.001.001>.<DE.<Gas.B_C.MUH.02>.<Gas.B_C+Solar.MUH.02>.<Bal_Rec.Gen.02>.<->.<DE.002>>",
+    "Description_SystemHeating": "gas central heating system, high efficiency (condensing boiler); minimised heat distribution losses",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (condensing boiler) + thermal solar system, well insulated circulation loop",
+    "Utilities": [
+      {
+        "name": "Gas condensing boiler",
+        "lca_data": {
+          "a1_a3": 3422.0,
+          "c2": 9.499,
+          "c3": 161.5,
+          "c4": 1.803,
+          "d": -1358.0
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.MFH.12.Gen.ReEx.001.002": {
+    "Building_age_group": [
+      2016,
+      9999
+    ],
+    "Code_BuiSysCombi": "<DE.N.MFH.12.Gen.ReEx.001.002>.<DE.<Gas.B_C.MUH.02>.<Gas.B_C+Solar.MUH.02>.<Bal_Rec.Gen.02>.<->.<DE.002>>",
+    "Description_SystemHeating": "gas central heating system, high efficiency (condensing boiler); minimised heat distribution losses",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (condensing boiler) + thermal solar system, well insulated circulation loop",
+    "Utilities": [
+      {
+        "name": "Gas condensing boiler",
+        "lca_data": {
+          "a1_a3": 3422.0,
+          "c2": 9.499,
+          "c3": 161.5,
+          "c4": 1.803,
+          "d": -1358.0
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.MFH.12.Gen.ReEx.001.003": {
+    "Building_age_group": [
+      2016,
+      9999
+    ],
+    "Code_BuiSysCombi": "<DE.N.MFH.12.Gen.ReEx.001.003>.<DE.<Gas.B_C+CHP+Solar.MUH.01>.<Gas.B_C+CHP+Solar.MUH.01>.<Bal_Rec.Gen.02>.<CHP.Exp.Gen.001>.<DE.002>>",
+    "Description_SystemHeating": "gas central heating, high efficiency / condensing boiler + chp + solar",
+    "Description_SystemWaterHeating": "gas-fueled central hot water system: condensing boiler + chp + solar; well insulated circulation loop",
+    "Utilities": [
+      {
+        "name": "Gas condensing boiler",
+        "lca_data": {
+          "a1_a3": 3422.0,
+          "c2": 9.499,
+          "c3": 161.5,
+          "c4": 1.803,
+          "d": -1358.0
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.MFH.12.Gen.ReEx.001.011": {
+    "Building_age_group": [
+      2016,
+      9999
+    ],
+    "Code_BuiSysCombi": "<DE.N.MFH.12.Gen.ReEx.001.011>.<DE.<Bio_WP.B_WP.MUH.02>.<Bio_WP.B_WP.MUH.02>.<Exh.Gen.01>.<->.<DE.002>>",
+    "Description_SystemHeating": "biomass central heating system, high efficiency: woodpellets boiler; minimised heat distribution losses",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (woodpellets boiler), well insulated circulation loop",
+    "Utilities": [
+      {
+        "name": "Pellet boiler",
+        "lca_data": {
+          "a1_a3": 2329.0,
+          "c2": 7.793,
+          "c3": 3.299,
+          "c4": 1.803,
+          "d": -1022.0
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.MFH.12.Gen.ReEx.001.012": {
+    "Building_age_group": [
+      2016,
+      9999
+    ],
+    "Code_BuiSysCombi": "<DE.N.MFH.12.Gen.ReEx.001.012>.<DE.<Bio_WP.B_WP.MUH.02>.<Bio_WP.B_WP.MUH.02>.<Exh.Gen.01>.<->.<DE.002>>",
+    "Description_SystemHeating": "biomass central heating system, high efficiency: woodpellets boiler; minimised heat distribution losses",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (woodpellets boiler), well insulated circulation loop",
+    "Utilities": [
+      {
+        "name": "Pellet boiler",
+        "lca_data": {
+          "a1_a3": 2329.0,
+          "c2": 7.793,
+          "c3": 3.299,
+          "c4": 1.803,
+          "d": -1022.0
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.MFH.12.Gen.ReEx.001.013": {
+    "Building_age_group": [
+      2016,
+      9999
+    ],
+    "Code_BuiSysCombi": "<DE.N.MFH.12.Gen.ReEx.001.013>.<DE.<Bio_Gas.CHP.MUH.01>.<Bio_Gas.CHP+Solar.MUH.01>.<Bal_Rec.Gen.02>.<PV.A.Gen.012>.<DE.002>>",
+    "Description_SystemHeating": "central heating system fueled by biomass and natural gas, high efficiency: bio-methan CHP, good insulation of pipes",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (bio-methan CHP) + thermal solar system; solar storage; well insulated circulation loop",
+    "Utilities": []
+  },
+  "DE.N.MFH.12.Gen.ReEx.001.021": {
+    "Building_age_group": [
+      2016,
+      9999
+    ],
+    "Code_BuiSysCombi": "<DE.N.MFH.12.Gen.ReEx.001.021>.<DE.<El_OP.HP_Ground.MUH.01>.<El_OP.HP_Ground.MUH.01>.<Exh.Gen.01>.<->.<DE.002>>",
+    "Description_SystemHeating": "electric heat pump, heat source ground",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (ground source heat pump), well insulated circulation loop",
+    "Utilities": [
+      {
+        "name": "Underfloor heating",
+        "lca_data": {
+          "a1_a3": 22.32,
+          "c2": 0.05333,
+          "c3": 3.173,
+          "d": -6.791
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.MFH.12.Gen.ReEx.001.022": {
+    "Building_age_group": [
+      2016,
+      9999
+    ],
+    "Code_BuiSysCombi": "<DE.N.MFH.12.Gen.ReEx.001.022>.<DE.<El_OP.HP_Ground.MUH.01>.<El_OP.HP_Ground.MUH.01>.<Exh.Gen.01>.<->.<DE.002>>",
+    "Description_SystemHeating": "electric heat pump, heat source ground",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (ground source heat pump), well insulated circulation loop",
+    "Utilities": [
+      {
+        "name": "Underfloor heating",
+        "lca_data": {
+          "a1_a3": 22.32,
+          "c2": 0.05333,
+          "c3": 3.173,
+          "d": -6.791
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.MFH.12.Gen.ReEx.001.023": {
+    "Building_age_group": [
+      2016,
+      9999
+    ],
+    "Code_BuiSysCombi": "<DE.N.MFH.12.Gen.ReEx.001.023>.<DE.<El_OP.HP_Ground.MUH.01>.<El_OP.HP_Ground.MUH.01>.<Bal_Rec.Gen.02>.<PV.H+W+A.Gen.012>.<DE.002>>",
+    "Description_SystemHeating": "electric heat pump, heat source ground",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (ground source heat pump), well insulated circulation loop",
+    "Utilities": [
+      {
+        "name": "Underfloor heating",
+        "lca_data": {
+          "a1_a3": 22.32,
+          "c2": 0.05333,
+          "c3": 3.173,
+          "d": -6.791
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.SFH.11.Gen.ReEx.001.001": {
+    "Building_age_group": [
+      2010,
+      2015
+    ],
+    "Code_BuiSysCombi": "<DE.N.SFH.11.Gen.ReEx.001.001>.<DE.<Gas.B_C.SUH.02>.<Gas.B_C+Solar.SUH.03>.<Exh.Gen.01>.<->.<DE.002>>",
+    "Description_SystemHeating": "gas central heating system, high efficiency: condensing boiler, good insulation of pipes, , distribution inside of thermal envelope",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (condensing boiler) + thermal solar system, solar storage, circulation loop",
+    "Utilities": [
+      {
+        "name": "Gas condensing boiler",
+        "lca_data": {
+          "a1_a3": 3422.0,
+          "c2": 9.499,
+          "c3": 161.5,
+          "c4": 1.803,
+          "d": -1358.0
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.SFH.11.Gen.ReEx.001.002": {
+    "Building_age_group": [
+      2010,
+      2015
+    ],
+    "Code_BuiSysCombi": "<DE.N.SFH.11.Gen.ReEx.001.002>.<DE.<Gas.B_C.SUH.02>.<Gas.B_C+Solar.SUH.04>.<Bal_Rec.Gen.02>.<->.<DE.002>>",
+    "Description_SystemHeating": "gas central heating system, high efficiency: condensing boiler, good insulation of pipes, , distribution inside of thermal envelope",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (condensing boiler) + thermal solar system, solar storage, no circulation loop",
+    "Utilities": [
+      {
+        "name": "Gas condensing boiler",
+        "lca_data": {
+          "a1_a3": 3422.0,
+          "c2": 9.499,
+          "c3": 161.5,
+          "c4": 1.803,
+          "d": -1358.0
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.SFH.01.Gen.ReEx.001.001": {
+    "Building_age_group": [
+      0,
+      1859
+    ],
+    "Code_BuiSysCombi": "<DE.N.SFH.01.Gen.ReEx.001.001>.<DE.<Oil.B_NC_LT.SUH.01>.<Oil.B_NC_LT.SUH.01>.<-.Gen.01>.<->.<DE.002>>",
+    "Description_SystemHeating": "oil central heating system, rather poor efficiency: low temperature boiler, poor insulation of pipes",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (low temperature boiler), poorly insulated circulation loop ",
+    "Utilities": [
+      {
+        "name": "Oil low temperature",
+        "lca_data": {
+          "a1_a3": 3035.0,
+          "c2": 9.83,
+          "c3": 53.65,
+          "c4": 1.803,
+          "d": -626.8
+        },
+        "Unit": "kg CO2 eq."
+      },
+      {
+        "name": "EPDM foam",
+        "lca_data": {
+          "a1_a3": 245.1,
+          "c2": 0.3312,
+          "c3": 137.7,
+          "d": -69.57
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.SFH.01.Gen.ReEx.001.002": {
+    "Building_age_group": [
+      0,
+      1859
+    ],
+    "Code_BuiSysCombi": "<DE.N.SFH.01.Gen.ReEx.001.002>.<DE.<Oil.B_C.SUH.01>.<Oil.B_C+Solar.SUH.01>.<Bal_Rec.Gen.02>.<->.<DE.002>>",
+    "Description_SystemHeating": "oil central heating system, improved efficiency: condensing boiler, good insulation of pipes",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (condensing boiler) + thermal solar system, solar storage, no circulation loop",
+    "Utilities": [
+      {
+        "name": "Oil condensing boiler",
+        "lca_data": {
+          "a1_a3": 5075.0,
+          "c2": 14.68,
+          "c3": 249.5,
+          "c4": 1.803,
+          "d": -2099.0
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.SFH.01.Gen.ReEx.001.003": {
+    "Building_age_group": [
+      0,
+      1859
+    ],
+    "Code_BuiSysCombi": "<DE.N.SFH.01.Gen.ReEx.001.003>.<DE.<Bio_WP.B_WP.SUH.02>.<Bio_WP.B_WP+Solar.SUH.01>.<Bal_Rec.Gen.02>.<->.<DE.002>>",
+    "Description_SystemHeating": "biomass central heating system, high efficiency: woodpellets boiler,  minimised distribution heat losses",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (condensing boiler) + thermal solar system, solar storage, no circulation loop",
+    "Utilities": [
+      {
+        "name": "Pellet boiler",
+        "lca_data": {
+          "a1_a3": 2329.0,
+          "c2": 7.793,
+          "c3": 3.299,
+          "c4": 1.803,
+          "d": -1022.0
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.SFH.02.Gen.ReEx.001.001": {
+    "Building_age_group": [
+      1860,
+      1918
+    ],
+    "Code_BuiSysCombi": "<DE.N.SFH.02.Gen.ReEx.001.001>.<DE.<Oil.B_NC_LT.SUH.01>.<Oil.B_NC_LT.SUH.01>.<-.Gen.01>.<->.<DE.002>>",
+    "Description_SystemHeating": "oil central heating system, rather poor efficiency: low temperature boiler, poor insulation of pipes",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (low temperature boiler), poorly insulated circulation loop ",
+    "Utilities": [
+      {
+        "name": "Oil low temperature",
+        "lca_data": {
+          "a1_a3": 3035.0,
+          "c2": 9.83,
+          "c3": 53.65,
+          "c4": 1.803,
+          "d": -626.8
+        },
+        "Unit": "kg CO2 eq."
+      },
+      {
+        "name": "EPDM foam",
+        "lca_data": {
+          "a1_a3": 245.1,
+          "c2": 0.3312,
+          "c3": 137.7,
+          "d": -69.57
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.SFH.02.Gen.ReEx.001.002": {
+    "Building_age_group": [
+      1860,
+      1918
+    ],
+    "Code_BuiSysCombi": "<DE.N.SFH.02.Gen.ReEx.001.002>.<DE.<Oil.B_C.SUH.01>.<Oil.B_C+Solar.SUH.01>.<Bal_Rec.Gen.02>.<->.<DE.002>>",
+    "Description_SystemHeating": "oil central heating system, improved efficiency: condensing boiler, good insulation of pipes",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (condensing boiler) + thermal solar system, solar storage, no circulation loop",
+    "Utilities": [
+      {
+        "name": "Oil condensing boiler",
+        "lca_data": {
+          "a1_a3": 5075.0,
+          "c2": 14.68,
+          "c3": 249.5,
+          "c4": 1.803,
+          "d": -2099.0
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.SFH.02.Gen.ReEx.001.003": {
+    "Building_age_group": [
+      1860,
+      1918
+    ],
+    "Code_BuiSysCombi": "<DE.N.SFH.02.Gen.ReEx.001.003>.<DE.<Bio_WP.B_WP.SUH.02>.<Bio_WP.B_WP+Solar.SUH.01>.<Bal_Rec.Gen.02>.<->.<DE.002>>",
+    "Description_SystemHeating": "biomass central heating system, high efficiency: woodpellets boiler,  minimised distribution heat losses",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (condensing boiler) + thermal solar system, solar storage, no circulation loop",
+    "Utilities": [
+      {
+        "name": "Pellet boiler",
+        "lca_data": {
+          "a1_a3": 2329.0,
+          "c2": 7.793,
+          "c3": 3.299,
+          "c4": 1.803,
+          "d": -1022.0
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.SFH.03.Gen.ReEx.001.001": {
+    "Building_age_group": [
+      1919,
+      1948
+    ],
+    "Code_BuiSysCombi": "<DE.N.SFH.03.Gen.ReEx.001.001>.<DE.<Oil.B_NC_LT.SUH.01>.<Oil.B_NC_LT.SUH.01>.<-.Gen.01>.<->.<DE.002>>",
+    "Description_SystemHeating": "oil central heating system, rather poor efficiency: low temperature boiler, poor insulation of pipes",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (low temperature boiler), poorly insulated circulation loop ",
+    "Utilities": [
+      {
+        "name": "Oil low temperature",
+        "lca_data": {
+          "a1_a3": 3035.0,
+          "c2": 9.83,
+          "c3": 53.65,
+          "c4": 1.803,
+          "d": -626.8
+        },
+        "Unit": "kg CO2 eq."
+      },
+      {
+        "name": "EPDM foam",
+        "lca_data": {
+          "a1_a3": 245.1,
+          "c2": 0.3312,
+          "c3": 137.7,
+          "d": -69.57
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.SFH.03.Gen.ReEx.001.002": {
+    "Building_age_group": [
+      1919,
+      1948
+    ],
+    "Code_BuiSysCombi": "<DE.N.SFH.03.Gen.ReEx.001.002>.<DE.<Oil.B_C.SUH.01>.<Oil.B_C+Solar.SUH.01>.<Bal_Rec.Gen.02>.<->.<DE.002>>",
+    "Description_SystemHeating": "oil central heating system, improved efficiency: condensing boiler, good insulation of pipes",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (condensing boiler) + thermal solar system, solar storage, no circulation loop",
+    "Utilities": [
+      {
+        "name": "Oil condensing boiler",
+        "lca_data": {
+          "a1_a3": 5075.0,
+          "c2": 14.68,
+          "c3": 249.5,
+          "c4": 1.803,
+          "d": -2099.0
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.SFH.03.Gen.ReEx.001.003": {
+    "Building_age_group": [
+      1919,
+      1948
+    ],
+    "Code_BuiSysCombi": "<DE.N.SFH.03.Gen.ReEx.001.003>.<DE.<Bio_WP.B_WP.SUH.02>.<Bio_WP.B_WP+Solar.SUH.01>.<Bal_Rec.Gen.02>.<->.<DE.002>>",
+    "Description_SystemHeating": "biomass central heating system, high efficiency: woodpellets boiler,  minimised distribution heat losses",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (condensing boiler) + thermal solar system, solar storage, no circulation loop",
+    "Utilities": [
+      {
+        "name": "Pellet boiler",
+        "lca_data": {
+          "a1_a3": 2329.0,
+          "c2": 7.793,
+          "c3": 3.299,
+          "c4": 1.803,
+          "d": -1022.0
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.SFH.04.Gen.ReEx.001.001": {
+    "Building_age_group": [
+      1949,
+      1957
+    ],
+    "Code_BuiSysCombi": "<DE.N.SFH.04.Gen.ReEx.001.001>.<DE.<Gas.B_NC_LT.SUH.01>.<Gas.B_NC_LT.SUH.01>.<-.Gen.01>.<->.<DE.002>>",
+    "Description_SystemHeating": "gas central heating system, rather poor efficiency: low temperature boiler, poor insulation of pipes",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (low temperature boiler), poorly insulated circulation loop ",
+    "Utilities": [
+      {
+        "name": "Gas low temperature",
+        "lca_data": {
+          "a1_a3": 2842.0,
+          "c2": 9.269,
+          "c3": 71.58,
+          "c4": 1.804,
+          "d": -507.7
+        },
+        "Unit": "kg CO2 eq."
+      },
+      {
+        "name": "EPDM foam",
+        "lca_data": {
+          "a1_a3": 245.1,
+          "c2": 0.3312,
+          "c3": 137.7,
+          "d": -69.57
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  },
+  "DE.N.SFH.04.Gen.ReEx.001.002": {
+    "Building_age_group": [
+      1949,
+      1957
+    ],
+    "Code_BuiSysCombi": "<DE.N.SFH.04.Gen.ReEx.001.002>.<DE.<Gas.B_C.SUH.01>.<Gas.B_C.SUH.01>.<-.Gen.01>.<->.<DE.002>>",
+    "Description_SystemHeating": "gas central heating system, high efficiency: condensing boiler, good insulation of pipes",
+    "Description_SystemWaterHeating": "heat generation combined with heating system (condensing boiler), no circulation loop",
+    "Utilities": [
+      {
+        "name": "Gas condensing boiler",
+        "lca_data": {
+          "a1_a3": 3422.0,
+          "c2": 9.499,
+          "c3": 161.5,
+          "c4": 1.803,
+          "d": -1358.0
+        },
+        "Unit": "kg CO2 eq."
+      }
+    ]
+  }
+}
