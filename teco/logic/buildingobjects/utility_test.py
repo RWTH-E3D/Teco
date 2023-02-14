@@ -54,7 +54,7 @@ def TABULA_DE():
     Year1_Building = df['Year1_Building'][a:b]
     Year2_Building = df['Year2_Building'][a:b]
 
-    with open("utilities.json", 'w') as writer:
+    with open("../../data/input/inputdata/utilities.json", 'w') as writer:
         writer.write(json.dumps([{Code_Building: {"building_age_group": [Year1_Building, Year2_Building],
                                                   "Code_BuiSysCombi": Code_BuiSysCombi,
                                                   "Description_SystemType": Description_SystemType
@@ -288,7 +288,7 @@ for Code_BuildingVariant, Code_BuiSysCombi, Description_SysH, Description_SysW, 
 
 print("len(json_dict): ", len(json_dict))
 
-with open("utilities.json", 'w') as writer:
+with open("../../data/input/inputdata/utilities.json", 'w') as writer:
     writer.write(json.dumps(json_dict, ensure_ascii=False))
 
 
