@@ -131,7 +131,7 @@ def get_utility_OEKOBAUDAT(utility, bereich=1):
     return utility_link
 
 
-# TABULA_DE()  # loads to utilities.json
+# TABULA_DE()  # loads to utilities_old.json
 df = pd.read_excel("C:/Users/tayeb/Documents/Teaser+,Teco/TABULA-Analyses_DE-Typology_ResultData.xlsx",
                    sheet_name=0)
 
@@ -190,6 +190,15 @@ for Code_BuildingVariant, Code_BuiSysCombi, Description_SysH, Description_SysW, 
         Code_BuildingVariant, Code_BuiSysCombi, Description_SysH, Description_SysW, Year1_Building, Year2_Building):
 
     try:
+        # make sure no two archetypes have the same name:
+        if Code_BuildingVariant == 0:
+            break
+        if Code_BuildingVariant in json_dict:
+            i = 0
+            while Code_BuildingVariant + "." + str(i) in json_dict:
+                i += 1
+            Code_BuildingVariant += "." + str(i)
+
         json_dict.update({Code_BuildingVariant: {"Building_age_group": [Year1_Building, Year2_Building],
                                                  "Code_BuiSysCombi": Code_BuiSysCombi,
                                                  "Description_SystemHeating": Description_SysH,
@@ -197,10 +206,11 @@ for Code_BuildingVariant, Code_BuiSysCombi, Description_SysH, Description_SysW, 
                                                  "Utilities": []
                                                  }})
 
+        # building type: SFH, MFH, TH, AB
         Building_type = Code_BuildingVariant[
                         Code_BuildingVariant.find('.', 4) + 1: Code_BuildingVariant.find('.', Code_BuildingVariant.find('.', 4) + 1)]
 
-        # check for gas/oil condensing boiler case
+        # check for gas/oil condensing boiler/low temperature cases:
         if 'gas central heating' in Description_SysH:
             if 'condensing boiler' in Description_SysH:
 
@@ -208,7 +218,7 @@ for Code_BuildingVariant, Code_BuiSysCombi, Description_SysH, Description_SysW, 
                 unit, lca_data = get_indicator_values(link)
 
                 json_dict[Code_BuildingVariant]["Utilities"].append(
-                    {"name": 'Gas condensing boiler', "lca_data": lca_data, "Unit": unit})
+                    {"name": 'Gas condensing boiler'+ capacities1[Building_type], "lca_data": lca_data, "Unit": unit})
 
             elif 'low temperature' in Description_SysH:
 
@@ -216,7 +226,7 @@ for Code_BuildingVariant, Code_BuiSysCombi, Description_SysH, Description_SysW, 
                 unit, lca_data = get_indicator_values(link)
 
                 json_dict[Code_BuildingVariant]["Utilities"].append(
-                    {"name": 'Gas low temperature', "lca_data": lca_data, "Unit": unit})
+                    {"name": 'Gas low temperature' + capacities1[Building_type], "lca_data": lca_data, "Unit": unit})
 
         if 'oil central heating' in Description_SysH:
             if 'condensing boiler' in Description_SysH:
@@ -225,7 +235,7 @@ for Code_BuildingVariant, Code_BuiSysCombi, Description_SysH, Description_SysW, 
                 unit, lca_data = get_indicator_values(link)
 
                 json_dict[Code_BuildingVariant]["Utilities"].append(
-                    {"name": 'Oil condensing boiler', "lca_data": lca_data, "Unit": unit})
+                    {"name": 'Oil condensing boiler'+ capacities1[Building_type], "lca_data": lca_data, "Unit": unit})
 
             elif 'low temperature' in Description_SysH:
 
@@ -233,8 +243,9 @@ for Code_BuildingVariant, Code_BuiSysCombi, Description_SysH, Description_SysW, 
                 unit, lca_data = get_indicator_values(link)
 
                 json_dict[Code_BuildingVariant]["Utilities"].append(
-                    {"name": 'Oil low temperature', "lca_data": lca_data, "Unit": unit})
+                    {"name": 'Oil low temperature'+ capacities1[Building_type], "lca_data": lca_data, "Unit": unit})
 
+        # search for the rest of the utilities:
         for utility in dict_SysH:
             if dict_SysH[utility] in Description_SysH:
 
@@ -251,19 +262,21 @@ for Code_BuildingVariant, Code_BuiSysCombi, Description_SysH, Description_SysW, 
                     link = get_utility_OEKOBAUDAT(utility)
                     unit, lca_data = get_indicator_values(link)
                 except Exception as e:
-                    lca_data = 'utility not found: ' + str(e)
+                    print('utility not found: ' + str(e))
+                    lca_data = 'utility not found'
                     unit = None
                     pass
 
                 json_dict[Code_BuildingVariant]["Utilities"].append({"name": utility, "lca_data": lca_data, "Unit": unit})
 
-
+        """
         for utility in dict_SysW:
             if dict_SysW[utility] in Description_SysW:
                 link = get_utility_OEKOBAUDAT(utility)
                 unit, lca_data = get_indicator_values(link)
 
                 json_dict[Code_BuildingVariant]["Utilities"].append({"name": utility, "lca_data": lca_data, "Unit": unit})
+        """
     except Exception as e:
         print("ERROR: ", e, " in:")
         print({Code_BuildingVariant: {"Building_age_group": [Year1_Building, Year2_Building],
@@ -272,6 +285,8 @@ for Code_BuildingVariant, Code_BuiSysCombi, Description_SysH, Description_SysW, 
                                       "Description_SystemWaterHeating": Description_SysW,
                                       }})
         pass
+
+print("len(json_dict): ", len(json_dict))
 
 with open("utilities.json", 'w') as writer:
     writer.write(json.dumps(json_dict, ensure_ascii=False))
