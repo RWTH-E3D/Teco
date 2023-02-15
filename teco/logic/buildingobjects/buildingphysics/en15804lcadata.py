@@ -464,6 +464,15 @@ class En15804LcaData(object):
         if self._check_en15804indicatorvalue_class(value, var_name = "adpf"):
             if self._check_unit(value.unit, "MJ", "adpf"):
                 self._adpf = value
+
+    @property
+    def name(self):
+        return self._name
+    
+    @name.setter
+    def name(self, value):
+        self._name = value
+
     
     def set_values(self, **values):
         """Procedure to set all object-attributes at once
