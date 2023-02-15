@@ -218,7 +218,7 @@ for Code_BuildingVariant, Code_BuiSysCombi, Description_SysH, Description_SysW, 
                 unit, lca_data = get_indicator_values(link)
 
                 json_dict[Code_BuildingVariant]["Utilities"].append(
-                    {"name": 'Gas condensing boiler'+ capacities1[Building_type], "lca_data": lca_data, "Unit": unit})
+                    {"name": 'Gas condensing boiler', "capacity": capacities1[Building_type], "lca_data": lca_data, "Unit": unit})
 
             elif 'low temperature' in Description_SysH:
 
@@ -226,7 +226,7 @@ for Code_BuildingVariant, Code_BuiSysCombi, Description_SysH, Description_SysW, 
                 unit, lca_data = get_indicator_values(link)
 
                 json_dict[Code_BuildingVariant]["Utilities"].append(
-                    {"name": 'Gas low temperature' + capacities1[Building_type], "lca_data": lca_data, "Unit": unit})
+                    {"name": 'Gas low temperature', "capacity": capacities1[Building_type], "lca_data": lca_data, "Unit": unit})
 
         if 'oil central heating' in Description_SysH:
             if 'condensing boiler' in Description_SysH:
@@ -235,7 +235,7 @@ for Code_BuildingVariant, Code_BuiSysCombi, Description_SysH, Description_SysW, 
                 unit, lca_data = get_indicator_values(link)
 
                 json_dict[Code_BuildingVariant]["Utilities"].append(
-                    {"name": 'Oil condensing boiler'+ capacities1[Building_type], "lca_data": lca_data, "Unit": unit})
+                    {"name": 'Oil condensing boiler', "capacity": capacities1[Building_type], "lca_data": lca_data, "Unit": unit})
 
             elif 'low temperature' in Description_SysH:
 
@@ -243,7 +243,7 @@ for Code_BuildingVariant, Code_BuiSysCombi, Description_SysH, Description_SysW, 
                 unit, lca_data = get_indicator_values(link)
 
                 json_dict[Code_BuildingVariant]["Utilities"].append(
-                    {"name": 'Oil low temperature'+ capacities1[Building_type], "lca_data": lca_data, "Unit": unit})
+                    {"name": 'Oil low temperature', "capacity": capacities1[Building_type], "lca_data": lca_data, "Unit": unit})
 
         # search for the rest of the utilities:
         for utility in dict_SysH:
