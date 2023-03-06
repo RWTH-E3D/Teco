@@ -175,14 +175,12 @@ class Building(Building):
 
         """
         if self.simulated_heat_load is not None:
-            previous_ts = None
-            
+
             result = 0
             
             for data_tp in self.simulated_heat_load:
-                if previous_ts is not None:
-                    result = result + data_tp[1] * (data_tp[0] - previous_ts)
-                previous_ts = data_tp[0]
+
+                result = result + data_tp
             
             result = result * 0.000001
             
