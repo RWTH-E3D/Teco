@@ -136,7 +136,7 @@ df = pd.read_excel("C:/Users/tayeb/Documents/Teaser+,Teco/TABULA-Analyses_DE-Typ
                    sheet_name=0)
 
 a = 556
-b = 1359
+b = 566 #1359
 Code_BuildingVariant = df['Code_BuildingVariant'][a:b]
 Code_BuiSysCombi = df['Code_BuiSysCombi'][a:b]
 Description_SysH = df['Description_SysH'][a:b]
@@ -215,67 +215,104 @@ for Code_BuildingVariant, Code_BuiSysCombi, Description_SysH, Description_SysW, 
             if 'condensing boiler' in Description_SysH:
 
                 link = get_utility_OEKOBAUDAT('Gas condensing boiler' + capacities1[Building_type])
-                unit, lca_data = get_indicator_values(link)
+
+                unit_gwp, gwp_data = get_indicator_values(link)
+                unit_odp, odp_data = get_indicator_values(link, "Ozone Depletion Potential (ODP)")
+                unit_ap, ap_data = get_indicator_values(link, "Acidification potential (AP)")
 
                 json_dict[Code_BuildingVariant]["Utilities"].append(
-                    {"name": 'Gas condensing boiler', "capacity": capacities1[Building_type], "lca_data": lca_data, "Unit": unit})
+                    {"name": 'Gas condensing boiler', "capacity": capacities1[Building_type], "lca_data":
+                         [{"gwp_data": gwp_data, "gwp Unit": unit_gwp},
+                          {"odp_data": odp_data, "odp Unit": unit_odp},
+                          {"ap_data": ap_data, "ap Unit": unit_ap}]})
 
             elif 'low temperature' in Description_SysH:
 
                 link = get_utility_OEKOBAUDAT('Gas low temperature boiler' + capacities1[Building_type])
-                unit, lca_data = get_indicator_values(link)
+                unit_gwp, gwp_data = get_indicator_values(link)
+                unit_odp, odp_data = get_indicator_values(link, "Ozone Depletion Potential (ODP)")
+                unit_ap, ap_data = get_indicator_values(link, "Acidification potential (AP)")
 
                 json_dict[Code_BuildingVariant]["Utilities"].append(
-                    {"name": 'Gas low temperature', "capacity": capacities1[Building_type], "lca_data": lca_data, "Unit": unit})
+                    {"name": 'Gas low temperature', "capacity": capacities1[Building_type], "lca_data":
+                         [{"gwp_data": gwp_data, "gwp Unit": unit_gwp},
+                          {"odp_data": odp_data, "odp Unit": unit_odp},
+                          {"ap_data": ap_data, "ap Unit": unit_ap}]})
 
         if 'oil central heating' in Description_SysH:
             if 'condensing boiler' in Description_SysH:
 
                 link = get_utility_OEKOBAUDAT('Oil condensing boiler' + capacities1[Building_type])
-                unit, lca_data = get_indicator_values(link)
+                unit_gwp, gwp_data = get_indicator_values(link)
+                unit_odp, odp_data = get_indicator_values(link, "Ozone Depletion Potential (ODP)")
+                unit_ap, ap_data = get_indicator_values(link, "Acidification potential (AP)")
 
                 json_dict[Code_BuildingVariant]["Utilities"].append(
-                    {"name": 'Oil condensing boiler', "capacity": capacities1[Building_type], "lca_data": lca_data, "Unit": unit})
+                    {"name": 'Oil condensing boiler', "capacity": capacities1[Building_type], "lca_data":
+                         [{"gwp_data": gwp_data, "gwp Unit": unit_gwp},
+                          {"odp_data": odp_data, "odp Unit": unit_odp},
+                          {"ap_data": ap_data, "ap Unit": unit_ap}]})
 
             elif 'low temperature' in Description_SysH:
 
                 link = get_utility_OEKOBAUDAT('Oil low temperature boiler' + capacities1[Building_type])
-                unit, lca_data = get_indicator_values(link)
+                unit_gwp, gwp_data = get_indicator_values(link)
+                unit_odp, odp_data = get_indicator_values(link, "Ozone Depletion Potential (ODP)")
+                unit_ap, ap_data = get_indicator_values(link, "Acidification potential (AP)")
 
                 json_dict[Code_BuildingVariant]["Utilities"].append(
-                    {"name": 'Oil low temperature', "capacity": capacities1[Building_type], "lca_data": lca_data, "Unit": unit})
+                    {"name": 'Oil low temperature', "capacity": capacities1[Building_type], "lca_data":
+                         [{"gwp_data": gwp_data, "gwp Unit": unit_gwp},
+                          {"odp_data": odp_data, "odp Unit": unit_odp},
+                          {"ap_data": ap_data, "ap Unit": unit_ap}]})
 
         # search for the rest of the utilities:
         for utility in dict_SysH:
             if dict_SysH[utility] in Description_SysH:
-
+                capacity = 'None'
                 if utility == 'Pellet boiler':
-                    utility += capacities1[Building_type]
+                     capacity = capacities1[Building_type]
 
                 if 'Electric heat pump' in utility:
                     if '(air-water)' in utility:
-                        utility += capacities3[Building_type]
+                        capacity = capacities3[Building_type]
                     else:
-                        utility += capacities2[Building_type]
+                        capacity = capacities2[Building_type]
 
                 try:
                     link = get_utility_OEKOBAUDAT(utility)
-                    unit, lca_data = get_indicator_values(link)
+                    unit_gwp, gwp_data = get_indicator_values(link)
+                    unit_odp, odp_data = get_indicator_values(link, "Ozone Depletion Potential (ODP)")
+                    unit_ap, ap_data = get_indicator_values(link, "Acidification potential (AP)")
+
                 except Exception as e:
                     print('utility not found: ' + str(e))
-                    lca_data = 'utility not found'
-                    unit = None
-                    pass
+                    gwp_data = 'utility not found'
+                    unit_gwp = None
+                    odp_data = 'utility not found'
+                    unit_odp = None
+                    ap_data = 'utility not found'
+                    unit_ap = None
 
-                json_dict[Code_BuildingVariant]["Utilities"].append({"name": utility, "lca_data": lca_data, "Unit": unit})
+                pass
+
+                json_dict[Code_BuildingVariant]["Utilities"].append({"name": utility, "capacity": capacity, "lca_data":
+                         [{"gwp_data": gwp_data, "gwp Unit": unit_gwp},
+                          {"odp_data": odp_data, "odp Unit": unit_odp},
+                          {"ap_data": ap_data, "ap Unit": unit_ap}]})
 
         """
         for utility in dict_SysW:
             if dict_SysW[utility] in Description_SysW:
                 link = get_utility_OEKOBAUDAT(utility)
-                unit, lca_data = get_indicator_values(link)
+                unit_gwp, gwp_data = get_indicator_values(link)
+                unit_odp, odp_data = get_indicator_values(link, "Ozone Depletion Potential (ODP)")
+                unit_ap, ap_data = get_indicator_values(link, "Acidification potential (AP)")
 
-                json_dict[Code_BuildingVariant]["Utilities"].append({"name": utility, "lca_data": lca_data, "Unit": unit})
+                json_dict[Code_BuildingVariant]["Utilities"].append({"name": utility, "lca_data": 
+                         [{"gwp_data": gwp_data, "gwp Unit": unit_gwp},
+                          {"odp_data": odp_data, "odp Unit": unit_odp},
+                          {"ap_data": ap_data, "ap Unit": unit_ap}]})
         """
     except Exception as e:
         print("ERROR: ", e, " in:")
