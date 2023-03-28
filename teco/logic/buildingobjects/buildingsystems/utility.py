@@ -3,7 +3,6 @@
 from teco.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
 import json
 
-
 class Utility(object):
     """Utility Class
 
@@ -21,16 +20,17 @@ class Utility(object):
         ----------
         """
 
-    def __init__(self, parent=None):
+    def __init__(self, parent=None, name=None):
         """Constructor for Utility
         """
 
-        self.parent = parent
-        self.lcadata = En15804LcaData()
+        self._parent = parent
+        self._lcadata = En15804LcaData()
+        self._name = name
 
     @property
     def parent(self):
-        return self.__parent
+        return self._parent
 
     @parent.setter
     def parent(self, value):
@@ -38,27 +38,19 @@ class Utility(object):
         import inspect
 
         if inspect.isclass(Building):
-            self.__parent = value
+            self._parent = value
 
-    def add_utility(self,building_archetype):  # not completely implemented!
-        """
-        Add utility to the en15804lcadata class of archetype
+    @property
+    def name(self):
+        return self._name
 
-        Parameters
-        ----------
-        building_archetype: str
+    @name.setter
+    def name(self, value):
+        from teaser.logic.buildingobjects.building import Building
+        import inspect
 
-        Returns
-        -------
+        if inspect.isclass(Building):
+            self._name = value
 
-        """
-        with open("C:\\Users\\tayeb\\teco\\teco\\data\\input\\inputdata\\utilities.json",'r') as f:
-
-            file= json.load(f)
-            print(file)
-            self.lcadata.gwp.unit = file[building_archetype]['Utilities']['Unit']
-
-            # store in en15804lcadata class object
-            for stage in file[building_archetype]['Utilities']["lca_data"]:
-                setattr(self.lcadata.gwp, stage, float(stage.value))
-
+    def load_lca_data_from_json(self):
+        return
