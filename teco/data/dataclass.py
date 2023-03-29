@@ -87,10 +87,14 @@ class DataClass(object):
         self.lca_data_fallback_bind = None
         self.path_lcad_fallback = utils.get_full_path("data/input/inputdata/LcaDataFallback.json")
 
+        self.utilities_data_bind = None
+        self.path_ud = utils.get_full_path("data/input/inputdata/utilities.json")
+
         self.load_uc_binding()
         self.load_mat_binding()
         self.load_lcad_binding()
         self.load_lcad_fallback_binding()
+        self.load_ud_binding()
         
         
 
@@ -173,3 +177,16 @@ class DataClass(object):
                 with open(self.path_lcad_fallback, "w") as f:
                     self.lca_data_fallback_bind = collections.OrderedDict()
                     self.lca_data_fallback_bind["version"] = "0.7"
+
+    def load_ud_binding(self):
+        """Load utility data json into binding classes."""
+        if self.path_ud.endswith("json"):
+            if os.path.isfile(self.path_ud):
+                try:
+                    with open(self.path_ud, "r+") as f:
+                        self.utilities_data_bind = json.load(f, object_pairs_hook=collections.OrderedDict)
+                except json.decoder.JSONDecodeError:
+                    print("Your utility data file seems to be broken.")
+            else:
+                with open(self.path_ud, "w") as f:
+                    self.utilities_data_bind = collections.OrderedDict()
