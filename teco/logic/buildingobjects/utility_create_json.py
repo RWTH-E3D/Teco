@@ -54,7 +54,10 @@ def get_all_indicators(link):
 
         json_dict_vals = {}
         row = df.loc[i:]
-        json_dict_vals.update({("unit", row.iloc[0].loc['Unit'])})
+        if row.iloc[0].loc['Unit'] == 'm3':
+            json_dict_vals.update({("unit", 'm^3')})
+        else:
+            json_dict_vals.update({("unit", row.iloc[0].loc['Unit'])})
 
         for stage in df.columns[3:]:
             json_dict_vals.update({(str.lower(stage[stage.rfind(' ') + 1:].replace("-", "_")),
@@ -72,8 +75,10 @@ def get_all_indicators(link):
 
         json_dict_vals = {}
         row = df.loc[i:]
+
         json_dict_vals.update({("unit", row.iloc[0].loc['Unit'])})
-        for stage in df.columns[3:]:
+
+        for stage in df.columns[2:]:
             json_dict_vals.update({(str.lower(stage[stage.rfind(' ') + 1:].replace("-", "_")),
                                float((str(row.iloc[0].loc[stage])[:str(row.iloc[0].loc[stage]).find("$")]).lower()))})
 
