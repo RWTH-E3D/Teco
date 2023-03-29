@@ -12,9 +12,7 @@ class Utility(object):
         ----------
 
         parent: Building()
-            The parent class of this object, the Building the Utility belongs to.
-            Allows for better control of hierarchical structures.
-            (default: None)
+
 
         Attributes
         ----------
@@ -52,5 +50,6 @@ class Utility(object):
         if inspect.isclass(Building):
             self._name = value
 
-    def load_lca_data_from_json(self):
-        return
+    @property
+    def lca_data(self):
+        return self._lcadata
