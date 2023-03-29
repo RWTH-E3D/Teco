@@ -195,10 +195,11 @@ for Code_BuildingVariant, Code_BuiSysCombi, Description_SysH, Description_SysW, 
             Code_BuildingVariant += "." + str(i)
 
         json_dict[Code_BuildingVariant] = {"Building_age_group": [Year1_Building, Year2_Building],
-                                                 "Code_BuiSysCombi": Code_BuiSysCombi,
-                                                 "Description_SystemHeating": Description_SysH,
-                                                 "Description_SystemWaterHeating": Description_SysW
-                                                 }
+                                           "Code_BuiSysCombi": Code_BuiSysCombi,
+                                           "Description_SystemHeating": Description_SysH,
+                                           "Description_SystemWaterHeating": Description_SysW,
+                                           "Utilities": {}
+                                           }
 
         # building type: SFH, MFH, TH, AB
         Building_type = Code_BuildingVariant[
@@ -210,7 +211,7 @@ for Code_BuildingVariant, Code_BuiSysCombi, Description_SysH, Description_SysW, 
 
                 link = get_utility_OEKOBAUDAT(driver, 'Gas condensing boiler' + capacities1[Building_type])
 
-                json_dict[Code_BuildingVariant]["Utilities"] = (get_all_indicators(link))
+                json_dict[Code_BuildingVariant]["Utilities"]['Gas condensing boiler' + capacities1[Building_type]] = (get_all_indicators(link))
 
                 #json_dict[Code_BuildingVariant]["Utilities"].append({"name": 'Gas condensing boiler', "capacity": capacities1[Building_type], "lca_data":[{"name": "gwp", "data": gwp_data, "gwp Unit": unit_gwp}]})
 
@@ -218,25 +219,25 @@ for Code_BuildingVariant, Code_BuiSysCombi, Description_SysH, Description_SysW, 
 
                 link = get_utility_OEKOBAUDAT(driver, 'Gas low temperature boiler' + capacities1[Building_type])
 
-                json_dict[Code_BuildingVariant]["Utilities"] = (get_all_indicators(link))
+                json_dict[Code_BuildingVariant]["Utilities"]['Gas low temperature boiler' + capacities1[Building_type]] = (get_all_indicators(link))
 
         if 'oil central heating' in Description_SysH:
             if 'condensing boiler' in Description_SysH:
 
                 link = get_utility_OEKOBAUDAT(driver, 'Oil condensing boiler' + capacities1[Building_type])
 
-                json_dict[Code_BuildingVariant]["Utilities"] = (get_all_indicators(link))
+                json_dict[Code_BuildingVariant]["Utilities"]['Oil condensing boiler' + capacities1[Building_type]] = (get_all_indicators(link))
 
             elif 'low temperature' in Description_SysH:
 
                 link = get_utility_OEKOBAUDAT(driver, 'Oil low temperature boiler' + capacities1[Building_type])
 
-                json_dict[Code_BuildingVariant]["Utilities"] = (get_all_indicators(link))
+                json_dict[Code_BuildingVariant]["Utilities"]['Oil low temperature boiler' + capacities1[Building_type]] = (get_all_indicators(link))
 
         # search for the rest of the utilities:
         for utility in dict_SysH:
             if dict_SysH[utility] in Description_SysH:
-                capacity = 'None'
+                capacity = ''
                 if utility == 'Pellet boiler':
                      capacity = capacities1[Building_type]
 
@@ -249,7 +250,7 @@ for Code_BuildingVariant, Code_BuiSysCombi, Description_SysH, Description_SysW, 
                 try:
                     link = get_utility_OEKOBAUDAT(driver, utility)
 
-                    json_dict[Code_BuildingVariant]["Utilities"] = (get_all_indicators(link))
+                    json_dict[Code_BuildingVariant]["Utilities"][utility + capacity] = (get_all_indicators(link))
 
                 except Exception as e:
 
@@ -262,6 +263,8 @@ for Code_BuildingVariant, Code_BuiSysCombi, Description_SysH, Description_SysW, 
             if dict_SysW[utility] in Description_SysW:
                 link = get_utility_OEKOBAUDAT(driver, utility)
                 json_dict[Code_BuildingVariant]["Utilities"] = (get_all_indicators(link))
+                
+                json_dict[Code_BuildingVariant]["Utilities"]["name"] = utility
         """
     except Exception as e:
         print("ERROR: ", e, " in:")
