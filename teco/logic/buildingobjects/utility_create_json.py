@@ -276,7 +276,7 @@ for Code_BuildingVariant, Code_BuiSysCombi, Description_SysH, Description_SysW, 
         print(Code_BuildingVariant)
         pass
 
-with open("../../data/input/inputdata/utilities.json", 'w') as writer:
+with open("../../data/input/inputdata/Utilities.json", 'w') as writer:
     writer.write(json.dumps(json_dict, ensure_ascii=False))
 
 time.sleep(1)

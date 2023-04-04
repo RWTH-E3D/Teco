@@ -88,7 +88,7 @@ class DataClass(object):
         self.path_lcad_fallback = utils.get_full_path("data/input/inputdata/LcaDataFallback.json")
 
         self.utilities_data_bind = None
-        self.path_ud = utils.get_full_path("data/input/inputdata/utilities.json")
+        self.path_ud = utils.get_full_path("data/input/inputdata/Utilities.json")
 
         self.load_uc_binding()
         self.load_mat_binding()
