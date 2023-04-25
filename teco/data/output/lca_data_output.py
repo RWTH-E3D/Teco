@@ -43,6 +43,7 @@ def save_lca_data(lca_data, data_class):
         data_class.lca_data_bind[lca_data.lca_data_id]["name"] = lca_data.name
         
         data_class.lca_data_bind[lca_data.lca_data_id]["pere"] = lca_data.pere.get_values_as_dict()
+        data_class.lca_data_bind[lca_data.lca_data_id]["perm"] = lca_data.perm.get_values_as_dict()
         data_class.lca_data_bind[lca_data.lca_data_id]["pert"] = lca_data.pert.get_values_as_dict()
         data_class.lca_data_bind[lca_data.lca_data_id]["penre"] = lca_data.penre.get_values_as_dict()
         data_class.lca_data_bind[lca_data.lca_data_id]["penrm"] = lca_data.penrm.get_values_as_dict()
@@ -125,6 +126,7 @@ def save_lca_data_fallback(lca_data, data_class):
         data_class.lca_data_fallback_bind[lca_data.lca_data_id]["name"] = lca_data.name
         
         data_class.lca_data_fallback_bind[lca_data.lca_data_id]["pere"] = lca_data.pere.get_values_as_dict()
+        data_class.lca_data_fallback_bind[lca_data.lca_data_id]["perm"] = lca_data.perm.get_values_as_dict()
         data_class.lca_data_fallback_bind[lca_data.lca_data_id]["pert"] = lca_data.pert.get_values_as_dict()
         data_class.lca_data_fallback_bind[lca_data.lca_data_id]["penre"] = lca_data.penre.get_values_as_dict()
         data_class.lca_data_fallback_bind[lca_data.lca_data_id]["penrm"] = lca_data.penrm.get_values_as_dict()
