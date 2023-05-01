@@ -72,6 +72,12 @@ class DataClass(object):
                 )
             )
             self.load_tb_binding()
+        elif self.used_statistic == "kfw":
+            self.path_tb = utils.get_full_path(
+                "data/input/inputdata/TypeElements_kfw.json"
+
+            )
+            self.load_tb_binding()
         elif self.used_statistic is None:
             pass
         self.material_bind = None
