@@ -647,28 +647,7 @@ class En15804IndicatorValue(object):
         return_dict["unit"] = self.unit
         
         return return_dict
-                    
-    def check_required_stages(self, required_stages = None):
-        """Function that checks whether all required stages have a value. If this is not the case, an error is raised.
 
-        Parameters
-        ----------
-        required_stages : list of strings
-             List of stages that must be present in the data sets for the LCA. The program issues an error if a data set
-             does not contain values for one of the required stages. Stages A1-A3, C3 and C4 are required as default.
-        """
-        if required_stages is None:
-            if self.parent is None:
-                raise ValueError("Please specify the required stages for the calculation!")
-            else:
-                required_stages = self.parent.parent.parent.parent.parent.required_stages
-
-        for stage in required_stages:
-            if stage not in self.stages():
-                if self.parent is not None:
-                    raise ValueError(f"LCA-Dataset '{parent.name}' (ID: {parent.id}) has no value for the required stage '{stage}'!")
-                else:
-                    raise ValueError(f"LCA-Dataset has no value for the required stage '{stage}'!")
 
            
                 
