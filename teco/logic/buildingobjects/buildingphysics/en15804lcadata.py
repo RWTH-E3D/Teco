@@ -614,52 +614,14 @@ class En15804LcaData(object):
         
         if data_class is None:
             data_class = self.parent.parent.parent.parent.data
-        if self.parent is not None:
-            required_stages = self.parent.parent.parent.parent.parent.parent.required_stages
-        else:
-            required_stages = []
 
 
         lca_data_input.load_en15804_lca_data_id(lca_data=self,
                                      lca_id=lca_id,
                                      data_class=data_class)
 
-        self.check_required_stages(required_stages)
 
-    def check_required_stages(self, required_stages = None):
-        """Function that checks whether all required stages have a value. If this is not the case, an error is raised.
 
-        Parameters
-        ----------
-        required_stages : list of strings
-             List of stages that must be present in the data sets for the LCA. The program issues an error if a data set
-             does not contain values for one of the required stages. Stages A1-A3, C3 and C4 are required as default.
-        """
-        self.pere.check_required_stages(required_stages)
-        self.perm.check_required_stages(required_stages)
-        self.pert.check_required_stages(required_stages)
-        self.penre.check_required_stages(required_stages)
-        self.penrm.check_required_stages(required_stages)
-        self.penrt.check_required_stages(required_stages)
-        self.sm.check_required_stages(required_stages)
-        self.rsf.check_required_stages(required_stages)
-        self.nrsf.check_required_stages(required_stages)
-        self.fw.check_required_stages(required_stages)
-        self.hwd.check_required_stages(required_stages)
-        self.nhwd.check_required_stages(required_stages)
-        self.rwd.check_required_stages(required_stages)
-        self.cru.check_required_stages(required_stages)
-        self.mfr.check_required_stages(required_stages)
-        self.mer.check_required_stages(required_stages)
-        self.eee.check_required_stages(required_stages)
-        self.eet.check_required_stages(required_stages)
-        self.gwp.check_required_stages(required_stages)
-        self.odp.check_required_stages(required_stages)
-        self.pocp.check_required_stages(required_stages)
-        self.ap.check_required_stages(required_stages)
-        self.ep.check_required_stages(required_stages)
-        self.adpe.check_required_stages(required_stages)
-        self.adpf.check_required_stages(required_stages)
             
         
     def save_lca_data_template(self, data_class=None):
