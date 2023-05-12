@@ -148,13 +148,13 @@ class En15804LcaData(object):
         """
         
         if unit == unit_expected:
-            return(True)
+            return True
         else:
             if var_name:
                 print("Variable '{}' should be specified in {}".format(var_name, unit_expected))
             else:
                 print("Please insert value in {}".format(unit_expected))
-            return(False)
+            return False
         
     def _check_en15804indicatorvalue_class(self, value, var_name = None):
         """fuction to check if value is En15804IndicatorValue-Object. The  
@@ -177,15 +177,15 @@ class En15804LcaData(object):
 
         if value:
             if isinstance(value, En15804IndicatorValue): 
-                return(True)
+                return True
             else:
                 if var_name:
                     print("'{}' has to be an En15804IndicatorValue-Object!".format(var_name))
                 else:
                     print("Please insert a En15804IndicatorValue-Object!")
-                return(False)
+                return False
         else:
-            return(False)
+            return False
         
         
         
@@ -489,7 +489,7 @@ class En15804LcaData(object):
             
     def _ignore_none_mul(self, lca_indicator, scalar):
         if lca_indicator:
-            return(lca_indicator * scalar)
+            return lca_indicator * scalar
         else:
             return None
             
@@ -541,7 +541,7 @@ class En15804LcaData(object):
         new = En15804LcaData()
         new.set_values(**values)
         
-        return(new)
+        return new
 
         
     def __add__(self, other):
