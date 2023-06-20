@@ -1,6 +1,11 @@
 # Ignore the following files in GIT #
 ######################################
 
+#Specific Example file and district files
+Teco/Examples/script_paper.py
+Teco/script paper/input/citygml/district2/citygml_yoc_adder.py
+Teco/script paper/input/citygml/district2/Essen_Vogelheim_2021_12_26_only_ids_commented_BPs.gml
+Teco/script paper/input/citygml/district2/Essen_Vogelheim_2021_12_26_only_ids_commented_BPs_YOCed.gml
 # Python compiled files #
 #########################
 *.pyc
@@ -34,7 +39,7 @@ testing_teaserplus_lxml.py
 
 #PyCharm Settings #
 #####################
-.idea
+../.idea
 
 #Unit tests #
 #####################

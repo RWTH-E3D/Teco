@@ -9,7 +9,6 @@ from teaser.project import Project
 import math
 import os
 import helptest
-import warnings as warnings
 
 prj = Project(True)
 

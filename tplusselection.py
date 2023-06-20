@@ -210,7 +210,7 @@ def getGroundSurfaceCoorOfBuild(element, nss):
             if posList_E != None:
                 return get_3dPosList_from_str(posList_E.text)
 
-            else:  # case hamburg lod2 2020
+            else:  # case district3 lod2 2020
                 pos_Es = LoD_zero_E.findall('.//gml:pos', nss)
                 polygon = []
                 for pos_E in pos_Es:
@@ -225,7 +225,7 @@ def getGroundSurfaceCoorOfBuild(element, nss):
         if posList_E != None:  # case aachen lod2
             return get_3dPosList_from_str(posList_E.text)
 
-        else:  # case hamburg lod2 2020
+        else:  # case district3 lod2 2020
             pos_Es = groundSurface_E.findall('.//gml:pos', nss)
             polygon = []
             for pos_E in pos_Es:

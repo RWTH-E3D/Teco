@@ -5,7 +5,7 @@ Original Repo for CityLDT: https://gitlab.e3d.rwth-aachen.de/e3d-software-tools/
 """
 
 import os
-import teaserplus_gui as tg
+import teco as tg
 from PySide2 import QtWidgets, QtGui, QtCore
 
 
@@ -23,7 +23,7 @@ def screenSizer(self, posx, posy, width, height, app):
 def windowSetup(self, posx, posy, width, height, pypath, title, winFac = 1):
     """func for loading icon, setting size and title"""
     try:                                                                            # try to load e3d Icon
-        self.setWindowIcon(QtGui.QIcon(os.path.join(pypath, r'pictures\e3dIcon.png')))
+        self.setWindowIcon(QtGui.QIcon(os.path.join(pypath, r'pictures/e3dIcon.png')))
     except:
         print('error finding file icon')
     self.setGeometry(posx, posy, width * winFac, height * winFac)                   # setting window size
