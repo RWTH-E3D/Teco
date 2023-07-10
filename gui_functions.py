@@ -158,11 +158,11 @@ def select_gml(self) -> str:
 
 
 
-def select_folder(self, message : str = "Select Directory") -> str: #  textBox: QtWidgets.QLineEdit,
+def select_folder(self, textBox: QtWidgets.QLineEdit, message : str = "Select Directory") -> str:
     """func to select folder"""
     dirpath = QtWidgets.QFileDialog.getExistingDirectory(self, message)
     if dirpath:
-        # textBox.setText(dirpath)
+        textBox.setText(dirpath)
         return dirpath
     else:
         messageBox(self, "Important", "Valid Folder not selected")
@@ -623,6 +623,13 @@ def getDataFromTable(self) -> dict:
 
         if self.tbl_selBuildings.cellWidget(i, 6).currentIndex() != -1:
             valuesToChange["usage"] = self.tbl_selBuildings.cellWidget(i, 6).currentText()
+
+
+        if self.tbl_selBuildings.item(i, 7).text() != "":
+            valuesToChange["Method"] = self.tbl_selBuildings.item(i, 7).text()
+        else:
+            messageBox(self, "Important set method for buildings",
+                          "Please make sure to set a method for every building")
 
         if valuesToChange != {}:
             buildingsToChange[self.tbl_selBuildings.item(i, 0).text()] = valuesToChange
