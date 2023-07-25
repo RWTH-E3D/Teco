@@ -1,6 +1,6 @@
 ![E.ON EBC RWTH Aachen University](picturesyside_teco.png)
 
-# Teco - An extension to the TEASER+ tool for environmental impacts with input and output functionalities for CityGML and Energy ADE 
+# Teco - An extension to the TEASER+ tool for environmental impacts with input and output functionalities for CityGML and Energy ADE (v. 0.5.8)
 
 <!---[![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)-->
 
