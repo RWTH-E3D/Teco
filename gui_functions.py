@@ -587,6 +587,14 @@ def calcArea(points: list) -> float:
 def getDataFromTable(self) -> dict:
     """function to collect data from Table"""
     buildingsToChange = {}
+    # add info from add_building_data to buildingsToChange and valueDict
+    if hasattr(self.add_building_window, 'add_building_data'):
+        for building in self.add_building_window.add_building_data:
+            self.valueDict[building['name']]['YoC'] = self.add_building_window.add_building_data[building]['year_of_construction']
+            self.valueDict[building['name']]['SAG'] = self.add_building_window.add_building_data[building]['number_of_floors']
+            self.valueDict[building['name']]['storeyHeight'] = self.add_building_window.add_building_data[building]['height_of_floors']
+
+
     for i in range(1, self.tbl_selBuildings.rowCount()):
         buildingname = self.tbl_selBuildings.item(i, 0).text()
         valuesToChange = {}

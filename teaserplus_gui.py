@@ -17,13 +17,15 @@ Original Repo for CityLDT: https://gitlab.e3d.rwth-aachen.de/e3d-software-tools/
 # import of libraries
 import os
 import sys
+import time
+
 from PySide6 import QtWidgets, QtCore, QtGui
 
 import gui_functions as gf
 from teco.project import Project  # or teco?
 from teaser.logic import utilities  # or teco?
 from teaser.logic.buildingobjects.building import Building
-import teaser.data.input.citygml_input as cg
+import teaser.data.input.citygml_input as citygml_in
 import simulate as sim
 from teco.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
 
@@ -42,6 +44,7 @@ SIZEFACTOR = 0
 SIZER = True
 
 teaser_path = os.path.join("C:/Users/tayeb/teaser")
+output_path = os.path.join("C:/Users/tayeb/TEASEROutput")
 
 
 #  = os.path.dirname(os.path.realpath(__file__))        # path of script
@@ -175,7 +178,7 @@ class MainWindow(QtWidgets.QWidget):
             pass
 
     def func_selectFile(self):
-        res = r"C:\Users\tayeb\teco\Examples\Bedburg_LoD2_enriched.gml" # res = gf.select_gml(self)
+        res = r"C:\Users\tayeb\teco\Examples\Bedburg_LoD2_enriched.gml"  # res = gf.select_gml(self)
         if res:
             self.inpPath = res
             gf.get_files(self)
@@ -422,7 +425,7 @@ class TeaserEnrichment(QtWidgets.QWidget):
             self.valueDict[self.buildingDict[key]["buildingname"]] = self.buildingDict[key]["values"]
 
         self.tbl_selBuildings.itemChanged.connect(self.tableUpdater)
-
+    '''
         # update title of groubbox according to number of buildings
         ttl = 'Number of selected buildings - ' + str(self.cB_curBuilding.count() - 1)
         self.gB_buildingParameters.setTitle(ttl)
@@ -618,7 +621,7 @@ class TeaserEnrichment(QtWidgets.QWidget):
         # self.lGrid.addWidget(gf.divider(), 14, 0, 1, 2)
         #
         # self.btn_execute = QtWidgets.QPushButton("Click to execute")
-        # self.lGrid.addWidget(self.btn_execute, 15, 0, 1, 1
+        # self.lGrid.addWidget(self.btn_execute, 15, 0, 1, 1 '''
 
     def func_saveToCityGML(self, newFile: bool) -> None:
         """function to save changes from self.tbl_selBuildings to either the exisitng or a new file"""
@@ -752,6 +755,7 @@ class Eco(QtWidgets.QWidget):
         self.prj = Project(True)
         self.prj.name = "GUI_test"
         self.prj.used_library_calc = "AixLib"
+        self.tbl_selBuildings = QtWidgets.QTableWidget()
         self.initUI()
 
         self.building_groups = []
@@ -811,6 +815,8 @@ class Eco(QtWidgets.QWidget):
         self.fileToSimulate = ""
         # for checking if recent changes are identical to saved changes
         self.savedChanges = {}
+
+        self.add_building_window = addBuilding(self.prj, self, self.buildingDict)  # needed for setupSimulation
 
         # add row for select for all button
         self.tbl_selBuildings.insertRow(0)
@@ -912,12 +918,10 @@ class Eco(QtWidgets.QWidget):
                 #### Column 7 ####
                 newItem = QtWidgets.QTableWidgetItem(str(self.comB_method.currentText()))
                 self.tbl_selBuildings.setItem(rowCount, 7, newItem)
-                # ToDo look for method in file
 
                 #### Column 8 ####
                 newItem = QtWidgets.QTableWidgetItem("to \n do")
                 self.tbl_selBuildings.setItem(rowCount, 8, newItem)
-                # ToDo look for heat energy carrier in file
 
         self.tbl_selBuildings.resizeRowsToContents()
         gf.resize_header(self)
@@ -929,11 +933,9 @@ class Eco(QtWidgets.QWidget):
 
         self.vbox.addLayout(self.bGrid)
 
-
         self.btn_add_bldg = QtWidgets.QPushButton('Add building or utility')
         self.btn_add_bldg.clicked.connect(self.add_building)
         self.lGrid.addWidget(self.btn_add_bldg, 0, 1, 1, 1)
-
 
         self.btn_close = QtWidgets.QPushButton('Close')
         self.btn_close.clicked.connect(self.close)
@@ -942,6 +944,10 @@ class Eco(QtWidgets.QWidget):
         # self.btn_saveToCityGML = QtWidgets.QPushButton("Save to CityGML file")
         # self.btn_saveToCityGML.clicked.connect(lambda: self.func_saveToCityGML(False))
         # self.lGrid.addWidget(self.btn_saveToCityGML, 1, 0, 1, 1)
+
+        self.btn_remove_entry = QtWidgets.QPushButton('Remove selected entry')
+        self.btn_remove_entry.clicked.connect(self.func_remove_entry)
+        self.lGrid.addWidget(self.btn_remove_entry, 2, 1, 1, 1)
 
         self.btn_saveToNewCityGML = QtWidgets.QPushButton("Save to new CityGML file")
         self.btn_saveToNewCityGML.clicked.connect(lambda: self.func_saveToCityGML(True))
@@ -1114,7 +1120,7 @@ class Eco(QtWidgets.QWidget):
 
         global POSX, POSY
         POSX, POSY = gf.windowPosition(self)
-        gf.next_window(self, addBuilding(self.prj, self, self.tbl_selBuildings, self.buildingDict), False)
+        gf.next_window(self, self.add_building_window, False)
 
     def func_about(self) -> None:
         global POSX, POSY
@@ -1131,12 +1137,12 @@ class Eco(QtWidgets.QWidget):
 
     def func_select_first_use_for_all(self):
         """Function to choose value of the dropdown menus of Use the same as the first drop-down menu"""
-        i=0
+        i = 0
         for key in self.buildingDict:
             if self.buildingDict[key]["selected"]:
                 combBox = self.combBoxesUse[i]
                 combBox.setCurrentIndex(self.combBoxesUse[0].currentIndex())
-                i+=1
+                i += 1
 
     def func_select_first_yoc_for_all(self):
         """Function to choose value of the dropdown menus of YOC the same as the first drop-down menu"""
@@ -1149,6 +1155,17 @@ class Eco(QtWidgets.QWidget):
         """Function to close the eco-window
         """
         self.hide()
+
+    def func_remove_entry(self):
+        """Function to remove a building from the list
+        """
+        selected = self.tbl_selBuildings.selectionModel().selectedRows()
+        if selected:
+            for index in sorted(selected):
+                self.tbl_selBuildings.removeRow(index.row())
+                self.prj.buildings.pop(index.row())
+        else:
+            gf.messageBox(self, "Error", "Please select a row to remove")
 
 
 class SetupSimulation(QtWidgets.QWidget):
@@ -1178,77 +1195,18 @@ class SetupSimulation(QtWidgets.QWidget):
         self.uGrid = QtWidgets.QGridLayout()
         self.gB_categories.setLayout(self.uGrid)
 
-        self.chB_pere = QtWidgets.QCheckBox("PERE")
-        self.uGrid.addWidget(self.chB_pere, 1, 0, 1, 1)
+        checkbox_labels = [
+            "CRU", "MFR", "MER", "EEE", "EET", "GWP", "ODP", "POCP",
+            "AP", "EP", "ADPE", "ADPF", "PERE", "PERT", "PENRE", "PENRM",
+            "PENRT", "SM", "RSF", "NRSF", "FW", "HWD", "NHWD", "RWD"
+        ]
 
-        self.chB_pert = QtWidgets.QCheckBox("PERT")
-        self.uGrid.addWidget(self.chB_pert, 1, 1, 1, 1)
+        self.checkboxes = [QtWidgets.QCheckBox("All")]
+        for label in checkbox_labels:
+            self.checkboxes.append(QtWidgets.QCheckBox(label))
 
-        self.chB_penre = QtWidgets.QCheckBox("PENRE")
-        self.uGrid.addWidget(self.chB_penre, 1, 2, 1, 1)
-
-        self.chB_penrm = QtWidgets.QCheckBox("PENRM")
-        self.uGrid.addWidget(self.chB_penrm, 1, 3, 1, 1)
-
-        self.chB_penrt = QtWidgets.QCheckBox("PENRT")
-        self.uGrid.addWidget(self.chB_penrt, 1, 4, 1, 1)
-
-        self.chB_sm = QtWidgets.QCheckBox("SM")
-        self.uGrid.addWidget(self.chB_sm, 1, 5, 1, 1)
-
-        self.chB_rsf = QtWidgets.QCheckBox("RSF")
-        self.uGrid.addWidget(self.chB_rsf, 1, 6, 1, 1)
-
-        self.chB_nrsf = QtWidgets.QCheckBox("NRSF")
-        self.uGrid.addWidget(self.chB_nrsf, 1, 7, 1, 1)
-
-        self.chB_fw = QtWidgets.QCheckBox("FW")
-        self.uGrid.addWidget(self.chB_fw, 1, 8, 1, 1)
-
-        self.chB_hwd = QtWidgets.QCheckBox("HWD")
-        self.uGrid.addWidget(self.chB_hwd, 1, 9, 1, 1)
-
-        self.chB_nhwd = QtWidgets.QCheckBox("NHWD")
-        self.uGrid.addWidget(self.chB_nhwd, 1, 10, 1, 1)
-
-        self.chB_rwd = QtWidgets.QCheckBox("RWD")
-        self.uGrid.addWidget(self.chB_rwd, 1, 11, 1, 1)
-
-        self.chB_cru = QtWidgets.QCheckBox("CRU")
-        self.uGrid.addWidget(self.chB_cru, 0, 0, 1, 1)
-
-        self.chB_mfr = QtWidgets.QCheckBox("MFR")
-        self.uGrid.addWidget(self.chB_mfr, 0, 1, 1, 1)
-
-        self.chB_mer = QtWidgets.QCheckBox("MER")
-        self.uGrid.addWidget(self.chB_mer, 0, 2, 1, 1)
-
-        self.chB_eee = QtWidgets.QCheckBox("EEE")
-        self.uGrid.addWidget(self.chB_eee, 0, 3, 1, 1)
-
-        self.chB_eet = QtWidgets.QCheckBox("EET")
-        self.uGrid.addWidget(self.chB_eet, 0, 4, 1, 1)
-
-        self.chB_gwp = QtWidgets.QCheckBox("GWP")
-        self.uGrid.addWidget(self.chB_gwp, 0, 5, 1, 1)
-
-        self.chB_odp = QtWidgets.QCheckBox("ODP")
-        self.uGrid.addWidget(self.chB_odp, 0, 6, 1, 1)
-
-        self.chB_pocp = QtWidgets.QCheckBox("POCP")
-        self.uGrid.addWidget(self.chB_pocp, 0, 7, 1, 1)
-
-        self.chB_ap = QtWidgets.QCheckBox("AP")
-        self.uGrid.addWidget(self.chB_ap, 0, 8, 1, 1)
-
-        self.chB_ep = QtWidgets.QCheckBox("EP")
-        self.uGrid.addWidget(self.chB_ep, 0, 9, 1, 1)
-
-        self.chB_adpe = QtWidgets.QCheckBox("ADPE")
-        self.uGrid.addWidget(self.chB_adpe, 0, 10, 1, 1)
-
-        self.chB_adpf = QtWidgets.QCheckBox("ADPF")
-        self.uGrid.addWidget(self.chB_adpf, 0, 11, 1, 1)
+        for i, checkbox in enumerate(self.checkboxes):
+            self.uGrid.addWidget(checkbox, i // 9, i % 9, 1, 1)
 
         self.mGrid = QtWidgets.QGridLayout()
         self.vbox.addLayout(self.mGrid)
@@ -1297,13 +1255,13 @@ class SetupSimulation(QtWidgets.QWidget):
         self.lbl_epdElectrical = QtWidgets.QLabel("Enter EPD for electrical energy")
         self.lGrid.addWidget(self.lbl_epdElectrical, 0, 0, 1, 1)
 
-        self.lbl_spacer = QtWidgets.QLabel("")
-        self.lGrid.addWidget(self.lbl_spacer, 0, 1, 1, 1)
+        self.lbl_space = QtWidgets.QLabel("")
+        self.lGrid.addWidget(self.lbl_space, 0, 1, 1, 1)
 
         self.lbl_epdCarriers = QtWidgets.QLabel("Enter EPDs and primary energy factors for heat energy carriers")
         self.lGrid.addWidget(self.lbl_epdCarriers, 0, 2, 1, 4)
 
-        self.txtB_epdElectrical = QtWidgets.QLineEdit("")
+        self.txtB_epdElectrical = QtWidgets.QLineEdit("c869c47e-ce43-45b4-b640-b0cd1746e450")
         self.txtB_epdElectrical.setPlaceholderText("UUID from OEKOBAUDAT.de")
         self.lGrid.addWidget(self.txtB_epdElectrical, 1, 0, 1, 1)
 
@@ -1311,24 +1269,25 @@ class SetupSimulation(QtWidgets.QWidget):
         self.lGrid.addWidget(self.lbl_carrier1, 1, 2, 1, 1)
 
         self.comB_carrier1 = QtWidgets.QComboBox()
+        self.comB_carrier1.addItem("c869c47e-ce43-45b4-b640-b0cd1746e450")
         self.comB_carrier1.setPlaceholderText("UUID from OEKOBAUDAT.de")
         self.lGrid.addWidget(self.comB_carrier1, 1, 3, 1, 2)
 
         self.txtB_carrier1PEF = QtWidgets.QLineEdit("")
         self.txtB_carrier1PEF.setPlaceholderText("PEF")
-        self.lGrid.addWidget(self.txtB_carrier1PEF, 1, 5, 1, 1) # ToDo: set range
+        self.lGrid.addWidget(self.txtB_carrier1PEF, 1, 5, 1, 1)  # ToDo: set range
 
         self.lbl_carrier2 = QtWidgets.QLabel("Carrier2")
         self.lGrid.addWidget(self.lbl_carrier2, 2, 2, 1, 1)
 
         self.comB_carrier2 = QtWidgets.QComboBox()
+
         self.comB_carrier2.setPlaceholderText("UUID from OEKOBAUDAT.de")
         self.lGrid.addWidget(self.comB_carrier2, 2, 3, 1, 2)
 
         self.txtB_carrier2PEF = QtWidgets.QLineEdit("")
-        self.txtB_carrier2PEF.setPlaceholderText("PEF") # ToDo: set range
+        self.txtB_carrier2PEF.setPlaceholderText("PEF")  # ToDo: set range
         self.lGrid.addWidget(self.txtB_carrier2PEF, 2, 5, 1, 1)
-
 
         self.lbl_carrierN = QtWidgets.QLabel("CarrierN")
         self.lGrid.addWidget(self.lbl_carrierN, 3, 2, 1, 1)
@@ -1338,13 +1297,13 @@ class SetupSimulation(QtWidgets.QWidget):
         self.lGrid.addWidget(self.comB_carrierN, 3, 3, 1, 2)
 
         self.txtB_carrierNPEF = QtWidgets.QLineEdit("")
-        self.txtB_carrierNPEF.setPlaceholderText("PEF") # ToDo: set range
+        self.txtB_carrierNPEF.setPlaceholderText("PEF")  # ToDo: set range
         self.lGrid.addWidget(self.txtB_carrierNPEF, 3, 5, 1, 1)
 
         self.txtB_temporalBoundary = QtWidgets.QLabel("Enter temporal boundary")
         self.lGrid.addWidget(self.txtB_temporalBoundary, 2, 0, 1, 1)
 
-        self.lbl_temporalBoundary = QtWidgets.QLineEdit("")
+        self.lbl_temporalBoundary = QtWidgets.QLineEdit("50")
         self.lbl_temporalBoundary.setPlaceholderText("Time in years")
         self.lbl_temporalBoundary.setToolTip("Time in years")
         self.lGrid.addWidget(self.lbl_temporalBoundary, 2, 1, 1, 1)
@@ -1352,7 +1311,7 @@ class SetupSimulation(QtWidgets.QWidget):
         self.lbl_eff = QtWidgets.QLabel('Energy conversion efficiency')
         self.lGrid.addWidget(self.lbl_eff, 3, 0, 1, 1)
 
-        self.lbl_eff = QtWidgets.QLineEdit('')
+        self.lbl_eff = QtWidgets.QLineEdit('1.525')
         self.lGrid.addWidget(self.lbl_eff, 3, 1, 1, 1)
 
         self.dGrid = QtWidgets.QGridLayout()
@@ -1360,8 +1319,8 @@ class SetupSimulation(QtWidgets.QWidget):
         self.btn_start_sim = QtWidgets.QPushButton('Start simulation')
         self.dGrid.addWidget(self.btn_start_sim, 0, 0, 1, 1)
 
-        #self.btn_start_dym = QtWidgets.QPushButton('Start simulation with dymola')
-        #self.dGrid.addWidget(self.btn_start_dym, 0, 1, 1, 1)
+        # self.btn_start_dym = QtWidgets.QPushButton('Start simulation with dymola')
+        # self.dGrid.addWidget(self.btn_start_dym, 0, 1, 1, 1)
 
         self.btn_return = QtWidgets.QPushButton("Return to Teco LCA window")
         self.dGrid.addWidget(self.btn_return, 0, 1, 1, 1)
@@ -1371,11 +1330,10 @@ class SetupSimulation(QtWidgets.QWidget):
         self.btn_heatloadPath.clicked.connect(self.func_selectDir_heatload_path)
         self.btn_tecoLCApath.clicked.connect(self.func_selectDir_csv)
         self.btn_start_sim.clicked.connect(self.func_choose_program)
-        #self.btn_start_dym.clicked.connect(self.func_startSimulation)
+        # self.btn_start_dym.clicked.connect(self.func_startSimulation)
         self.btn_return.clicked.connect(self.func_return)
         self.btn_expPath.clicked.connect(self.func_selectDir_out)
-
-
+        self.btn_expPath.clicked.connect(self.func_selectDir_out)
 
     '''def func_expPath(self) -> None:
         """select export path"""
@@ -1384,17 +1342,15 @@ class SetupSimulation(QtWidgets.QWidget):
             self.expPath = path
         else:
             pass'''
+
     def func_choose_program(self):
 
         global POSX, POSY
         POSX, POSY = gf.windowPosition(self)
         gf.next_window(self, SimulationProgram(self), False)
 
-
     def func_startSimulation(self) -> None:
         """starts simulation proccess"""
-
-
 
         bp_counter = {}
 
@@ -1406,6 +1362,7 @@ class SetupSimulation(QtWidgets.QWidget):
         # print(self.buildingDict)
         if self.simulation_program == "OpenModelica":
             print("OpenModelica")
+            # ToDo add OpenModelica
         for key in self.buildingDict:
             if self.buildingDict[key]["selected"]:
                 buildingname = self.buildingDict[key]["buildingname"]
@@ -1436,7 +1393,6 @@ class SetupSimulation(QtWidgets.QWidget):
                 else:
                     bld_undefined.append(buildingname_teasered)
 
-
         weatherfile = self.comB_weatherFile.currentText()
 
         print(f"simulate file {self.fileToSimulate}")
@@ -1446,71 +1402,123 @@ class SetupSimulation(QtWidgets.QWidget):
         print(f"tabula_dk for these buildings: {bld_tabula_dk}")
         print(f"urbanrenet for these buildings: {bld_urbanrenet}")
         print(f"undefined method: {bld_undefined}")
-
         print(f"using the weatherfile {weatherfile}")
 
         print(f"and exporting to {self.txtB_expPath}")
 
         # create project
-        prj = Project(load_data=True)
-        prj.name = "GUI_Teco_LCA"
+        prj_lca = Project(load_data=True)
+        prj_lca.name = "GUI_Teco_LCA"
+        prj_lca.use_b4 = True
+
+        usage_dict = {"singlefamilyhouse": "sfh", "terracedhouse": "th", "multifamilyhouse": "mfh",
+                      "apartmentblock": "ap", 'singlefamilydwelling': "sfd", "office": "office"}
 
         buildingIDs = [self.buildingDict[key]["buildingname"] for key in self.buildingDict if
-                       self.buildingDict[key]["selected"]]
+                       self.buildingDict[key]["selected"]]  #### change to building name from tbl_selBuildings
         # and self.led_elec_lca != "" and self.led_heat_lca != "" time
         if self.txtB_expPath != "" and self.txtB_tecoLCApath != "" and self.lbl_temporalBoundary != "" and self.txtB_heatloadPath != "" \
-                and self.lbl_eff != "" and self.txtB_epdElectrical != "" and self.lbl_epdElectrical != "":
+                and self.lbl_eff != "" and self.txtB_epdElectrical != "" and self.txtB_epdElectrical != "":
 
             # add buildings here
             # gml_copy_list = cg.choose_gml_lxml(self.fileToSimulate, buildingIDs)
             # cg.load_gml_lxml(self.fileToSimulate, prj, method="To-Do", chosen_gmls=gml_copy_list)
-            prj.load_citygml(gml_bldg_ids=buildingIDs, path=self.fileToSimulate)
-            # sim.simulate(path="C:\\Users\\tayeb\\TEASEROutput", prj=prj, loading_time=3600, result_path="C:\\Users\\tayeb\\teco\\Examples\\cc.csv")
 
-            """additional parameters"""
-            prj.number_of_elements_calc = 2  # ToDo oder doch = 4?
-            prj.calc_all_buildings()
-            # prj.export_parameters_txt()
-            ######################## prj.weather_file_name = utilities.get_full_path(os.path.join("data", "input", "inputdata", "weatherdata", weatherfile))
-            prj.weather_file_name = weatherfile
-            prj.used_library_calc = "AixLib"
-            prj.export_aixlib()
+            # get text of items of tbl_selBuildings that represent usage
+            n = (self.parent.tbl_selBuildings).rowCount() - 1
+            try:
+                archetypes_list = [usage_dict[self.parent.combBoxesUse[i].currentText().split('/')[1]] for i in
+                                   range(n)]
 
-            # prj.save_citygml(file_name="C:\\Users\\tayeb\\TEASEROutput\\test.gml")
+                # check yoC isnt more than 1978 if usage is tabula_de/appartmentblock
+                for i in range(n):
+                    if self.parent.combBoxesUse[i].currentText().split('/')[1] == "apartmentblock":
+                        if int(self.parent.combBoxesYoC[i].currentText()) > 1978:
+                            print("Error: Apartment block archetype does not support years of construction after 1978")
 
-            prj.period_lca_scenario = int(self.lbl_temporalBoundary.text() or 0)
+            except IndexError:
+                print("usage missing")
+
+            yoc_list = []
+            for i in range(n):
+                if self.parent.tbl_selBuildings.item(i + 1, 2).text() != None:
+                    yoc_list.append(self.parent.tbl_selBuildings.item(i + 1, 2).text())
+                else:
+                    yoc_list.append(self.parent.combBoxesUse[i].currentText())
+
+            # prj_lca.load_citygml(method= self.parent.comB_method.currentText(),gml_bldg_ids=buildingIDs, path=self.fileToSimulate, archetypes=archetypes_list)
+            chosen_gmls = citygml_in.choose_gml_lxml(self.fileToSimulate, bldg_ids=buildingIDs)
+            gml_copy, boundary_box = citygml_in.load_gml_lxml(self.fileToSimulate, prj_lca,
+                                                              method=self.parent.comB_method.currentText(),
+                                                              chosen_gmls=chosen_gmls,
+                                                              archetypes=archetypes_list, yoc_list=yoc_list)
+
+            if hasattr(self.parent.add_building_window, 'add_building_data'):
+                for bldg in self.parent.add_building_window.add_building_data:
+                    prj_lca.add_residential(method=bldg["method"],
+                                            usage=bldg["usage"],
+                                            name=bldg["name"],
+                                            year_of_construction=bldg["year_of_construction"],
+                                            number_of_floors=bldg["number_of_floors"],
+                                            height_of_floors=bldg["height_of_floors"],
+                                            net_leased_area=bldg["net_leased_area"])
+                for i in range(self.parent.add_building_window.tbl_lca.rowCount()):
+                    building_no = int(self.parent.add_building_window.tbl_lca.item(i, 2).text())
+                    key = [key for key in self.prj.buildings if
+                           prj_lca.buildings[key].name == self.parent.tbl_selBuildings.item(building_no, 0).text()]
+                    prj_lca.buildings[key].add_lca_data_template(self.parent.add_building_window.tbl_lca.item(i, 0).text(),
+                                                                 float(self.parent.add_building_window.tbl_lca.item(i,
+                                                                                                                    1).text()))
+
+            # add lca_data using the data from the add_building_window in tbl_lca
+
+            # ToDo: add infos from teco window
+
+            # ToDo: remove unnecessary prj variable in the other classes
+
+            prj_lca.number_of_elements_calc = 2  # ToDo oder doch = 4?
+            prj_lca.calc_all_buildings()
+            # prj_lca.export_parameters_txt()
+            prj_lca.weather_file_path = utilities.get_full_path(
+                os.path.join("data", "input", "inputdata", "weatherdata", weatherfile))
+
+            # prj_lca.used_library_calc = "AixLib"
+            prj_lca.export_aixlib()
+
+            # prj_lca.save_citygml(file_name="C:\\Users\\tayeb\\TEASEROutput\\test.gml")
+
+            prj_lca.period_lca_scenario = int(self.lbl_temporalBoundary.text() or 50)
 
             if self.txtB_expPath.text() != "":
                 path1 = self.txtB_expPath.text().replace("/", "\\")
             else:
                 path1 = utilities.get_default_path()
 
-            path2 = self.txtB_tecoLCApath.text().replace("/", "\\")
+            if self.txtB_tecoLCApath.text() != "":
+                path2 = self.txtB_tecoLCApath.text().replace("/", "\\")
+            else:
+                path2 = os.path.join(output_path, "results.csv")
 
-            sim.simulate(path=path1, prj=prj, loading_time=3600,result_path=path2)
+            sim.simulate(path=path1, prj=prj_lca, loading_time=3600, result_path=path2)
 
             lca_data_elec = En15804LcaData()
-            lca_data_elec.load_lca_data_template(self.lbl_epdElectrical.text(), prj.data)
+            lca_data_elec.load_lca_data_template(self.txtB_epdElectrical.text(), prj_lca.data)
 
-            lca_data_heat = En15804LcaData()
-            lca_data_heat.load_lca_data_template(self.txtB_heatloadPath.text(), prj.data) # is heat lca same as heat teaser?
-
-            for building in prj.buildings:
+            for building in prj_lca.buildings:
                 building.calc_lca_data(False, int(self.lbl_temporalBoundary.text()))
 
                 building.add_lca_data_elec(lca_data_elec)
-                building.add_lca_data_heating(float(self.lbl_eff.text()), lca_data_heat)
+                building.add_lca_data_heating(float(self.lbl_eff.text()), lca_data_elec)
 
             global POSX, POSY
             POSX, POSY = gf.windowPosition(self)
-            gf.next_window(self, result(self.prj, self.parent), False)
+            gf.next_window(self, result(prj_lca, self.parent, self.checkboxes), False)
 
             return
 
         else:
             gf.messageBox(self, "Error", "Please select all necessary files before continuing")
             return
-
 
     def func_return(self) -> None:
         self.hide()
@@ -1572,7 +1580,6 @@ class SimulationProgram(QtWidgets.QWidget):
         self.parent.func_startSimulation()
 
 
-
 class about(QtWidgets.QWidget):
     def __init__(self, file_path):
         super(about, self).__init__()
@@ -1621,12 +1628,11 @@ class addBuilding(QtWidgets.QWidget):
     """Window to add buildings to the TEASER+eco-project
     """
 
-    def __init__(self, prj, parent, tbl_selBuildings, buildingDict):
+    def __init__(self, prj, parent, buildingDict):
         # initiate the parent
         self.prj = prj
         self.parent = parent
         super(addBuilding, self).__init__()
-        self.tbl_selBuildings = tbl_selBuildings
         self.buildingDict = buildingDict
         self.initUI()
 
@@ -1664,7 +1670,6 @@ class addBuilding(QtWidgets.QWidget):
 
         self.led_nla = QtWidgets.QLineEdit('')
         self.pGrid.addWidget(self.led_nla, 2, 2, 1, 1)
-
 
         self.lbl_numb_flr = QtWidgets.QLabel('Number of floors:')
         self.pGrid.addWidget(self.lbl_numb_flr, 3, 1, 1, 1)
@@ -1713,7 +1718,8 @@ class addBuilding(QtWidgets.QWidget):
         self.gB_add_lca.setLayout(self.lBox)
 
         self.textwidget = QtWidgets.QPlainTextEdit()
-        self.textwidget.setPlainText('Utility infos \nLink to OEKOBAUDAT Search engine: \nhttps://www.oekobaudat.de/no_cache/en/database/search.html')
+        self.textwidget.setPlainText(
+            'Utility infos \nLink to OEKOBAUDAT Search engine: \nhttps://www.oekobaudat.de/no_cache/en/database/search.html')
         self.textwidget.setReadOnly(True)
         self.lBox.addWidget(self.textwidget, 0, 0, 1, 2)
 
@@ -1744,11 +1750,10 @@ class addBuilding(QtWidgets.QWidget):
         self.led_district = QtWidgets.QLineEdit('')
         self.led_district = QtWidgets.QLineEdit('')
         self.lBox.addWidget(self.led_district, 4, 1, 1, 1)
-        #self.led_district.connect(self.lbl_district.isChecked(), self.led_district.setEnabled(True))
+        # self.led_district.connect(self.lbl_district.isChecked(), self.led_district.setEnabled(True))
 
         self.btn_add_lca_to_list = QtWidgets.QPushButton('Add Utility to list')
         self.lBox.addWidget(self.btn_add_lca_to_list, 5, 0, 1, 2)
-
 
         self.tbl_lca = QtWidgets.QTableWidget()
         self.tbl_lca.setColumnCount(3)
@@ -1761,7 +1766,7 @@ class addBuilding(QtWidgets.QWidget):
         self.lBox.addWidget(self.tbl_lca, 6, 0, 1, 2)
 
         self.btn_add_lca = QtWidgets.QPushButton('Add Utilities')
-        self.lBox.addWidget(self.btn_add_lca,7, 0, 1, 2)
+        self.lBox.addWidget(self.btn_add_lca, 7, 0, 1, 2)
 
         self.cb_method.currentTextChanged.connect(self.method_changed)
         self.btn_add_lca.clicked.connect(self.add_lca)
@@ -1797,6 +1802,7 @@ class addBuilding(QtWidgets.QWidget):
                 self.cb_usage.addItems(
                     ["single_family_house", "terraced_house", "multi_family_house", "apartment_block"])
 
+
     def add_building(self):
         """Function to add the building to the project
         """
@@ -1813,35 +1819,36 @@ class addBuilding(QtWidgets.QWidget):
         if method != "" and usage != "" and year_of_construction != "" and number_of_floors != "" and height_of_floors != "" and name != "" and building_quantity != "" and net_leased_area != "":
             building_quantity = int(building_quantity)
             net_leased_area = float(net_leased_area)
-            first_index = self.tbl_selBuildings.rowCount()
+            first_index = self.parent.tbl_selBuildings.rowCount()
 
             for i in range(building_quantity):
 
                 if building_quantity > 1:
-                    index = first_index + i
+                    index = first_index + i + 1
                 else:
                     index = ""
 
-                self.prj.add_residential(method=method,
-                                         usage=usage,
-                                         name=name,
-                                         year_of_construction=year_of_construction,
-                                         number_of_floors=number_of_floors,
-                                         height_of_floors=height_of_floors,
-                                         net_leased_area=net_leased_area)
+                self.add_building_data = []
+                self.add_building_data.append(
+                    {'method': method, 'usage': usage, 'name': name + str(index),
+                     'year_of_construction': year_of_construction,
+                     'number_of_floors': number_of_floors, 'height_of_floors': height_of_floors,
+                     'net_leased_area': net_leased_area})
 
-                rowPosition = self.tbl_selBuildings.rowCount()
-                self.tbl_selBuildings.insertRow(rowPosition)
+                rowPosition = self.parent.tbl_selBuildings.rowCount()
+                self.parent.tbl_selBuildings.insertRow(rowPosition)
 
-                self.tbl_selBuildings.setItem(rowPosition, 0, QtWidgets.QTableWidgetItem(name+str(index)))
-                self.tbl_selBuildings.setItem(rowPosition, 2, QtWidgets.QTableWidgetItem(str(year_of_construction)))
-                #self.tbl_selBuildings.setItem(rowPosition, 3, QtWidgets.QTableWidgetItem(str(net_leased_area)))
-                self.tbl_selBuildings.setItem(rowPosition, 4, QtWidgets.QTableWidgetItem(str(number_of_floors)))
-                self.tbl_selBuildings.setItem(rowPosition, 5, QtWidgets.QTableWidgetItem(str(height_of_floors)))
-                self.tbl_selBuildings.setItem(rowPosition, 6, QtWidgets.QTableWidgetItem(str(usage)))
-                self.tbl_selBuildings.setItem(rowPosition, 7, QtWidgets.QTableWidgetItem(str(method)))
+                self.parent.tbl_selBuildings.setItem(rowPosition, 0,
+                                                     QtWidgets.QTableWidgetItem(name + str(index)))
+                self.parent.tbl_selBuildings.setItem(rowPosition, 2,
+                                                     QtWidgets.QTableWidgetItem(str(year_of_construction)))
+                # self.parent.tbl_selBuildings.setItem(rowPosition, 3, QtWidgets.QTableWidgetItem(str(net_leased_area)))
+                self.parent.tbl_selBuildings.setItem(rowPosition, 4, QtWidgets.QTableWidgetItem(str(number_of_floors)))
+                self.parent.tbl_selBuildings.setItem(rowPosition, 5, QtWidgets.QTableWidgetItem(str(height_of_floors)))
+                self.parent.tbl_selBuildings.setItem(rowPosition, 6, QtWidgets.QTableWidgetItem(str(usage)))
+                self.parent.tbl_selBuildings.setItem(rowPosition, 7, QtWidgets.QTableWidgetItem(str(method)))
 
-                #self.building_groups.append([first_index, len(self.prj.buildings) - 1])
+                # self.building_groups.append([first_index, len(self.prj.buildings) - 1])
 
     def add_lca_to_list(self):
         """Function to add the additional LCA-data to the building
@@ -1862,11 +1869,15 @@ class addBuilding(QtWidgets.QWidget):
     def add_lca(self):
 
         for i in range(self.tbl_lca.rowCount()):
-            building_no = int(self.tbl_lca.item(i, 2).text())
+            if (self.tbl_lca.item(i, 0) is None) or (self.tbl_lca.item(i, 1) is None) or (
+                    self.tbl_lca.item(i, 2) is None):
+                gf.messageBox(self, "error", "Please fill in all fields of Utility row " + str(i) + "!")
+                break
+            '''building_no = int(self.tbl_lca.item(i, 2).text())
             key = [key for key in self.prj.buildings if
-                           self.prj.buildings[key].name==self.tbl_selBuildings.item(building_no, 0).text()]
+                   self.prj.buildings[key].name == self.parent.tbl_selBuildings.item(building_no, 0).text()]
             self.prj.buildings[key].add_lca_data_template(self.tbl_lca.item(i, 0).text(),
-                                                         float(self.tbl_lca.item(i, 1).text()))
+                                                          float(self.tbl_lca.item(i, 1).text()))'''
         pass
 
 
@@ -1928,6 +1939,7 @@ class addLca(QtWidgets.QWidget):
         self.parent.tbl_lca.setItem(rowPosition, 1, QtWidgets.QTableWidgetItem(amount))
 
         self.parent.tbl_lca.reSIZERowsToContents()
+
 
 '''
 class startSimulation(QtWidgets.QWidget):
@@ -2043,50 +2055,31 @@ class startSimulation(QtWidgets.QWidget):
         self.txtB_inPath_csv.setText(dirpath[0])
 '''
 
+
 class result(QtWidgets.QWidget):
     """Window to display the result of the life cycle assessment"""
 
-    def __init__(self, prj, parent):
+    def __init__(self, prj, parent, checkboxes):
 
         self.prj = prj
-        self.parent = parent
+        self.eco = parent
+        self.ind_checkboxes = checkboxes
         super(result, self).__init__()
         self.initUI()
 
     def initUI(self):
         global POSX, POSY, WIDTH, HEIGHT, SIZEFACTOR, SIZER
-        gf.windowSetup(self, POSX + WIDTH + 10, POSY + 300, 1500, 400, 'Result')
+        gf.windowSetup(self, POSX + 10, POSY + 300, 750, 400, 'Result')
 
         self.vbox = QtWidgets.QVBoxLayout(self)
         self.setLayout(self.vbox)
 
         self.cb_indicator = QtWidgets.QComboBox()
         self.vbox.addWidget(self.cb_indicator)
-        self.cb_indicator.addItems(["pere",
-                                    "pert",
-                                    "penre",
-                                    "penrm",
-                                    "penrt",
-                                    "sm",
-                                    "rsf",
-                                    "nrsf",
-                                    "fw",
-                                    "hwd",
-                                    "nhwd",
-                                    "rwd",
-                                    "cru",
-                                    "mfr",
-                                    "mer",
-                                    "eee",
-                                    "eet",
-                                    "gwp",
-                                    "odp",
-                                    "pocp",
-                                    "ap",
-                                    "ep",
-                                    "adpe",
-                                    "adpf"
-                                    ])
+        if self.ind_checkboxes[0].isChecked():
+            self.cb_indicator.addItems(checkbox.text() for checkbox in self.ind_checkboxes)
+        else:
+            self.cb_indicator.addItems(checkbox.text() for checkbox in self.ind_checkboxes if checkbox.isChecked())
 
         self.lbl_unit = QtWidgets.QLabel('Unit:')
         self.vbox.addWidget(self.lbl_unit)
@@ -2133,10 +2126,9 @@ class result(QtWidgets.QWidget):
 
         self.vbox.addLayout(self.cGrid)
 
-        self.select_lca("pere")
+        self.select_lca(self.cb_indicator.currentText())
 
         self.btn_copy.clicked.connect(self.copy_to_clipboard)
-
         self.cb_indicator.currentTextChanged.connect(self.select_lca)
 
     def select_lca(self, indicator):
@@ -2144,17 +2136,19 @@ class result(QtWidgets.QWidget):
         while (self.tbl_lca.rowCount() > 0):
             self.tbl_lca.removeRow(0)
 
-        for building_group in self.parent.building_groups:
+        for building in self.eco.tbl_selBuildings:
 
-            amount = building_group[1] - building_group[0] + 1
+            # amount = building_group[1] - building_group[0] + 1
 
-            building = self.prj.buildings[building_group[0]]
+            # building = self.prj.buildings[building_group[0]]
 
-            lca_data = building.lca_data * amount
+            # lca_data = building.lca_data * amount
 
-            lca_data_dict = self.lca_data_to_dict(lca_data)
+            # lca_data_dict = self.lca_data_to_dict(lca_data)
+            lca_data_dict = self.lca_data_to_dict(building.lca_data)
 
-            content = [building.name, amount]
+            # content = [building.name, amount, lca_data_dict]
+            content = [building.name, lca_data_dict]
 
             if indicator == "pere":
                 content.extend(lca_data_dict["pere"])

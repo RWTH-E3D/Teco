@@ -1,5 +1,5 @@
 # import of libraries
-from PySide2 import QtWidgets, QtGui
+from PySide6 import QtWidgets, QtGui
 import os
 import lxml.etree as ET
 import glob
