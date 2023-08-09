@@ -47,9 +47,6 @@ teaser_path = os.path.join("C:/Users/tayeb/teaser")
 output_path = os.path.join("C:/Users/tayeb/TEASEROutput")
 
 
-#  = os.path.dirname(os.path.realpath(__file__))        # path of script
-
-
 class MainWindow(QtWidgets.QWidget):
     def __init__(self):
         # initiate the parent
@@ -937,9 +934,9 @@ class Eco(QtWidgets.QWidget):
         self.btn_add_bldg.clicked.connect(self.add_building)
         self.lGrid.addWidget(self.btn_add_bldg, 0, 1, 1, 1)
 
-        self.btn_close = QtWidgets.QPushButton('Close')
-        self.btn_close.clicked.connect(self.close)
-        self.lGrid.addWidget(self.btn_close, 2, 2, 1, 1)
+        self.btn_saveToCityGML = QtWidgets.QPushButton("Save to CityGML file")
+        self.btn_saveToCityGML.clicked.connect(lambda: self.func_saveToCityGML(False))
+        self.lGrid.addWidget(self.btn_saveToCityGML, 2, 1, 1, 1)
 
         # self.btn_saveToCityGML = QtWidgets.QPushButton("Save to CityGML file")
         # self.btn_saveToCityGML.clicked.connect(lambda: self.func_saveToCityGML(False))
@@ -947,7 +944,7 @@ class Eco(QtWidgets.QWidget):
 
         self.btn_remove_entry = QtWidgets.QPushButton('Remove selected entry')
         self.btn_remove_entry.clicked.connect(self.func_remove_entry)
-        self.lGrid.addWidget(self.btn_remove_entry, 2, 1, 1, 1)
+        self.lGrid.addWidget(self.btn_remove_entry, 2, 2, 1, 1)
 
         self.btn_saveToNewCityGML = QtWidgets.QPushButton("Save to new CityGML file")
         self.btn_saveToNewCityGML.clicked.connect(lambda: self.func_saveToCityGML(True))
@@ -1151,11 +1148,6 @@ class Eco(QtWidgets.QWidget):
                 combBox = self.combBoxesYoc[key]
                 combBox.setCurrentIndex(self.combBoxesYoc[0].currentIndex())
 
-    def close(self):
-        """Function to close the eco-window
-        """
-        self.hide()
-
     def func_remove_entry(self):
         """Function to remove a building from the list
         """
@@ -1163,7 +1155,6 @@ class Eco(QtWidgets.QWidget):
         if selected:
             for index in sorted(selected):
                 self.tbl_selBuildings.removeRow(index.row())
-                self.prj.buildings.pop(index.row())
         else:
             gf.messageBox(self, "Error", "Please select a row to remove")
 
@@ -1196,9 +1187,9 @@ class SetupSimulation(QtWidgets.QWidget):
         self.gB_categories.setLayout(self.uGrid)
 
         checkbox_labels = [
-            "CRU", "MFR", "MER", "EEE", "EET", "GWP", "ODP", "POCP",
-            "AP", "EP", "ADPE", "ADPF", "PERE", "PERT", "PENRE", "PENRM",
-            "PENRT", "SM", "RSF", "NRSF", "FW", "HWD", "NHWD", "RWD"
+            "cru", "mfr", "mer", "eee", "eet", "gwp", "odp", "pocp",
+            "ap", "ep", "adpe", "adpf", "pere", "pert", "penre", "penrm",
+            "penrt", "sm", "rsf", "nrsf", "fw", "hwd", "nhwd", "rwd"
         ]
 
         self.checkboxes = [QtWidgets.QCheckBox("All")]
@@ -1414,8 +1405,11 @@ class SetupSimulation(QtWidgets.QWidget):
         usage_dict = {"singlefamilyhouse": "sfh", "terracedhouse": "th", "multifamilyhouse": "mfh",
                       "apartmentblock": "ap", 'singlefamilydwelling': "sfd", "office": "office"}
 
-        buildingIDs = [self.buildingDict[key]["buildingname"] for key in self.buildingDict if
-                       self.buildingDict[key]["selected"]]  #### change to building name from tbl_selBuildings
+        buildingIDs = []
+
+        for key in range(self.parent.tbl_selBuildings.rowCount()-1):
+            buildingIDs.append(self.parent.tbl_selBuildings.item(key+1, 0).text())
+
         # and self.led_elec_lca != "" and self.led_heat_lca != "" time
         if self.txtB_expPath != "" and self.txtB_tecoLCApath != "" and self.lbl_temporalBoundary != "" and self.txtB_heatloadPath != "" \
                 and self.lbl_eff != "" and self.txtB_epdElectrical != "" and self.txtB_epdElectrical != "":
@@ -1426,18 +1420,26 @@ class SetupSimulation(QtWidgets.QWidget):
 
             # get text of items of tbl_selBuildings that represent usage
             n = (self.parent.tbl_selBuildings).rowCount() - 1
-            try:
-                archetypes_list = [usage_dict[self.parent.combBoxesUse[i].currentText().split('/')[1]] for i in
-                                   range(n)]
+            archetypes_list = []
 
-                # check yoC isnt more than 1978 if usage is tabula_de/appartmentblock
-                for i in range(n):
-                    if self.parent.combBoxesUse[i].currentText().split('/')[1] == "apartmentblock":
-                        if int(self.parent.combBoxesYoC[i].currentText()) > 1978:
-                            print("Error: Apartment block archetype does not support years of construction after 1978")
+            for i in range(n):
+                try:
+                    if i < len(self.parent.combBoxesUse):
+                        # check yoC isnt more than 1978 if usage is tabula_de/appartmentblock
+                        if self.parent.combBoxesUse[i].currentText().split('/')[1] == "apartmentblock":
+                            if int(self.parent.combBoxesYoC[i].currentText()) > 1978:
+                                print("Error: Apartment block archetype does not support YoC after 1978")
+                                continue
 
-            except IndexError:
-                print("usage missing")
+                        archetypes_list.append(usage_dict[self.parent.combBoxesUse[i].currentText().split('/')[1]])
+                    elif self.parent.tbl_selBuildings.item(i + 1, 6).text() != "":
+                        archetypes_list.append(usage_dict[self.parent.tbl_selBuildings.item(i + 1, 6).text()])
+                except IndexError:
+                    gf.messageBox(self, "Error", "Error: Please select a usage for each building")
+                    return
+
+
+
 
             yoc_list = []
             for i in range(n):
@@ -1455,20 +1457,18 @@ class SetupSimulation(QtWidgets.QWidget):
 
             if hasattr(self.parent.add_building_window, 'add_building_data'):
                 for bldg in self.parent.add_building_window.add_building_data:
-                    prj_lca.add_residential(method=bldg["method"],
-                                            usage=bldg["usage"],
-                                            name=bldg["name"],
-                                            year_of_construction=bldg["year_of_construction"],
-                                            number_of_floors=bldg["number_of_floors"],
-                                            height_of_floors=bldg["height_of_floors"],
-                                            net_leased_area=bldg["net_leased_area"])
+                    prj_lca.add_residential(method=self.parent.add_building_window.add_building_data[bldg]["method"],
+                                            usage=self.parent.add_building_window.add_building_data[bldg]["usage"],
+                                            name=bldg,
+                                            year_of_construction=self.parent.add_building_window.add_building_data[bldg]["year_of_construction"],
+                                            number_of_floors=self.parent.add_building_window.add_building_data[bldg]["number_of_floors"],
+                                            height_of_floors=self.parent.add_building_window.add_building_data[bldg]["height_of_floors"],
+                                            net_leased_area=self.parent.add_building_window.add_building_data[bldg]["net_leased_area"])
                 for i in range(self.parent.add_building_window.tbl_lca.rowCount()):
                     building_no = int(self.parent.add_building_window.tbl_lca.item(i, 2).text())
-                    key = [key for key in self.prj.buildings if
-                           prj_lca.buildings[key].name == self.parent.tbl_selBuildings.item(building_no, 0).text()]
-                    prj_lca.buildings[key].add_lca_data_template(self.parent.add_building_window.tbl_lca.item(i, 0).text(),
-                                                                 float(self.parent.add_building_window.tbl_lca.item(i,
-                                                                                                                    1).text()))
+                    prj_lca.buildings[building_no-1].add_lca_data_template(self.parent.add_building_window.tbl_lca.item(i, 0).text(),
+                                                                     float(self.parent.add_building_window.tbl_lca.item(i,
+                                                                                                                        1).text()))
 
             # add lca_data using the data from the add_building_window in tbl_lca
 
@@ -1794,13 +1794,13 @@ class addBuilding(QtWidgets.QWidget):
         else:
             self.cb_usage.setEnabled(True)
             if value == "iwu":
-                self.cb_usage.addItem('single_family_dwelling')
+                self.cb_usage.addItem('singlefamilydwelling')
             elif value == "urbanrenet":
                 self.cb_usage.addItems(
                     ['est1a', 'est1b', 'est2', 'est3', 'est4a', 'est4b', 'est5' 'est6', 'est7', 'est8a', 'est8b'])
             elif value == "tabula_de":
                 self.cb_usage.addItems(
-                    ["single_family_house", "terraced_house", "multi_family_house", "apartment_block"])
+                    ["singlefamilyhouse", "terracedhouse", "multifamilyhouse", "apartmentblock"])
 
 
     def add_building(self):
@@ -1828,12 +1828,27 @@ class addBuilding(QtWidgets.QWidget):
                 else:
                     index = ""
 
-                self.add_building_data = []
-                self.add_building_data.append(
-                    {'method': method, 'usage': usage, 'name': name + str(index),
+                usage_dict = {'singlefamilydwelling': 'single_family_dwelling',
+                              'singlefamilyhouse': 'single_family_house',
+                                'terracedhouse': 'terraced_house',
+                              'multifamilyhouse': 'multi_family_house',
+                                'apartmentblock': 'apartment_block',
+                              'est1a': 'est1a',
+                                'est1b': 'est1b',
+                                'est2': 'est2',
+                              'est3': 'est3',
+                                'est4a': 'est4a',
+                              'est4b': 'est4b',
+                                'est5': 'est5',
+                              'est6': 'est6',
+                                'est7': 'est7',
+                              'est8a': 'est8a',
+                              'est8b': 'est8b'}
+                self.add_building_data = {}
+                self.add_building_data[name + str(index)] = {'method': method, 'usage': usage_dict[usage], 'name': name + str(index),
                      'year_of_construction': year_of_construction,
                      'number_of_floors': number_of_floors, 'height_of_floors': height_of_floors,
-                     'net_leased_area': net_leased_area})
+                     'net_leased_area': net_leased_area}
 
                 rowPosition = self.parent.tbl_selBuildings.rowCount()
                 self.parent.tbl_selBuildings.insertRow(rowPosition)
@@ -1842,13 +1857,18 @@ class addBuilding(QtWidgets.QWidget):
                                                      QtWidgets.QTableWidgetItem(name + str(index)))
                 self.parent.tbl_selBuildings.setItem(rowPosition, 2,
                                                      QtWidgets.QTableWidgetItem(str(year_of_construction)))
-                # self.parent.tbl_selBuildings.setItem(rowPosition, 3, QtWidgets.QTableWidgetItem(str(net_leased_area)))
+                self.parent.tbl_selBuildings.setItem(rowPosition, 3, QtWidgets.QTableWidgetItem(str(net_leased_area)))
                 self.parent.tbl_selBuildings.setItem(rowPosition, 4, QtWidgets.QTableWidgetItem(str(number_of_floors)))
                 self.parent.tbl_selBuildings.setItem(rowPosition, 5, QtWidgets.QTableWidgetItem(str(height_of_floors)))
                 self.parent.tbl_selBuildings.setItem(rowPosition, 6, QtWidgets.QTableWidgetItem(str(usage)))
                 self.parent.tbl_selBuildings.setItem(rowPosition, 7, QtWidgets.QTableWidgetItem(str(method)))
+                self.parent.building_groups.append([first_index, len(self.prj.buildings) - 1])
 
-                # self.building_groups.append([first_index, len(self.prj.buildings) - 1])
+            self.close()
+        else:
+            gf.messageBox(self,'Error','Please fill out all fields')
+        return
+
 
     def add_lca_to_list(self):
         """Function to add the additional LCA-data to the building
@@ -1857,14 +1877,17 @@ class addBuilding(QtWidgets.QWidget):
         amount = self.led_amount.text()
         building_nbr = self.led_building_nbr.text()
 
-        rowPosition = self.tbl_lca.rowCount()
-        self.tbl_lca.insertRow(rowPosition)
+        if lca_id != "" and amount != "" and building_nbr != "":
+            rowPosition = self.tbl_lca.rowCount()
+            self.tbl_lca.insertRow(rowPosition)
 
-        self.tbl_lca.setItem(rowPosition, 0, QtWidgets.QTableWidgetItem(lca_id))
-        self.tbl_lca.setItem(rowPosition, 1, QtWidgets.QTableWidgetItem(amount))
-        self.tbl_lca.setItem(rowPosition, 2, QtWidgets.QTableWidgetItem(building_nbr))
+            self.tbl_lca.setItem(rowPosition, 0, QtWidgets.QTableWidgetItem(lca_id))
+            self.tbl_lca.setItem(rowPosition, 1, QtWidgets.QTableWidgetItem(amount))
+            self.tbl_lca.setItem(rowPosition, 2, QtWidgets.QTableWidgetItem(building_nbr))
 
-        self.tbl_lca.resizeRowsToContents()
+            self.tbl_lca.resizeRowsToContents()
+        else:
+            gf.messageBox(self,'Error','Please fill out all fields')
 
     def add_lca(self):
 
@@ -1878,7 +1901,9 @@ class addBuilding(QtWidgets.QWidget):
                    self.prj.buildings[key].name == self.parent.tbl_selBuildings.item(building_no, 0).text()]
             self.prj.buildings[key].add_lca_data_template(self.tbl_lca.item(i, 0).text(),
                                                           float(self.tbl_lca.item(i, 1).text()))'''
-        pass
+
+        self.close()
+        return
 
 
 class addLca(QtWidgets.QWidget):
@@ -2126,104 +2151,130 @@ class result(QtWidgets.QWidget):
 
         self.vbox.addLayout(self.cGrid)
 
-        self.select_lca(self.cb_indicator.currentText())
+        self.select_lca()
 
         self.btn_copy.clicked.connect(self.copy_to_clipboard)
         self.cb_indicator.currentTextChanged.connect(self.select_lca)
 
-    def select_lca(self, indicator):
+    def select_lca(self):
+
+        indicator = self.cb_indicator.currentText()
 
         while (self.tbl_lca.rowCount() > 0):
             self.tbl_lca.removeRow(0)
 
-        for building in self.eco.tbl_selBuildings:
+        building_groups = self.eco.building_groups.copy()
 
-            # amount = building_group[1] - building_group[0] + 1
+        for key, building in enumerate(self.prj.buildings):
+            building_groups.append([key,key])
+        for building_group in building_groups:
 
-            # building = self.prj.buildings[building_group[0]]
+            amount = building_group[1] - building_group[0] + 1
 
-            # lca_data = building.lca_data * amount
+            building = self.prj.buildings[building_group[0]]
 
-            # lca_data_dict = self.lca_data_to_dict(lca_data)
-            lca_data_dict = self.lca_data_to_dict(building.lca_data)
+            lca_data = building.lca_data * amount
 
-            # content = [building.name, amount, lca_data_dict]
-            content = [building.name, lca_data_dict]
+            lca_data_dict = self.lca_data_to_dict(lca_data)
+
+            content = [building.name, amount]
 
             if indicator == "pere":
                 content.extend(lca_data_dict["pere"])
+                self.add_lca_row(content)
                 self.lbl_unit.setText("Unit: MJ")
             elif indicator == "pert":
                 content.extend(lca_data_dict["pert"])
+                self.add_lca_row(content)
                 self.lbl_unit.setText("Unit: MJ")
             elif indicator == "penre":
                 content.extend(lca_data_dict["penre"])
+                self.add_lca_row(content)
                 self.lbl_unit.setText("Unit: MJ")
             elif indicator == "penrm":
                 content.extend(lca_data_dict["penrm"])
+                self.add_lca_row(content)
                 self.lbl_unit.setText("Unit: MJ")
             elif indicator == "penrt":
                 content.extend(lca_data_dict["penrt"])
+                self.add_lca_row(content)
                 self.lbl_unit.setText("Unit: MJ")
             elif indicator == "sm":
                 content.extend(lca_data_dict["sm"])
+                self.add_lca_row(content)
                 self.lbl_unit.setText("Unit: kg")
             elif indicator == "rsf":
                 content.extend(lca_data_dict["rsf"])
+                self.add_lca_row(content)
                 self.lbl_unit.setText("Unit: MJ")
             elif indicator == "nrsf":
                 content.extend(lca_data_dict["nrsf"])
+                self.add_lca_row(content)
                 self.lbl_unit.setText("Unit: MJ")
             elif indicator == "fw":
                 content.extend(lca_data_dict["fw"])
+                self.add_lca_row(content)
                 self.lbl_unit.setText("Unit: m^3")
             elif indicator == "hwd":
                 content.extend(lca_data_dict["hwd"])
+                self.add_lca_row(content)
                 self.lbl_unit.setText("Unit: kg")
             elif indicator == "nhwd":
                 content.extend(lca_data_dict["nhwd"])
+                self.add_lca_row(content)
                 self.lbl_unit.setText("Unit: kg")
             elif indicator == "rwd":
                 content.extend(lca_data_dict["rwd"])
+                self.add_lca_row(content)
                 self.lbl_unit.setText("Unit: kg")
             elif indicator == "cru":
                 content.extend(lca_data_dict["cru"])
+                self.add_lca_row(content)
                 self.lbl_unit.setText("Unit: kg")
             elif indicator == "mfr":
                 content.extend(lca_data_dict["mfr"])
+                self.add_lca_row(content)
                 self.lbl_unit.setText("Unit: kg")
             elif indicator == "mer":
                 content.extend(lca_data_dict["mer"])
+                self.add_lca_row(content)
                 self.lbl_unit.setText("Unit: kg")
             elif indicator == "eee":
                 content.extend(lca_data_dict["eee"])
+                self.add_lca_row(content)
                 self.lbl_unit.setText("Unit: MJ")
             elif indicator == "eet":
                 content.extend(lca_data_dict["eet"])
+                self.add_lca_row(content)
                 self.lbl_unit.setText("Unit: MJ")
             elif indicator == "gwp":
                 content.extend(lca_data_dict["gwp"])
+                self.add_lca_row(content)
                 self.lbl_unit.setText("Unit: kg CO2 eq.")
             elif indicator == "odp":
                 content.extend(lca_data_dict["odp"])
+                self.add_lca_row(content)
                 self.lbl_unit.setText("Unit: kg R11 eq.")
             elif indicator == "pocp":
                 content.extend(lca_data_dict["pocp"])
+                self.add_lca_row(content)
                 self.lbl_unit.setText("Unit: kg Ethene eq.")
             elif indicator == "ap":
                 content.extend(lca_data_dict["ap"])
+                self.add_lca_row(content)
                 self.lbl_unit.setText("Unit: kg SO2 eq.")
             elif indicator == "ep":
                 content.extend(lca_data_dict["ep"])
+                self.add_lca_row(content)
                 self.lbl_unit.setText("Unit: kg Phosphate eq.")
             elif indicator == "adpe":
                 content.extend(lca_data_dict["adpe"])
+                self.add_lca_row(content)
                 self.lbl_unit.setText("Unit: kg Sb eq.")
             elif indicator == "adpf":
                 content.extend(lca_data_dict["adpf"])
+                self.add_lca_row(content)
                 self.lbl_unit.setText("Unit: MJ")
-
-            self.add_lca_row(content)
 
     def lca_data_to_dict(self, lca_data):
 

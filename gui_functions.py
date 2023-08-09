@@ -12,7 +12,6 @@ import os
 import lxml.etree as ET
 import numpy as np
 import glob
-import math
 
 
 
@@ -590,9 +589,10 @@ def getDataFromTable(self) -> dict:
     # add info from add_building_data to buildingsToChange and valueDict
     if hasattr(self.add_building_window, 'add_building_data'):
         for building in self.add_building_window.add_building_data:
-            self.valueDict[building['name']]['YoC'] = self.add_building_window.add_building_data[building]['year_of_construction']
-            self.valueDict[building['name']]['SAG'] = self.add_building_window.add_building_data[building]['number_of_floors']
-            self.valueDict[building['name']]['storeyHeight'] = self.add_building_window.add_building_data[building]['height_of_floors']
+            self.valueDict[building] = {}
+            self.valueDict[building]['YoC'] = str(self.add_building_window.add_building_data[building]['year_of_construction'])
+            self.valueDict[building]['SAG'] = self.add_building_window.add_building_data[building]['number_of_floors']
+            self.valueDict[building]['storeyHeight'] = self.add_building_window.add_building_data[building]['height_of_floors']
 
 
     for i in range(1, self.tbl_selBuildings.rowCount()):
@@ -608,8 +608,10 @@ def getDataFromTable(self) -> dict:
                 return None
             valuesToChange["YoC"] = inted
 
-        elif self.tbl_selBuildings.item(i, 2).text() == "" and self.tbl_selBuildings.cellWidget(i, 3).currentIndex() != -1:
-            valuesToChange["YoC"] = sum([int(x) for x in self.tbl_selBuildings.cellWidget(i, 3).currentText().split("-")]) // 2
+        elif self.tbl_selBuildings.item(i, 2).text() == "":
+            if self.tbl_selBuildings.cellWidget(i, 3).currentIndex() != -1:
+                valuesToChange["YoC"] = sum([int(x) for x in self.tbl_selBuildings.cellWidget(i, 3).currentText().split("-")]) // 2
+
 
         if self.valueDict[buildingname]["SAG"] == "" and self.valueDict[buildingname]["storeyHeight"] == "":
             if self.tbl_selBuildings.item(i, 4).text() != "":
@@ -629,8 +631,13 @@ def getDataFromTable(self) -> dict:
                     return None
                 valuesToChange["storeyHeight"] = floated
 
-        if self.tbl_selBuildings.cellWidget(i, 6).currentIndex() != -1:
-            valuesToChange["usage"] = self.tbl_selBuildings.cellWidget(i, 6).currentText()
+        if self.tbl_selBuildings.cellWidget(i, 6) is QtWidgets.QComboBox():
+            if self.tbl_selBuildings.cellWidget(i, 6).currentIndex() != -1:
+                valuesToChange["usage"] = self.tbl_selBuildings.cellWidget(i, 6).currentText()
+        elif self.tbl_selBuildings.item(i, 6) is QtWidgets.QTableWidgetItem():
+            if self.tbl_selBuildings.item(i, 6).text() != "":
+                valuesToChange["usage"] = self.tbl_selBuildings.item(i, 6).text()
+
 
 
         if self.tbl_selBuildings.item(i, 7).text() != "":
