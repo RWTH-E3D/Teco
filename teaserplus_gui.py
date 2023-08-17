@@ -166,7 +166,7 @@ class MainWindow(QtWidgets.QWidget):
         # self.gB_buildings.toggled.connect(self.func_buildingSelection)
 
     def func_selectDir(self):
-        res = gf.select_folder(self)
+        res = gf.select_folder(self,self.txtB_inPath)
         if res:
             self.inpPath = res
             self.inpDir = os.path.dirname(res)
@@ -175,7 +175,7 @@ class MainWindow(QtWidgets.QWidget):
             pass
 
     def func_selectFile(self):
-        res = r"C:\Users\tayeb\teco\Examples\Bedburg_LoD2_enriched.gml"  # res = gf.select_gml(self)
+        res = gf.select_gml(self) #        res = r"C:\Users\tayeb\teco\Examples\Bedburg_LoD2_enriched.gml"
         if res:
             self.inpPath = res
             gf.get_files(self)
