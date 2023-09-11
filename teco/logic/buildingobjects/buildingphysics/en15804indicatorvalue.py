@@ -107,13 +107,13 @@ class En15804IndicatorValue(object):
 
         """
         if isinstance(value, float):
-            return(value)
+            return value
         else:
-            if not value:
-                return(None)
+            if value is None:
+                return None
             try:
                 value = float(value)
-                return(value)
+                return value
             except ValueError:
                 print("Can't convert value of '{}' to float".format(stage_name))       
             except TypeError:
@@ -122,11 +122,11 @@ class En15804IndicatorValue(object):
                 
     @property
     def unit(self):
-        return(self._unit)
+        return self._unit
     
     @unit.setter
     def unit(self, value):
-        if value != None:
+        if value is not None:
             if isinstance(value, str):
                 self._unit = value
             else:
@@ -136,7 +136,7 @@ class En15804IndicatorValue(object):
 
     @property
     def a1(self):
-        return(self._a1)
+        return self._a1
     
     @a1.setter
     def a1(self, value):
@@ -144,7 +144,7 @@ class En15804IndicatorValue(object):
        
     @property
     def a2(self):
-        return(self._a2)
+        return self._a2
     
     @a2.setter
     def a2(self, value):
@@ -152,7 +152,7 @@ class En15804IndicatorValue(object):
        
     @property
     def a3(self):
-        return(self._a3)
+        return self._a3
     
     @a3.setter
     def a3(self, value):
@@ -160,15 +160,16 @@ class En15804IndicatorValue(object):
     
     @property
     def a1_a3(self):
-        return(self._a1_a3)
+        return self._a1_a3
     
     @a1_a3.setter
     def a1_a3(self, value):
+
        self._a1_a3 = self._validate_stage_value(value, "A1-A3")
        
     @property
     def a4(self):
-        return(self._a4)
+        return self._a4
     
     @a4.setter
     def a4(self, value):
@@ -176,7 +177,7 @@ class En15804IndicatorValue(object):
        
     @property
     def a5(self):
-        return(self._a5)
+        return self._a5
     
     @a5.setter
     def a5(self, value):
@@ -184,7 +185,7 @@ class En15804IndicatorValue(object):
        
     @property
     def b1(self):
-        return(self._b1)
+        return self._b1
     
     @b1.setter
     def b1(self, value):
@@ -192,7 +193,7 @@ class En15804IndicatorValue(object):
        
     @property
     def b2(self):
-        return(self._b2)
+        return self._b2
     
     @b2.setter
     def b2(self, value):
@@ -200,7 +201,7 @@ class En15804IndicatorValue(object):
        
     @property
     def b3(self):
-        return(self._b3)
+        return self._b3
     
     @b3.setter
     def b3(self, value):
@@ -208,7 +209,7 @@ class En15804IndicatorValue(object):
        
     @property
     def b4(self):
-        return(self._b4)
+        return self._b4
     
     @b4.setter
     def b4(self, value):
@@ -216,7 +217,7 @@ class En15804IndicatorValue(object):
        
     @property
     def b5(self):
-        return(self._b5)
+        return self._b5
     
     @b5.setter
     def b5(self, value):
@@ -224,7 +225,7 @@ class En15804IndicatorValue(object):
        
     @property
     def b6(self):
-        return(self._b6)
+        return self._b6
     
     @b6.setter
     def b6(self, value):
@@ -232,7 +233,7 @@ class En15804IndicatorValue(object):
        
     @property
     def b7(self):
-        return(self._b7)
+        return self._b7
     
     @b7.setter
     def b7(self, value):
@@ -240,7 +241,7 @@ class En15804IndicatorValue(object):
        
     @property
     def c1(self):
-        return(self._c1)
+        return self._c1
     
     @c1.setter
     def c1(self, value):
@@ -248,7 +249,7 @@ class En15804IndicatorValue(object):
        
     @property
     def c2(self):
-        return(self._c2)
+        return self._c2
     
     @c2.setter
     def c2(self, value):
@@ -256,7 +257,7 @@ class En15804IndicatorValue(object):
        
     @property
     def c3(self):
-        return(self._c3)
+        return self._c3
     
     @c3.setter
     def c3(self, value):
@@ -264,7 +265,7 @@ class En15804IndicatorValue(object):
        
     @property
     def c4(self):
-        return(self._c4)
+        return self._c4
     
     @c4.setter
     def c4(self, value):
@@ -272,7 +273,7 @@ class En15804IndicatorValue(object):
        
     @property
     def d(self):
-        return(self._d)
+        return self._d
     
     @d.setter
     def d(self, value):
@@ -315,16 +316,16 @@ class En15804IndicatorValue(object):
         sum of addends : int, float
         or None
         """
-        if addend1 and addend2:
-            return(addend1 + addend2)
+        if addend1 is not None and addend2 is not None:
+            return addend1 + addend2
         else:
-            if not addend1 and not addend2:
-                return(None)
+            if addend1 is None and addend2 is None:
+                return None
             else:
-                if addend1:
-                    return(addend1)
+                if addend1 is not None:
+                    return addend1
                 else:
-                    return(addend2)
+                    return addend2
                 
     def __add__(self, other):
         """Adds two En15804IndicatorValue-Objects. Every stage is summed up 
@@ -373,7 +374,7 @@ class En15804IndicatorValue(object):
                 
                 new = En15804IndicatorValue()
                 new.set_values(**values)
-                return(new)
+                return new
             
             else:
                 print("Addends must have the same unit!")
@@ -397,10 +398,10 @@ class En15804IndicatorValue(object):
             Product of factors or None
 
         """
-        if not factor1 or not factor2:
-            return(None)
+        if factor1 is None or factor2 is None:
+            return None
         else:
-            return(factor1 * factor2)
+            return factor1 * factor2
         
     def __mul__(self, scalar):
         """Multiplies every stage-value with a scalar
@@ -441,7 +442,7 @@ class En15804IndicatorValue(object):
             
             new = En15804IndicatorValue()
             new.set_values(**values)
-            return(new)
+            return new
             
         except ValueError:
             print("Can't convert value of '{}' to float. Please insert scalar!".format(scalar))
@@ -468,28 +469,28 @@ class En15804IndicatorValue(object):
         
         
         
-        if self.a1_a3:
+        if self.a1_a3 is not None:
             addends.append(self.a1_a3)
         else:
-            if self.a1: addends.append(self.a1)
-            if self.a2: addends.append(self.a2)
-            if self.a3: addends.append(self.a3)
-        if self.a4: addends.append(self.a4)
-        if self.a5: addends.append(self.a5)
-        if self.b1: addends.append(self.b1)
-        if self.b2: addends.append(self.b2)
-        if self.b3: addends.append(self.b3)
-        if self.b4: addends.append(self.b4)
-        if self.b5: addends.append(self.b5)
-        if self.b6: addends.append(self.b6)
-        if self.b7: addends.append(self.b7)
-        if self.c1: addends.append(self.c1)
-        if self.c2: addends.append(self.c2)
-        if self.c3: addends.append(self.c3)
-        if self.c4: addends.append(self.c4)
-        if self.d and add_stage_d: addends.append(self.d)
+            if self.a1 is not None: addends.append(self.a1)
+            if self.a2 is not None: addends.append(self.a2)
+            if self.a3 is not None: addends.append(self.a3)
+        if self.a4 is not None: addends.append(self.a4)
+        if self.a5 is not None: addends.append(self.a5)
+        if self.b1 is not None: addends.append(self.b1)
+        if self.b2 is not None: addends.append(self.b2)
+        if self.b3 is not None: addends.append(self.b3)
+        if self.b4 is not None: addends.append(self.b4)
+        if self.b5 is not None: addends.append(self.b5)
+        if self.b6 is not None: addends.append(self.b6)
+        if self.b7 is not None: addends.append(self.b7)
+        if self.c1 is not None: addends.append(self.c1)
+        if self.c2 is not None: addends.append(self.c2)
+        if self.c3 is not None: addends.append(self.c3)
+        if self.c4 is not None: addends.append(self.c4)
+        if self.d is not None and add_stage_d is not None: addends.append(self.d)
         
-        return(sum(addends))
+        return sum(addends)
 
     def stages(self):
         """returns a list with all stages that are not None
@@ -599,7 +600,7 @@ class En15804IndicatorValue(object):
             print("Addend must be an 'En15804IndicatorValue'-Object!")
                 
         
-        return(result)
+        return result
     
     def get_values_as_dict(self):
         return_dict = {}
@@ -645,8 +646,29 @@ class En15804IndicatorValue(object):
 
         return_dict["unit"] = self.unit
         
-        return(return_dict)
+        return return_dict
                     
+    def check_required_stages(self, required_stages = None):
+        """Function that checks whether all required stages have a value. If this is not the case, an error is raised.
+
+        Parameters
+        ----------
+        required_stages : list of strings
+             List of stages that must be present in the data sets for the LCA. The program issues an error if a data set
+             does not contain values for one of the required stages. Stages A1-A3, C3 and C4 are required as default.
+        """
+        if required_stages is None:
+            if self.parent is None:
+                raise ValueError("Please specify the required stages for the calculation!")
+            else:
+                required_stages = self.parent.parent.parent.parent.parent.required_stages
+
+        for stage in required_stages:
+            if stage not in self.stages():
+                if self.parent is not None:
+                    raise ValueError(f"LCA-Dataset '{parent.name}' (ID: {parent.id}) has no value for the required stage '{stage}'!")
+                else:
+                    raise ValueError(f"LCA-Dataset has no value for the required stage '{stage}'!")
 
            
                 

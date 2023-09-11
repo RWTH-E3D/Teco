@@ -1,7 +1,5 @@
 from setuptools import setup
 
-#TODO: Max or Linus should have a look:)
-
 setup(
     name="teco",
     version="0.2.0",
@@ -37,3 +35,4 @@ setup(
     ],
     install_requires=["teaserplus"],
 )
+

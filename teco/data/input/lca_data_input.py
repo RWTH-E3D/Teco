@@ -40,6 +40,7 @@ def load_en15804_lca_data_id(lca_data, lca_id, data_class):
                 lca_data.ref_flow_unit = data["ref_flow"]["unit"]
                 
                 pere = En15804IndicatorValue()
+                perm = En15804IndicatorValue()
                 pert = En15804IndicatorValue()
                 penre = En15804IndicatorValue()
                 penrm = En15804IndicatorValue()
@@ -65,6 +66,7 @@ def load_en15804_lca_data_id(lca_data, lca_id, data_class):
                 adpf = En15804IndicatorValue()
                 
                 pere.set_values(**data["pere"])
+                perm.set_values(**data["perm"])
                 pert.set_values(**data["pert"])
                 penre.set_values(**data["penre"])
                 penrm.set_values(**data["penrm"])
@@ -91,6 +93,7 @@ def load_en15804_lca_data_id(lca_data, lca_id, data_class):
                 
              
                 lca_data.pere = pere * (1/ref_flow_value)
+                lca_data.perm = perm * (1/ref_flow_value)
                 lca_data.pert = pert * (1/ref_flow_value)
                 lca_data.penre = penre * (1/ref_flow_value)
                 lca_data.penrm = penrm * (1/ref_flow_value)
@@ -164,6 +167,7 @@ def load_en15804_lca_data_fallback_id(lca_data, lca_id, data_class):
                 lca_data.ref_flow_unit = data["ref_flow"]["unit"]
                 
                 pere = En15804IndicatorValue()
+                perm = En15804IndicatorValue()
                 pert = En15804IndicatorValue()
                 penre = En15804IndicatorValue()
                 penrm = En15804IndicatorValue()
@@ -189,6 +193,7 @@ def load_en15804_lca_data_fallback_id(lca_data, lca_id, data_class):
                 adpf = En15804IndicatorValue()
                 
                 pere.set_values(**data["pere"])
+                perm.set_values(**data["perm"])
                 pert.set_values(**data["pert"])
                 penre.set_values(**data["penre"])
                 penrm.set_values(**data["penrm"])
@@ -213,7 +218,8 @@ def load_en15804_lca_data_fallback_id(lca_data, lca_id, data_class):
                 adpe.set_values(**data["adpe"])
                 adpf.set_values(**data["adpf"]) 
                 
-                lca_data.pere = pere 
+                lca_data.pere = pere
+                lca_data.perm = perm
                 lca_data.pert = pert
                 lca_data.penre = penre
                 lca_data.penrm = penrm

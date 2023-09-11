@@ -464,6 +464,15 @@ class En15804LcaData(object):
         if self._check_en15804indicatorvalue_class(value, var_name = "adpf"):
             if self._check_unit(value.unit, "MJ", "adpf"):
                 self._adpf = value
+
+    @property
+    def name(self):
+        return self._name
+    
+    @name.setter
+    def name(self, value):
+        self._name = value
+
     
     def set_values(self, **values):
         """Procedure to set all object-attributes at once
@@ -502,6 +511,7 @@ class En15804LcaData(object):
         
         
         values = {"pere": self._ignore_none_mul(self.pere , scalar),
+                "perm": self._ignore_none_mul(self.perm , scalar),
                 "pert": self._ignore_none_mul(self.pert , scalar),
                 "penre": self._ignore_none_mul(self.penre , scalar),
                 "penrm": self._ignore_none_mul(self.penrm , scalar),
@@ -552,6 +562,7 @@ class En15804LcaData(object):
         if isinstance(other, En15804LcaData):
 
             values = {"pere": self.pere + other.pere,
+                      "perm": self.perm + other.perm,
                         "pert": self.pert + other.pert,
                         "penre": self.penre + other.penre,
                         "penrm": self.penrm + other.penrm,
@@ -601,12 +612,55 @@ class En15804LcaData(object):
 
         """
         
-        if data_class == None:
+        if data_class is None:
             data_class = self.parent.parent.parent.parent.data
+        if self.parent is not None:
+            required_stages = self.parent.parent.parent.parent.parent.parent.required_stages
+        else:
+            required_stages = []
+
 
         lca_data_input.load_en15804_lca_data_id(lca_data=self,
                                      lca_id=lca_id,
                                      data_class=data_class)
+
+        self.check_required_stages(required_stages)
+
+    def check_required_stages(self, required_stages = None):
+        """Function that checks whether all required stages have a value. If this is not the case, an error is raised.
+
+        Parameters
+        ----------
+        required_stages : list of strings
+             List of stages that must be present in the data sets for the LCA. The program issues an error if a data set
+             does not contain values for one of the required stages. Stages A1-A3, C3 and C4 are required as default.
+        """
+        self.pere.check_required_stages(required_stages)
+        self.perm.check_required_stages(required_stages)
+        self.pert.check_required_stages(required_stages)
+        self.penre.check_required_stages(required_stages)
+        self.penrm.check_required_stages(required_stages)
+        self.penrt.check_required_stages(required_stages)
+        self.sm.check_required_stages(required_stages)
+        self.rsf.check_required_stages(required_stages)
+        self.nrsf.check_required_stages(required_stages)
+        self.fw.check_required_stages(required_stages)
+        self.hwd.check_required_stages(required_stages)
+        self.nhwd.check_required_stages(required_stages)
+        self.rwd.check_required_stages(required_stages)
+        self.cru.check_required_stages(required_stages)
+        self.mfr.check_required_stages(required_stages)
+        self.mer.check_required_stages(required_stages)
+        self.eee.check_required_stages(required_stages)
+        self.eet.check_required_stages(required_stages)
+        self.gwp.check_required_stages(required_stages)
+        self.odp.check_required_stages(required_stages)
+        self.pocp.check_required_stages(required_stages)
+        self.ap.check_required_stages(required_stages)
+        self.ep.check_required_stages(required_stages)
+        self.adpe.check_required_stages(required_stages)
+        self.adpf.check_required_stages(required_stages)
+            
         
     def save_lca_data_template(self, data_class=None):
         """LCA-data loader.
@@ -648,7 +702,7 @@ class En15804LcaData(object):
         None.
 
         """
-        if fallback_dictonarie:
+        if fallback_dictonarie is not None:
             self.fallback = {}
             for stage in fallback_dictonarie:
                 
@@ -678,7 +732,7 @@ class En15804LcaData(object):
 
         """
 
-        if data_class == None:
+        if data_class is None:
             data_class = self.parent.parent.parent.parent.data
 
         lca_data_input.load_en15804_lca_data_fallback_id(lca_data=self,
@@ -767,6 +821,7 @@ class En15804LcaData(object):
         result = En15804LcaData()
         
         values = {"pere": En15804IndicatorValue() ,
+                "perm": En15804IndicatorValue(),
                 "pert": En15804IndicatorValue(),
                 "penre": En15804IndicatorValue(),
                 "penrm": En15804IndicatorValue(),
@@ -795,6 +850,7 @@ class En15804LcaData(object):
             }
         
         values["pere"].unit = self.pere.unit
+        values["perm"].unit = self.perm.unit
         values["pert"].unit = self.pert.unit
         values["penre"].unit = self.penre.unit
         values["penrm"].unit = self.penrm.unit
@@ -821,6 +877,7 @@ class En15804LcaData(object):
 
         
         values["pere"].b4 = self.pere.sum_stages()
+        values["perm"].b4 = self.perm.sum_stages()
         values["pert"].b4 = self.pert.sum_stages()
         values["penre"].b4 = self.penre.sum_stages()
         values["penrm"].b4 = self.penrm.sum_stages()
@@ -862,6 +919,7 @@ class En15804LcaData(object):
         if self._fallback_added is False:
             
             pere_backup = self.pere
+            perm_backup = self.perm
             pert_backup = self.pert
             penre_backup = self.penre
             penrm_backup = self.penrm
@@ -906,6 +964,7 @@ class En15804LcaData(object):
                              "{} to {}".format( self.fallback[stage].ref_flow_unit, self.ref_flow_unit))
                         
                         self.pere = pere_backup
+                        self.perm = perm_backup
                         self.pert = pert_backup
                         self.penre = penre_backup
                         self.penrm = penrm_backup
@@ -937,6 +996,7 @@ class En15804LcaData(object):
                     
                 
                 self.pere = self.pere.add_stage(stage, self.fallback[stage].pere)
+                self.perm = self.pere.add_stage(stage, self.fallback[stage].perm)
                 self.pert = self.pert.add_stage(stage, self.fallback[stage].pert)
                 self.penre = self.penre.add_stage(stage, self.fallback[stage].penre)
                 self.penrm = self.penrm.add_stage(stage, self.fallback[stage].penrm)
