@@ -29,26 +29,26 @@ def screenSizer(posx: int, posy: int, width: int, height: int, app: QtWidgets.QA
 
 
 
-def windowSetup(self, posx: int, posy, width, height, title, winFac = 1) -> None:
+def windowSetup(self, posx, posy, width, height, title, winFac = 1) -> None:
     """func for loading icon, setting size and title"""
     try:                                                                            # try to load e3d Icon
-        self.setWindowIcon(QtGui.QIcon(r'pictures\e3dIcon.png'))
+        self.setWindowIcon(QtGui.QIcon(r'../pictures/e3dIcon.png'))
     except:
         print('error finding file icon')
-    self.setGeometry(posx, posy, width * winFac, height * winFac)                   # setting window size
-    self.setFixedSize(width * winFac, height * winFac)                                                # fixing window size
+    self.setGeometry(posx, posy, width * winFac, height * winFac)   # setting window size
+    #self.setFixedSize(width * winFac, height * winFac)                                                # fixing window size
     self.setWindowTitle(title)
 
 
 
-def load_banner(self, path: str, sizefactor: float, banner_size: int = 150) -> None:
+def load_banner(self, path: str, sizefactor: float, banner_size: int = 180) -> None:
     """loading image from path to self.vbox"""
     try:
         self.banner = QtWidgets.QLabel(self)
         self.banner.setPixmap(QtGui.QPixmap(path))
         self.banner.setScaledContents(True)
-        self.banner.setMinimumHeight(banner_size*sizefactor)
-        self.banner.setMaximumHeight(banner_size*sizefactor)
+        self.banner.setFixedSize(banner_size*sizefactor +100, banner_size)
+        self.banner.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         self.vbox.addWidget(self.banner)
     except:
         print('error finding banner picture')
@@ -58,6 +58,7 @@ def load_banner(self, path: str, sizefactor: float, banner_size: int = 150) -> N
 def messageBox(self, header: str, message: str) -> None:
     """pop up message box with header and message"""
     self.message_complete = QtWidgets.QMessageBox.information(self, header, message)
+    return
 
 
 
@@ -587,12 +588,13 @@ def getDataFromTable(self) -> dict:
     """function to collect data from Table"""
     buildingsToChange = {}
     # add info from add_building_data to buildingsToChange and valueDict
-    if hasattr(self.add_building_window, 'add_building_data'):
-        for building in self.add_building_window.add_building_data:
-            self.valueDict[building] = {}
-            self.valueDict[building]['YoC'] = str(self.add_building_window.add_building_data[building]['year_of_construction'])
-            self.valueDict[building]['SAG'] = self.add_building_window.add_building_data[building]['number_of_floors']
-            self.valueDict[building]['storeyHeight'] = self.add_building_window.add_building_data[building]['height_of_floors']
+    if hasattr(self, 'add_building_window'):
+        if hasattr(self.add_building_window, 'add_building_data'):
+            for building in self.add_building_window.add_building_data:
+                self.valueDict[building] = {}
+                self.valueDict[building]['YoC'] = str(self.add_building_window.add_building_data[building]['year_of_construction'])
+                self.valueDict[building]['SAG'] = self.add_building_window.add_building_data[building]['number_of_floors']
+                self.valueDict[building]['storeyHeight'] = self.add_building_window.add_building_data[building]['height_of_floors']
 
 
     for i in range(1, self.tbl_selBuildings.rowCount()):
@@ -645,6 +647,7 @@ def getDataFromTable(self) -> dict:
         else:
             messageBox(self, "Important set method for buildings",
                           "Please make sure to set a method for every building")
+            return None
 
         if valuesToChange != {}:
             buildingsToChange[self.tbl_selBuildings.item(i, 0).text()] = valuesToChange
