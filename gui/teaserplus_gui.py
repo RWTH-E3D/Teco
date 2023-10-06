@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 """
 TEASER+
 Contact:
@@ -37,7 +38,6 @@ import json
 # plugin_path = os.path.join(dirname, 'plugins', 'platforms')
 # os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = plugin_path
 
-
 # positions and dimensions of window
 POSX = 275
 POSY = 100
@@ -46,9 +46,8 @@ HEIGHT = 600
 SIZEFACTOR = 0
 SIZER = False
 
-teaser_path = os.path.join("C:/Users/tayeb/teaser") #############Todo: CHANGE THIS TO YOUR TEASER PATH
-output_path = os.path.join("C:/Users/tayeb/TEASEROutput") #############Todo: CHANGE THIS TO YOUR OUTPUT PATH
-
+teaser_path = os.path.join("D:/Users/MSchildt/Documents/repos/e3d_gitlab/teaser/teaser") #############Todo: CHANGE THIS TO YOUR TEASER PATH
+output_path = os.path.join("D:/Users/MSchildt/Documents/repos/e3d_gitlab/teaser/TEASEROutput") #############Todo: CHANGE THIS TO YOUR OUTPUT PATH
 
 class MainWindow(QtWidgets.QWidget):
     def __init__(self):
@@ -70,7 +69,8 @@ class MainWindow(QtWidgets.QWidget):
         self.setLayout(self.vbox)
 
         # Loading banner
-        gf.load_banner(self, r'../pictures/TEASER+_header.png', 3.25)
+        # ! Change to common image of TEASER+ and Teco
+        gf.load_banner(self, r'../pictures/teaseerplusteco_main_header.png', 3.25)
 
         # Setting Layout
         self.uGrid = QtWidgets.QGridLayout()
@@ -139,12 +139,12 @@ class MainWindow(QtWidgets.QWidget):
         self.lGrid.addWidget(self.btn_teaser, 0, 0, 1, 1)
         self.btn_teaser.setEnabled(True)
 
-        self.btn_teco = QtWidgets.QPushButton('TEASEREco')
+        self.btn_teco = QtWidgets.QPushButton('Teco')
         self.btn_teco.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
         self.lGrid.addWidget(self.btn_teco, 0, 2, 1, 1)
         self.btn_teco.setEnabled(True)
 
-        self.btn_about = QtWidgets.QPushButton('About')
+        self.btn_about = QtWidgets.QPushButton('About TEASER+')
         self.btn_about.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
         self.lGrid.addWidget(self.btn_about, 1, 0, 1, 1)
 
@@ -172,7 +172,7 @@ class MainWindow(QtWidgets.QWidget):
         self.btn_selFile.clicked.connect(self.func_selectFile)
         self.btn_selDir.clicked.connect(self.func_selectDir)
         self.rb_selectBuildings.toggled.connect(self.func_selB)
-        self.btn_about.clicked.connect(self.func_about)
+        self.btn_about.clicked.connect(self.func_about_teaser)
         self.btn_reset.clicked.connect(self.func_reset)
         self.btn_exit.clicked.connect(self.func_exit)
         self.btn_teaser.clicked.connect(self.func_teaser)
@@ -204,10 +204,10 @@ class MainWindow(QtWidgets.QWidget):
         else:
             self.tbl_buildings.setEnabled(False)
 
-    def func_about(self) -> None:
+    def func_about_teaser(self) -> None:
         global POSX, POSY
         POSX, POSY = gf.windowPosition(self)
-        gf.next_window(self, about("about_teaser.txt"), False)
+        gf.next_window(self, about("about_teaser.txt", r'../pictures/TEASER+_header.png'), False)
 
     def func_reset(self) -> None:
         global POSX, POSY
@@ -758,7 +758,7 @@ class TeaserEnrichment(QtWidgets.QWidget):
 
 
 class Eco(QtWidgets.QWidget):
-    """ Window for TEASER+eco
+    """ Window for Teco
     """
 
     def __init__(self, buildingDict: dict, inpPath: str, mainWindow):
@@ -780,13 +780,13 @@ class Eco(QtWidgets.QWidget):
             POSX, POSY, WIDTH, HEIGHT, SIZEFACTOR = gf.screenSizer(POSX, POSY, WIDTH, HEIGHT, app)
             SIZER = False
 
-        gf.windowSetup(self, POSX + 10, POSY - 10, WIDTH + 310, HEIGHT + 10, 'Teaser+eco')
+        gf.windowSetup(self, POSX + 10, POSY - 10, WIDTH + 310, HEIGHT + 10, 'Teco')
 
         # creating main layout
         self.vbox = QtWidgets.QVBoxLayout(self)
         self.setLayout(self.vbox)
 
-        gf.load_banner(self, r'../pictures/Teco.png', 4)
+        gf.load_banner(self, r'../pictures/Teco_headline.png', 4)
 
         self.tbl_selBuildings = QtWidgets.QTableWidget()
         self.tbl_selBuildings.setColumnCount(11)
@@ -978,8 +978,8 @@ class Eco(QtWidgets.QWidget):
         self.btn_back.clicked.connect(self.func_returnToMain)
         self.lGrid.addWidget(self.btn_back, 1, 2, 1, 1)
 
-        self.btn_about = QtWidgets.QPushButton('About')
-        self.btn_about.clicked.connect(self.func_about)
+        self.btn_about = QtWidgets.QPushButton('About Teco')
+        self.btn_about.clicked.connect(self.func_about_teco)
         self.lGrid.addWidget(self.btn_about, 0, 2, 1, 1)
 
         self.btn_reset = QtWidgets.QPushButton('Reset')
@@ -1130,10 +1130,10 @@ class Eco(QtWidgets.QWidget):
         POSX, POSY = gf.windowPosition(self)
         gf.next_window(self, self.add_building_window, False)
 
-    def func_about(self) -> None:
+    def func_about_teco(self) -> None:
         global POSX, POSY
         POSX, POSY = gf.windowPosition(self)
-        gf.next_window(self, about("about_teco.txt"), False)
+        gf.next_window(self, about("about_teco.txt", r'../pictures/Teco_headline.png'), False)
 
     def func_reset(self) -> None:
         global POSX, POSY
@@ -1865,21 +1865,22 @@ class SimulationProgram(QtWidgets.QWidget):
 
 
 class about(QtWidgets.QWidget):
-    def __init__(self, file_path):
+    def __init__(self, file_path, image_path):
         super(about, self).__init__()
         self.file_path = file_path
+        self.image_path = image_path
         self.initUI()
 
     def initUI(self):
         global POSX, POSY, WIDTH, HEIGHT, SIZEFACTOR
 
-        gf.windowSetup(self, POSX + 10, POSY + 10, WIDTH, HEIGHT, 'CityBIT - About')
+        gf.windowSetup(self, POSX + 10, POSY + 10, WIDTH, HEIGHT, 'Teco v. 0.5.9 - About')
 
         # creating main layout
         self.vbox = QtWidgets.QVBoxLayout(self)
         self.setLayout(self.vbox)
-
-        gf.load_banner(self, r'../pictures/e3dHeader.png', 4)
+        #r'../pictures/Teco_headline.png
+        gf.load_banner(self, self.image_path, 4)
 
         self.textwidget = QtWidgets.QPlainTextEdit()
         self.vbox.addWidget(self.textwidget)
@@ -1909,7 +1910,7 @@ class about(QtWidgets.QWidget):
 
 
 class addBuilding(QtWidgets.QWidget):
-    """Window to add buildings to the TEASER+eco-project
+    """Window to add buildings to the Teco-project
     """
 
     def __init__(self, prj, parent, buildingDict):
