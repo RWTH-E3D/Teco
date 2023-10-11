@@ -1,0 +1,3156 @@
+{
+  "electricity": {
+    "Residual electricity mix 2030": {
+      "pere": {
+        "unit": "MJ",
+        "b6": 1.285
+      },
+      "perm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "pert": {
+        "unit": "MJ",
+        "b6": 1.285
+      },
+      "penre": {
+        "unit": "MJ",
+        "b6": 8.842
+      },
+      "penrm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "penrt": {
+        "unit": "MJ",
+        "b6": 8.842
+      },
+      "sm": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "rsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "nrsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "fw": {
+        "unit": "m^3",
+        "b6": 0.002038
+      },
+      "hwd": {
+        "unit": "kg",
+        "b6": 6.547e-10
+      },
+      "nhwd": {
+        "unit": "kg",
+        "b6": 0.008775
+      },
+      "rwd": {
+        "unit": "kg",
+        "b6": 7.593e-05
+      },
+      "cru": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mfr": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mer": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "eee": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "eet": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "odp": {
+        "unit": "kg R11 eq.",
+        "b6": 3.443e-13
+      },
+      "ep-terrestrial": {
+        "unit": "Mole of N eq.",
+        "b6": 0.002883
+      },
+      "user": {
+        "unit": "m� world equiv.",
+        "b6": 0.01988
+      },
+      "gwp-biogenic": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.0005221
+      },
+      "pocp": {
+        "unit": "kg NMVOC eq.",
+        "b6": 0.0007105
+      },
+      "adpf": {
+        "unit": "MJ",
+        "b6": 8.841
+      },
+      "ep-marine": {
+        "unit": "kg N eq.",
+        "b6": 0.0002637
+      },
+      "gwp-luluc": {
+        "unit": "kg CO2 eq.",
+        "b6": 4.568e-05
+      },
+      "ap": {
+        "unit": "Mole of H+ eq.",
+        "b6": 0.0008189
+      },
+      "ep-freshwater": {
+        "unit": "kg P eq.",
+        "b6": 1.166e-07
+      },
+      "adpe": {
+        "unit": "kg Sb eq.",
+        "b6": 5.168e-09
+      },
+      "gwp-fossil": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.841
+      },
+      "gwp-total": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.8415
+      }
+    },
+    "Residual electricity mix 2040": {
+      "pere": {
+        "unit": "MJ",
+        "b6": 1.981
+      },
+      "perm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "pert": {
+        "unit": "MJ",
+        "b6": 1.981
+      },
+      "penre": {
+        "unit": "MJ",
+        "b6": 7.565
+      },
+      "penrm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "penrt": {
+        "unit": "MJ",
+        "b6": 7.565
+      },
+      "sm": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "rsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "nrsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "fw": {
+        "unit": "m^3",
+        "b6": 0.001294
+      },
+      "hwd": {
+        "unit": "kg",
+        "b6": 1.486e-09
+      },
+      "nhwd": {
+        "unit": "kg",
+        "b6": 0.01181
+      },
+      "rwd": {
+        "unit": "kg",
+        "b6": 7.263e-05
+      },
+      "cru": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mfr": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mer": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "eee": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "eet": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "ep-freshwater": {
+        "unit": "kg P eq.",
+        "b6": 1.034e-07
+      },
+      "adpf": {
+        "unit": "MJ",
+        "b6": 7.565
+      },
+      "odp": {
+        "unit": "kg R11 eq.",
+        "b6": 2.827e-13
+      },
+      "gwp-luluc": {
+        "unit": "kg CO2 eq.",
+        "b6": 2.875e-05
+      },
+      "adpe": {
+        "unit": "kg Sb eq.",
+        "b6": 6.813e-09
+      },
+      "pocp": {
+        "unit": "kg NMVOC eq.",
+        "b6": 0.0004606
+      },
+      "gwp-biogenic": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.0009985
+      },
+      "user": {
+        "unit": "m� world equiv.",
+        "b6": 0.02909
+      },
+      "gwp-fossil": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.5513
+      },
+      "ep-terrestrial": {
+        "unit": "Mole of N eq.",
+        "b6": 0.001905
+      },
+      "ep-marine": {
+        "unit": "kg N eq.",
+        "b6": 0.0001672
+      },
+      "ap": {
+        "unit": "Mole of H+ eq.",
+        "b6": 0.0003921
+      },
+      "gwp-total": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.5523
+      }
+    },
+    "Residual electricity mix 2050": {
+      "pere": {
+        "unit": "MJ",
+        "b6": 2.437
+      },
+      "perm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "pert": {
+        "unit": "MJ",
+        "b6": 2.437
+      },
+      "penre": {
+        "unit": "MJ",
+        "b6": 7.316
+      },
+      "penrm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "penrt": {
+        "unit": "MJ",
+        "b6": 7.316
+      },
+      "sm": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "rsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "nrsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "fw": {
+        "unit": "m^3",
+        "b6": 0.001427
+      },
+      "hwd": {
+        "unit": "kg",
+        "b6": 1.391e-09
+      },
+      "nhwd": {
+        "unit": "kg",
+        "b6": 0.01426
+      },
+      "rwd": {
+        "unit": "kg",
+        "b6": 7.354e-05
+      },
+      "cru": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mfr": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mer": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "eee": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "eet": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "user": {
+        "unit": "m� world equiv.",
+        "b6": 0.03588
+      },
+      "gwp-fossil": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.5622
+      },
+      "ap": {
+        "unit": "Mole of H+ eq.",
+        "b6": 0.0004134
+      },
+      "adpe": {
+        "unit": "kg Sb eq.",
+        "b6": 6.814e-09
+      },
+      "ep-terrestrial": {
+        "unit": "Mole of N eq.",
+        "b6": 0.002022
+      },
+      "adpf": {
+        "unit": "MJ",
+        "b6": 7.315
+      },
+      "odp": {
+        "unit": "kg R11 eq.",
+        "b6": 2.961e-13
+      },
+      "ep-freshwater": {
+        "unit": "kg P eq.",
+        "b6": 1.065e-07
+      },
+      "gwp-total": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.5632
+      },
+      "gwp-biogenic": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.0009454
+      },
+      "ep-marine": {
+        "unit": "kg N eq.",
+        "b6": 0.0001765
+      },
+      "pocp": {
+        "unit": "kg NMVOC eq.",
+        "b6": 0.0004841
+      },
+      "gwp-luluc": {
+        "unit": "kg CO2 eq.",
+        "b6": 3.079e-05
+      }
+    },
+    "Electricity grid mix scenario 2030": {
+      "pere": {
+        "unit": "MJ",
+        "b6": 8.513
+      },
+      "perm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "pert": {
+        "unit": "MJ",
+        "b6": 8.513
+      },
+      "penre": {
+        "unit": "MJ",
+        "b6": 3.839
+      },
+      "penrm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "penrt": {
+        "unit": "MJ",
+        "b6": 3.839
+      },
+      "sm": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "rsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "nrsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "fw": {
+        "unit": "m^3",
+        "b6": 0.001422
+      },
+      "hwd": {
+        "unit": "kg",
+        "b6": -2.188e-09
+      },
+      "nhwd": {
+        "unit": "kg",
+        "b6": 0.005645
+      },
+      "rwd": {
+        "unit": "kg",
+        "b6": 8.046e-05
+      },
+      "cru": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mfr": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mer": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "eee": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "eet": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "ap": {
+        "unit": "Mole of H+ eq.",
+        "b6": 0.0005232
+      },
+      "odp": {
+        "unit": "kg R11 eq.",
+        "b6": 3.355e-13
+      },
+      "gwp-fossil": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.3517
+      },
+      "gwp-luluc": {
+        "unit": "kg CO2 eq.",
+        "b6": 6.426e-05
+      },
+      "ep-marine": {
+        "unit": "kg N eq.",
+        "b6": 0.0001647
+      },
+      "pocp": {
+        "unit": "kg NMVOC eq.",
+        "b6": 0.0004067
+      },
+      "gwp-biogenic": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.00391
+      },
+      "adpf": {
+        "unit": "MJ",
+        "b6": 3.838
+      },
+      "user": {
+        "unit": "m� world equiv.",
+        "b6": 0.0127
+      },
+      "gwp-total": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.3557
+      },
+      "ep-freshwater": {
+        "unit": "kg P eq.",
+        "b6": 1.848e-06
+      },
+      "adpe": {
+        "unit": "kg Sb eq.",
+        "b6": 4.157e-07
+      },
+      "ep-terrestrial": {
+        "unit": "Mole of N eq.",
+        "b6": 0.00172
+      }
+    },
+    "Electricity grid mix scenario 2040": {
+      "pere": {
+        "unit": "MJ",
+        "b6": 10.31
+      },
+      "perm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "pert": {
+        "unit": "MJ",
+        "b6": 10.31
+      },
+      "penre": {
+        "unit": "MJ",
+        "b6": 2.172
+      },
+      "penrm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "penrt": {
+        "unit": "MJ",
+        "b6": 2.172
+      },
+      "sm": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "rsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "nrsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "fw": {
+        "unit": "m^3",
+        "b6": 0.0009049
+      },
+      "hwd": {
+        "unit": "kg",
+        "b6": -3.461e-09
+      },
+      "nhwd": {
+        "unit": "kg",
+        "b6": 0.005124
+      },
+      "rwd": {
+        "unit": "kg",
+        "b6": 8.036e-05
+      },
+      "cru": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mfr": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mer": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "eee": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "eet": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "user": {
+        "unit": "m� world equiv.",
+        "b6": 0.01205
+      },
+      "ap": {
+        "unit": "Mole of H+ eq.",
+        "b6": 0.0002856
+      },
+      "adpe": {
+        "unit": "kg Sb eq.",
+        "b6": 4.903e-07
+      },
+      "ep-freshwater": {
+        "unit": "kg P eq.",
+        "b6": 1.531e-06
+      },
+      "gwp-fossil": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.1524
+      },
+      "gwp-total": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.1558
+      },
+      "ep-marine": {
+        "unit": "kg N eq.",
+        "b6": 9.42e-05
+      },
+      "pocp": {
+        "unit": "kg NMVOC eq.",
+        "b6": 0.0002291
+      },
+      "gwp-biogenic": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.003304
+      },
+      "ep-terrestrial": {
+        "unit": "Mole of N eq.",
+        "b6": 0.0009793
+      },
+      "adpf": {
+        "unit": "MJ",
+        "b6": 2.171
+      },
+      "gwp-luluc": {
+        "unit": "kg CO2 eq.",
+        "b6": 5.169e-05
+      },
+      "odp": {
+        "unit": "kg R11 eq.",
+        "b6": 3.127e-13
+      }
+    },
+    "Electricity grid mix scenario 2050": {
+      "pere": {
+        "unit": "MJ",
+        "b6": 11.16
+      },
+      "perm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "pert": {
+        "unit": "MJ",
+        "b6": 11.16
+      },
+      "penre": {
+        "unit": "MJ",
+        "b6": 1.765
+      },
+      "penrm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "penrt": {
+        "unit": "MJ",
+        "b6": 1.765
+      },
+      "sm": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "rsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "nrsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "fw": {
+        "unit": "m^3",
+        "b6": 0.0007955
+      },
+      "hwd": {
+        "unit": "kg",
+        "b6": -3.644e-09
+      },
+      "nhwd": {
+        "unit": "kg",
+        "b6": 0.00497
+      },
+      "rwd": {
+        "unit": "kg",
+        "b6": 8.2e-05
+      },
+      "cru": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mfr": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mer": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "eee": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "eet": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "gwp-luluc": {
+        "unit": "kg CO2 eq.",
+        "b6": 4.681e-05
+      },
+      "gwp-biogenic": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.002313
+      },
+      "ep-marine": {
+        "unit": "kg N eq.",
+        "b6": 7.616e-05
+      },
+      "ap": {
+        "unit": "Mole of H+ eq.",
+        "b6": 0.0002436
+      },
+      "adpe": {
+        "unit": "kg Sb eq.",
+        "b6": 5.735e-07
+      },
+      "adpf": {
+        "unit": "MJ",
+        "b6": 1.764
+      },
+      "gwp-fossil": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.1262
+      },
+      "odp": {
+        "unit": "kg R11 eq.",
+        "b6": 3.189e-13
+      },
+      "ep-terrestrial": {
+        "unit": "Mole of N eq.",
+        "b6": 0.0007999
+      },
+      "pocp": {
+        "unit": "kg NMVOC eq.",
+        "b6": 0.0001936
+      },
+      "gwp-total": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.1286
+      },
+      "user": {
+        "unit": "m� world equiv.",
+        "b6": 0.01187
+      },
+      "ep-freshwater": {
+        "unit": "kg P eq.",
+        "b6": 1.085e-06
+      }
+    },
+    "Electricity mix scenario 2030": {
+      "pere": {
+        "unit": "MJ",
+        "b6": 10.67
+      },
+      "perm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "pert": {
+        "unit": "MJ",
+        "b6": 10.67
+      },
+      "penre": {
+        "unit": "MJ",
+        "b6": 2.755
+      },
+      "penrm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "penrt": {
+        "unit": "MJ",
+        "b6": 2.755
+      },
+      "sm": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "rsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "nrsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "fw": {
+        "unit": "m^3",
+        "b6": 0.001094
+      },
+      "hwd": {
+        "unit": "kg",
+        "b6": -1.601e-09
+      },
+      "nhwd": {
+        "unit": "kg",
+        "b6": 0.005395
+      },
+      "rwd": {
+        "unit": "kg",
+        "b6": 8.253e-05
+      },
+      "cru": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mfr": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mer": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "eee": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "eet": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "adpf": {
+        "unit": "MJ",
+        "b6": 2.753
+      },
+      "ep-marine": {
+        "unit": "kg N eq.",
+        "b6": 0.0001352
+      },
+      "ep-terrestrial": {
+        "unit": "Mole of N eq.",
+        "b6": 0.001383
+      },
+      "user": {
+        "unit": "m� world equiv.",
+        "b6": 0.012
+      },
+      "gwp-total": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.2013
+      },
+      "pocp": {
+        "unit": "kg NMVOC eq.",
+        "b6": 0.0003166
+      },
+      "gwp-luluc": {
+        "unit": "kg CO2 eq.",
+        "b6": 7.577e-05
+      },
+      "ep-freshwater": {
+        "unit": "kg P eq.",
+        "b6": 2.544e-06
+      },
+      "ap": {
+        "unit": "Mole of H+ eq.",
+        "b6": 0.0004052
+      },
+      "gwp-fossil": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.1957
+      },
+      "gwp-biogenic": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.005465
+      },
+      "odp": {
+        "unit": "kg R11 eq.",
+        "b6": 3.272e-13
+      },
+      "adpe": {
+        "unit": "kg Sb eq.",
+        "b6": 6.067e-07
+      }
+    },
+    "Electricity mix scenario 2040": {
+      "pere": {
+        "unit": "MJ",
+        "b6": 12.44
+      },
+      "perm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "pert": {
+        "unit": "MJ",
+        "b6": 12.44
+      },
+      "penre": {
+        "unit": "MJ",
+        "b6": 1.791
+      },
+      "penrm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "penrt": {
+        "unit": "MJ",
+        "b6": 1.791
+      },
+      "sm": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "rsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "nrsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "fw": {
+        "unit": "m^3",
+        "b6": 0.0008592
+      },
+      "hwd": {
+        "unit": "kg",
+        "b6": -2.143e-09
+      },
+      "nhwd": {
+        "unit": "kg",
+        "b6": 0.00556
+      },
+      "rwd": {
+        "unit": "kg",
+        "b6": 8.558e-05
+      },
+      "cru": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mfr": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mer": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "eee": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "eet": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "ep-terrestrial": {
+        "unit": "Mole of N eq.",
+        "b6": 0.0009094
+      },
+      "user": {
+        "unit": "m� world equiv.",
+        "b6": 0.01396
+      },
+      "ap": {
+        "unit": "Mole of H+ eq.",
+        "b6": 0.000283
+      },
+      "ep-marine": {
+        "unit": "kg N eq.",
+        "b6": 8.782e-05
+      },
+      "adpe": {
+        "unit": "kg Sb eq.",
+        "b6": 7.634e-07
+      },
+      "gwp-luluc": {
+        "unit": "kg CO2 eq.",
+        "b6": 5.736e-05
+      },
+      "gwp-total": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.1349
+      },
+      "ep-freshwater": {
+        "unit": "kg P eq.",
+        "b6": 1.258e-06
+      },
+      "pocp": {
+        "unit": "kg NMVOC eq.",
+        "b6": 0.0002248
+      },
+      "gwp-fossil": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.1324
+      },
+      "odp": {
+        "unit": "kg R11 eq.",
+        "b6": 3.376e-13
+      },
+      "adpf": {
+        "unit": "MJ",
+        "b6": 1.79
+      },
+      "gwp-biogenic": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.002441
+      }
+    },
+    "Electricity mix scenario 2050": {
+      "pere": {
+        "unit": "MJ",
+        "b6": 13.85
+      },
+      "perm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "pert": {
+        "unit": "MJ",
+        "b6": 13.85
+      },
+      "penre": {
+        "unit": "MJ",
+        "b6": 1.041
+      },
+      "penrm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "penrt": {
+        "unit": "MJ",
+        "b6": 1.041
+      },
+      "sm": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "rsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "nrsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "fw": {
+        "unit": "m^3",
+        "b6": 0.0008129
+      },
+      "hwd": {
+        "unit": "kg",
+        "b6": -2.72e-09
+      },
+      "nhwd": {
+        "unit": "kg",
+        "b6": 0.006481
+      },
+      "rwd": {
+        "unit": "kg",
+        "b6": 8.775e-05
+      },
+      "cru": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mfr": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mer": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "eee": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "eet": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "gwp-biogenic": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.0006969
+      },
+      "pocp": {
+        "unit": "kg NMVOC eq.",
+        "b6": 0.0001918
+      },
+      "adpe": {
+        "unit": "kg Sb eq.",
+        "b6": 8.569e-07
+      },
+      "ep-marine": {
+        "unit": "kg N eq.",
+        "b6": 6.887e-05
+      },
+      "adpf": {
+        "unit": "MJ",
+        "b6": 1.04
+      },
+      "user": {
+        "unit": "m� world equiv.",
+        "b6": 0.01777
+      },
+      "gwp-luluc": {
+        "unit": "kg CO2 eq.",
+        "b6": 5.016e-05
+      },
+      "ep-terrestrial": {
+        "unit": "Mole of N eq.",
+        "b6": 0.0007224
+      },
+      "odp": {
+        "unit": "kg R11 eq.",
+        "b6": 3.494e-13
+      },
+      "ap": {
+        "unit": "Mole of H+ eq.",
+        "b6": 0.0002387
+      },
+      "ep-freshwater": {
+        "unit": "kg P eq.",
+        "b6": 5.948e-07
+      },
+      "gwp-total": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.09964
+      },
+      "gwp-fossil": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.09889
+      }
+    }
+  },
+  "heating": {
+    "District heating from waste": {
+      "pere": {
+        "unit": "MJ",
+        "b6": 6.095
+      },
+      "perm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "pert": {
+        "unit": "MJ",
+        "b6": 6.095
+      },
+      "penre": {
+        "unit": "MJ",
+        "b6": 0.284
+      },
+      "penrm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "penrt": {
+        "unit": "MJ",
+        "b6": 0.284
+      },
+      "sm": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "rsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "nrsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "fw": {
+        "unit": "m^3",
+        "b6": 0.002123
+      },
+      "hwd": {
+        "unit": "kg",
+        "b6": 3.19e-11
+      },
+      "nhwd": {
+        "unit": "kg",
+        "b6": 0.03429
+      },
+      "rwd": {
+        "unit": "kg",
+        "b6": 9.614e-06
+      },
+      "cru": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mfr": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mer": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "eee": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "eet": {
+        "unit": "MJ",
+        "b6": 3.6
+      },
+      "adpe": {
+        "unit": "kg Sb eq.",
+        "b6": 3.336e-09
+      },
+      "odp": {
+        "unit": "kg R11 eq.",
+        "b6": 1.938e-13
+      },
+      "gwp-fossil": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.2555
+      },
+      "adpf": {
+        "unit": "MJ",
+        "b6": 0.2846
+      },
+      "ep-freshwater": {
+        "unit": "kg P eq.",
+        "b6": 5.263e-08
+      },
+      "gwp-luluc": {
+        "unit": "kg CO2 eq.",
+        "b6": -2.374e-06
+      },
+      "gwp-total": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.2557
+      },
+      "gwp-biogenic": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.0001578
+      },
+      "user": {
+        "unit": "m� world equiv.",
+        "b6": 0.09036
+      },
+      "ep-marine": {
+        "unit": "kg N eq.",
+        "b6": 0.0001112
+      },
+      "ep-terrestrial": {
+        "unit": "Mole of N eq.",
+        "b6": 0.001408
+      },
+      "pocp": {
+        "unit": "kg NMVOC eq.",
+        "b6": 0.0002862
+      },
+      "ap": {
+        "unit": "Mole of H+ eq.",
+        "b6": 0.0002771
+      }
+    },
+    "District heating from biogas": {
+      "pere": {
+        "unit": "MJ",
+        "b6": 6.272
+      },
+      "perm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "pert": {
+        "unit": "MJ",
+        "b6": 6.272
+      },
+      "penre": {
+        "unit": "MJ",
+        "b6": 0.2819
+      },
+      "penrm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "penrt": {
+        "unit": "MJ",
+        "b6": 0.2819
+      },
+      "sm": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "rsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "nrsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "fw": {
+        "unit": "m^3",
+        "b6": 0.001539
+      },
+      "hwd": {
+        "unit": "kg",
+        "b6": 2.445e-11
+      },
+      "nhwd": {
+        "unit": "kg",
+        "b6": 0.004404
+      },
+      "rwd": {
+        "unit": "kg",
+        "b6": 7.464e-06
+      },
+      "cru": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mfr": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mer": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "eee": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "eet": {
+        "unit": "MJ",
+        "b6": 3.6
+      },
+      "pocp": {
+        "unit": "kg NMVOC eq.",
+        "b6": 0.0005125
+      },
+      "ap": {
+        "unit": "Mole of H+ eq.",
+        "b6": 0.0008385
+      },
+      "gwp-total": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.07293
+      },
+      "ep-marine": {
+        "unit": "kg N eq.",
+        "b6": 0.0002938
+      },
+      "adpf": {
+        "unit": "MJ",
+        "b6": 0.2751
+      },
+      "adpe": {
+        "unit": "kg Sb eq.",
+        "b6": 1.607e-07
+      },
+      "gwp-biogenic": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.03493
+      },
+      "gwp-luluc": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.000184
+      },
+      "ep-freshwater": {
+        "unit": "kg P eq.",
+        "b6": 1.105e-05
+      },
+      "gwp-fossil": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.03782
+      },
+      "user": {
+        "unit": "m� world equiv.",
+        "b6": 0.002627
+      },
+      "ep-terrestrial": {
+        "unit": "Mole of N eq.",
+        "b6": 0.002809
+      },
+      "odp": {
+        "unit": "kg R11 eq.",
+        "b6": 1.143e-13
+      }
+    },
+    "District heating from biomass (solid)": {
+      "pere": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "perm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "pert": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "penre": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "penrm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "penrt": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "sm": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "rsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "nrsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "fw": {
+        "unit": "m^3",
+        "b6": 0.0
+      },
+      "hwd": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "nhwd": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "rwd": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "cru": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mfr": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mer": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "eee": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "eet": {
+        "unit": "MJ",
+        "b6": 3.6
+      },
+      "gwp-biogenic": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.0
+      },
+      "odp": {
+        "unit": "kg R11 eq.",
+        "b6": 0.0
+      },
+      "adpf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "user": {
+        "unit": "m� world equiv.",
+        "b6": 0.0
+      },
+      "ep-terrestrial": {
+        "unit": "Mole of N eq.",
+        "b6": 0.0
+      },
+      "adpe": {
+        "unit": "kg Sb eq.",
+        "b6": 0.0
+      },
+      "ep-marine": {
+        "unit": "kg N eq.",
+        "b6": 0.0
+      },
+      "gwp-luluc": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.0
+      },
+      "pocp": {
+        "unit": "kg NMVOC eq.",
+        "b6": 0.0
+      },
+      "gwp-total": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.0
+      },
+      "gwp-fossil": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.0
+      },
+      "ap": {
+        "unit": "Mole of H+ eq.",
+        "b6": 0.0
+      },
+      "ep-freshwater": {
+        "unit": "kg P eq.",
+        "b6": 0.0
+      }
+    },
+    "District heating from lignite": {
+      "pere": {
+        "unit": "MJ",
+        "b6": 0.03733
+      },
+      "perm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "pert": {
+        "unit": "MJ",
+        "b6": 0.03733
+      },
+      "penre": {
+        "unit": "MJ",
+        "b6": 2.813
+      },
+      "penrm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "penrt": {
+        "unit": "MJ",
+        "b6": 2.813
+      },
+      "sm": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "rsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "nrsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "fw": {
+        "unit": "m^3",
+        "b6": 0.0004821
+      },
+      "hwd": {
+        "unit": "kg",
+        "b6": -5.647e-12
+      },
+      "nhwd": {
+        "unit": "kg",
+        "b6": 0.001608
+      },
+      "rwd": {
+        "unit": "kg",
+        "b6": 3.88e-06
+      },
+      "cru": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mfr": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mer": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "eee": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "eet": {
+        "unit": "MJ",
+        "b6": 3.6
+      },
+      "gwp-luluc": {
+        "unit": "kg CO2 eq.",
+        "b6": 7.568e-07
+      },
+      "ep-terrestrial": {
+        "unit": "Mole of N eq.",
+        "b6": 0.0009579
+      },
+      "ep-freshwater": {
+        "unit": "kg P eq.",
+        "b6": 2.011e-08
+      },
+      "adpe": {
+        "unit": "kg Sb eq.",
+        "b6": 6.056e-10
+      },
+      "odp": {
+        "unit": "kg R11 eq.",
+        "b6": 7.703e-14
+      },
+      "ap": {
+        "unit": "Mole of H+ eq.",
+        "b6": 0.0003211
+      },
+      "ep-marine": {
+        "unit": "kg N eq.",
+        "b6": 9.07e-05
+      },
+      "gwp-biogenic": {
+        "unit": "kg CO2 eq.",
+        "b6": 4.887e-05
+      },
+      "pocp": {
+        "unit": "kg NMVOC eq.",
+        "b6": 0.0002365
+      },
+      "adpf": {
+        "unit": "MJ",
+        "b6": 2.813
+      },
+      "gwp-total": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.3172
+      },
+      "gwp-fossil": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.3171
+      },
+      "user": {
+        "unit": "m� world equiv.",
+        "b6": 0.0007382
+      }
+    },
+    "District heating from natural gas": {
+      "pere": {
+        "unit": "MJ",
+        "b6": 0.01127
+      },
+      "perm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "pert": {
+        "unit": "MJ",
+        "b6": 0.01127
+      },
+      "penre": {
+        "unit": "MJ",
+        "b6": 2.599
+      },
+      "penrm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "penrt": {
+        "unit": "MJ",
+        "b6": 2.599
+      },
+      "sm": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "rsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "nrsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "fw": {
+        "unit": "m^3",
+        "b6": 0.0001441
+      },
+      "hwd": {
+        "unit": "kg",
+        "b6": 6.078e-10
+      },
+      "nhwd": {
+        "unit": "kg",
+        "b6": 0.0006282
+      },
+      "rwd": {
+        "unit": "kg",
+        "b6": 7.635e-07
+      },
+      "cru": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mfr": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mer": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "eee": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "eet": {
+        "unit": "MJ",
+        "b6": 3.6
+      },
+      "user": {
+        "unit": "m� world equiv.",
+        "b6": 0.0002992
+      },
+      "odp": {
+        "unit": "kg R11 eq.",
+        "b6": 1.151e-14
+      },
+      "ep-marine": {
+        "unit": "kg N eq.",
+        "b6": 4.191e-05
+      },
+      "ap": {
+        "unit": "Mole of H+ eq.",
+        "b6": 9.119e-05
+      },
+      "adpf": {
+        "unit": "MJ",
+        "b6": 2.599
+      },
+      "gwp-total": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.1551
+      },
+      "gwp-luluc": {
+        "unit": "kg CO2 eq.",
+        "b6": 5.821e-06
+      },
+      "gwp-biogenic": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.0003517
+      },
+      "ep-terrestrial": {
+        "unit": "Mole of N eq.",
+        "b6": 0.0004638
+      },
+      "gwp-fossil": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.1547
+      },
+      "pocp": {
+        "unit": "kg NMVOC eq.",
+        "b6": 0.0001186
+      },
+      "ep-freshwater": {
+        "unit": "kg P eq.",
+        "b6": 1.235e-08
+      },
+      "adpe": {
+        "unit": "kg Sb eq.",
+        "b6": 1.651e-09
+      }
+    },
+    "District heating from light fuel oil": {
+      "pere": {
+        "unit": "MJ",
+        "b6": 0.01934
+      },
+      "perm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "pert": {
+        "unit": "MJ",
+        "b6": 0.01934
+      },
+      "penre": {
+        "unit": "MJ",
+        "b6": 2.876
+      },
+      "penrm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "penrt": {
+        "unit": "MJ",
+        "b6": 2.876
+      },
+      "sm": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "rsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "nrsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "fw": {
+        "unit": "m^3",
+        "b6": 0.0002878
+      },
+      "hwd": {
+        "unit": "kg",
+        "b6": 6.265e-12
+      },
+      "nhwd": {
+        "unit": "kg",
+        "b6": 0.0004924
+      },
+      "rwd": {
+        "unit": "kg",
+        "b6": 2.689e-06
+      },
+      "cru": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mfr": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mer": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "eee": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "eet": {
+        "unit": "MJ",
+        "b6": 3.6
+      },
+      "adpf": {
+        "unit": "MJ",
+        "b6": 2.874
+      },
+      "ep-terrestrial": {
+        "unit": "Mole of N eq.",
+        "b6": 0.0009094
+      },
+      "odp": {
+        "unit": "kg R11 eq.",
+        "b6": 3.581e-14
+      },
+      "user": {
+        "unit": "m� world equiv.",
+        "b6": 0.000856
+      },
+      "ap": {
+        "unit": "Mole of H+ eq.",
+        "b6": 0.0002248
+      },
+      "gwp-total": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.2185
+      },
+      "pocp": {
+        "unit": "kg NMVOC eq.",
+        "b6": 0.0002512
+      },
+      "gwp-biogenic": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.0003344
+      },
+      "ep-freshwater": {
+        "unit": "kg P eq.",
+        "b6": 4.365e-08
+      },
+      "gwp-fossil": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.2182
+      },
+      "gwp-luluc": {
+        "unit": "kg CO2 eq.",
+        "b6": 4.555e-06
+      },
+      "ep-marine": {
+        "unit": "kg N eq.",
+        "b6": 8.201e-05
+      },
+      "adpe": {
+        "unit": "kg Sb eq.",
+        "b6": 2.318e-09
+      }
+    },
+    "District heating from hard coal": {
+      "pere": {
+        "unit": "MJ",
+        "b6": 0.01423
+      },
+      "perm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "pert": {
+        "unit": "MJ",
+        "b6": 0.01423
+      },
+      "penre": {
+        "unit": "MJ",
+        "b6": 3.007
+      },
+      "penrm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "penrt": {
+        "unit": "MJ",
+        "b6": 3.007
+      },
+      "sm": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "rsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "nrsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "fw": {
+        "unit": "m^3",
+        "b6": 0.0002172
+      },
+      "hwd": {
+        "unit": "kg",
+        "b6": 2.697e-12
+      },
+      "nhwd": {
+        "unit": "kg",
+        "b6": 0.00176
+      },
+      "rwd": {
+        "unit": "kg",
+        "b6": 2.44e-06
+      },
+      "cru": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mfr": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mer": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "eee": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "eet": {
+        "unit": "MJ",
+        "b6": 3.6
+      },
+      "adpe": {
+        "unit": "kg Sb eq.",
+        "b6": 6.548e-10
+      },
+      "adpf": {
+        "unit": "MJ",
+        "b6": 3.006
+      },
+      "ep-marine": {
+        "unit": "kg N eq.",
+        "b6": 0.0001291
+      },
+      "odp": {
+        "unit": "kg R11 eq.",
+        "b6": 1.264e-14
+      },
+      "pocp": {
+        "unit": "kg NMVOC eq.",
+        "b6": 0.0003573
+      },
+      "gwp-biogenic": {
+        "unit": "kg CO2 eq.",
+        "b6": -9.7e-05
+      },
+      "gwp-fossil": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.3063
+      },
+      "ep-terrestrial": {
+        "unit": "Mole of N eq.",
+        "b6": 0.00141
+      },
+      "user": {
+        "unit": "m� world equiv.",
+        "b6": 0.001233
+      },
+      "ep-freshwater": {
+        "unit": "kg P eq.",
+        "b6": 2.72e-08
+      },
+      "ap": {
+        "unit": "Mole of H+ eq.",
+        "b6": 0.0004037
+      },
+      "gwp-luluc": {
+        "unit": "kg CO2 eq.",
+        "b6": 5.585e-05
+      },
+      "gwp-total": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.3063
+      }
+    },
+    "District heating mix Germany": {
+      "pere": {
+        "unit": "MJ",
+        "b6": 1.735
+      },
+      "perm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "pert": {
+        "unit": "MJ",
+        "b6": 1.735
+      },
+      "penre": {
+        "unit": "MJ",
+        "b6": 2.673
+      },
+      "penrm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "penrt": {
+        "unit": "MJ",
+        "b6": 2.673
+      },
+      "sm": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "rsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "nrsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "fw": {
+        "unit": "m^3",
+        "b6": 0.0006669
+      },
+      "hwd": {
+        "unit": "kg",
+        "b6": 3.932e-10
+      },
+      "nhwd": {
+        "unit": "kg",
+        "b6": 0.008065
+      },
+      "rwd": {
+        "unit": "kg",
+        "b6": 3.763e-06
+      },
+      "cru": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mfr": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mer": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "eee": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "eet": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "gwp-fossil": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.249
+      },
+      "gwp-biogenic": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.001881
+      },
+      "ap": {
+        "unit": "Mole of H+ eq.",
+        "b6": 0.0003003
+      },
+      "odp": {
+        "unit": "kg R11 eq.",
+        "b6": 6.064e-14
+      },
+      "gwp-luluc": {
+        "unit": "kg CO2 eq.",
+        "b6": 2.779e-05
+      },
+      "adpf": {
+        "unit": "MJ",
+        "b6": 2.673
+      },
+      "ep-freshwater": {
+        "unit": "kg P eq.",
+        "b6": 7.268e-07
+      },
+      "adpe": {
+        "unit": "kg Sb eq.",
+        "b6": 9.963e-09
+      },
+      "user": {
+        "unit": "m� world equiv.",
+        "b6": 0.02013
+      },
+      "pocp": {
+        "unit": "kg NMVOC eq.",
+        "b6": 0.0002822
+      },
+      "gwp-total": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.2509
+      },
+      "ep-terrestrial": {
+        "unit": "Mole of N eq.",
+        "b6": 0.001201
+      },
+      "ep-marine": {
+        "unit": "kg N eq.",
+        "b6": 0.0001101
+      }
+    },
+    "Thermal energy from natural gas": {
+      "pere": {
+        "unit": "MJ",
+        "b6": 0.01727
+      },
+      "perm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "pert": {
+        "unit": "MJ",
+        "b6": 0.01727
+      },
+      "penre": {
+        "unit": "MJ",
+        "b6": 3.943
+      },
+      "penrm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "penrt": {
+        "unit": "MJ",
+        "b6": 3.943
+      },
+      "sm": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "rsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "nrsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "fw": {
+        "unit": "m^3",
+        "b6": 1.916e-05
+      },
+      "hwd": {
+        "unit": "kg",
+        "b6": 9.22e-10
+      },
+      "nhwd": {
+        "unit": "kg",
+        "b6": 0.00111
+      },
+      "rwd": {
+        "unit": "kg",
+        "b6": 1.177e-06
+      },
+      "cru": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mfr": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mer": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "eee": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "eet": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "gwp-fossil": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.2347
+      },
+      "ep-terrestrial": {
+        "unit": "Mole of N eq.",
+        "b6": 0.0007037
+      },
+      "ep-freshwater": {
+        "unit": "kg P eq.",
+        "b6": 1.882e-08
+      },
+      "ap": {
+        "unit": "Mole of H+ eq.",
+        "b6": 0.0001384
+      },
+      "adpf": {
+        "unit": "MJ",
+        "b6": 3.943
+      },
+      "ep-marine": {
+        "unit": "kg N eq.",
+        "b6": 6.359e-05
+      },
+      "adpe": {
+        "unit": "kg Sb eq.",
+        "b6": 2.514e-09
+      },
+      "odp": {
+        "unit": "kg R11 eq.",
+        "b6": 1.782e-14
+      },
+      "gwp-biogenic": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.0005336
+      },
+      "gwp-total": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.2352
+      },
+      "pocp": {
+        "unit": "kg NMVOC eq.",
+        "b6": 0.0001799
+      },
+      "user": {
+        "unit": "m� world equiv.",
+        "b6": 0.0001836
+      },
+      "gwp-luluc": {
+        "unit": "kg CO2 eq.",
+        "b6": 8.845e-06
+      }
+    },
+    "Thermal energy from light fuel oil": {
+      "pere": {
+        "unit": "MJ",
+        "b6": 0.02855
+      },
+      "perm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "pert": {
+        "unit": "MJ",
+        "b6": 0.02855
+      },
+      "penre": {
+        "unit": "MJ",
+        "b6": 4.208
+      },
+      "penrm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "penrt": {
+        "unit": "MJ",
+        "b6": 4.208
+      },
+      "sm": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "rsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "nrsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "fw": {
+        "unit": "m^3",
+        "b6": 2.975e-05
+      },
+      "hwd": {
+        "unit": "kg",
+        "b6": 9.226e-12
+      },
+      "nhwd": {
+        "unit": "kg",
+        "b6": 0.0009535
+      },
+      "rwd": {
+        "unit": "kg",
+        "b6": 3.962e-06
+      },
+      "cru": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mfr": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mer": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "eee": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "eet": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "gwp-fossil": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.3192
+      },
+      "ep-terrestrial": {
+        "unit": "Mole of N eq.",
+        "b6": 0.001331
+      },
+      "pocp": {
+        "unit": "kg NMVOC eq.",
+        "b6": 0.0003675
+      },
+      "gwp-biogenic": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.0004895
+      },
+      "adpf": {
+        "unit": "MJ",
+        "b6": 4.206
+      },
+      "adpe": {
+        "unit": "kg Sb eq.",
+        "b6": 3.405e-09
+      },
+      "user": {
+        "unit": "m� world equiv.",
+        "b6": 0.0007216
+      },
+      "ep-marine": {
+        "unit": "kg N eq.",
+        "b6": 0.00012
+      },
+      "gwp-total": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.3197
+      },
+      "gwp-luluc": {
+        "unit": "kg CO2 eq.",
+        "b6": 6.689e-06
+      },
+      "ep-freshwater": {
+        "unit": "kg P eq.",
+        "b6": 6.4e-08
+      },
+      "odp": {
+        "unit": "kg R11 eq.",
+        "b6": 5.293e-14
+      },
+      "ap": {
+        "unit": "Mole of H+ eq.",
+        "b6": 0.0003291
+      }
+    },
+    "Light fuel oil": {
+      "pere": {
+        "unit": "MJ",
+        "b6": 0.3279
+      },
+      "perm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "pert": {
+        "unit": "MJ",
+        "b6": 0.3279
+      },
+      "penre": {
+        "unit": "MJ",
+        "b6": 49.9
+      },
+      "penrm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "penrt": {
+        "unit": "MJ",
+        "b6": 49.9
+      },
+      "sm": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "rsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "nrsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "fw": {
+        "unit": "m^3",
+        "b6": 0.0002346
+      },
+      "hwd": {
+        "unit": "kg",
+        "b6": 8.321e-11
+      },
+      "nhwd": {
+        "unit": "kg",
+        "b6": 0.005437
+      },
+      "rwd": {
+        "unit": "kg",
+        "b6": 4.586e-05
+      },
+      "cru": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mfr": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mer": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "eee": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "eet": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "ep-marine": {
+        "unit": "kg N eq.",
+        "b6": 0.0002565
+      },
+      "gwp-biogenic": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.00579
+      },
+      "adpf": {
+        "unit": "MJ",
+        "b6": 49.87
+      },
+      "pocp": {
+        "unit": "kg NMVOC eq.",
+        "b6": 0.001231
+      },
+      "ap": {
+        "unit": "Mole of H+ eq.",
+        "b6": 0.001389
+      },
+      "gwp-fossil": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.481
+      },
+      "ep-freshwater": {
+        "unit": "kg P eq.",
+        "b6": 7.515e-07
+      },
+      "ep-terrestrial": {
+        "unit": "Mole of N eq.",
+        "b6": 0.002808
+      },
+      "gwp-total": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.4869
+      },
+      "adpe": {
+        "unit": "kg Sb eq.",
+        "b6": 3.969e-08
+      },
+      "gwp-luluc": {
+        "unit": "kg CO2 eq.",
+        "b6": 7.853e-05
+      },
+      "user": {
+        "unit": "m� world equiv.",
+        "b6": 0.003833
+      },
+      "odp": {
+        "unit": "kg R11 eq.",
+        "b6": 6.054e-13
+      }
+    },
+    "Heavy fuel oil": {
+      "pere": {
+        "unit": "MJ",
+        "b6": 0.2762
+      },
+      "perm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "pert": {
+        "unit": "MJ",
+        "b6": 0.2762
+      },
+      "penre": {
+        "unit": "MJ",
+        "b6": 43.41
+      },
+      "penrm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "penrt": {
+        "unit": "MJ",
+        "b6": 43.41
+      },
+      "sm": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "rsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "nrsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "fw": {
+        "unit": "m^3",
+        "b6": 0.000206
+      },
+      "hwd": {
+        "unit": "kg",
+        "b6": 1.016e-10
+      },
+      "nhwd": {
+        "unit": "kg",
+        "b6": 0.004728
+      },
+      "rwd": {
+        "unit": "kg",
+        "b6": 3.891e-05
+      },
+      "cru": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mfr": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mer": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "eee": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "eet": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "pocp": {
+        "unit": "kg NMVOC eq.",
+        "b6": 0.001101
+      },
+      "gwp-fossil": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.4503
+      },
+      "ep-freshwater": {
+        "unit": "kg P eq.",
+        "b6": 7.545e-07
+      },
+      "gwp-total": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.4554
+      },
+      "adpf": {
+        "unit": "MJ",
+        "b6": 43.39
+      },
+      "odp": {
+        "unit": "kg R11 eq.",
+        "b6": 5.077e-13
+      },
+      "adpe": {
+        "unit": "kg Sb eq.",
+        "b6": 3.439e-08
+      },
+      "gwp-biogenic": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.005029
+      },
+      "ep-marine": {
+        "unit": "kg N eq.",
+        "b6": 0.0002312
+      },
+      "ap": {
+        "unit": "Mole of H+ eq.",
+        "b6": 0.001274
+      },
+      "gwp-luluc": {
+        "unit": "kg CO2 eq.",
+        "b6": 6.83e-05
+      },
+      "user": {
+        "unit": "m� world equiv.",
+        "b6": 0.003525
+      },
+      "ep-terrestrial": {
+        "unit": "Mole of N eq.",
+        "b6": 0.002535
+      }
+    },
+    "Liquefied petroleum gas (LPG)": {
+      "pere": {
+        "unit": "MJ",
+        "b6": 0.4022
+      },
+      "perm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "pert": {
+        "unit": "MJ",
+        "b6": 0.4022
+      },
+      "penre": {
+        "unit": "MJ",
+        "b6": 53.41
+      },
+      "penrm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "penrt": {
+        "unit": "MJ",
+        "b6": 53.41
+      },
+      "sm": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "rsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "nrsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "fw": {
+        "unit": "m^3",
+        "b6": 0.000313
+      },
+      "hwd": {
+        "unit": "kg",
+        "b6": 3.167e-10
+      },
+      "nhwd": {
+        "unit": "kg",
+        "b6": 0.005918
+      },
+      "rwd": {
+        "unit": "kg",
+        "b6": 5.398e-05
+      },
+      "cru": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mfr": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mer": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "eee": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "eet": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "odp": {
+        "unit": "kg R11 eq.",
+        "b6": 7.506e-13
+      },
+      "ep-freshwater": {
+        "unit": "kg P eq.",
+        "b6": 1.74e-06
+      },
+      "ep-terrestrial": {
+        "unit": "Mole of N eq.",
+        "b6": 0.003853
+      },
+      "gwp-luluc": {
+        "unit": "kg CO2 eq.",
+        "b6": 8.529e-05
+      },
+      "ap": {
+        "unit": "Mole of H+ eq.",
+        "b6": 0.002073
+      },
+      "gwp-fossil": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.8011
+      },
+      "gwp-biogenic": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.006282
+      },
+      "adpe": {
+        "unit": "kg Sb eq.",
+        "b6": 4.3e-08
+      },
+      "ep-marine": {
+        "unit": "kg N eq.",
+        "b6": 0.0003489
+      },
+      "user": {
+        "unit": "m� world equiv.",
+        "b6": 0.006039
+      },
+      "gwp-total": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.8074
+      },
+      "pocp": {
+        "unit": "kg NMVOC eq.",
+        "b6": 0.001585
+      },
+      "adpf": {
+        "unit": "MJ",
+        "b6": 53.38
+      }
+    },
+    "Biogas (1 kg)": {
+      "pere": {
+        "unit": "MJ",
+        "b6": 46.1
+      },
+      "perm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "pert": {
+        "unit": "MJ",
+        "b6": 46.1
+      },
+      "penre": {
+        "unit": "MJ",
+        "b6": 2.083
+      },
+      "penrm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "penrt": {
+        "unit": "MJ",
+        "b6": 2.083
+      },
+      "sm": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "rsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "nrsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "fw": {
+        "unit": "m^3",
+        "b6": 0.009718
+      },
+      "hwd": {
+        "unit": "kg",
+        "b6": 1.255e-10
+      },
+      "nhwd": {
+        "unit": "kg",
+        "b6": 0.03105
+      },
+      "rwd": {
+        "unit": "kg",
+        "b6": 5.697e-05
+      },
+      "cru": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mfr": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mer": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "eee": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "eet": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "user": {
+        "unit": "m� world equiv.",
+        "b6": 0.01696
+      },
+      "ap": {
+        "unit": "Mole of H+ eq.",
+        "b6": 0.003279
+      },
+      "odp": {
+        "unit": "kg R11 eq.",
+        "b6": 9.02e-13
+      },
+      "ep-marine": {
+        "unit": "kg N eq.",
+        "b6": 0.001515
+      },
+      "gwp-biogenic": {
+        "unit": "kg CO2 eq.",
+        "b6": -1.467
+      },
+      "ep-freshwater": {
+        "unit": "kg P eq.",
+        "b6": 8.12e-05
+      },
+      "adpe": {
+        "unit": "kg Sb eq.",
+        "b6": 1.17e-06
+      },
+      "pocp": {
+        "unit": "kg NMVOC eq.",
+        "b6": 0.00174
+      },
+      "adpf": {
+        "unit": "MJ",
+        "b6": 2.034
+      },
+      "gwp-total": {
+        "unit": "kg CO2 eq.",
+        "b6": -1.206
+      },
+      "gwp-fossil": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.2597
+      },
+      "ep-terrestrial": {
+        "unit": "Mole of N eq.",
+        "b6": 0.01355
+      },
+      "gwp-luluc": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.001359
+      }
+    },
+    "Wood pellets (6,2% moisture / 5,8% H2O content)": {
+      "pere": {
+        "unit": "MJ",
+        "b6": 33.04
+      },
+      "perm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "pert": {
+        "unit": "MJ",
+        "b6": 33.04
+      },
+      "penre": {
+        "unit": "MJ",
+        "b6": 1.279
+      },
+      "penrm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "penrt": {
+        "unit": "MJ",
+        "b6": 1.279
+      },
+      "sm": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "rsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "nrsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "fw": {
+        "unit": "m^3",
+        "b6": -0.0004319
+      },
+      "hwd": {
+        "unit": "kg",
+        "b6": -1.007e-10
+      },
+      "nhwd": {
+        "unit": "kg",
+        "b6": -0.0007398
+      },
+      "rwd": {
+        "unit": "kg",
+        "b6": 4.745e-05
+      },
+      "cru": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mfr": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mer": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "eee": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "eet": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "odp": {
+        "unit": "kg R11 eq.",
+        "b6": 9.689e-13
+      },
+      "ep-freshwater": {
+        "unit": "kg P eq.",
+        "b6": -2.777e-06
+      },
+      "adpe": {
+        "unit": "kg Sb eq.",
+        "b6": -6.806e-09
+      },
+      "ap": {
+        "unit": "Mole of H+ eq.",
+        "b6": 0.0005623
+      },
+      "gwp-luluc": {
+        "unit": "kg CO2 eq.",
+        "b6": 1.578e-05
+      },
+      "gwp-fossil": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.09283
+      },
+      "gwp-biogenic": {
+        "unit": "kg CO2 eq.",
+        "b6": -1.739
+      },
+      "gwp-total": {
+        "unit": "kg CO2 eq.",
+        "b6": -1.647
+      },
+      "pocp": {
+        "unit": "kg NMVOC eq.",
+        "b6": 0.0008389
+      },
+      "user": {
+        "unit": "m� world equiv.",
+        "b6": 0.001448
+      },
+      "ep-terrestrial": {
+        "unit": "Mole of N eq.",
+        "b6": 0.003428
+      },
+      "adpf": {
+        "unit": "MJ",
+        "b6": 1.279
+      },
+      "ep-marine": {
+        "unit": "kg N eq.",
+        "b6": 0.0002791
+      }
+    },
+    "Vegetable oil fuel (rapeseed, 1 kg)": {
+      "pere": {
+        "unit": "MJ",
+        "b6": 41.38
+      },
+      "perm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "pert": {
+        "unit": "MJ",
+        "b6": 41.38
+      },
+      "penre": {
+        "unit": "MJ",
+        "b6": 14.58
+      },
+      "penrm": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "penrt": {
+        "unit": "MJ",
+        "b6": 14.58
+      },
+      "sm": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "rsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "nrsf": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "fw": {
+        "unit": "m^3",
+        "b6": 0.02134
+      },
+      "hwd": {
+        "unit": "kg",
+        "b6": 1.628e-09
+      },
+      "nhwd": {
+        "unit": "kg",
+        "b6": 0.1493
+      },
+      "rwd": {
+        "unit": "kg",
+        "b6": 0.0001058
+      },
+      "cru": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mfr": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "mer": {
+        "unit": "kg",
+        "b6": 0.0
+      },
+      "eee": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "eet": {
+        "unit": "MJ",
+        "b6": 0.0
+      },
+      "ep-terrestrial": {
+        "unit": "Mole of N eq.",
+        "b6": 0.1236
+      },
+      "adpf": {
+        "unit": "MJ",
+        "b6": 14.39
+      },
+      "ep-freshwater": {
+        "unit": "kg P eq.",
+        "b6": 0.0003905
+      },
+      "pocp": {
+        "unit": "kg NMVOC eq.",
+        "b6": 0.003372
+      },
+      "odp": {
+        "unit": "kg R11 eq.",
+        "b6": 1.22e-12
+      },
+      "ap": {
+        "unit": "Mole of H+ eq.",
+        "b6": 0.02792
+      },
+      "gwp-luluc": {
+        "unit": "kg CO2 eq.",
+        "b6": 0.01562
+      },
+      "gwp-biogenic": {
+        "unit": "kg CO2 eq.",
+        "b6": -2.698
+      },
+      "gwp-fossil": {
+        "unit": "kg CO2 eq.",
+        "b6": 1.25
+      },
+      "gwp-total": {
+        "unit": "kg CO2 eq.",
+        "b6": -1.432
+      },
+      "user": {
+        "unit": "m� world equiv.",
+        "b6": 0.05189
+      },
+      "adpe": {
+        "unit": "kg Sb eq.",
+        "b6": 3.966e-06
+      },
+      "ep-marine": {
+        "unit": "kg N eq.",
+        "b6": 0.009099
+      }
+    }
+  }
+}

@@ -58,8 +58,14 @@ def simulate(path, prj, loading_time, result_path, visualization=False, save_in_
                 print(f'failed simulation for building {buildings.name}')
         else:
             try:
-                results = os.path.join(path + "\\" + 'BuildingsPyResults' + "\\" +
-                                       prj.name + "\\results\\" + buildings.name)
+                if os.path.exists(path + "\\" + 'BuildingsPyResults' + "\\" +
+                                          prj.name + "\\results\\" + buildings.name + '.mat'):
+                    results = os.path.join(path + "\\" + 'BuildingsPyResults' + "\\" +
+                                           prj.name + "\\results\\" + buildings.name + '.mat')
+                else:
+
+                    print('No results found for building: ' + buildings.name)
+
                 r = Reader(results, "dymola")
                 (time1, heatload) = r.values('multizone.PHeater[1]')
                 # print(len(heatload))
@@ -73,8 +79,9 @@ def simulate(path, prj, loading_time, result_path, visualization=False, save_in_
                 # df_results.to_csv(f'C:/Users/MaxPaine33/PycharmProjects/teaserplus/gmlfiles/Hamburg/'
                 #                   f'Results_pandas_csv/5_Buildings_test/{prj.name}_results.csv')
 
-            except:
-                print(f'failed simulation for building {buildings.name}')
+            except Exception as e:
+                print(f'failed simulation for building {buildings.name} with error: {e}')
+
         
         buildings.simulated_heat_load = list(zip(time1.tolist(), heatload.tolist()))
 

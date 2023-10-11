@@ -80,5 +80,9 @@ def load_material_id(material, mat_id, data_class):
                 material.thickness_list = mat["thickness_list"]
                 material.service_life = mat["service_life"]
                 lca_data = En15804LcaData(material)
-                lca_data.load_lca_data_template(mat["lca_id"], data_class)
+                try:
+                    lca_data.load_lca_data_template(mat["lca_id"], data_class)
+                except ValueError:
+                    print("No LCA data found for material " + material.name)
+                    pass
                 material.lca_data = lca_data

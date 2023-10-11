@@ -1,12 +1,12 @@
 # import of libraries
-from PySide2 import QtWidgets, QtGui
+from PySide6 import QtWidgets
 import os
 import lxml.etree as ET
 import glob
-import math
 
 # import of functions
-import gui_functions as gf
+from gui import gui_functions as gf
+
 
 def select_gml(self):
     """func to select file"""
