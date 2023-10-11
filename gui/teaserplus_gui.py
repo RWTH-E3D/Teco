@@ -46,8 +46,8 @@ HEIGHT = 600
 SIZEFACTOR = 0
 SIZER = False
 
-teaser_path = os.path.join("C:/Users/tayeb/teaser") #############Todo: CHANGE THIS TO YOUR TEASER PATH
-output_path = os.path.join("C:/Users/tayeb/TEASEROutput") #############Todo: CHANGE THIS TO YOUR OUTPUT PATH
+teaser_path = os.path.join("C:/Users/tayeb/teaser/teaser") #############Todo: CHANGE THIS TO YOUR TEASER PATH
+output_path = os.path.join("C:/Users/tayeb/TEASEROutput/") #############Todo: CHANGE THIS TO YOUR OUTPUT PATH
 
 
 class MainWindow(QtWidgets.QWidget):
@@ -70,7 +70,7 @@ class MainWindow(QtWidgets.QWidget):
         self.setLayout(self.vbox)
 
         # Loading banner
-        gf.load_banner(self, r'../pictures/TEASER+_header.png', 3.25)
+        gf.load_banner(self, r'pictures/TEASER+_header.png', 3.25)
 
         # Setting Layout
         self.uGrid = QtWidgets.QGridLayout()
@@ -323,7 +323,7 @@ class TeaserEnrichment(QtWidgets.QWidget):
         self.vbox = QtWidgets.QVBoxLayout(self)
         self.setLayout(self.vbox)
 
-        gf.load_banner(self, r'../pictures/TEASER+_header.png', 4)
+        gf.load_banner(self, r'pictures/TEASER+_header.png', 4)
 
         self.tbl_selBuildings = QtWidgets.QTableWidget()
         self.tbl_selBuildings.setColumnCount(7)
@@ -786,7 +786,7 @@ class Eco(QtWidgets.QWidget):
         self.vbox = QtWidgets.QVBoxLayout(self)
         self.setLayout(self.vbox)
 
-        gf.load_banner(self, r'../pictures/Teco.png', 4)
+        gf.load_banner(self, r'pictures/Teco.png', 4)
 
         self.tbl_selBuildings = QtWidgets.QTableWidget()
         self.tbl_selBuildings.setColumnCount(11)
@@ -915,7 +915,6 @@ class Eco(QtWidgets.QWidget):
                 #### Column 6 ####
                 self.combBoxesUse.append(QtWidgets.QComboBox(parent=self.tbl_selBuildings))
                 self.combBoxesUse[-1].setPlaceholderText("select")
-                self.combBoxesUse[-1].setToolTip("first choose method down below")
                 self.tbl_selBuildings.setCellWidget(rowCount, 6, self.combBoxesUse[-1])
                 self.tbl_selBuildings.cellWidget(rowCount, 6).setEnabled(False)
 
@@ -1064,15 +1063,25 @@ class Eco(QtWidgets.QWidget):
                 self.combBoxesYoc[i].setToolTip("YoC Class is already set")
                 self.combBoxesYoc[i].setPlaceholderText(self.buildingDict[i]["values"]["YoC"])
 
+            usage_codes_dict = {"IWU": {1120:"office",
+                                        1000: "singlefamilydwelling"},
+                                "tabula_de": {1010:"multifamilyhouse",  #or apartmentblock
+                                              1000:"singlefamilyhouse"}, # or terracedhouse
+                                "tabula_dk": {1010:"multifamilyhouse",  #or apartmentblock
+                                              1000:"singlefamilyhouse"}, # or terracedhouse
+                                "urbanrenet": {1120:"est1a"} # or any other est
+                                }
+
             if self.buildingDict[i]["values"]["usage"] == "":
                 self.combBoxesUse[i].setEnabled(True)
                 self.combBoxesUse[i].setPlaceholderText("select")
                 self.combBoxesUse[i].setToolTip("select Usage according to the chosen method")
                 self.combBoxesUse[i].addItems(archeTypes)
             else:
-                self.combBoxesUse[i].setEnabled(False)
                 self.combBoxesUse[i].setToolTip("Usage is already set")
-                self.combBoxesUse[i].setPlaceholderText(self.buildingDict[i]["values"]["usage"])
+                self.combBoxesUse[i].addItem(self.comB_method.currentText() + '/' + usage_codes_dict[self.comB_method.currentText()][int(self.buildingDict[i]["values"]["usage"])])
+                self.combBoxesUse[i].setCurrentIndex(0)
+                self.combBoxesUse[i].setEnabled(False)
 
         gf.resize_header(self)
 
@@ -1740,7 +1749,7 @@ class SetupSimulation(QtWidgets.QWidget):
 
     def load_en15804_lca_data_gui(self, category, lca_data):
 
-        with open("../teco/data/input/inputdata/LcaData_gui.json") as f:
+        with open("teco/data/input/inputdata/LcaData_gui.json") as f:
             data = json.load(f)
 
             for item_name, data_item in data[category].items():
@@ -1879,7 +1888,7 @@ class about(QtWidgets.QWidget):
         self.vbox = QtWidgets.QVBoxLayout(self)
         self.setLayout(self.vbox)
 
-        gf.load_banner(self, r'../pictures/e3dHeader.png', 4)
+        gf.load_banner(self, r'pictures/Teco.png', 4)
 
         self.textwidget = QtWidgets.QPlainTextEdit()
         self.vbox.addWidget(self.textwidget)
