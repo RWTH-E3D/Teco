@@ -1194,12 +1194,12 @@ class SetupSimulation(QtWidgets.QWidget):
 
     def initUI(self):
         global POSX, POSY, WIDTH, HEIGHT, SIZEFACTOR, SIZER
-        gf.windowSetup(self, POSX, POSY, WIDTH - 200, HEIGHT - 100, 'TEASER+ - Setup simulation')
+        gf.windowSetup(self, POSX, POSY, WIDTH - 200, HEIGHT - 100, 'Teco - Setup simulation')
 
         self.vbox = QtWidgets.QVBoxLayout(self)
         self.setLayout(self.vbox)
 
-        self.gB_categories = QtWidgets.QGroupBox("Select categories for impact assessment (LCIA)")
+        self.gB_categories = QtWidgets.QGroupBox("Select categories for Life Cycle Impact Assessment (LCIA)")
         self.gB_categories.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         self.vbox.addWidget(self.gB_categories)
 
