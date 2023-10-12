@@ -190,9 +190,9 @@ def gwp_to_list(lca_data):
 if __name__ == '__main__':
     prj = Project(load_data=True)
     
-    prj.name = "Teaser+Eco_paper"
+    prj.name = "Teco_paper"
     
-    #prj.load_citygml(path = "D:\\Sciebo\\SmartQuart_E3D\\Geometrie\\SmartQuart_LoD2 District Models\\Final\\Bedburg\\converted or combined\\Bedburg_LoD2.gml", method = "tabula_de")
+    #prj.load_citygml(path = " ", method = "tabula_de")
     prj.add_residential(
         method="tabula_de",
         usage="single_family_house",

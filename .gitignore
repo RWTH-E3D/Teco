@@ -55,3 +55,6 @@ dist
 #####################
 
 doc/_build
+
+# Ignore copyrighted example files
+Examples/Bedburg_LoD2.gml
