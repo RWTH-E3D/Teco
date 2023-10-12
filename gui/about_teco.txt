@@ -1,0 +1,4 @@
+The Teco extension (current version: 0.6.0) is developed by members of the "Institute of Energy Efficiency and Sustainable Building (e3D), RWTH Aachen University" using Python 3.7+.
+This extension is based on TEASER+ as well as the "Tool for Energy Analysis and Simulation for Efficient Retrofit (TEASER)" and can be used to import and export CityGML data sets with or without Energy ADE version 1.0.
+The Teco extension aims to help simulation scientists facilitate the determination of environmental impacts (prominently GWP) using basic input and CityGML models.
+If you have any questions regarding Teco feel free to contact us at: schildt@e3d.rwth-aachen.de.
