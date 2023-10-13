@@ -32,7 +32,7 @@ It is currently being developed using Python 3.10+.
 ### Installation
 
 Teco can be used by cloning or downloading the whole Teco package from the GIT Repository. 
-The TEASER+ repo needs to be installed analogously, as a dependency in a Python environment. 
+The TEASER+ repo needs to be installed analogously, as a dependency in a Python environment (use of development branch is encouraged). 
 Teco uses a range of libraries, the installation of which can be simplified by using the provided requirements.txt file.
 A Modelica-based simulation environment needs to be installed, including the Aixlib library version 1.0.0.
 
