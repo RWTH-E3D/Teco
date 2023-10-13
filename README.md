@@ -51,7 +51,7 @@ Heuristic Urban-Scale Life Cycle Assessment of Districts to Determine Their Carb
 
 ### Teco-related publications
 + On the Potential of District-Scale Life Cycle Assessments of Buildings. Schildt, M., Cuypers, J. L., Shamovich, M., Herzogenrath, S. T., Malhotra, A., van Treeck, C., Frisch, J. In Energies 2023, 16(15), Special Issue Energy Efficiency through Building Simulation, June 2023. [Link to publication](https://doi.org/10.3390/en16155639)
-+ Sensitivity analysis of building archetypes for the life cycle assessment of districts. Schildt, M., Ponec, A., Tayeb, Y., Cupyers, J. L., Frisch, J., van Treeck, C. In Proc. 2023 Building Simulation 2023, 18th International IBPSA Conference and Exhibition, September 2023, Shanghai China.
++ Sensitivity analysis of building archetypes for the life cycle assessment of districts. Schildt, M., Ponec, A., Tayeb, Y., Cuypers, J. L., Frisch, J., van Treeck, C. In Proc. 2023 Building Simulation 2023, 18th International IBPSA Conference and Exhibition, September 2023, Shanghai China.
 
 ## How to cite TEASER+
 Urban energy simulations using open CityGML models: A comparative analysis. Malhotra, A., Shamovich, M., Frisch, J., & van Treeck, C.. Energy and Buildings, 255, 111658, January 2022.
