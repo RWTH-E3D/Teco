@@ -124,7 +124,7 @@ class Building(Building):
         
         """
         
-        q_el_ges_a = None
+       """ q_el_ges_a = None
         d_a = 365 #days in a year
         q_el_b = 63 #Wh/(m^2 d) DIN 18599-10
         a_ngf = self.net_leased_area
@@ -136,6 +136,38 @@ class Building(Building):
         
         q_el_ges_a = q_el_ges_a * 3.6 #conversion kWh -> MJ       
         
+        self._estimate_elec_demand = q_el_ges_a
+        """
+        construction_type_mapping = {
+            "AB": 0.061,
+            "TH": 0.037,
+            "MFH": 0.036,
+            "SFH": 0.144
+        }
+
+        a = construction_type_mapping.get(self.construction_type.split('_')[-1], None)
+
+        if self.year_of_construction <= 1905:
+            b = 0.034
+        elif 1905 <= self.year_of_construction <= 1929:
+            b = 0.003
+        elif 1930 <= self.year_of_construction <= 1944:
+            b = -0.017
+        elif 1945 <= self.year_of_construction <= 1959:
+            b = 0.006
+        elif 1960 <= self.year_of_construction <= 1969:
+            b = 0.027
+        elif 1970 <= self.year_of_construction <= 1979:
+            b = 0.055
+        elif 1980 <= self.year_of_construction <= 1989:
+            b = 0.037
+        else:
+            b = 0.013
+
+        c = None
+
+        q_el_ges_a = math.e ** (5.882 + math.log(2.84 * self.net_leased_area) + a + b + c)
+
         self._estimate_elec_demand = q_el_ges_a
     
     def add_lca_data_elec(self, lca_data):
