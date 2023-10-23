@@ -1,0 +1,3 @@
+[submodule "teaser"]
+	path = teaser
+	url = https://gitlab.e3d.rwth-aachen.de/e3d-software-tools/teaser.git
