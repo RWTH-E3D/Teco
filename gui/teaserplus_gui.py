@@ -49,6 +49,8 @@ SIZER = False
 teaser_path = os.path.join("D:/Users/MSchildt/Documents/repos/e3d_gitlab/teco/teaser/teaser") #############Todo: CHANGE THIS TO YOUR TEASER PATH
 output_path = os.path.join("D:/Users/MSchildt/Documents/tecotest/") #############Todo: CHANGE THIS TO YOUR OUTPUT PATH
 
+#TODO Find inconsistency of "sum" and "sumwithd" in output GUI window (values are equal, but sumwithd should be lower)
+
 
 class MainWindow(QtWidgets.QWidget):
     def __init__(self):
