@@ -1,7 +1,7 @@
 """This module extents the TEASERplus project module with LCA specific parameters,
 which includes the Project class, which is the API for TEASER."""
 
-from teaser import project
+from teaser.teaser import project
 import teco.logic.utilities as utilities
 import teco.data.dataclass as dataclass
 

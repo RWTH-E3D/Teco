@@ -4,7 +4,7 @@
 
 import re
 import uuid
-from teaser.logic.buildingobjects.buildingphysics.material import Material
+from teaser.teaser.logic.buildingobjects.buildingphysics.material import Material
 import teco.data.input.material_input_json as material_input
 import teco.data.output.material_output as material_output
 from teco.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData

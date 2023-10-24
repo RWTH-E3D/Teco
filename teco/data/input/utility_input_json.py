@@ -2,10 +2,10 @@
 
 import json
 from teco.logic.buildingobjects.buildingsystems.utility import Utility
-from teaser.logic.archetypebuildings.tabula.de.terracedhouse import TerracedHouse
-from teaser.logic.archetypebuildings.tabula.de.apartmentblock import ApartmentBlock
-from teaser.logic.archetypebuildings.tabula.de.multifamilyhouse import MultiFamilyHouse
-from teaser.logic.archetypebuildings.tabula.de.singlefamilyhouse import SingleFamilyHouse
+from teaser.teaser.logic.archetypebuildings.tabula.de.terracedhouse import TerracedHouse
+from teaser.teaser.logic.archetypebuildings.tabula.de.apartmentblock import ApartmentBlock
+from teaser.teaser.logic.archetypebuildings.tabula.de.multifamilyhouse import MultiFamilyHouse
+from teaser.teaser.logic.archetypebuildings.tabula.de.singlefamilyhouse import SingleFamilyHouse
 from teco.logic.buildingobjects.buildingphysics.en15804indicatorvalue import En15804IndicatorValue
 
 

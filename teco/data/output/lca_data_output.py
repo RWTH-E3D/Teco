@@ -3,7 +3,7 @@
 """This module contains functions to save lca_data and lca_data_fallback objects."""
 import warnings
 import json
-import teaser.logic.utilities as utilities
+import teaser.teaser.logic.utilities as utilities
 import collections
 
 

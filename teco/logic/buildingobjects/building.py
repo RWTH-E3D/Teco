@@ -5,7 +5,7 @@
 """
 
 import uuid
-from teaser.logic.buildingobjects.building import Building
+from teaser.teaser.logic.buildingobjects.building import Building
 from teco.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
 
 
@@ -177,14 +177,30 @@ class Building(Building):
         if self.simulated_heat_load is not None:
 
             result = 0
-            
-            for data_tp in self.simulated_heat_load:
 
-                result = result + data_tp
-            
-            result = result * 0.000001
-            
+            for data_tp in self.simulated_heat_load:
+                # Immediate verification: print the content of data_tp
+                #print(f"Current data_tp: {data_tp}")
+
+                # Data validation: check if data_tp is a tuple and has at least 2 elements
+                if isinstance(data_tp, tuple) and len(data_tp) >= 2:
+                    hour, heat_load, *_ = data_tp  # Unpack the tuple, ignoring extra values
+                    result += heat_load
+                else:
+                    print(f"Unexpected data format: {data_tp}")
+
+            result *= 0.000001
             return result
+            # result = 0
+            #
+            #
+            # for data_tp in self.simulated_heat_load:
+            #
+            #     result = result + data_tp
+            #
+            # result = result * 0.000001
+            #
+            # return result
                 
                 
     

@@ -23,9 +23,9 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
-	  <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
+      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
+      <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">9.05</bldg:measuredHeight>
       <bldg:lod2Solid>
         <gml:Solid>
@@ -191,8 +191,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">9.05</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -359,8 +359,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">9.05</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -527,8 +527,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">9.05</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -695,8 +695,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">9.05</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -863,8 +863,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">9.05</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -1031,8 +1031,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">9.05</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -1199,8 +1199,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">9.05</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -1367,8 +1367,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">9.05</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -1535,8 +1535,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">9.05</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -1703,8 +1703,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">9.05</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -1871,8 +1871,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">9.05</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -2039,8 +2039,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">9.05</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -2207,8 +2207,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">9.05</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -2375,8 +2375,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">9.05</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -2543,8 +2543,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">9.05</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -2711,8 +2711,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">9.05</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -2879,8 +2879,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">9.05</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -3047,8 +3047,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">9.05</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -3215,8 +3215,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">9.05</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -3383,8 +3383,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">9.05</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -3551,8 +3551,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">9.05</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -3719,8 +3719,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">9.05</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -3887,8 +3887,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">9.05</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -4055,8 +4055,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">9.05</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -4223,8 +4223,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">9.05</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -4391,8 +4391,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">9.05</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -4559,8 +4559,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">9.05</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -4729,8 +4729,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">9.05</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -4899,8 +4899,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">9.05</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -5067,8 +5067,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">9.05</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -5235,8 +5235,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">9.05</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -5403,8 +5403,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">9.05</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -5573,8 +5573,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">9.05</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -5743,8 +5743,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">9.05</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -5913,8 +5913,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">9.05</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -6083,8 +6083,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">9.05</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -6253,8 +6253,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">9.05</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -6423,8 +6423,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">9.05</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -6593,8 +6593,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">9.05</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -6763,8 +6763,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>3</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">9.05</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -6931,8 +6931,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -7099,8 +7099,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -7267,8 +7267,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -7435,8 +7435,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -7603,8 +7603,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -7771,8 +7771,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -7939,8 +7939,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -8107,8 +8107,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -8275,8 +8275,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -8443,8 +8443,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -8611,8 +8611,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -8779,8 +8779,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -8947,8 +8947,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -9115,8 +9115,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -9283,8 +9283,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -9451,8 +9451,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -9619,8 +9619,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -9787,8 +9787,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -9955,8 +9955,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -10123,8 +10123,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -10291,8 +10291,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -10459,8 +10459,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -10627,8 +10627,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -10795,8 +10795,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -10963,8 +10963,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -11131,8 +11131,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -11299,8 +11299,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -11467,8 +11467,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -11635,8 +11635,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -11803,8 +11803,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -11971,8 +11971,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -12139,8 +12139,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -12307,8 +12307,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -12475,8 +12475,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -12643,8 +12643,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -12811,8 +12811,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -12979,8 +12979,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -13147,8 +13147,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -13315,8 +13315,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -13483,8 +13483,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -13651,8 +13651,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -13819,8 +13819,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -13987,8 +13987,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -14155,8 +14155,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -14323,8 +14323,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -14491,8 +14491,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -14659,8 +14659,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -14827,8 +14827,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -14995,8 +14995,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -15163,8 +15163,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -15331,8 +15331,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -15499,8 +15499,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -15667,8 +15667,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -15835,8 +15835,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -16003,8 +16003,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -16171,8 +16171,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -16339,8 +16339,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -16507,8 +16507,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -16675,8 +16675,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -16843,8 +16843,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -17011,8 +17011,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -17179,8 +17179,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
@@ -17349,8 +17349,8 @@
       <bldg:yearOfConstruction>2015</bldg:yearOfConstruction>
       <bldg:buildingFunction>1000</bldg:buildingFunction>
       <bldg:roofType codeSpace="http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml">1000</bldg:roofType>
-      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
-
+      <bldg:storeysAboveGround>2</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.5</bldg:storeyHeightsAboveGround>
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:measuredHeight uom="m">6.15</bldg:measuredHeight>
       <bldg:lod2Solid>
