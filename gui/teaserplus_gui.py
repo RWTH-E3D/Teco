@@ -50,7 +50,7 @@ teaser_path = os.path.join("D:/Users/MSchildt/Documents/repos/e3d_gitlab/teco/te
 output_path = os.path.join("D:/Users/MSchildt/Documents/tecotest/") #############Todo: CHANGE THIS TO YOUR OUTPUT PATH
 
 #TODO Find inconsistency of "sum" and "sumwithd" in output GUI window (values are equal, but sumwithd should be lower)
-
+# Separate phases A1, A2, A3 do not accurately reflect the data since most (but not all!) EPDs only have A1_A3 available.
 
 class MainWindow(QtWidgets.QWidget):
     def __init__(self):

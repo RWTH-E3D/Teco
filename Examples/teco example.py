@@ -68,9 +68,4 @@ if __name__ == '__main__':
     prj.buildings[0].add_lca_data_elec(lca_data_elec) #environmental indicators for electricity consumption
     prj.buildings[0].add_lca_data_heating(1.525, lca_data_elec) #environemntal indicators for heatload (calculated from the simulation)
 
-# print loaded lca data to console
-    indicators = ['pere', 'perm', 'pert', 'penre', 'penrm', 'penrt', 'sm', 'rsf', 'nrsf', 'fw', 'hwd', 'nhwd', 'rwd',
-                  'cru', 'mfr', 'mer', 'eee', 'eet', 'gwp', 'odp', 'pocp', 'ap', 'ep', 'adpe', 'adpf']
-    for indicator in indicators:
-        print(indicator, ':', getattr(ut.lca_data, indicator).get_values_as_dict())
     
