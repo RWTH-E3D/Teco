@@ -3,8 +3,16 @@ teco
 =========
 An extension to TEASER (Tool for Energy Analysis and Simulation for Efficient Retrofit) and TEASERplus
 '''
+
+#
+
 import sys
 import os
+
+submodule_name = 'teaser'
+(parent_folder_path, current_dir) = os.path.split(os.path.dirname(__file__))
+sys.path.append(os.path.join(parent_folder_path, submodule_name))
+
 
 v = sys.version_info
 if v >= (3, 3):

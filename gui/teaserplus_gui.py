@@ -25,9 +25,9 @@ from PySide6 import QtWidgets, QtCore, QtGui
 import gui_functions as gf
 from teco.logic.buildingobjects.buildingphysics.en15804indicatorvalue import En15804IndicatorValue
 from teco.project import Project  # or teco?
-from teaser.teaser.logic import utilities  # or teco?
-from teaser.teaser.logic.buildingobjects.building import Building
-import teaser.teaser.data.input.citygml_input as citygml_in
+from teaser.logic import utilities  # or teco?
+from teaser.logic.buildingobjects.building import Building
+import teaser.data.input.citygml_input as citygml_in
 import simulate as sim
 from teco.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
 import json

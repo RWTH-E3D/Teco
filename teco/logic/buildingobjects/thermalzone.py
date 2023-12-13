@@ -4,7 +4,7 @@
 """This module includes the ThermalZone class
 """
 from __future__ import division
-from teaser.teaser.logic.buildingobjects.thermalzone import ThermalZone
+from teaser.logic.buildingobjects.thermalzone import ThermalZone
 from teco.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
 
 
