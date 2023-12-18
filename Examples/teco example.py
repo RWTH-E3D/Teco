@@ -36,7 +36,7 @@ if __name__ == '__main__':
     
     
     #Simulation is started. Please exchange the file paths ;)
-    sim.simulate(path = "C:\\Users\\MSchildt\\TEASEROutput", prj = prj, loading_time = 3600, result_path = "C:\\Users\\MSchildt\\TEASEROutput\\test")
+    sim.simulate(path = "C:\\Users\\clara\\TEASEROutput", prj = prj, loading_time = 3600, result_path = "C:\\Users\\clara\\TEASEROutput\\test")
 
     
     #Up to here, except for the "use_b4 parameter", all lines of code are TEASER+ 
@@ -66,6 +66,6 @@ if __name__ == '__main__':
     
     
     prj.buildings[0].add_lca_data_elec(lca_data_elec) #environmental indicators for electricity consumption
-    prj.buildings[0].add_lca_data_heating(1.525, lca_data_elec) #environemntal indicators for heatload (calculated from the simulation)
+    prj.buildings[0].add_lca_data_heating_pe(lca_data_elec) #environemntal indicators for heatload (calculated from the simulation)
 
     

@@ -32,7 +32,7 @@ class Utility(object):
 
     @parent.setter
     def parent(self, value):
-        from teaser.logic.buildingobjects.building import Building
+        from teaser.teaser.logic.buildingobjects.building import Building
         import inspect
 
         if inspect.isclass(Building):
@@ -44,7 +44,7 @@ class Utility(object):
 
     @name.setter
     def name(self, value):
-        from teaser.logic.buildingobjects.building import Building
+        from teaser.teaser.logic.buildingobjects.building import Building
         import inspect
 
         if inspect.isclass(Building):

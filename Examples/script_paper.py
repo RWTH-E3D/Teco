@@ -206,9 +206,9 @@ if __name__ == '__main__':
     
     prj.calc_all_buildings()
 
-    prj.export_aixlib(path = "C:\\Users\\tayeb\\TEASEROutput")
+    prj.export_aixlib(path = "C:\\Users\\clara\\TEASEROutput")
 
-    sim.simulate(path = "C:\\Users\\tayeb\\TEASEROutput", prj = prj, loading_time = 3600, result_path = "C:\\Users\\tayeb\\TEASEROutput\\results")
+    sim.simulate(path = "C:\\Users\\clara\\TEASEROutput", prj = prj, loading_time = 3600, result_path = "C:\\Users\\clara\\TEASEROutput\\results")
     
     lca_data_elec = En15804LcaData()
     lca_data_elec.load_lca_data_template("c869c47e-ce43-45b4-b640-b0cd1746e450", prj.data)
@@ -242,7 +242,7 @@ if __name__ == '__main__':
         
         building.add_lca_data_elec(lca_data_elec)
         
-        building.add_lca_data_heating(1.525, lca_data_elec)
+        building.add_lca_data_heating_pe(lca_data_elec)
 
         print(building.lca_data.gwp.b6)
         

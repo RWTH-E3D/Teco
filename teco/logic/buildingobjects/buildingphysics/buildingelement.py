@@ -9,7 +9,7 @@ import teco.data.input.buildingelement_input_json as buildingelement_input
 class BuildingElement(BuildingElement):
     """
     lca_data : En15804LcaData
-        enviromental indicators of the building element. The data referencing
+        environmental indicators of the building element. The data referencing
         one building element
     additional_lca_data : En15804LcaData
         additional environmental indicators to the indicators from the materials

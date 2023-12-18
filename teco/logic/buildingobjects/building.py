@@ -7,6 +7,7 @@
 import uuid
 from teaser.teaser.logic.buildingobjects.building import Building
 from teco.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
+from teaser.teaser.logic.buildingobjects.buildingsystems.heatingsystem import HeatingSystem
 
 
 class Building(Building):
@@ -110,6 +111,13 @@ class Building(Building):
                 lca_data = lca_data + thermal_zone.lca_data
             except:
                 print("Error while adding lca-data from thermal zone")
+
+        # todo integrieren
+        """try:
+            HeatingSystem.calc_lca_data(use_b4, period_lca_scenario)
+            lca_data = lca_data + HeatingSystem.lca_data
+        except:
+            print("Error while adding lca-data from heating system")"""
                 
         if self.additional_lca_data is not None:
             if self.additional_lca_data.ref_flow_unit == "pcs":
@@ -130,7 +138,7 @@ class Building(Building):
         a_ngf = self.net_leased_area
         h_B = 8 #hours lighting per day estimate from DIN 18599-10
         q_el_B = 10 * a_ngf*d_a * h_B * 0.001 #estimate from DIN 18599-4
-        q_el_wp = 0 #electrical energy for heat pump allready considered in heatload
+        q_el_wp = 0 #electrical energy for heat pump already considered in heatload
         
         q_el_ges_a = d_a * q_el_b * a_ngf * 0.001 + q_el_B + q_el_wp
         
@@ -159,13 +167,14 @@ class Building(Building):
                 print("Unit of the reference flow has to be MJ!")
         
         lca_data = lca_data * self._estimate_elec_demand
-        
+        # todo period lca scenario needed?
+
         if self.lca_data is not None:
             self.lca_data = self.lca_data + lca_data
         else:
             self.lca_data = lca_data
     
-    def _calc_simulated_annual_heat_energy(self):
+    def calc_simulated_annual_heat_energy(self):
         """calculates the annual heating energy from the simulated heatload
 
         Returns
@@ -201,31 +210,33 @@ class Building(Building):
             # result = result * 0.000001
             #
             # return result
-                
-                
-    
-    def add_lca_data_heating(self, efficiency, lca_data, annual_heat_energy = None):
-        """Calculates enviromental indicators resulting form heating
+
+    def add_lca_data_heating_pe(self, lca_data):
+        """Calculates environmental indicators resulting form the
+        Primary Energy of the heating system (see class HeatingSystem)
 
         Parameters
         ----------
-        efficiency : float
-            overall efficiency of the heating-system.
-        annual_heat_load : float [MJ]
-            heat load of the building over a year.
+
         lca_data : En15804LcaData
             LCA-Dataset representing the used energy carrier.
 
         """
-        if annual_heat_energy is None:
-            annual_heat_energy = self._calc_simulated_annual_heat_energy()
         
         if lca_data.ref_flow_unit != "MJ":
             try:
                 lca_data = lca_data.convert_ref_unit("MJ")
             except:
                 print("Unit of the reference flow has to be MJ!")
-        lca_data = lca_data * (1/efficiency) * annual_heat_energy * self.parent.period_lca_scenario
+
+        heat_sys = HeatingSystem()
+        heat_sys.setting_heating_system(1) # todo connect lca_data and type_heating_system
+        pe_heating = heat_sys.calc_primary_energy_demand_heating()
+        heat_sys.setting_heating_system(1)
+        pe_water = heat_sys.calc_primary_energy_demand_water()
+
+        lca_data = lca_data * (pe_heating + pe_water) * self.parent.period_lca_scenario
+        # todo period lca scenario needed?
         lca_data.unit = "pcs"
                 
         if self.lca_data is not None:

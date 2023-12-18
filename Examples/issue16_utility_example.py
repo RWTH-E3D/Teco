@@ -3,7 +3,7 @@ from teco.data.input.utility_input_json import load_en15804_lca_data
 from teco.project import Project
 import simulate as sim
 
-if __name__ == '__main__':
+if __name__ == '__main__': #only executed if executed as the main programme
 
     prj = Project(load_data=True)
 
@@ -23,8 +23,8 @@ if __name__ == '__main__':
     prj.export_aixlib()  # model export
 
     # Simulation is started. Please exchange the file paths ;)
-    sim.simulate(path="C:\\Users\\MSchildt\\TEASEROutput", prj=prj, loading_time=3600,
-                 result_path="C:\\Users\\MSchildt\\TEASEROutput\\test")
+    sim.simulate(path="C:\\Users\\clara\\TEASEROutput", prj=prj, loading_time=3600,
+                 result_path="C:\\Users\\clara\\TEASEROutput\\test")
 
     # Instance of Utility class is created
     ut = Utility(parent=prj.buildings[0], name="Gas condensing boiler < 20 kW")
