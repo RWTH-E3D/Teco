@@ -230,9 +230,9 @@ class Building(Building):
                 print("Unit of the reference flow has to be MJ!")
 
         heat_sys = HeatingSystem()
-        heat_sys.setting_heating_system(1) # todo connect lca_data and type_heating_system
+        heat_sys.setting_values_heating_system(1) # todo connect lca_data and type_heating_system
         pe_heating = heat_sys.calc_primary_energy_demand_heating()
-        heat_sys.setting_heating_system(1)
+        heat_sys.setting_values_heating_system(1)
         pe_water = heat_sys.calc_primary_energy_demand_water()
 
         lca_data = lca_data * (pe_heating + pe_water) * self.parent.period_lca_scenario

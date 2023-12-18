@@ -46,8 +46,8 @@ HEIGHT = 600
 SIZEFACTOR = 0
 SIZER = False
 
-teaser_path = os.path.join("C:/Users/clara/PycharmProjects/pythonProject/teco/teaser/teaser") """#############Todo: CHANGE THIS TO YOUR TEASER PATH"""
-output_path = os.path.join("C:/Users/clara/Downloads/TecoOutput") """#############Todo: CHANGE THIS TO YOUR OUTPUT PATH"""
+teaser_path = os.path.join("C:/Users/clara/PycharmProjects/pythonProject/teco/teaser/teaser") #############Todo: CHANGE THIS TO YOUR TEASER PATH
+output_path = os.path.join("C:/Users/clara/Downloads/TecoOutput") #############Todo: CHANGE THIS TO YOUR OUTPUT PATH
 
 #TODO Find inconsistency of "sum" and "sumwithd" in output GUI window (values are equal, but sumwithd should be lower)
 # Separate phases A1, A2, A3 do not accurately reflect the data since most (but not all!) EPDs only have A1_A3 available.
