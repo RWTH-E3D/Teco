@@ -7,7 +7,7 @@
 import uuid
 from teaser.teaser.logic.buildingobjects.building import Building
 from teco.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
-from teaser.teaser.logic.buildingobjects.buildingsystems.heatingsystem import HeatingSystem
+from teaser.teaser.logic.buildingobjects.buildingsystems.pe_demand_water import HeatingSystem_PE
 
 
 class Building(Building):
@@ -114,8 +114,8 @@ class Building(Building):
 
         # todo integrieren
         """try:
-            HeatingSystem.calc_lca_data(use_b4, period_lca_scenario)
-            lca_data = lca_data + HeatingSystem.lca_data
+            HeatingSystem_PE.calc_lca_data(use_b4, period_lca_scenario)
+            lca_data = lca_data + HeatingSystem_PE.lca_data
         except:
             print("Error while adding lca-data from heating system")"""
                 
@@ -213,7 +213,7 @@ class Building(Building):
 
     def add_lca_data_heating_pe(self, lca_data):
         """Calculates environmental indicators resulting form the
-        Primary Energy of the heating system (see class HeatingSystem)
+        Primary Energy of the heating system (see class HeatingSystem_PE)
 
         Parameters
         ----------
@@ -229,7 +229,7 @@ class Building(Building):
             except:
                 print("Unit of the reference flow has to be MJ!")
 
-        heat_sys = HeatingSystem()
+        heat_sys = HeatingSystem_PE()
         heat_sys.setting_values_heating_system(1) # todo connect lca_data and type_heating_system
         pe_heating = heat_sys.calc_primary_energy_demand_heating()
         heat_sys.setting_values_heating_system(1)
