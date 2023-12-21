@@ -1844,7 +1844,7 @@
 		  "c4": 0.694,
 		  "d": -8309
 	   },
-	   "name": " Pelletkessel 20-120 kW",
+	   "name": "Pelletkessel 20-120 kW",
 	   "fallback": null
 	},
 		"0e03a1c1-0aa9-4e94-bbc5-653d967b0d8d": {
@@ -2676,7 +2676,7 @@
 		  "c4": 1.154,
 		  "d": -1609
 	   },
-	   "name": "Strom Wärmepumpe (Luft-Wasser) 7 kW",
+	   "name": "Strom Wärmepumpe (Luft-Wasser) 70 kW",
 	   "fallback": null
 	},
 		"3bf7183e-741e-4fb7-a32e-574e76e3e747": {

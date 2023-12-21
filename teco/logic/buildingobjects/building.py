@@ -222,7 +222,7 @@ class Building(Building):
             LCA-Dataset representing the used energy carrier.
 
         """
-        
+        # todo
         if lca_data.ref_flow_unit != "MJ":
             try:
                 lca_data = lca_data.convert_ref_unit("MJ")
