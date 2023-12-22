@@ -115,7 +115,7 @@ class HeatSupplySystem(HeatSupplySystem):
         """
 
         lca_data = En15804LcaData()
-        lca_data.ref_flow_unit = "pcs"
+        lca_data.ref_flow_unit = "kg"
 
         if self.parent.pipe_routing_heating == "centralised outside":
 
@@ -152,6 +152,8 @@ class HeatSupplySystem(HeatSupplySystem):
 
         length_pipes_heating = length_horizontal_heating + length_strand_heating + length_tethers_heating
         length_pipes_water = length_horizontal_water + length_strand_water + length_stubs_water
+
+        # todo unit für Dämmung ist m³
 
 
     # auch service life integrieren bei folgenden Formeln (aus ÖKOBAUDAT)
