@@ -136,6 +136,15 @@ class HeatSupplySystem(HeatSupplySystem):
             length_strand_heating = self._length_char * self.parent.number_of_floors * 6
             length_tethers_heating = self._length_char * self.parent.number_of_floors
 
+        length_pipes_26 = length_strand_heating + length_tethers_heating
+        area_insulation_26 = (0.026 * 1.5) ** 2 * math.pi - 0.026 ** 2 * math.pi
+
+        length_pipes_20 = length_horizontal_heating
+        area_insulation_20 = (0.02 * 1.5) ** 2 * math.pi - 0.02 ** 2 * math.pi
+
+        lca = lca_stahlrohr * (length_pipes_26 * 1.63 + length_pipes_20 * 1.26) + \
+              lca_data_daemmung * (length_pipes_26 * area_insulation_26 + length_pipes_20 * area_insulation_20)
+
         if self._pipe_routing_water == "centralised with circulation":
 
             length_horizontal_water = 2 * self._length_char - 10
@@ -152,8 +161,21 @@ class HeatSupplySystem(HeatSupplySystem):
 
             length_stubs_water = self._length_char * self.parent.number_of_floors / 2
 
-        length_pipes_heating = length_horizontal_heating + length_strand_heating + length_tethers_heating
         length_pipes_water = length_horizontal_water + length_strand_water + length_stubs_water
+
+        if math.ceil(self.parent.net_leased_area / 100) <= 1:
+            weight = 0.082
+            area_insulation = (0.014 * 1.5) ** 2 * math.pi - 0.014 ** 2 * math.pi
+        elif math.ceil(self.parent.net_leased_area / 100) == 2:
+            weight = 0.089
+            area_insulation = (0.016 * 1.5) ** 2 * math.pi - 0.016 ** 2 * math.pi
+        else:
+            weight = 0.115
+            area_insulation = (0.02 * 1.5) ** 2 * math.pi - 0.02 ** 2 * math.pi
+
+        lca = lca_pb * length_pipes_water * weight + lca_data_insulation * length_pipes_water * area_insulation
+
+
 
         # todo unit für Dämmung ist m³
 
@@ -273,14 +295,34 @@ class HeatSupplySystem(HeatSupplySystem):
         lca_data.ref_flow_unit = "pcs"
 
     def _lca_data_pump(self):
-        #Umwälzpumpe
         lca_data = En15804LcaData()
         lca_data.ref_flow_unit = "pcs"
+        if self._pipe_routing_heating == "centralised":
+
+            if self._design_temp_flow == 90:
+                temp_diff = 20
+            elif self._design_temp_flow == 70:
+                temp_diff = 15
+            elif self._design_temp_flow == 55:
+                temp_diff = 10
+            else:
+                temp_diff = 7
+
+            flow_rate = self.parent.simulated_heat_load / (1 * 1.163 * temp_diff)
+
+            if flow_rate > (240 * 0.06):  # https://www.viva-aqua.de/250-watt-umwaelzpumpe
+                lca_data = lca_data_250bis1000
+            elif flow_rate < 2.3:  # https://www.ando-technik.com/ebara-heizungspumpe-ego-25-60-180-230v-50w
+                lca_data = lca_data_bis50
+            else:
+                lca_data = lca_data_50bis250
 
     def _lca_data_solar(self):
         #Kollektor
         lca_data = En15804LcaData()
         lca_data.ref_flow_unit = "pcs"
+        if self._storage_water == "solar":
+            lca_data = lca_data_flachkollektor * self.parent.net_leased_area / 100 * 3.05
 
 
     def _lca_data_radiator(self):
