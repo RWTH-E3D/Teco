@@ -7,7 +7,7 @@
 import uuid
 from teaser.teaser.logic.buildingobjects.building import Building
 from teco.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
-from teaser.teaser.logic.buildingobjects.buildingsystems.pe_demand_water import HeatingSystem_PE
+from teaser.teaser.logic.buildingobjects.buildingsystems.pedemandwater import HeatingSystem_PE
 
 
 class Building(Building):

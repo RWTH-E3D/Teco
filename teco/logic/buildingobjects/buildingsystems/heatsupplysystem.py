@@ -5,7 +5,7 @@
 """
 import math
 
-from teaser.teaser.logic.buildingobjects.buildingsystems.heat_supply_system import HeatSupplySystem
+from teaser.teaser.logic.buildingobjects.buildingsystems.heatsupplysystem import HeatSupplySystem
 from teco.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
 
 
@@ -176,10 +176,6 @@ class HeatSupplySystem(HeatSupplySystem):
         lca = lca_pb * length_pipes_water * weight + lca_data_insulation * length_pipes_water * area_insulation
 
 
-
-        # todo unit für Dämmung ist m³
-
-
     # auch service life integrieren bei folgenden Formeln (aus ÖKOBAUDAT)
     def _lca_data_heat_generation(self):
         lca_data = En15804LcaData()
@@ -332,11 +328,11 @@ class HeatSupplySystem(HeatSupplySystem):
         if "heatpump" in self._heat_generation:
             lca_data = self.parent.net_leased_area * lca_data_fbheizung  # floor heating 100mm distance [m^2]
         else:
-            # todo andere Temperaturen?
             if self._design_temp_flow == 55:
                 lca_data = self.parent.simulated_heat_load / 735 * 31.3 * lca_data_heizkörper  # radiator Type 22 0,5 m * 1 m [kg]
-            elif self._design_temp_flow == 70:
+            else:
                 lca_data = self.parent.simulated_heat_load / 1169 * 31.3 * lca_data_heizkörper # radiator Type 22 0,5 m * 1 m [kg]
+            # 35 °C only for heatpump
 
     def _lca_data_pe(self, pe_heating, pe_water):
         """Calculates the total annual primary energy demand of the heat_supply_system
