@@ -7,7 +7,7 @@
 import uuid
 from teaser.teaser.logic.buildingobjects.building import Building
 from teco.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
-from teaser.teaser.logic.buildingobjects.buildingsystems.pedemandwater import HeatingSystem_PE
+from teaser.teaser.logic.buildingobjects.buildingsystems.fedemandwater import FEDemandWater
 
 
 class Building(Building):
@@ -229,11 +229,11 @@ class Building(Building):
             except:
                 print("Unit of the reference flow has to be MJ!")
 
-        heat_sys = HeatingSystem_PE()
+        heat_sys = HeatSupplySystem()
         heat_sys.setting_values_heating_system(1) # todo connect lca_data and type_heating_system
-        pe_heating = heat_sys.calc_primary_energy_demand_heating()
+        pe_heating = heat_sys.calc_final_energy_demand_heating()
         heat_sys.setting_values_heating_system(1)
-        pe_water = heat_sys.calc_primary_energy_demand_water()
+        pe_water = heat_sys.calc_final_energy_demand_water()
 
         lca_data = lca_data * (pe_heating + pe_water) * self.parent.period_lca_scenario
         # todo period lca scenario needed?
