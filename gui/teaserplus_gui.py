@@ -1673,9 +1673,9 @@ class SetupSimulation(QtWidgets.QWidget):
                 for i,lca_data_heat in enumerate(lca_data_heat_list):
                     pef = self.__getattribute__(f"txtB_carrier{i+1}PEF").text()
                     if pef != "":
-                        building.add_lca_data_heating_pe(lca_data_heat) # is this correct?
+                        building.add_lca_data_heat_supply_system(lca_data_heat) # is this correct?
                     else:
-                        building.add_lca_data_heating_pe(lca_data_heat)
+                        building.add_lca_data_heat_supply_system(lca_data_heat)
 
 
             global POSX, POSY

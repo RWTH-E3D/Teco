@@ -242,7 +242,7 @@ if __name__ == '__main__':
         
         building.add_lca_data_elec(lca_data_elec)
         
-        building.add_lca_data_heating_pe(lca_data_elec)
+        building.add_lca_data_heat_supply_system(lca_data_elec)
 
         print(building.lca_data.gwp.b6)
         

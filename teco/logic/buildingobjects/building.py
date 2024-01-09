@@ -7,7 +7,7 @@
 import uuid
 from teaser.teaser.logic.buildingobjects.building import Building
 from teco.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
-from teaser.teaser.logic.buildingobjects.buildingsystems.fedemandwater import FEDemandWater
+from teco.logic.buildingobjects.buildingsystems.heatsupplysystem import HeatSupplySystem
 
 
 class Building(Building):
@@ -111,13 +111,6 @@ class Building(Building):
                 lca_data = lca_data + thermal_zone.lca_data
             except:
                 print("Error while adding lca-data from thermal zone")
-
-        # todo integrieren
-        """try:
-            HeatingSystem_PE.calc_lca_data(use_b4, period_lca_scenario)
-            lca_data = lca_data + HeatingSystem_PE.lca_data
-        except:
-            print("Error while adding lca-data from heating system")"""
                 
         if self.additional_lca_data is not None:
             if self.additional_lca_data.ref_flow_unit == "pcs":
@@ -211,9 +204,9 @@ class Building(Building):
             #
             # return result
 
-    def add_lca_data_heating_pe(self, lca_data):
+    def add_lca_data_heat_supply_system(self, use_b4 = None, period_lca_scenario = None):
         """Calculates environmental indicators resulting form the
-        Primary Energy of the heating system (see class HeatingSystem_PE)
+        heating system (see class HeatSupplySystem)
 
         Parameters
         ----------
@@ -222,27 +215,28 @@ class Building(Building):
             LCA-Dataset representing the used energy carrier.
 
         """
-        # todo
-        if lca_data.ref_flow_unit != "MJ":
+
+        lca_data = En15804LcaData()
+
+        if use_b4 is None:
             try:
-                lca_data = lca_data.convert_ref_unit("MJ")
+                use_b4 = self.parent.parent.parent.use_b4
             except:
-                print("Unit of the reference flow has to be MJ!")
+                use_b4 = False
 
-        heat_sys = HeatSupplySystem()
-        heat_sys.setting_values_heating_system(1) # todo connect lca_data and type_heating_system
-        pe_heating = heat_sys.calc_final_energy_demand_heating()
-        heat_sys.setting_values_heating_system(1)
-        pe_water = heat_sys.calc_final_energy_demand_water()
+        if period_lca_scenario == None:
+            try:
+                period_lca_scenario = self.parent.parent.parent.period_lca_scenario
+            except:
+                print("Please enter a period for the LCA-scenario!")
 
-        lca_data = lca_data * (pe_heating + pe_water) * self.parent.period_lca_scenario
-        # todo period lca scenario needed?
-        lca_data.unit = "pcs"
-                
-        if self.lca_data is not None:
-            self.lca_data = self.lca_data + lca_data
-        else:
-            self.lca_data = lca_data
+        try:
+            HeatSupplySystem.calc_lca_data(use_b4, period_lca_scenario)
+            lca_data = lca_data + HeatSupplySystem.lca_data
+        except:
+            print("Error while adding lca-data from heat supply system")
+
+        self.lca_data = lca_data
         
     def add_lca_data_template(self, lca_data_id, amount):
         """This function loads environmental indicators from the JSON,

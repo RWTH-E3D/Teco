@@ -9051,7 +9051,1410 @@
 	   "name": "Umwälzpumpe <50W",
 	   "fallback": null
 	},
-
+	"6167bec3-0bc2-425a-9c87-479fa310f8f2": {
+	   "ref_flow": {
+		  "value": 1,
+		  "unit": "MJ"
+	   },
+	   "pere": {
+		  "unit": "MJ",
+		  "b6": 0.006843
+	   },
+	   "perm": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "pert": {
+		  "unit": "MJ",
+		  "b6": 0.006843
+	   },
+	   "penre": {
+		  "unit": "MJ",
+		  "b6": 3.926
+	   },
+	   "penrm": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "penrt": {
+		  "unit": "MJ",
+		  "b6": 3.926
+	   },
+	   "sm": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "rsf": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "nrsf": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "fw": {
+		  "unit": "m^3",
+		  "b6": 0.00001076
+	   },
+	   "hwd": {
+		  "unit": "kg",
+		  "b6": 1.614e-9
+	   },
+	   "nhwd": {
+		  "unit": "kg",
+		  "b6": 0.0004689
+	   },
+	   "rwd": {
+		  "unit": "kg",
+		  "b6": 4.659e-7
+	   },
+	   "cru": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "mfr": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "mer": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "eee": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "eet": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "gwp": {
+		  "unit": "kg CO2 eq.",
+		  "b6": 0.2348
+	   },
+	   "odp": {
+		  "unit": "kg R11 eq.",
+		  "b6": 1.041e-17
+	   },
+	   "pocp": {
+		  "unit": "kg Ethene eq.",
+		  "b6": 0.0000128
+	   },
+	   "ap": {
+		  "unit": "kg SO2 eq.",
+		  "b6": 0.00007573
+	   },
+	   "ep": {
+		  "unit": "kg Phosphate eq.",
+		  "b6": 0.000008537
+	   },
+	   "adpe": {
+		  "unit": "kg Sb eq.",
+		  "b6": 1.387e-8
+	   },
+	   "adpf": {
+		  "unit": "MJ",
+		  "b6": 3.924
+	   },
+	   "name": "Nutzung - 1 kWh Endenergie aus Gas Brennwert (entspr. EnEV)",
+	   "fallback": null
+	},
+	"e58a3c28-4818-43e3-9e72-f08267926613": {
+	   "ref_flow": {
+		  "value": 1,
+		  "unit": "MJ"
+	   },
+	   "pere": {
+		  "unit": "MJ",
+		  "b6": 0.006843
+	   },
+	   "perm": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "pert": {
+		  "unit": "MJ",
+		  "b6": 0.006843
+	   },
+	   "penre": {
+		  "unit": "MJ",
+		  "b6": 3.926
+	   },
+	   "penrm": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "penrt": {
+		  "unit": "MJ",
+		  "b6": 3.926
+	   },
+	   "sm": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "rsf": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "nrsf": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "fw": {
+		  "unit": "m^3",
+		  "b6": 0.00001076
+	   },
+	   "hwd": {
+		  "unit": "kg",
+		  "b6": 1.614e-9
+	   },
+	   "nhwd": {
+		  "unit": "kg",
+		  "b6": 0.0004689
+	   },
+	   "rwd": {
+		  "unit": "kg",
+		  "b6": 4.659e-7
+	   },
+	   "cru": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "mfr": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "mer": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "eee": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "eet": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "gwp": {
+		  "unit": "kg CO2 eq.",
+		  "b6": 0.2339
+	   },
+	   "odp": {
+		  "unit": "kg R11 eq.",
+		  "b6": 1.041e-17
+	   },
+	   "pocp": {
+		  "unit": "kg Ethene eq.",
+		  "b6": 0.00001402
+	   },
+	   "ap": {
+		  "unit": "kg SO2 eq.",
+		  "b6": 0.0001007
+	   },
+	   "ep": {
+		  "unit": "kg Phosphate eq.",
+		  "b6": 0.00001504
+	   },
+	   "adpe": {
+		  "unit": "kg Sb eq.",
+		  "b6": 1.387e-8
+	   },
+	   "adpf": {
+		  "unit": "MJ",
+		  "b6": 3.924
+	   },
+	   "name": "Nutzung - 1 kWh Endenergie aus Gas Niedertemperatur (entspr. EnEV)",
+	   "fallback": null
+	},
+	"63854c13-11d1-4f97-ad97-052ecd3e6e3d": {
+	   "ref_flow": {
+		  "value": 1,
+		  "unit": "MJ"
+	   },
+	   "pere": {
+		  "unit": "MJ",
+		  "b6": 0.0195
+	   },
+	   "perm": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "pert": {
+		  "unit": "MJ",
+		  "b6": 0.0195
+	   },
+	   "penre": {
+		  "unit": "MJ",
+		  "b6": 4.192
+	   },
+	   "penrm": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "penrt": {
+		  "unit": "MJ",
+		  "b6": 4.192
+	   },
+	   "sm": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "rsf": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "nrsf": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "fw": {
+		  "unit": "m^3",
+		  "b6": 0.00002145
+	   },
+	   "hwd": {
+		  "unit": "kg",
+		  "b6": 4.875e-10
+	   },
+	   "nhwd": {
+		  "unit": "kg",
+		  "b6": 0.0005766
+	   },
+	   "rwd": {
+		  "unit": "kg",
+		  "b6": 0.000003798
+	   },
+	   "cru": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "mfr": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "mer": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "eee": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "eet": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "gwp": {
+		  "unit": "kg CO2 eq.",
+		  "b6": 0.2996
+	   },
+	   "odp": {
+		  "unit": "kg R11 eq.",
+		  "b6": 9.669e-17
+	   },
+	   "pocp": {
+		  "unit": "kg Ethene eq.",
+		  "b6": 0.00002755
+	   },
+	   "ap": {
+		  "unit": "kg SO2 eq.",
+		  "b6": 0.0001847
+	   },
+	   "ep": {
+		  "unit": "kg Phosphate eq.",
+		  "b6": 0.0000268
+	   },
+	   "adpe": {
+		  "unit": "kg Sb eq.",
+		  "b6": 1.12e-8
+	   },
+	   "adpf": {
+		  "unit": "MJ",
+		  "b6": 4.182
+	   },
+	   "name": "Nutzung - 1 kWh Endenergie aus Öl Niedertemperatur und Brennwert (entspr. EnEV)",
+	   "fallback": null
+	},
+	"fb11f8ce-d3c7-4823-ba13-0c1f4a304799": {
+	   "ref_flow": {
+		  "value": 1,
+		  "unit": "MJ"
+	   },
+	   "pere": {
+		  "unit": "MJ",
+		  "b6": 4.551
+	   },
+	   "perm": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "pert": {
+		  "unit": "MJ",
+		  "b6": 4.551
+	   },
+	   "penre": {
+		  "unit": "MJ",
+		  "b6": 0.2722
+	   },
+	   "penrm": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "penrt": {
+		  "unit": "MJ",
+		  "b6": 0.2722
+	   },
+	   "sm": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "rsf": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "nrsf": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "fw": {
+		  "unit": "m^3",
+		  "b6": 0.00003609
+	   },
+	   "hwd": {
+		  "unit": "kg",
+		  "b6": 1.567e-9
+	   },
+	   "nhwd": {
+		  "unit": "kg",
+		  "b6": 0.004915
+	   },
+	   "rwd": {
+		  "unit": "kg",
+		  "b6": 0.000007404
+	   },
+	   "cru": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "mfr": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "mer": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "eee": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "eet": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "gwp": {
+		  "unit": "kg CO2 eq.",
+		  "b6": 0.02108
+	   },
+	   "odp": {
+		  "unit": "kg R11 eq.",
+		  "b6": 3.355e-16
+	   },
+	   "pocp": {
+		  "unit": "kg Ethene eq.",
+		  "b6": 0.0000335
+	   },
+	   "ap": {
+		  "unit": "kg SO2 eq.",
+		  "b6": 0.0003072
+	   },
+	   "ep": {
+		  "unit": "kg Phosphate eq.",
+		  "b6": 0.00007221
+	   },
+	   "adpe": {
+		  "unit": "kg Sb eq.",
+		  "b6": 3.772e-9
+	   },
+	   "adpf": {
+		  "unit": "MJ",
+		  "b6": 0.2536
+	   },
+	   "name": "Nutzung - 1 kWh Endenergie aus Holzpellets (entspr. EnEV)",
+	   "fallback": null
+	},
+	"149d05eb-7e8c-4755-9efa-347510b3ae4e": {
+	   "ref_flow": {
+		  "value": 1,
+		  "unit": "MJ"
+	   },
+	   "pere": {
+		  "unit": "MJ",
+		  "b6": 4.488
+	   },
+	   "perm": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "pert": {
+		  "unit": "MJ",
+		  "b6": 4.488
+	   },
+	   "penre": {
+		  "unit": "MJ",
+		  "b6": 6.702
+	   },
+	   "penrm": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "penrt": {
+		  "unit": "MJ",
+		  "b6": 6.702
+	   },
+	   "sm": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "rsf": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "nrsf": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "fw": {
+		  "unit": "m^3",
+		  "b6": 0.002075
+	   },
+	   "hwd": {
+		  "unit": "kg",
+		  "b6": 4.596e-9
+	   },
+	   "nhwd": {
+		  "unit": "kg",
+		  "b6": 0.005218
+	   },
+	   "rwd": {
+		  "unit": "kg",
+		  "b6": 0.000543
+	   },
+	   "cru": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "mfr": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "mer": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "eee": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "eet": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "gwp": {
+		  "unit": "kg CO2 eq.",
+		  "b6": 0.532
+	   },
+	   "odp": {
+		  "unit": "kg R11 eq.",
+		  "b6": 2.488e-14
+	   },
+	   "pocp": {
+		  "unit": "kg Ethene eq.",
+		  "b6": 0.00005203
+	   },
+	   "ap": {
+		  "unit": "kg SO2 eq.",
+		  "b6": 0.0006277
+	   },
+	   "ep": {
+		  "unit": "kg Phosphate eq.",
+		  "b6": 0.0001247
+	   },
+	   "adpe": {
+		  "unit": "kg Sb eq.",
+		  "b6": 2.354e-7
+	   },
+	   "adpf": {
+		  "unit": "MJ",
+		  "b6": 5.331
+	   },
+	   "name": "Nutzung - Elektro-Durchlauferhitzer",
+	   "fallback": null
+	},
+	"3fd6d7dc-6618-42f4-b6be-f5b6f9a38763": {
+	   "ref_flow": {
+		  "value": 1,
+		  "unit": "MJ"
+	   },
+	   "pere": {
+		  "unit": "MJ",
+		  "b6": 4.622
+	   },
+	   "perm": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "pert": {
+		  "unit": "MJ",
+		  "b6": 4.622
+	   },
+	   "penre": {
+		  "unit": "MJ",
+		  "b6": 1.527
+	   },
+	   "penrm": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "penrt": {
+		  "unit": "MJ",
+		  "b6": 1.527
+	   },
+	   "sm": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "rsf": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "nrsf": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "fw": {
+		  "unit": "m^3",
+		  "b6": 0.0004727
+	   },
+	   "hwd": {
+		  "unit": "kg",
+		  "b6": 1.047e-9
+	   },
+	   "nhwd": {
+		  "unit": "kg",
+		  "b6": 0.001189
+	   },
+	   "rwd": {
+		  "unit": "kg",
+		  "b6": 0.0001237
+	   },
+	   "cru": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "mfr": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "mer": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "eee": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "eet": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "gwp": {
+		  "unit": "kg CO2 eq.",
+		  "b6": 0.1212
+	   },
+	   "odp": {
+		  "unit": "kg R11 eq.",
+		  "b6": 5.667e-15
+	   },
+	   "pocp": {
+		  "unit": "kg Ethene eq.",
+		  "b6": 0.00001185
+	   },
+	   "ap": {
+		  "unit": "kg SO2 eq.",
+		  "b6": 0.000143
+	   },
+	   "ep": {
+		  "unit": "kg Phosphate eq.",
+		  "b6": 0.0000284
+	   },
+	   "adpe": {
+		  "unit": "kg Sb eq.",
+		  "b6": 5.362e-8
+	   },
+	   "adpf": {
+		  "unit": "MJ",
+		  "b6": 1.214
+	   },
+	   "name": "Nutzung - Strom-Wärmepumpe Sole-Wasser (0/35)",
+	   "fallback": null
+	},
+	"5b00afcd-8b26-4945-857f-e280946e823f": {
+	   "ref_flow": {
+		  "value": 1,
+		  "unit": "MJ"
+	   },
+	   "pere": {
+		  "unit": "MJ",
+		  "b6": 4.955
+	   },
+	   "perm": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "pert": {
+		  "unit": "MJ",
+		  "b6": 4.955
+	   },
+	   "penre": {
+		  "unit": "MJ",
+		  "b6": 2.024
+	   },
+	   "penrm": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "penrt": {
+		  "unit": "MJ",
+		  "b6": 2.024
+	   },
+	   "sm": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "rsf": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "nrsf": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "fw": {
+		  "unit": "m^3",
+		  "b6": 0.0006267
+	   },
+	   "hwd": {
+		  "unit": "kg",
+		  "b6": 1.388e-9
+	   },
+	   "nhwd": {
+		  "unit": "kg",
+		  "b6": 0.001576
+	   },
+	   "rwd": {
+		  "unit": "kg",
+		  "b6": 0.000164
+	   },
+	   "cru": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "mfr": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "mer": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "eee": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "eet": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "gwp": {
+		  "unit": "kg CO2 eq.",
+		  "b6": 0.1666
+	   },
+	   "odp": {
+		  "unit": "kg R11 eq.",
+		  "b6": 7.512e-15
+	   },
+	   "pocp": {
+		  "unit": "kg Ethene eq.",
+		  "b6": 0.00001571
+	   },
+	   "ap": {
+		  "unit": "kg SO2 eq.",
+		  "b6": 0.0001896
+	   },
+	   "ep": {
+		  "unit": "kg Phosphate eq.",
+		  "b6": 0.00003765
+	   },
+	   "adpe": {
+		  "unit": "kg Sb eq.",
+		  "b6": 7.295e-8
+	   },
+	   "adpf": {
+		  "unit": "MJ",
+		  "b6": 1.61
+	   },
+	   "name": "Nutzung - Strom-Wärmepumpe Luft-Wasser 14kW (2/35)",
+	   "fallback": null
+	},
+	"05a620f5-e5ba-4593-a55c-690e2a47c8db": {
+	   "ref_flow": {
+		  "value": 1,
+		  "unit": "MJ"
+	   },
+	   "pere": {
+		  "unit": "MJ",
+		  "b6": 4.919
+	   },
+	   "perm": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "pert": {
+		  "unit": "MJ",
+		  "b6": 4.919
+	   },
+	   "penre": {
+		  "unit": "MJ",
+		  "b6": 1.969
+	   },
+	   "penrm": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "penrt": {
+		  "unit": "MJ",
+		  "b6": 1.969
+	   },
+	   "sm": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "rsf": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "nrsf": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "fw": {
+		  "unit": "m^3",
+		  "b6": 0.0006098
+	   },
+	   "hwd": {
+		  "unit": "kg",
+		  "b6": 1.351e-9
+	   },
+	   "nhwd": {
+		  "unit": "kg",
+		  "b6": 0.001533
+	   },
+	   "rwd": {
+		  "unit": "kg",
+		  "b6": 0.0001595
+	   },
+	   "cru": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "mfr": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "mer": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "eee": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "eet": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "gwp": {
+		  "unit": "kg CO2 eq.",
+		  "b6": 0.1621
+	   },
+	   "odp": {
+		  "unit": "kg R11 eq.",
+		  "b6": 7.309e-15
+	   },
+	   "pocp": {
+		  "unit": "kg Ethene eq.",
+		  "b6": 0.00001529
+	   },
+	   "ap": {
+		  "unit": "kg SO2 eq.",
+		  "b6": 0.0001845
+	   },
+	   "ep": {
+		  "unit": "kg Phosphate eq.",
+		  "b6": 0.00003664
+	   },
+	   "adpe": {
+		  "unit": "kg Sb eq.",
+		  "b6": 7.098e-8
+	   },
+	   "adpf": {
+		  "unit": "MJ",
+		  "b6": 1.567
+	   },
+	   "name": "Nutzung - Strom-Wärmepumpe Luft-Wasser 10kW (2/35)",
+	   "fallback": null
+	},
+	"4607b899-9c83-4764-a621-8e79c94887ec": {
+	   "ref_flow": {
+		  "value": 1,
+		  "unit": "MJ"
+	   },
+	   "pere": {
+		  "unit": "MJ",
+		  "b6": 4.884
+	   },
+	   "perm": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "pert": {
+		  "unit": "MJ",
+		  "b6": 4.884
+	   },
+	   "penre": {
+		  "unit": "MJ",
+		  "b6": 1.917
+	   },
+	   "penrm": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "penrt": {
+		  "unit": "MJ",
+		  "b6": 1.917
+	   },
+	   "sm": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "rsf": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "nrsf": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "fw": {
+		  "unit": "m^3",
+		  "b6": 0.0005937
+	   },
+	   "hwd": {
+		  "unit": "kg",
+		  "b6": 1.315e-9
+	   },
+	   "nhwd": {
+		  "unit": "kg",
+		  "b6": 0.001493
+	   },
+	   "rwd": {
+		  "unit": "kg",
+		  "b6": 0.0001553
+	   },
+	   "cru": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "mfr": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "mer": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "eee": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "eet": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "gwp": {
+		  "unit": "kg CO2 eq.",
+		  "b6": 0.1579
+	   },
+	   "odp": {
+		  "unit": "kg R11 eq.",
+		  "b6": 7.117e-15
+	   },
+	   "pocp": {
+		  "unit": "kg Ethene eq.",
+		  "b6": 0.00001489
+	   },
+	   "ap": {
+		  "unit": "kg SO2 eq.",
+		  "b6": 0.0001796
+	   },
+	   "ep": {
+		  "unit": "kg Phosphate eq.",
+		  "b6": 0.00003567
+	   },
+	   "adpe": {
+		  "unit": "kg Sb eq.",
+		  "b6": 6.911e-8
+	   },
+	   "adpf": {
+		  "unit": "MJ",
+		  "b6": 1.525
+	   },
+	   "name": "Nutzung - Strom-Wärmepumpe Luft-Wasser 7kW (2/35)",
+	   "fallback": null
+	},
+	"9b123a02-9967-4a5c-8630-eb78aa4f6c45": {
+	   "ref_flow": {
+		  "value": 1,
+		  "unit": "MJ"
+	   },
+	   "pere": {
+		  "unit": "MJ",
+		  "b6": 0.5441
+	   },
+	   "perm": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "pert": {
+		  "unit": "MJ",
+		  "b6": 0.5441
+	   },
+	   "penre": {
+		  "unit": "MJ",
+		  "b6": 3.123
+	   },
+	   "penrm": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "penrt": {
+		  "unit": "MJ",
+		  "b6": 3.123
+	   },
+	   "sm": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "rsf": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "nrsf": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "fw": {
+		  "unit": "m^3",
+		  "b6": 0.0006584
+	   },
+	   "hwd": {
+		  "unit": "kg",
+		  "b6": 2.957e-9
+	   },
+	   "nhwd": {
+		  "unit": "kg",
+		  "b6": 0.006891
+	   },
+	   "rwd": {
+		  "unit": "kg",
+		  "b6": 0.000004046
+	   },
+	   "cru": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "mfr": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "mer": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "eee": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "eet": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "gwp": {
+		  "unit": "kg CO2 eq.",
+		  "b6": 0.2744
+	   },
+	   "odp": {
+		  "unit": "kg R11 eq.",
+		  "b6": 1.176e-16
+	   },
+	   "pocp": {
+		  "unit": "kg Ethene eq.",
+		  "b6": 0.00002712
+	   },
+	   "ap": {
+		  "unit": "kg SO2 eq.",
+		  "b6": 0.0002814
+	   },
+	   "ep": {
+		  "unit": "kg Phosphate eq.",
+		  "b6": 0.00005194
+	   },
+	   "adpe": {
+		  "unit": "kg Sb eq.",
+		  "b6": 1.544e-8
+	   },
+	   "adpf": {
+		  "unit": "MJ",
+		  "b6": 3.113
+	   },
+	   "name": "Nutzung - Fernwärme (120-400 kW, entspr. EnEV)",
+	   "fallback": null
+	},
+	"3c3a8f6b-ec6f-4358-8e7d-f42f05f59c10": {
+	   "ref_flow": {
+		  "value": 1,
+		  "unit": "MJ"
+	   },
+	   "pere": {
+		  "unit": "MJ",
+		  "b6": 0.5479
+	   },
+	   "perm": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "pert": {
+		  "unit": "MJ",
+		  "b6": 0.5479
+	   },
+	   "penre": {
+		  "unit": "MJ",
+		  "b6": 3.145
+	   },
+	   "penrm": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "penrt": {
+		  "unit": "MJ",
+		  "b6": 3.145
+	   },
+	   "sm": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "rsf": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "nrsf": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "fw": {
+		  "unit": "m^3",
+		  "b6": 0.000663
+	   },
+	   "hwd": {
+		  "unit": "kg",
+		  "b6": 2.978e-9
+	   },
+	   "nhwd": {
+		  "unit": "kg",
+		  "b6": 0.006939
+	   },
+	   "rwd": {
+		  "unit": "kg",
+		  "b6": 0.000004075
+	   },
+	   "cru": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "mfr": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "mer": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "eee": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "eet": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "gwp": {
+		  "unit": "kg CO2 eq.",
+		  "b6": 0.2763
+	   },
+	   "odp": {
+		  "unit": "kg R11 eq.",
+		  "b6": 1.184e-16
+	   },
+	   "pocp": {
+		  "unit": "kg Ethene eq.",
+		  "b6": 0.00002731
+	   },
+	   "ap": {
+		  "unit": "kg SO2 eq.",
+		  "b6": 0.0002834
+	   },
+	   "ep": {
+		  "unit": "kg Phosphate eq.",
+		  "b6": 0.00005231
+	   },
+	   "adpe": {
+		  "unit": "kg Sb eq.",
+		  "b6": 1.554e-8
+	   },
+	   "adpf": {
+		  "unit": "MJ",
+		  "b6": 3.135
+	   },
+	   "name": "Nutzung - Fernwärme (20-120 kW, entspr. EnEV)",
+	   "fallback": null
+	},
+	"9adc2b1c-99d8-4bb2-944a-1cff285784eb": {
+	   "ref_flow": {
+		  "value": 1,
+		  "unit": "MJ"
+	   },
+	   "pere": {
+		  "unit": "MJ",
+		  "b6": 3.247
+	   },
+	   "perm": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "pert": {
+		  "unit": "MJ",
+		  "b6": 3.247
+	   },
+	   "penre": {
+		  "unit": "MJ",
+		  "b6": 0.1168
+	   },
+	   "penrm": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "penrt": {
+		  "unit": "MJ",
+		  "b6": 0.1168
+	   },
+	   "sm": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "rsf": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "nrsf": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "fw": {
+		  "unit": "m^3",
+		  "b6": 0.0009281
+	   },
+	   "hwd": {
+		  "unit": "kg",
+		  "b6": 1.199e-8
+	   },
+	   "nhwd": {
+		  "unit": "kg",
+		  "b6": 0.001907
+	   },
+	   "rwd": {
+		  "unit": "kg",
+		  "b6": 0.000002306
+	   },
+	   "cru": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "mfr": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "mer": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "eee": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "eet": {
+		  "unit": "MJ",
+		  "b6": 3.6
+	   },
+	   "gwp": {
+		  "unit": "kg CO2 eq.",
+		  "b6": 0.01153
+	   },
+	   "odp": {
+		  "unit": "kg R11 eq.",
+		  "b6": 3.689e-17
+	   },
+	   "pocp": {
+		  "unit": "kg Ethene eq.",
+		  "b6": 0.00004202
+	   },
+	   "ap": {
+		  "unit": "kg SO2 eq.",
+		  "b6": 0.0003128
+	   },
+	   "ep": {
+		  "unit": "kg Phosphate eq.",
+		  "b6": 0.0000896
+	   },
+	   "adpe": {
+		  "unit": "kg Sb eq.",
+		  "b6": 1.688e-8
+	   },
+	   "adpf": {
+		  "unit": "MJ",
+		  "b6": 0.1104
+	   },
+	   "name": "Fernwärme aus Biomasse (fest)",
+	   "fallback": null
+	},
+	"04ec8cf9-da57-4201-8d4d-02071e7be09f": {
+	   "ref_flow": {
+		  "value": 1,
+		  "unit": "MJ"
+	   },
+	   "pere": {
+		  "unit": "MJ",
+		  "b6": 4.488
+	   },
+	   "perm": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "pert": {
+		  "unit": "MJ",
+		  "b6": 4.488
+	   },
+	   "penre": {
+		  "unit": "MJ",
+		  "b6": 6.702
+	   },
+	   "penrm": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "penrt": {
+		  "unit": "MJ",
+		  "b6": 6.702
+	   },
+	   "sm": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "rsf": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "nrsf": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "fw": {
+		  "unit": "m^3",
+		  "b6": 0.002075
+	   },
+	   "hwd": {
+		  "unit": "kg",
+		  "b6": 4.596e-9
+	   },
+	   "nhwd": {
+		  "unit": "kg",
+		  "b6": 0.005218
+	   },
+	   "rwd": {
+		  "unit": "kg",
+		  "b6": 0.000543
+	   },
+	   "cru": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "mfr": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "mer": {
+		  "unit": "kg",
+		  "b6": 0
+	   },
+	   "eee": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "eet": {
+		  "unit": "MJ",
+		  "b6": 0
+	   },
+	   "gwp": {
+		  "unit": "kg CO2 eq.",
+		  "b6": 0.532
+	   },
+	   "odp": {
+		  "unit": "kg R11 eq.",
+		  "b6": 2.488e-14
+	   },
+	   "pocp": {
+		  "unit": "kg Ethene eq.",
+		  "b6": 0.00005203
+	   },
+	   "ap": {
+		  "unit": "kg SO2 eq.",
+		  "b6": 0.0006277
+	   },
+	   "ep": {
+		  "unit": "kg Phosphate eq.",
+		  "b6": 0.0001247
+	   },
+	   "adpe": {
+		  "unit": "kg Sb eq.",
+		  "b6": 2.354e-7
+	   },
+	   "adpf": {
+		  "unit": "MJ",
+		  "b6": 5.331
+	   },
+	   "name": "Nutzung - Beleuchtung (Verbrauch 1 kWh Strom)",
+	   "fallback": null
+	},
 	"07f3cd13-22bb-494d-803a-f0a440fbce7a": {
 		"ref_flow": {
 			"value": 1,
