@@ -7,7 +7,6 @@
 import uuid
 from teaser.teaser.logic.buildingobjects.building import Building
 from teco.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
-from teco.logic.buildingobjects.buildingsystems.heatsupplysystem import HeatSupplySystem
 
 
 class Building(Building):
@@ -32,6 +31,7 @@ class Building(Building):
             name=None,
             year_of_construction=None,
             net_leased_area=None,
+            type_heat_supply_system=None,
             with_ahu=False,
             internal_gains_mode=1,
     ):
@@ -43,6 +43,7 @@ class Building(Building):
             name,
             year_of_construction,
             net_leased_area,
+            type_heat_supply_system,
             with_ahu,
             internal_gains_mode,
         )
@@ -231,8 +232,8 @@ class Building(Building):
                 print("Please enter a period for the LCA-scenario!")
 
         try:
-            HeatSupplySystem.calc_lca_data(use_b4, period_lca_scenario)
-            lca_data = lca_data + HeatSupplySystem.lca_data
+            self._heat_supply_system.calc_lca_data(use_b4, period_lca_scenario)
+            lca_data = lca_data + self._heat_supply_system.lca_data
         except:
             print("Error while adding lca-data from heat supply system")
 

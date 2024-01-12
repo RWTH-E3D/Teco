@@ -16,7 +16,8 @@ if __name__ == '__main__': #only executed if executed as the main programme
         year_of_construction=2015,
         number_of_floors=2,
         height_of_floors=2.5,
-        net_leased_area=167.0)
+        net_leased_area=167.0,
+        type_heat_supply_system=2)
 
     prj.calc_all_buildings()  # simulation parameters are calculated
 
