@@ -34,32 +34,10 @@ class HeatSupplySystem(HeatSupplySystem):
             parent,
         )
 
-        lca_data = En15804LcaData()
-        lca_data.ref_flow_unit = "pcs"
+        self._lca_data = None
         self.component = []
-        self.service_life = None
+        self._period_lca_scenario = None
 
-    def load_lca_data_template(self, lca_id, data_class=None):
-        """LCA-data loader.
-
-        Loads LCA-data specified in the json.
-
-        Parameters
-        ----------
-
-        lca_id : str
-            LCA-data Identifier
-
-        data_class : DataClass
-            DataClass containing the bindings for LCA-data and LCA-data
-            -fallbacks (typically this is the data class stored in prj.data,
-            but the user can individually change that.)
-
-        """
-
-        lca_data_input.load_en15804_lca_data_id(lca_data=self,
-                                                lca_id=lca_id,
-                                                data_class=data_class)
 
     def calc_lca_data(self, use_b4=None, period_lca_scenario=None):
         """calculates the LCA-data of the buildingelement and set it to the
@@ -81,13 +59,13 @@ class HeatSupplySystem(HeatSupplySystem):
 
         if use_b4 is None:
             try:
-                use_b4 = self.parent.parent.parent.use_b4
+                self._use_b4 = self.parent.parent.use_b4
             except:
-                use_b4 = False
+                self._use_b4 = False
 
         if period_lca_scenario is None:
             try:
-                period_lca_scenario = self.parent.parent.parent.period_lca_scenario
+                self._period_lca_scenario = self.parent.parent.period_lca_scenario
             except:
                 print("Please enter a period for the LCA-scenario!")
 
@@ -158,9 +136,9 @@ class HeatSupplySystem(HeatSupplySystem):
         data_class_pipe_insulation = length_pipes_26 * area_insulation_26 + length_pipes_20 * area_insulation_20
 
         lca_data_steel_pipe = self.load_lca_data_template("8622539c-592c-45b0-9a4b-e5f8b4fea367",
-                                                          data_class_steel_pipes)  # 25 a
+                                                          data_class_steel_pipes, 25)  # 25 a
         lca_data_pipe_insulation = self.load_lca_data_template("75ce5bab-4506-4f7e-8c20-a638a98b7537",
-                                                               data_class_pipe_insulation) # 25 a
+                                                               data_class_pipe_insulation, 25) # 25 a
         # water
         if self._pipe_routing_water == "centralised with circulation":
 
@@ -197,8 +175,30 @@ class HeatSupplySystem(HeatSupplySystem):
                                                        data_class_steel_pipes)  # 25 a
         lca_data_pipe_insulation += self.load_lca_data_template("75ce5bab-4506-4f7e-8c20-a638a98b7537",
                                                                 data_class_pipe_insulation)  # 25 a
+        lca_data_elec = En15804LcaData()  # dataset for electricity
+        lca_data_elec.load_lca_data_template("c869c47e-ce43-45b4-b640-b0cd1746e450", prj.data)
 
-        return lca_data_steel_pipe + lca_data_pb_pipe + lca_data_pipe_insulation
+        if lca_data.ref_flow_unit != "MJ":
+            try:
+                lca_data = lca_data.convert_ref_unit("MJ")
+            except:
+                print("Unit of the reference flow has to be MJ!")
+
+        lca_data = lca_data * self._estimate_elec_demand
+        # todo period lca scenario needed?
+
+        if self.lca_data is not None:
+            self.lca_data = self.lca_data + lca_data
+        else:
+            self.lca_data = lca_data
+
+        lca_data_pipes = lca_data_steel_pipe + lca_data_pb_pipe + lca_data_pipe_insulation
+
+        print("lca_data_pipes: " + str(lca_data_pipes))
+        if lca_data_pipes is None or lca_data_pipes == 0:
+            return 0
+        else:
+            return lca_data_pipes
 
     def _lca_data_heat_generator(self):
 
@@ -356,7 +356,12 @@ class HeatSupplySystem(HeatSupplySystem):
             lca_data_district = self.load_lca_data_template("dcd5e23a-9bec-40b6-b07c-1642fe696a2e", 30)
             lca_data_heat_generator = lca_data_district
 
-        return lca_data_heat_generator
+        print("lca_data_heat_generator: " + str(lca_data_heat_generator))
+        if lca_data_heat_generator is None or lca_data_heat_generator == 0:
+            return 0
+        else:
+            return lca_data_heat_generator
+
 
     def _lca_data_storage(self):
 
@@ -365,9 +370,11 @@ class HeatSupplySystem(HeatSupplySystem):
         else:
             lca_data_storage = 0
 
-        return lca_data_storage
-
-        # todo was mit Wasser und Solar Speicher?
+        print("lca_data_storage: " + str(lca_data_storage))
+        if lca_data_storage is None or lca_data_storage == 0:
+            return 0
+        else:
+            return lca_data_storage
 
     def _lca_data_pump(self):
 
@@ -396,7 +403,11 @@ class HeatSupplySystem(HeatSupplySystem):
         else:
             lca_data_pump = 0
 
-        return lca_data_pump
+        print("lca_data_pump: " + str(lca_data_pump))
+        if lca_data_pump is None or lca_data_pump == 0:
+            return 0
+        else:
+            return lca_data_pump
 
     def _lca_data_solar(self):
 
@@ -406,7 +417,11 @@ class HeatSupplySystem(HeatSupplySystem):
         else:
             lca_data_solar_collector = 0
 
-        return lca_data_solar_collector
+        print("lca_data_solar_collector: " + str(lca_data_solar_collector))
+        if lca_data_solar_collector is None or lca_data_solar_collector == 0:
+            return 0
+        else:
+            return lca_data_solar_collector
 
     def _lca_data_heat_transfer(self):
 
@@ -422,7 +437,11 @@ class HeatSupplySystem(HeatSupplySystem):
                 lca_data_heat_transfer = self.parent.simulated_heat_load / 1169 * 31.3 * lca_data_radiator
             # 35 °C only for heatpump
 
-        return lca_data_heat_transfer
+        print("lca_data_heat_transfer: " + str(lca_data_heat_transfer))
+        if lca_data_heat_transfer is None or lca_data_heat_transfer == 0:
+            return 0
+        else:
+            return lca_data_heat_transfer
 
     def _lca_data_fe(self):
         """Calculates the total annual energy demand of the heat_supply_system
@@ -434,8 +453,10 @@ class HeatSupplySystem(HeatSupplySystem):
                 fe_water : FEDemandWater()
                     FEDemandWater() instance of TEASER
                 """
+        fedheating = FEDemandHeating(parent=self)
+        fedwater = FEDemandWater(parent=self)
 
-        fe_demand = FEDemandHeating.calc_final_energy_demand_heating() + FEDemandWater.calc_final_energy_demand_water()
+        fe_demand = fedheating.calc_final_energy_demand_heating() + fedwater.calc_final_energy_demand_water()
 
         if self._heat_system == "gas":
 
@@ -489,7 +510,96 @@ class HeatSupplySystem(HeatSupplySystem):
 
                 lca_data_fe = fe_demand * self.load_lca_data_template("9b123a02-9967-4a5c-8630-eb78aa4f6c45")
 
-        return lca_data_fe
+        print("lca_data_fe: " + str(lca_data_fe))
+        if lca_data_fe is None or lca_data_fe == 0:
+            return 0
+        else:
+            return lca_data_fe
+
+    def _get_lca_data(self, lca_id, amount, service_life, data_class=None):
+        """"LCA-data loader.
+
+        Loads LCA-data specified in the json.
+
+        Parameters
+        ----------
+
+        lca_id : str
+            LCA-data Identifier
+
+        data_class : DataClass
+            DataClass containing the bindings for LCA-data and LCA-data
+            -fallbacks (typically this is the data class stored in prj.data,
+            but the user can individually change that.)
+
+        """
+        lca_data = En15804LcaData()
+        lca_data.ref_flow_unit = "pcs"
+
+        if data_class is None:
+            data_class = self.parent.parent.data
+        else:
+            data_class = data_class
+
+        lca_data.load_lca_data_template(lca_id=lca_id, data_class=data_class)
+
+        if lca_data.ref_flow_unit != "pcs":
+            try:
+                lca_data = lca_data.convert_ref_unit("pcs")
+            except:
+                print("Unit of the reference flow has to be pcs!")
+
+        value = self._period_lca_scenario
+
+        while value >= 30:
+            self.retrofit_heat_supply_system()
+            value -= 30
+
+        n_hss_repl = math.ceil(self._period_lca_scenario / service_life)
+        remaining_period = self._period_lca_scenario % service_life
+
+        if self._use_b4:
+            n_repl = n_hss_repl
+
+        else:
+
+
+        """if self.service_life:
+
+                    if use_b4:
+                        lca_data = n_be_repl * self.calc_lca_data_no_repl()
+                        lca_data = lca_data + (n_be_repl + 1) * self._calc_lca_data_layer_repl(self.service_life)
+                        lca_data = lca_data + self._calc_lca_data_layer_repl(remaining_period)
+                        lca_data = lca_data.sum_to_b4()
+                        lca_data = lca_data + self.calc_lca_data_no_repl()
+
+                    else:
+                        lca_data = (n_be_repl + 1) * self._calc_lca_data_no_repl()
+                        lca_data = lca_data + (n_be_repl + 1) * self._calc_lca_data_layer_repl(self.service_life)
+                        lca_data = lca_data + self._calc_lca_data_layer_repl(remaining_period)
+                else:
+                    if use_b4:
+                        lca_data = self._calc_lca_data_layer_repl(period_lca_scenario)
+                        lca_data = lca_data.sum_to_b4()
+                        lca_data = lca_data + self._calc_lca_data_no_repl()
+                    else:
+                        lca_data = self._calc_lca_data_no_repl()
+                        lca_data = lca_data + self._calc_lca_data_layer_repl(period_lca_scenario)
+
+                self.lca_data = lca_data"""
+
+        result = lca_data * amount * n_repl
+        return result
+
+        lca_data_elec.load_lca_data_template("c869c47e-ce43-45b4-b640-b0cd1746e450", prj.data)
+
+        if lca_data.ref_flow_unit != "MJ":
+            try:
+                lca_data = lca_data.convert_ref_unit("MJ")
+            except:
+                print("Unit of the reference flow has to be MJ!")
+
+        lca_data = lca_data * self._estimate_elec_demand
 
     @property
     def lca_data(self):

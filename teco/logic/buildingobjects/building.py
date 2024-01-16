@@ -99,7 +99,7 @@ class Building(Building):
             except:
                 use_b4 = False
         
-        if period_lca_scenario == None:
+        if period_lca_scenario is None:
             try:
                 period_lca_scenario = self.parent.parent.parent.period_lca_scenario
             except:
@@ -117,8 +117,11 @@ class Building(Building):
             if self.additional_lca_data.ref_flow_unit == "pcs":
                 scalar = self.additional_lca_data.ref_flow_value
                 lca_data = lca_data + self.additional_lca_data * scalar
-            
-        self.lca_data = lca_data
+
+        if self.lca_data is not None:
+            self.lca_data = self.lca_data + lca_data
+        else:
+            self.lca_data = lca_data
         
     def est_elec_demand(self):
         """roughly estimates the electricity demand of the building due to it´s
@@ -167,6 +170,8 @@ class Building(Building):
             self.lca_data = self.lca_data + lca_data
         else:
             self.lca_data = lca_data
+
+        print(self.lca_data)
     
     def calc_simulated_annual_heat_energy(self):
         """calculates the annual heating energy from the simulated heatload
@@ -219,25 +224,18 @@ class Building(Building):
 
         lca_data = En15804LcaData()
 
-        if use_b4 is None:
-            try:
-                use_b4 = self.parent.parent.parent.use_b4
-            except:
-                use_b4 = False
-
-        if period_lca_scenario == None:
-            try:
-                period_lca_scenario = self.parent.parent.parent.period_lca_scenario
-            except:
-                print("Please enter a period for the LCA-scenario!")
-
         try:
             self._heat_supply_system.calc_lca_data(use_b4, period_lca_scenario)
-            lca_data = lca_data + self._heat_supply_system.lca_data
+            lca_data += self._heat_supply_system.lca_data
         except:
             print("Error while adding lca-data from heat supply system")
 
-        self.lca_data = lca_data
+        if self.lca_data is not None:
+            self.lca_data = self.lca_data + lca_data
+        else:
+            self.lca_data = lca_data
+
+        print(self.lca_data)
         
     def add_lca_data_template(self, lca_data_id, amount):
         """This function loads environmental indicators from the JSON,
