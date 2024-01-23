@@ -200,7 +200,8 @@ if __name__ == '__main__':
         year_of_construction=2015,
         number_of_floors=2,
         height_of_floors=2.5,
-        net_leased_area=167)
+        net_leased_area=167.0,
+        type_heat_supply_system=1)
 
     prj.used_library_calc = "AixLib"
     
@@ -242,7 +243,7 @@ if __name__ == '__main__':
         
         building.add_lca_data_elec(lca_data_elec)
         
-        building.add_lca_data_heat_supply_system(lca_data_elec)
+        building.add_lca_data_heat_supply_system(False, 50)
 
         print(building.lca_data.gwp.b6)
         

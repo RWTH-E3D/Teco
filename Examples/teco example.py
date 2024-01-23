@@ -52,6 +52,7 @@ if __name__ == '__main__':
     lca_data_elec.load_lca_data_template("c869c47e-ce43-45b4-b640-b0cd1746e450", prj.data)
     
     prj.buildings[0].calc_lca_data(False, 50)
+    prj.buildings[0].add_lca_data_heat_supply_system(False, 50)
 
     prj.buildings[0].add_lca_data_elec(lca_data_elec) #environmental indicators for electricity consumption
     #prj.heatsupplysystem.add_lca_data_heat_supply_system(False, 50) #environemntal indicators for heatload (calculated from the simulation)

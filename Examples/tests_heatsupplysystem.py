@@ -8,6 +8,7 @@ import teco.data.input.lca_data_input as lca_data_input
 from teaser.teaser.logic.buildingobjects.thermalzone import ThermalZone
 import simulate as sim
 
+
 if __name__ == '__main__':
     prj = Project(load_data=True)
     prj.name = "testArchetype"
@@ -16,23 +17,15 @@ if __name__ == '__main__':
 
     prj.add_residential(
         method='tabula_de',
-        usage='multi_family_house',
+        usage='single_family_house',
         name="Typ I",
         year_of_construction=1925,
         number_of_floors=2,
         height_of_floors=2.5,
-        net_leased_area=300,
-        type_heat_supply_system=3)
+        net_leased_area=150,
+        type_heat_supply_system=1)
 
-    lca_data = En15804LcaData()
-    if lca_data.ref_flow_unit != "MJ":
-        try:
-            lca_data = lca_data.convert_ref_unit("MJ")
-        except:
-            print("Unit of the reference flow has to be MJ!")
-    lca_data.load_lca_data_template("c869c47e-ce43-45b4-b640-b0cd1746e450", prj.data)
-    lca_data = lca_data * 500
-    print(lca_data)
+
 
     # prj.retrofit_all_buildings(year_of_retrofit=2020, type_heat_supply_system=1)
     """sfh = SingleFamilyHouse(parent = prj, name="SingleFamilyHouse", year_of_construction=1997, number_of_floors=2,
