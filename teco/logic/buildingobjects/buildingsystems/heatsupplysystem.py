@@ -7,7 +7,6 @@ import math
 
 from teaser.teaser.logic.buildingobjects.buildingsystems.heatsupplysystem import HeatSupplySystem
 from teco.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
-import teco.data.input.lca_data_input as lca_data_input
 from teaser.teaser.logic.buildingobjects.buildingsystems.fedemandwater import FEDemandWater
 from teaser.teaser.logic.buildingobjects.buildingsystems.fedemandheating import FEDemandHeating
 
@@ -131,14 +130,38 @@ class HeatSupplySystem(HeatSupplySystem):
         length_pipes_20 = length_horizontal_heating
         area_insulation_20 = (0.02 * 1.5) ** 2 * math.pi - 0.02 ** 2 * math.pi
 
-        data_class_steel_pipes = length_pipes_26 * 1.63 + length_pipes_20 * 1.26
-        data_class_pipe_insulation = length_pipes_26 * area_insulation_26 + length_pipes_20 * area_insulation_20
+        amount_steel_pipes = length_pipes_26 * 1.63 + length_pipes_20 * 1.26
+        amount_pipe_insulation = length_pipes_26 * area_insulation_26 + length_pipes_20 * area_insulation_20
 
-        if data_class_steel_pipes:
-            self._get_lca_data("8622539c-592c-45b0-9a4b-e5f8b4fea367", "kg", data_class_steel_pipes, 25)
+        if amount_steel_pipes:
+            self._get_lca_data("8622539c-592c-45b0-9a4b-e5f8b4fea367", "kg", amount_steel_pipes, 25)
 
-        if data_class_pipe_insulation:
-            self._get_lca_data("75ce5bab-4506-4f7e-8c20-a638a98b7537", "m^3", data_class_pipe_insulation, 25)
+        print("pipes:")
+        print("A1_A3: {} {}".format(self._lca_data.gwp.a1_a3, self._lca_data.gwp.unit))
+        print("A4: {} {}".format(self._lca_data.gwp.a4, self._lca_data.gwp.unit))
+        print("A5: {} {}".format(self._lca_data.gwp.a5, self._lca_data.gwp.unit))
+        print("B1: {} {}".format(self._lca_data.gwp.b1, self._lca_data.gwp.unit))
+        print("B6: {} {}".format(self._lca_data.gwp.b6, self._lca_data.gwp.unit))
+        print("C1: {} {}".format(self._lca_data.gwp.c1, self._lca_data.gwp.unit))
+        print("C2: {} {}".format(self._lca_data.gwp.c2, self._lca_data.gwp.unit))
+        print("C3: {} {}".format(self._lca_data.gwp.c3, self._lca_data.gwp.unit))
+        print("C4: {} {}".format(self._lca_data.gwp.c4, self._lca_data.gwp.unit))
+        print("D: {} {}".format(self._lca_data.gwp.d, self._lca_data.gwp.unit))
+
+        if amount_pipe_insulation:
+            self._get_lca_data("75ce5bab-4506-4f7e-8c20-a638a98b7537", "m^3", amount_pipe_insulation, 25)
+
+        print("pipes_insulation:")
+        print("A1_A3: {} {}".format(self._lca_data.gwp.a1_a3, self._lca_data.gwp.unit))
+        print("A4: {} {}".format(self._lca_data.gwp.a4, self._lca_data.gwp.unit))
+        print("A5: {} {}".format(self._lca_data.gwp.a5, self._lca_data.gwp.unit))
+        print("B1: {} {}".format(self._lca_data.gwp.b1, self._lca_data.gwp.unit))
+        print("B6: {} {}".format(self._lca_data.gwp.b6, self._lca_data.gwp.unit))
+        print("C1: {} {}".format(self._lca_data.gwp.c1, self._lca_data.gwp.unit))
+        print("C2: {} {}".format(self._lca_data.gwp.c2, self._lca_data.gwp.unit))
+        print("C3: {} {}".format(self._lca_data.gwp.c3, self._lca_data.gwp.unit))
+        print("C4: {} {}".format(self._lca_data.gwp.c4, self._lca_data.gwp.unit))
+        print("D: {} {}".format(self._lca_data.gwp.d, self._lca_data.gwp.unit))
 
         # water
         if self._pipe_routing_water == "centralised with circulation":
@@ -169,38 +192,60 @@ class HeatSupplySystem(HeatSupplySystem):
             weight = 0.115
             area_insulation = (0.02 * 1.5) ** 2 * math.pi - 0.02 ** 2 * math.pi
 
-        data_class_pb_pipes = length_pipes_water * weight
-        data_class_pb_pipes_insulation = length_pipes_water * area_insulation
+        amount_pb_pipes = length_pipes_water * weight
+        amount_pb_pipes_insulation = length_pipes_water * area_insulation
 
-        if data_class_pb_pipes:
-            self._get_lca_data("83a21998-b507-429e-bbe3-b5629e601138", "kg", data_class_pb_pipes, 25)
+        if amount_pb_pipes:
+            self._get_lca_data("83a21998-b507-429e-bbe3-b5629e601138", "kg", amount_pb_pipes, 25)
 
-        if data_class_pb_pipes_insulation:
-            self._get_lca_data("75ce5bab-4506-4f7e-8c20-a638a98b7537", "m^3", data_class_pb_pipes_insulation, 25)
+        print("pb_pipes:")
+        print("A1_A3: {} {}".format(self._lca_data.gwp.a1_a3, self._lca_data.gwp.unit))
+        print("A4: {} {}".format(self._lca_data.gwp.a4, self._lca_data.gwp.unit))
+        print("A5: {} {}".format(self._lca_data.gwp.a5, self._lca_data.gwp.unit))
+        print("B1: {} {}".format(self._lca_data.gwp.b1, self._lca_data.gwp.unit))
+        print("B6: {} {}".format(self._lca_data.gwp.b6, self._lca_data.gwp.unit))
+        print("C1: {} {}".format(self._lca_data.gwp.c1, self._lca_data.gwp.unit))
+        print("C2: {} {}".format(self._lca_data.gwp.c2, self._lca_data.gwp.unit))
+        print("C3: {} {}".format(self._lca_data.gwp.c3, self._lca_data.gwp.unit))
+        print("C4: {} {}".format(self._lca_data.gwp.c4, self._lca_data.gwp.unit))
+        print("D: {} {}".format(self._lca_data.gwp.d, self._lca_data.gwp.unit))
+
+        if amount_pb_pipes_insulation:
+            self._get_lca_data("75ce5bab-4506-4f7e-8c20-a638a98b7537", "m^3", amount_pb_pipes_insulation, 25)
+
+        print("pb_pipes_insulation:")
+        print("A1_A3: {} {}".format(self._lca_data.gwp.a1_a3, self._lca_data.gwp.unit))
+        print("A4: {} {}".format(self._lca_data.gwp.a4, self._lca_data.gwp.unit))
+        print("A5: {} {}".format(self._lca_data.gwp.a5, self._lca_data.gwp.unit))
+        print("B1: {} {}".format(self._lca_data.gwp.b1, self._lca_data.gwp.unit))
+        print("B6: {} {}".format(self._lca_data.gwp.b6, self._lca_data.gwp.unit))
+        print("C1: {} {}".format(self._lca_data.gwp.c1, self._lca_data.gwp.unit))
+        print("C2: {} {}".format(self._lca_data.gwp.c2, self._lca_data.gwp.unit))
+        print("C3: {} {}".format(self._lca_data.gwp.c3, self._lca_data.gwp.unit))
+        print("C4: {} {}".format(self._lca_data.gwp.c4, self._lca_data.gwp.unit))
+        print("D: {} {}".format(self._lca_data.gwp.d, self._lca_data.gwp.unit))
 
     def _lca_data_heat_generator(self):
 
         if self.heat_system == "gas":
             if self._heat_generation == "circulating water heater":
 
-                data_class_heat_generator = math.ceil(self._heat_load / 1000 / 20)  # 20 kW / pcs
+                amount_heat_generator = math.ceil(self._heat_load / 1000 / 20)  # 20 kW / pcs
 
-                if data_class_heat_generator:
-                    self._get_lca_data("8acef115-85c0-45f8-9999-9d3b87692fa7", "pcs", data_class_heat_generator, 18)
+                if amount_heat_generator:
+                    self._get_lca_data("8acef115-85c0-45f8-9999-9d3b87692fa7", "pcs", amount_heat_generator, 18)
 
             elif self._heat_generation == "low temperature":
-                # todo auf diese Weise ändern!
 
                 n_400 = 0
                 n_120 = 0
                 n_20 = 0
 
-                performance_needed = self._heat_load / 1000
                 sizes = [400, 120, 20]
                 count = {}
 
                 for size in sizes:
-                    devices_count = performance_needed // size
+                    devices_count = self._heat_load // size
                     if devices_count > 0:
                         if size == 20:
                             n_20 += int(devices_count)
@@ -211,7 +256,7 @@ class HeatSupplySystem(HeatSupplySystem):
                     n_400 = count.get(400, 0)
                     n_120 = count.get(120, 0)
 
-                if performance_needed < 20 or not count:
+                if self._heat_load < 20 or not count:
                     n_20 = 1
 
                 print("n_400:", n_400)
@@ -228,23 +273,40 @@ class HeatSupplySystem(HeatSupplySystem):
                     self._get_lca_data("e1ccc83d-01d7-407a-ab59-8c3e1265e8cf", "pcs", n_20, 20)
 
             else:
+                n_400 = 0
+                n_120 = 0
+                n_20 = 0
+
                 sizes = [400, 120, 20]
                 count = {}
-                volume = self._heat_load / 1000
-                for size in sorted(sizes, reverse=True):
-                    count = volume // size
-                    if count > 0:
-                        count[size] = count
-                        volume %= size
 
-                if count[400]:
-                    self._get_lca_data("36d1bbf3-1e67-4a93-92f5-0321cc30018a", "pcs", count[400], 20)
+                for size in sizes:
+                    devices_count = self._heat_load // size
+                    if devices_count > 0:
+                        if size == 20:
+                            n_20 += int(devices_count)
+                        else:
+                            count[size] = int(devices_count)
 
-                if count[120]:
-                    self._get_lca_data("0fa37281-b976-458b-880e-46268ca7a294", "pcs", count[120], 20)
+                if count:
+                    n_400 = count.get(400, 0)
+                    n_120 = count.get(120, 0)
 
-                if count[20]:
-                    self._get_lca_data("12bd4f95-1ff1-4b63-8654-e2dca3fd38fe", "pcs", count[20], 20)
+                if self._heat_load < 20 or not count:
+                    n_20 = 1
+
+                print("n_400:", n_400)
+                print("n_120:", n_120)
+                print("n_20:", n_20)
+
+                if n_400:
+                    self._get_lca_data("36d1bbf3-1e67-4a93-92f5-0321cc30018a", "pcs", n_400, 20)
+
+                if n_120:
+                    self._get_lca_data("0fa37281-b976-458b-880e-46268ca7a294", "pcs", n_120, 20)
+
+                if n_20:
+                    self._get_lca_data("12bd4f95-1ff1-4b63-8654-e2dca3fd38fe", "pcs", n_20, 20)
 
             if self.parent.net_leased_area <= 180:
                 if self.parent.year_of_construction >= 2016 or self._year_of_retrofit >= 2016:
@@ -263,111 +325,194 @@ class HeatSupplySystem(HeatSupplySystem):
 
         elif self._heat_system == "oil":
             if self._heat_generation == "condensing":
+                n_400 = 0
+                n_120 = 0
+                n_20 = 0
+
                 sizes = [400, 120, 20]
                 count = {}
-                volume = self._heat_load / 1000
-                for size in sorted(sizes, reverse=True):
-                    count = volume // size
-                    if count > 0:
-                        count[size] = count
-                        volume %= size
 
-                if count[400]:
-                    self._get_lca_data("e88588a0-0974-4214-86bd-dcbf5caf656a", "pcs", count[400], 20)
+                for size in sizes:
+                    devices_count = self._heat_load // size
+                    if devices_count > 0:
+                        if size == 20:
+                            n_20 += int(devices_count)
+                        else:
+                            count[size] = int(devices_count)
 
-                if count[120]:
-                    self._get_lca_data("ca68d35e-ebe2-402f-8efe-d29c26dada04", "pcs", count[120], 20)
+                if count:
+                    n_400 = count.get(400, 0)
+                    n_120 = count.get(120, 0)
 
-                if count[20]:
-                    self._get_lca_data("0c44c3ec-2984-4985-995c-90a4881505a0", "pcs", count[20], 20)
+                if self._heat_load < 20 or not count:
+                    n_20 = 1
+
+                print("n_400:", n_400)
+                print("n_120:", n_120)
+                print("n_20:", n_20)
+
+                if n_400:
+                    self._get_lca_data("e88588a0-0974-4214-86bd-dcbf5caf656a", "pcs", n_400, 20)
+
+                if n_120:
+                    self._get_lca_data("ca68d35e-ebe2-402f-8efe-d29c26dada04", "pcs", n_120, 20)
+
+                if n_20:
+                    self._get_lca_data("0c44c3ec-2984-4985-995c-90a4881505a0", "pcs", n_20, 20)
             else:
+                n_400 = 0
+                n_120 = 0
+                n_20 = 0
+
                 sizes = [400, 120, 20]
                 count = {}
-                volume = self._heat_load / 1000
-                for size in sorted(sizes, reverse=True):
-                    count = volume // size
-                    if count > 0:
-                        count[size] = count
-                        volume %= size
 
-                if count[400]:
-                    self._get_lca_data("4e5198e4-4eea-4550-8853-b76a6d6f9f05", "pcs", count[400], 20)
+                for size in sizes:
+                    devices_count = self._heat_load // size
+                    if devices_count > 0:
+                        if size == 20:
+                            n_20 += int(devices_count)
+                        else:
+                            count[size] = int(devices_count)
 
-                if count[120]:
-                    self._get_lca_data("e69bcb28-f58b-443b-b62f-810bbdf6cedb", "pcs", count[120], 20)
+                if count:
+                    n_400 = count.get(400, 0)
+                    n_120 = count.get(120, 0)
 
-                if count[20]:
-                    self._get_lca_data("2aa9cc62-46ee-447f-85e8-50d03e0574f4", "pcs", count[20], 20)
+                if self._heat_load < 20 or not count:
+                    n_20 = 1
+
+                print("n_400:", n_400)
+                print("n_120:", n_120)
+                print("n_20:", n_20)
+
+                if n_400:
+                    self._get_lca_data("4e5198e4-4eea-4550-8853-b76a6d6f9f05", "pcs", n_400, 20)
+
+                if n_120:
+                    self._get_lca_data("e69bcb28-f58b-443b-b62f-810bbdf6cedb", "pcs", n_120, 20)
+
+                if n_20:
+                    self._get_lca_data("2aa9cc62-46ee-447f-85e8-50d03e0574f4", "pcs", n_20, 20)
 
             if self.parent.year_of_construction >= 2016 or self._year_of_retrofit >= 2016:
-                lca_data_tank_1500 = math.ceil(self.parent.net_leased_area / 100)
+                amount_tank_1500 = math.ceil(self.parent.net_leased_area / 100)
 
             else:
-                lca_data_tank_1500 = math.ceil(self.parent.net_leased_area / 100) * 2
+                amount_tank_1500 = math.ceil(self.parent.net_leased_area / 100) * 2
 
-            self._get_lca_data("45d181ba-c3c0-4ecb-bd94-7ad3aa7cef83", "pcs", lca_data_tank_1500, 30)
+            self._get_lca_data("45d181ba-c3c0-4ecb-bd94-7ad3aa7cef83", "pcs", amount_tank_1500, 30)
 
         elif self._heat_system == "electricity":
 
             if self._heat_generation == "night storage":
-                lca_data_night_storage = math.ceil(self._heat_load / 1000 / 21)
-                self._get_lca_data("4ce46be9-2f9c-4686-aa21-7ebf34783674", "pcs", lca_data_night_storage, 15)
+                amount_night_storage = math.ceil(self._heat_load / 1000 / 21)
+                self._get_lca_data("4ce46be9-2f9c-4686-aa21-7ebf34783674", "pcs", amount_night_storage, 15)
 
             elif self._heat_generation == "heatpump air":
+                n_14 = 0
+                n_10 = 0
+                n_7 = 0
+
                 sizes = [14, 10, 7]
                 count = {}
-                volume = self._heat_load / 1000
-                for size in sorted(sizes, reverse=True):
-                    count = volume // size
-                    if count > 0:
-                        count[size] = count
-                        volume %= size
-                if count[14]:
-                    self._get_lca_data("4a08f220-1c52-453c-bf8f-f209586e96c8", "pcs", count[14], 20)
 
-                if count[10]:
-                    self._get_lca_data("7c0455a7-fc89-4c3c-8225-d528e4375662", "pcs", count[10], 20)
+                for size in sizes:
+                    devices_count = self._heat_load // size
+                    if devices_count > 0:
+                        if size == 7:
+                            n_7 += int(devices_count)
+                        else:
+                            count[size] = int(devices_count)
 
-                if count[7]:
-                    self._get_lca_data("efa279e8-0ac1-4883-b87c-0cb11e17d265", "pcs", count[7], 20)
+                if count:
+                    n_14 = count.get(14, 0)
+                    n_10 = count.get(10, 0)
+
+                if self._heat_load < 7 or not count:
+                    n_7 = 1
+
+                print("n_14:", n_14)
+                print("n_10:", n_10)
+                print("n_7:", n_7)
+
+                if n_14:
+                    self._get_lca_data("4a08f220-1c52-453c-bf8f-f209586e96c8", "pcs", n_14, 20)
+
+                if n_10:
+                    self._get_lca_data("7c0455a7-fc89-4c3c-8225-d528e4375662", "pcs", n_10, 20)
+
+                if n_7:
+                    self._get_lca_data("efa279e8-0ac1-4883-b87c-0cb11e17d265", "pcs", n_7, 20)
 
             else:
+                n_70 = 0
+                n_20 = 0
+                n_10 = 0
+
                 sizes = [70, 20, 10]
                 count = {}
-                volume = self._heat_load / 1000
-                for size in sorted(sizes, reverse=True):
-                    count = volume // size
-                    if count > 0:
-                        count[size] = count
-                        volume %= size
 
-                if count[70]:
-                    self._get_lca_data("062fc223-898a-42bd-a133-8e0fe95cb7a5", "pcs", count[70], 20)
-                    self._get_lca_data("b12f748d-5aa2-4cf6-a0b7-46ce0465ee02", "pcs", count[70], 20)
+                for size in sizes:
+                    devices_count = self._heat_load // size
+                    if devices_count > 0:
+                        if size == 10:
+                            n_10 += int(devices_count)
+                        else:
+                            count[size] = int(devices_count)
 
-                if count[20]:
-                    self._get_lca_data("063cabc8-b90e-4629-b514-a39dc10f0552", "pcs", count[20], 20)
-                    self._get_lca_data("3d3873a9-16dd-4771-82be-f7b79bbd3f53", "pcs", count[20], 20)
+                if count:
+                    n_70 = count.get(70, 0)
+                    n_20 = count.get(20, 0)
 
-                if count[10]:
-                    self._get_lca_data("3bf7183e-741e-4fb7-a32e-574e76e3e747", "pcs", count[10], 20)
-                    self._get_lca_data("1a27c109-1e99-45e7-b198-7c79f926b996", "pcs", count[10], 20)
+                if self._heat_load < 10 or not count:
+                    n_10 = 1
+
+                print("n_70:", n_70)
+                print("n_20:", n_20)
+                print("n_10:", n_10)
+
+                if n_70:
+                    self._get_lca_data("062fc223-898a-42bd-a133-8e0fe95cb7a5", "pcs", n_70, 20)
+                    self._get_lca_data("b12f748d-5aa2-4cf6-a0b7-46ce0465ee02", "pcs", n_70, 20)
+
+                if n_20:
+                    self._get_lca_data("063cabc8-b90e-4629-b514-a39dc10f0552", "pcs", n_20, 20)
+                    self._get_lca_data("3d3873a9-16dd-4771-82be-f7b79bbd3f53", "pcs", n_20, 20)
+
+                if n_10:
+                    self._get_lca_data("3bf7183e-741e-4fb7-a32e-574e76e3e747", "pcs", n_10, 20)
+                    self._get_lca_data("1a27c109-1e99-45e7-b198-7c79f926b996", "pcs", n_10, 20)
 
         elif self._heat_system == "biomass":
+            n_120 = 0
+            n_20 = 0
+
             sizes = [120, 20]
             count = {}
-            volume = self._heat_load / 1000
-            for size in sorted(sizes, reverse=True):
-                count = volume // size
-                if count > 0:
-                    count[size] = count
-                    volume %= size
 
-            if count[120]:
-                self._get_lca_data("49660117-13cd-4475-a66b-a13801723a37", "pcs", count[120], 20)
+            for size in sizes:
+                devices_count = self._heat_load // size
+                if devices_count > 0:
+                    if size == 20:
+                        n_20 += int(devices_count)
+                    else:
+                        count[size] = int(devices_count)
 
-            if count[20]:
-                self._get_lca_data("0e03a1c1-0aa9-4e94-bbc5-653d967b0d8d", "pcs", count[20], 20)
+            if count:
+                n_120 = count.get(120, 0)
+
+            if self._heat_load < 20 or not count:
+                n_20 = 1
+
+            print("n_120:", n_120)
+            print("n_20:", n_20)
+
+            if n_120:
+                self._get_lca_data("49660117-13cd-4475-a66b-a13801723a37", "pcs", n_120, 20)
+
+            if n_20:
+                self._get_lca_data("0e03a1c1-0aa9-4e94-bbc5-653d967b0d8d", "pcs", n_20, 20)
 
         else:
             self._get_lca_data("dcd5e23a-9bec-40b6-b07c-1642fe696a2e", "pcs", 1, 30)
@@ -381,7 +526,7 @@ class HeatSupplySystem(HeatSupplySystem):
 
     def _lca_data_pump(self):
 
-        if self._pipe_routing_heating == "centralised":
+        if "centralised" in self._pipe_routing_heating:
 
             if self._design_temp_flow == 70:
                 temp_diff = 15
@@ -405,25 +550,25 @@ class HeatSupplySystem(HeatSupplySystem):
     def _lca_data_solar(self):
 
         if self._storage == "solar":
-            lca_data_solar_collector = self.parent.net_leased_area / 100 * 3.05
-            self._get_lca_data("60e0575b-6cb4-4ba4-a9f0-78d8fb65c9a9", "m^2", lca_data_solar_collector, 20)
+            amount_solar_collector = self.parent.net_leased_area / 100 * 3.05
+            self._get_lca_data("60e0575b-6cb4-4ba4-a9f0-78d8fb65c9a9", "m^2", amount_solar_collector, 20)
         else:
             pass
 
     def _lca_data_heat_transfer(self):
 
         if "heatpump" in self._heat_generation:
-            lca_data_heat_transfer = self.parent.net_leased_area
-            self._get_lca_data("ed997c1e-274c-4d38-a5bf-2016693c91a3", "m^2", lca_data_heat_transfer, 30)
+            amount_heat_transfer = self.parent.net_leased_area
+            self._get_lca_data("ed997c1e-274c-4d38-a5bf-2016693c91a3", "m^2", amount_heat_transfer, 30)
         else:
 
             # radiator Type 22 0,5 m * 1 m [kg]
             if self._design_temp_flow == 55:
-                lca_data_heat_transfer = self._heat_load / 735 * 31.3
+                amount_heat_transfer = self._heat_load / 735 * 31.3
             else:
-                lca_data_heat_transfer = self._heat_load / 1169 * 31.3
+                amount_heat_transfer = self._heat_load / 1169 * 31.3
             # 35 °C only for heatpump
-            self._get_lca_data("c6de5beb-ffe9-4b5f-aba8-c0c2d3528c58", "kg", lca_data_heat_transfer, 30)
+            self._get_lca_data("c6de5beb-ffe9-4b5f-aba8-c0c2d3528c58", "kg", amount_heat_transfer, 30)
 
     def _lca_data_fe(self):
         """Calculates the total annual energy demand of the heat_supply_system
@@ -455,24 +600,39 @@ class HeatSupplySystem(HeatSupplySystem):
 
         elif "heatpump air" in self._heat_generation:
 
+            n_14 = 0
+            n_10 = 0
+            n_7 = 0
+
             sizes = [14, 10, 7]
             count = {}
-            volume = self._heat_load / 1000
-            for size in sorted(sizes, reverse=True):
-                count = volume // size
-                if count > 0:
-                    count[size] = count
-                    volume %= size
 
-            value = max(count[14], count[10], count[7])
+            for size in sizes:
+                devices_count = self._heat_load // size
+                if devices_count > 0:
+                    if size == 7:
+                        n_7 += int(devices_count)
+                    else:
+                        count[size] = int(devices_count)
 
-            if value == count[14]:
+            if count:
+                n_14 = count.get(14, 0)
+                n_10 = count.get(10, 0)
+
+            if self._heat_load < 7 or not count:
+                n_7 = 1
+
+            print("n_14:", n_14)
+            print("n_10:", n_10)
+            print("n_7:", n_7)
+
+            if n_14:
                 self._get_lca_data("5b00afcd-8b26-4945-857f-e280946e823f", "MJ", fe_demand)
 
-            if value == count[10]:
+            if n_10:
                 self._get_lca_data("05a620f5-e5ba-4593-a55c-690e2a47c8db", "MJ", fe_demand)
 
-            if value == count[7]:
+            if n_7:
                 self._get_lca_data("4607b899-9c83-4764-a621-8e79c94887ec", "MJ", fe_demand)
 
         elif "heatpump ground" in self._heat_generation:
