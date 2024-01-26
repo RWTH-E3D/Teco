@@ -10,20 +10,26 @@ from teco.logic.buildingobjects.buildingphysics.en15804lcadata import En15804Lca
 from teaser.teaser.logic.buildingobjects.buildingsystems.fedemandwater import FEDemandWater
 from teaser.teaser.logic.buildingobjects.buildingsystems.fedemandheating import FEDemandHeating
 
-# todo in der Klammer hinter den LCA-IDs steht nicht die Nutzungsdauer sondern jeweils in der ÖKOBAUDAT-Einheit wie viel hiervon genutzt wird
 class HeatSupplySystem(HeatSupplySystem):
 
+    """HeatSupplySystem class
+
+    This class holds information for the Heat Supply System of a Building.
+    The characteristics are being set in TEASER part. This class calculates
+    the LCA values for the heat supply system.
+
+    Attributes
+    ----------
+    lca_data : En15804LcaData
+        Enviromental indicators of the building. The data referencing to
+        one heat supply system of one building.
+    use_b4 : bool
+        If true, environmental indicators of replaced heat supply elements are
+        added to stage B4. Otherwise they are added seperatly to the other stages
+    period_lca_scenario : int
+        Period of use taken into account for LCA. Default is the project
+        period (period_lca_scenario in project class).
     """
-
-        Parameters
-            ----------
-
-            parent: Building()
-
-            Attributes
-            ----------
-
-        """
 
     def __init__(self, parent=None):
         """Constructor for HeatSupplySystem
@@ -38,17 +44,17 @@ class HeatSupplySystem(HeatSupplySystem):
         self._use_b4 = None
 
     def calc_lca_data(self, use_b4=None, period_lca_scenario=None):
-        """calculates the LCA-data of the buildingelement and set it to the
+        """Calculates the LCA-data of the heat supply system and sets it to the
             attribute lca_data
-
 
         Parameters
         ----------
-        use_b4 : bool, optional
-            if true all replaced materials and building elements are added to
-            stage B4. The default is None.
-        period_lca_scenario : int [a], optional
-            period of use taken into account for LCA.
+        use_b4 : bool (optional)
+            If true, environmental indicators of replaced heat supply elements are
+            added to stage B4. Otherwise they are added seperatly to the other stages
+        period_lca_scenario : int [a] (optional)
+            Period of use taken into account for LCA. Default is the project
+            period (period_lca_scenario in project class).
 
         """
 
@@ -88,15 +94,8 @@ class HeatSupplySystem(HeatSupplySystem):
         print("D: {} {}".format(self._lca_data.gwp.d, self._lca_data.gwp.unit))
 
     def _lca_data_pipes(self):
-        """Helper function for matrix calculation.
-
-        Gathers all material properties of the building element and returns
-        them as a np.array. Needed for the calculation of the matrix in
-        equivalent_res(t_bt) especially for walls.
-
-        Returns
-        ----------
-
+        """Helper function for calculation of the LCA data for pipes and
+        insulation.
         """
 
         length_horizontal_heating = 0
@@ -226,6 +225,9 @@ class HeatSupplySystem(HeatSupplySystem):
         print("D: {} {}".format(self._lca_data.gwp.d, self._lca_data.gwp.unit))
 
     def _lca_data_heat_generator(self):
+        """Helper function for calculation of the LCA data for heat generator
+        (and oil/gas tanks).
+        """
 
         if self.heat_system == "gas":
             if self._heat_generation == "circulating water heater":
@@ -518,6 +520,8 @@ class HeatSupplySystem(HeatSupplySystem):
             self._get_lca_data("dcd5e23a-9bec-40b6-b07c-1642fe696a2e", "pcs", 1, 30)
 
     def _lca_data_storage(self):
+        """Helper function for calculation of the LCA data for storage.
+        """
 
         if self._storage:
             self._get_lca_data("d3f58b23-9526-43be-8a32-fb583dfebfaa", "pcs", 1, 20)
@@ -525,6 +529,8 @@ class HeatSupplySystem(HeatSupplySystem):
             pass
 
     def _lca_data_pump(self):
+        """Helper function for calculation of the LCA data for pump.
+        """
 
         if "centralised" in self._pipe_routing_heating:
 
@@ -548,6 +554,8 @@ class HeatSupplySystem(HeatSupplySystem):
             pass
 
     def _lca_data_solar(self):
+        """Helper function for calculation of the LCA data for solar panel.
+        """
 
         if self._storage == "solar":
             amount_solar_collector = self.parent.net_leased_area / 100 * 3.05
@@ -556,6 +564,8 @@ class HeatSupplySystem(HeatSupplySystem):
             pass
 
     def _lca_data_heat_transfer(self):
+        """Helper function for calculation of the LCA data for heat transfer.
+        """
 
         if "heatpump" in self._heat_generation:
             amount_heat_transfer = self.parent.net_leased_area
@@ -571,11 +581,9 @@ class HeatSupplySystem(HeatSupplySystem):
             self._get_lca_data("c6de5beb-ffe9-4b5f-aba8-c0c2d3528c58", "kg", amount_heat_transfer, 30)
 
     def _lca_data_fe(self):
-        """Calculates the total annual energy demand of the heat_supply_system
+        """Helper function for calculation of the LCA data for final energy demand.
+        """
 
-                Parameters
-                ----------
-                """
         fedheating = FEDemandHeating(parent=self)
         fedwater = FEDemandWater(parent=self)
 
@@ -656,12 +664,16 @@ class HeatSupplySystem(HeatSupplySystem):
 
         lca_id : str
             LCA-data Identifier
-
+        unit : str
+            Defines the unit of the LCA data set.
+        amount: float [unit]
+            Amount needed in HeatSupplySystem.
+        service_life : int [a]
+            Defined service life in ÖKOBAUDAT.
         data_class : DataClass
             DataClass containing the bindings for LCA-data and LCA-data
             -fallbacks (typically this is the data class stored in prj.data,
             but the user can individually change that.)
-
         """
         lca_data = En15804LcaData()
         lca_data.ref_flow_unit = unit
@@ -745,3 +757,33 @@ class HeatSupplySystem(HeatSupplySystem):
     @lca_data.setter
     def lca_data(self, value):
         self._lca_data = value
+
+    @property
+    def use_b4(self):
+        return self._use_b4
+
+    @use_b4.setter
+    def use_b4(self, value):
+        if isinstance(value, bool):
+            self._use_b4 = value
+        else:
+            try:
+                value = bool(value)
+                self._use_b4 = value
+            except ValueError:
+                print("Can´t convert value to boolean")
+
+    @property
+    def period_lca_scenario(self):
+        return self._period_lca_scenario
+
+    @period_lca_scenario.setter
+    def period_lca_scenario(self, value):
+        if isinstance(value, int):
+            self._period_lca_scenario = value
+        else:
+            try:
+                value = int(value)
+                self._period_lca_scenario = value
+            except ValueError:
+                print("Can´t convert value to integer")
