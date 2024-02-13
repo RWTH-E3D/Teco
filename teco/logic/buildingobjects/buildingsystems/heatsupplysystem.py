@@ -181,10 +181,10 @@ class HeatSupplySystem(HeatSupplySystem):
 
         length_pipes_water = length_horizontal_water + length_strand_water + length_stubs_water
 
-        if math.ceil(self.parent.net_leased_area / 100) <= 1:
+        if self._n_res_units <= 1:
             weight = 0.082
             area_insulation = (0.014 * 1.5) ** 2 * math.pi - 0.014 ** 2 * math.pi
-        elif math.ceil(self.parent.net_leased_area / 100) == 2:
+        elif self._n_res_units == 2:
             weight = 0.089
             area_insulation = (0.016 * 1.5) ** 2 * math.pi - 0.016 ** 2 * math.pi
         else:
@@ -398,10 +398,10 @@ class HeatSupplySystem(HeatSupplySystem):
                     self._get_lca_data("2aa9cc62-46ee-447f-85e8-50d03e0574f4", "pcs", n_20, 20)
 
             if self.parent.year_of_construction >= 2016 or self._year_of_retrofit >= 2016:
-                amount_tank_1500 = math.ceil(self.parent.net_leased_area / 100)
+                amount_tank_1500 = self._n_res_units
 
             else:
-                amount_tank_1500 = math.ceil(self.parent.net_leased_area / 100) * 2
+                amount_tank_1500 = self._n_res_units * 2
 
             self._get_lca_data("45d181ba-c3c0-4ecb-bd94-7ad3aa7cef83", "pcs", amount_tank_1500, 30)
 
@@ -558,7 +558,7 @@ class HeatSupplySystem(HeatSupplySystem):
         """
 
         if self._storage == "solar":
-            amount_solar_collector = self.parent.net_leased_area / 100 * 3.05
+            amount_solar_collector = self._n_res_units * 3.05
             self._get_lca_data("60e0575b-6cb4-4ba4-a9f0-78d8fb65c9a9", "m^2", amount_solar_collector, 20)
         else:
             pass
