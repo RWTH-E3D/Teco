@@ -310,17 +310,17 @@ class HeatSupplySystem(HeatSupplySystem):
                 if n_20:
                     self._get_lca_data("12bd4f95-1ff1-4b63-8654-e2dca3fd38fe", "pcs", n_20, 20)
 
-            if self.parent.net_leased_area <= 180:
+            if self.usable_area <= 180:
                 if self.parent.year_of_construction >= 2016 or self._year_of_retrofit >= 2016:
                     self._get_lca_data("6e520eb3-0b5e-4c7a-b702-244f93faff73", "pcs", 1, 18)
                 else:
-                    if self.parent.net_leased_area <= 130:
+                    if self.usable_area <= 130:
                         self._get_lca_data("6e520eb3-0b5e-4c7a-b702-244f93faff73", "pcs", 1, 18)
                     else:
                         self._get_lca_data("8595cc43-c24f-4002-8d2b-c9386de7fae4", "pcs", 1, 18)
 
             else:
-                if self.parent.net_leased_area >= 210:
+                if self.usable_area >= 210:
                     self._get_lca_data("4411ce80-6a9a-4088-94bb-426805d99bfc", "pcs", 1, 18)
                 else:
                     self._get_lca_data("8595cc43-c24f-4002-8d2b-c9386de7fae4", "pcs", 1, 18)
@@ -568,7 +568,7 @@ class HeatSupplySystem(HeatSupplySystem):
         """
 
         if "heatpump" in self._heat_generation:
-            amount_heat_transfer = self.parent.net_leased_area
+            amount_heat_transfer = self.usable_area
             self._get_lca_data("ed997c1e-274c-4d38-a5bf-2016693c91a3", "m^2", amount_heat_transfer, 30)
         else:
 
