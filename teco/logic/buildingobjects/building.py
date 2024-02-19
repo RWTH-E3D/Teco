@@ -7,6 +7,7 @@
 import uuid
 from teaser.teaser.logic.buildingobjects.building import Building
 from teco.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
+from teco.logic.buildingobjects.buildingsystems.heatsupplysystem import HeatSupplySystem
 
 
 class Building(Building):
@@ -210,7 +211,7 @@ class Building(Building):
             #
             # return result
 
-    def add_lca_data_heat_supply_system(self, use_b4 = None, period_lca_scenario = None):
+    def add_lca_data_heat_supply_system(self, use_b4=None, period_lca_scenario=None):
         """Calculates environmental indicators resulting form the
         heating system (see class HeatSupplySystem)
 
@@ -224,11 +225,10 @@ class Building(Building):
 
         lca_data = En15804LcaData()
 
-        try:
-            self._heat_supply_system.calc_lca_data(use_b4, period_lca_scenario)
-            lca_data += self._heat_supply_system.lca_data
-        except:
-            print("Error while adding lca-data from heat supply system")
+        heat_supply_system = HeatSupplySystem(parent=self)
+
+        heat_supply_system.calc_lca_data(use_b4, period_lca_scenario)
+        lca_data += heat_supply_system.lca_data
 
         if self.lca_data is not None:
             self.lca_data = self.lca_data + lca_data

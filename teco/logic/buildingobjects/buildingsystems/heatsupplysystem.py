@@ -157,7 +157,7 @@ class HeatSupplySystem(HeatSupplySystem):
 
         length_pipes_water = length_horizontal_water + length_strand_water + length_stubs_water
 
-        if self._n_res_units <= 1:
+        if self._n <= 1:
             weight = 0.082
             area_insulation = (0.014 * 1.5) ** 2 * math.pi - 0.014 ** 2 * math.pi
         elif self._n_res_units == 2:

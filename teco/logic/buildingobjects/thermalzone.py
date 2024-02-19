@@ -77,7 +77,7 @@ class ThermalZone(ThermalZone):
             except:
                 use_b4 = False
         
-        if period_lca_scenario == None:
+        if period_lca_scenario is None:
             try:
                 period_lca_scenario = self.parent.parent.parent.period_lca_scenario
             except:
