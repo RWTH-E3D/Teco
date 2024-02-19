@@ -135,32 +135,8 @@ class HeatSupplySystem(HeatSupplySystem):
         if amount_steel_pipes:
             self._get_lca_data("8622539c-592c-45b0-9a4b-e5f8b4fea367", "kg", amount_steel_pipes, 25)
 
-        print("pipes:")
-        print("A1_A3: {} {}".format(self._lca_data.gwp.a1_a3, self._lca_data.gwp.unit))
-        print("A4: {} {}".format(self._lca_data.gwp.a4, self._lca_data.gwp.unit))
-        print("A5: {} {}".format(self._lca_data.gwp.a5, self._lca_data.gwp.unit))
-        print("B1: {} {}".format(self._lca_data.gwp.b1, self._lca_data.gwp.unit))
-        print("B6: {} {}".format(self._lca_data.gwp.b6, self._lca_data.gwp.unit))
-        print("C1: {} {}".format(self._lca_data.gwp.c1, self._lca_data.gwp.unit))
-        print("C2: {} {}".format(self._lca_data.gwp.c2, self._lca_data.gwp.unit))
-        print("C3: {} {}".format(self._lca_data.gwp.c3, self._lca_data.gwp.unit))
-        print("C4: {} {}".format(self._lca_data.gwp.c4, self._lca_data.gwp.unit))
-        print("D: {} {}".format(self._lca_data.gwp.d, self._lca_data.gwp.unit))
-
         if amount_pipe_insulation:
             self._get_lca_data("75ce5bab-4506-4f7e-8c20-a638a98b7537", "m^3", amount_pipe_insulation, 25)
-
-        print("pipes_insulation:")
-        print("A1_A3: {} {}".format(self._lca_data.gwp.a1_a3, self._lca_data.gwp.unit))
-        print("A4: {} {}".format(self._lca_data.gwp.a4, self._lca_data.gwp.unit))
-        print("A5: {} {}".format(self._lca_data.gwp.a5, self._lca_data.gwp.unit))
-        print("B1: {} {}".format(self._lca_data.gwp.b1, self._lca_data.gwp.unit))
-        print("B6: {} {}".format(self._lca_data.gwp.b6, self._lca_data.gwp.unit))
-        print("C1: {} {}".format(self._lca_data.gwp.c1, self._lca_data.gwp.unit))
-        print("C2: {} {}".format(self._lca_data.gwp.c2, self._lca_data.gwp.unit))
-        print("C3: {} {}".format(self._lca_data.gwp.c3, self._lca_data.gwp.unit))
-        print("C4: {} {}".format(self._lca_data.gwp.c4, self._lca_data.gwp.unit))
-        print("D: {} {}".format(self._lca_data.gwp.d, self._lca_data.gwp.unit))
 
         # water
         if self._pipe_routing_water == "centralised with circulation":
@@ -197,32 +173,8 @@ class HeatSupplySystem(HeatSupplySystem):
         if amount_pb_pipes:
             self._get_lca_data("83a21998-b507-429e-bbe3-b5629e601138", "kg", amount_pb_pipes, 25)
 
-        print("pb_pipes:")
-        print("A1_A3: {} {}".format(self._lca_data.gwp.a1_a3, self._lca_data.gwp.unit))
-        print("A4: {} {}".format(self._lca_data.gwp.a4, self._lca_data.gwp.unit))
-        print("A5: {} {}".format(self._lca_data.gwp.a5, self._lca_data.gwp.unit))
-        print("B1: {} {}".format(self._lca_data.gwp.b1, self._lca_data.gwp.unit))
-        print("B6: {} {}".format(self._lca_data.gwp.b6, self._lca_data.gwp.unit))
-        print("C1: {} {}".format(self._lca_data.gwp.c1, self._lca_data.gwp.unit))
-        print("C2: {} {}".format(self._lca_data.gwp.c2, self._lca_data.gwp.unit))
-        print("C3: {} {}".format(self._lca_data.gwp.c3, self._lca_data.gwp.unit))
-        print("C4: {} {}".format(self._lca_data.gwp.c4, self._lca_data.gwp.unit))
-        print("D: {} {}".format(self._lca_data.gwp.d, self._lca_data.gwp.unit))
-
         if amount_pb_pipes_insulation:
             self._get_lca_data("75ce5bab-4506-4f7e-8c20-a638a98b7537", "m^3", amount_pb_pipes_insulation, 25)
-
-        print("pb_pipes_insulation:")
-        print("A1_A3: {} {}".format(self._lca_data.gwp.a1_a3, self._lca_data.gwp.unit))
-        print("A4: {} {}".format(self._lca_data.gwp.a4, self._lca_data.gwp.unit))
-        print("A5: {} {}".format(self._lca_data.gwp.a5, self._lca_data.gwp.unit))
-        print("B1: {} {}".format(self._lca_data.gwp.b1, self._lca_data.gwp.unit))
-        print("B6: {} {}".format(self._lca_data.gwp.b6, self._lca_data.gwp.unit))
-        print("C1: {} {}".format(self._lca_data.gwp.c1, self._lca_data.gwp.unit))
-        print("C2: {} {}".format(self._lca_data.gwp.c2, self._lca_data.gwp.unit))
-        print("C3: {} {}".format(self._lca_data.gwp.c3, self._lca_data.gwp.unit))
-        print("C4: {} {}".format(self._lca_data.gwp.c4, self._lca_data.gwp.unit))
-        print("D: {} {}".format(self._lca_data.gwp.d, self._lca_data.gwp.unit))
 
     def _lca_data_heat_generator(self):
         """Helper function for calculation of the LCA data for heat generator
@@ -261,10 +213,6 @@ class HeatSupplySystem(HeatSupplySystem):
                 if self._heat_load < 20 or not count:
                     n_20 = 1
 
-                print("n_400:", n_400)
-                print("n_120:", n_120)
-                print("n_20:", n_20)
-
                 if n_400:
                     self._get_lca_data("cf9764d1-3aba-4e5e-8795-a8f1ee93d9e5", "pcs", n_400, 20)
 
@@ -296,10 +244,6 @@ class HeatSupplySystem(HeatSupplySystem):
 
                 if self._heat_load < 20 or not count:
                     n_20 = 1
-
-                print("n_400:", n_400)
-                print("n_120:", n_120)
-                print("n_20:", n_20)
 
                 if n_400:
                     self._get_lca_data("36d1bbf3-1e67-4a93-92f5-0321cc30018a", "pcs", n_400, 20)
@@ -349,10 +293,6 @@ class HeatSupplySystem(HeatSupplySystem):
                 if self._heat_load < 20 or not count:
                     n_20 = 1
 
-                print("n_400:", n_400)
-                print("n_120:", n_120)
-                print("n_20:", n_20)
-
                 if n_400:
                     self._get_lca_data("e88588a0-0974-4214-86bd-dcbf5caf656a", "pcs", n_400, 20)
 
@@ -383,10 +323,6 @@ class HeatSupplySystem(HeatSupplySystem):
 
                 if self._heat_load < 20 or not count:
                     n_20 = 1
-
-                print("n_400:", n_400)
-                print("n_120:", n_120)
-                print("n_20:", n_20)
 
                 if n_400:
                     self._get_lca_data("4e5198e4-4eea-4550-8853-b76a6d6f9f05", "pcs", n_400, 20)
@@ -434,10 +370,6 @@ class HeatSupplySystem(HeatSupplySystem):
                 if self._heat_load < 7 or not count:
                     n_7 = 1
 
-                print("n_14:", n_14)
-                print("n_10:", n_10)
-                print("n_7:", n_7)
-
                 if n_14:
                     self._get_lca_data("4a08f220-1c52-453c-bf8f-f209586e96c8", "pcs", n_14, 20)
 
@@ -469,10 +401,6 @@ class HeatSupplySystem(HeatSupplySystem):
 
                 if self._heat_load < 10 or not count:
                     n_10 = 1
-
-                print("n_70:", n_70)
-                print("n_20:", n_20)
-                print("n_10:", n_10)
 
                 if n_70:
                     self._get_lca_data("062fc223-898a-42bd-a133-8e0fe95cb7a5", "pcs", n_70, 20)
@@ -506,9 +434,6 @@ class HeatSupplySystem(HeatSupplySystem):
 
             if self._heat_load < 20 or not count:
                 n_20 = 1
-
-            print("n_120:", n_120)
-            print("n_20:", n_20)
 
             if n_120:
                 self._get_lca_data("49660117-13cd-4475-a66b-a13801723a37", "pcs", n_120, 20)
@@ -588,6 +513,7 @@ class HeatSupplySystem(HeatSupplySystem):
         fedwater = FEDemandWater(parent=self)
 
         fe_demand = fedheating.calc_final_energy_demand_heating() + fedwater.calc_final_energy_demand_water()
+        fe_demand /= 3.6  # kWh/a in MJ
 
         if self._heat_system == "gas":
 
@@ -629,10 +555,6 @@ class HeatSupplySystem(HeatSupplySystem):
 
             if self._heat_load < 7 or not count:
                 n_7 = 1
-
-            print("n_14:", n_14)
-            print("n_10:", n_10)
-            print("n_7:", n_7)
 
             if n_14:
                 self._get_lca_data("5b00afcd-8b26-4945-857f-e280946e823f", "MJ", fe_demand)
