@@ -93,6 +93,23 @@ class HeatSupplySystem(HeatSupplySystem):
         print("C4: {} {}".format(self._lca_data.gwp.c4, self._lca_data.gwp.unit))
         print("D: {} {}".format(self._lca_data.gwp.d, self._lca_data.gwp.unit))
 
+    def _lca_data_heat_transfer(self):
+        """Helper function for calculation of the LCA data for heat transfer.
+        """
+
+        if self._design_temp_flow == 35:
+            amount_heat_transfer = self.parent.net_leased_area
+            self._get_lca_data("ed997c1e-274c-4d38-a5bf-2016693c91a3", "m^2", amount_heat_transfer, 30)
+        else:
+
+            # radiator Type 22 0,5 m * 1 m [kg]
+            if self._design_temp_flow == 55:
+                amount_heat_transfer = self._heat_load / 735 * 31.3
+            else:
+                amount_heat_transfer = self._heat_load / 1169 * 31.3
+            # 35 °C only for heatpump
+            self._get_lca_data("c6de5beb-ffe9-4b5f-aba8-c0c2d3528c58", "kg", amount_heat_transfer, 30)
+
     def _lca_data_pipes(self):
         """Helper function for calculation of the LCA data for pipes and
         insulation.
@@ -124,10 +141,10 @@ class HeatSupplySystem(HeatSupplySystem):
             length_tethers_heating = self._length_char * self.parent.number_of_floors
 
         length_pipes_26 = length_strand_heating + length_tethers_heating
-        area_insulation_26 = (0.026 * 1.5) ** 2 * math.pi - 0.026 ** 2 * math.pi
+        area_insulation_26 = (0.026 * 2) ** 2 * math.pi - 0.026 ** 2 * math.pi
 
         length_pipes_20 = length_horizontal_heating
-        area_insulation_20 = (0.02 * 1.5) ** 2 * math.pi - 0.02 ** 2 * math.pi
+        area_insulation_20 = (0.02 * 2) ** 2 * math.pi - 0.02 ** 2 * math.pi
 
         amount_steel_pipes = length_pipes_26 * 1.63 + length_pipes_20 * 1.26
         amount_pipe_insulation = length_pipes_26 * area_insulation_26 + length_pipes_20 * area_insulation_20
@@ -159,13 +176,13 @@ class HeatSupplySystem(HeatSupplySystem):
 
         if self._n_res_units <= 1:
             weight = 0.082
-            area_insulation = (0.014 * 1.5) ** 2 * math.pi - 0.014 ** 2 * math.pi
+            area_insulation = (0.014 * 2) ** 2 * math.pi - 0.014 ** 2 * math.pi
         elif self._n_res_units == 2:
             weight = 0.089
-            area_insulation = (0.016 * 1.5) ** 2 * math.pi - 0.016 ** 2 * math.pi
+            area_insulation = (0.016 * 2) ** 2 * math.pi - 0.016 ** 2 * math.pi
         else:
             weight = 0.115
-            area_insulation = (0.02 * 1.5) ** 2 * math.pi - 0.02 ** 2 * math.pi
+            area_insulation = (0.02 * 2) ** 2 * math.pi - 0.02 ** 2 * math.pi
 
         amount_pb_pipes = length_pipes_water * weight
         amount_pb_pipes_insulation = length_pipes_water * area_insulation
@@ -176,6 +193,51 @@ class HeatSupplySystem(HeatSupplySystem):
         if amount_pb_pipes_insulation:
             self._get_lca_data("75ce5bab-4506-4f7e-8c20-a638a98b7537", "m^3", amount_pb_pipes_insulation, 25)
 
+    def _lca_data_pump(self):
+        """Helper function for calculation of the LCA data for pump.
+        """
+
+        if "centralised" in self._pipe_routing_heating:
+
+            if self._design_temp_flow == 70:
+                temp_diff = 15
+            elif self._design_temp_flow == 55:
+                temp_diff = 10
+            else:
+                temp_diff = 7
+
+            flow_rate = self._heat_load / (1 * 1.163 * temp_diff)
+
+            if flow_rate > (240 * 0.06):
+                self._get_lca_data("9fe2649f-bd76-41d8-b952-0021143f1ef7", "pcs", 1, 10)
+            elif flow_rate < 2.3:
+                self._get_lca_data("301c6f09-ce88-4818-96c3-e420fe799d62", "pcs", 1, 10)
+            else:
+                self._get_lca_data("b4e4d89b-e4d0-4df3-a233-deacc76b2fee", "pcs", 1, 10)
+
+        else:
+            pass
+
+    def _lca_data_storage(self):
+        """Helper function for calculation of the LCA data for storage tanks.
+        """
+
+        if self._storage:
+            volume = 80 * self.heat_load
+
+            if 200 > volume > 0:
+                amount = 56  # kg
+
+            elif 750 > volume:
+                amount = 140  # kg
+
+            elif 750 < volume:
+                amount = math.ceil(volume / 2000) * 239.5  # kg
+
+            self._get_lca_data("d3f58b23-9526-43be-8a32-fb583dfebfaa", "kg", amount, 20)
+        else:
+            pass
+
     def _lca_data_heat_generator(self):
         """Helper function for calculation of the LCA data for heat generator
         (and oil/gas tanks).
@@ -184,7 +246,7 @@ class HeatSupplySystem(HeatSupplySystem):
         if self.heat_system == "gas":
             if self._heat_generation == "circulating water heater":
 
-                amount_heat_generator = math.ceil(self._heat_load / 1000 / 20)  # 20 kW / pcs
+                amount_heat_generator = math.ceil(self._heat_load / 20)  # 20 kW / pcs
 
                 if amount_heat_generator:
                     self._get_lca_data("8acef115-85c0-45f8-9999-9d3b87692fa7", "pcs", amount_heat_generator, 18)
@@ -222,7 +284,7 @@ class HeatSupplySystem(HeatSupplySystem):
                 if n_20:
                     self._get_lca_data("e1ccc83d-01d7-407a-ab59-8c3e1265e8cf", "pcs", n_20, 20)
 
-            else:
+            else:  # condensing
                 n_400 = 0
                 n_120 = 0
                 n_20 = 0
@@ -254,6 +316,7 @@ class HeatSupplySystem(HeatSupplySystem):
                 if n_20:
                     self._get_lca_data("12bd4f95-1ff1-4b63-8654-e2dca3fd38fe", "pcs", n_20, 20)
 
+            # gas tank
             if self.usable_area <= 180:
                 if self.parent.year_of_construction >= 2016 or self._year_of_retrofit >= 2016:
                     self._get_lca_data("6e520eb3-0b5e-4c7a-b702-244f93faff73", "pcs", 1, 18)
@@ -301,7 +364,7 @@ class HeatSupplySystem(HeatSupplySystem):
 
                 if n_20:
                     self._get_lca_data("0c44c3ec-2984-4985-995c-90a4881505a0", "pcs", n_20, 20)
-            else:
+            else:  # low temperature
                 n_400 = 0
                 n_120 = 0
                 n_20 = 0
@@ -333,6 +396,7 @@ class HeatSupplySystem(HeatSupplySystem):
                 if n_20:
                     self._get_lca_data("2aa9cc62-46ee-447f-85e8-50d03e0574f4", "pcs", n_20, 20)
 
+            # oil tank
             if self.parent.year_of_construction >= 2016 or self._year_of_retrofit >= 2016:
                 amount_tank_1500 = self._n_res_units
 
@@ -344,7 +408,7 @@ class HeatSupplySystem(HeatSupplySystem):
         elif self._heat_system == "electricity":
 
             if self._heat_generation == "night storage":
-                amount_night_storage = math.ceil(self._heat_load / 1000 / 21)
+                amount_night_storage = math.ceil(self._heat_load / 21)
                 self._get_lca_data("4ce46be9-2f9c-4686-aa21-7ebf34783674", "pcs", amount_night_storage, 15)
 
             elif self._heat_generation == "heatpump air":
@@ -379,7 +443,7 @@ class HeatSupplySystem(HeatSupplySystem):
                 if n_7:
                     self._get_lca_data("efa279e8-0ac1-4883-b87c-0cb11e17d265", "pcs", n_7, 20)
 
-            else:
+            else:  # heat pump ground + pipes
                 n_70 = 0
                 n_20 = 0
                 n_10 = 0
@@ -444,40 +508,6 @@ class HeatSupplySystem(HeatSupplySystem):
         else:
             self._get_lca_data("dcd5e23a-9bec-40b6-b07c-1642fe696a2e", "pcs", 1, 30)
 
-    def _lca_data_storage(self):
-        """Helper function for calculation of the LCA data for storage.
-        """
-
-        if self._storage:
-            self._get_lca_data("d3f58b23-9526-43be-8a32-fb583dfebfaa", "pcs", 1, 20)
-        else:
-            pass
-
-    def _lca_data_pump(self):
-        """Helper function for calculation of the LCA data for pump.
-        """
-
-        if "centralised" in self._pipe_routing_heating:
-
-            if self._design_temp_flow == 70:
-                temp_diff = 15
-            elif self._design_temp_flow == 55:
-                temp_diff = 10
-            else:
-                temp_diff = 7
-
-            flow_rate = self._heat_load / (1 * 1.163 * temp_diff)
-
-            if flow_rate > (240 * 0.06):
-                self._get_lca_data("9fe2649f-bd76-41d8-b952-0021143f1ef7", "pcs", 1, 10)
-            elif flow_rate < 2.3:
-                self._get_lca_data("301c6f09-ce88-4818-96c3-e420fe799d62", "pcs", 1, 10)
-            else:
-                self._get_lca_data("b4e4d89b-e4d0-4df3-a233-deacc76b2fee", "pcs", 1, 10)
-
-        else:
-            pass
-
     def _lca_data_solar(self):
         """Helper function for calculation of the LCA data for solar panel.
         """
@@ -488,23 +518,6 @@ class HeatSupplySystem(HeatSupplySystem):
         else:
             pass
 
-    def _lca_data_heat_transfer(self):
-        """Helper function for calculation of the LCA data for heat transfer.
-        """
-
-        if "heatpump" in self._heat_generation:
-            amount_heat_transfer = self.usable_area
-            self._get_lca_data("ed997c1e-274c-4d38-a5bf-2016693c91a3", "m^2", amount_heat_transfer, 30)
-        else:
-
-            # radiator Type 22 0,5 m * 1 m [kg]
-            if self._design_temp_flow == 55:
-                amount_heat_transfer = self._heat_load / 735 * 31.3
-            else:
-                amount_heat_transfer = self._heat_load / 1169 * 31.3
-            # 35 °C only for heatpump
-            self._get_lca_data("c6de5beb-ffe9-4b5f-aba8-c0c2d3528c58", "kg", amount_heat_transfer, 30)
-
     def _lca_data_fe(self):
         """Helper function for calculation of the LCA data for final energy demand.
         """
@@ -513,24 +526,23 @@ class HeatSupplySystem(HeatSupplySystem):
         fedwater = FEDemandWater(parent=self)
 
         fe_demand = fedheating.calc_final_energy_demand_heating() + fedwater.calc_final_energy_demand_water()
-        fe_demand /= 3.6  # kWh/a in MJ
 
         if self._heat_system == "gas":
 
             if "low temperature" in self._heat_generation:
-                self._get_lca_data("e58a3c28-4818-43e3-9e72-f08267926613", "MJ", fe_demand)
+                self._get_lca_data("e58a3c28-4818-43e3-9e72-f08267926613", "kWh", fe_demand)
 
             else:
-                self._get_lca_data("6167bec3-0bc2-425a-9c87-479fa310f8f2", "MJ", fe_demand)
+                self._get_lca_data("6167bec3-0bc2-425a-9c87-479fa310f8f2", "kWh", fe_demand)
 
         elif self._heat_system == "oil":
-            self._get_lca_data("63854c13-11d1-4f97-ad97-052ecd3e6e3d", "MJ", fe_demand)
+            self._get_lca_data("63854c13-11d1-4f97-ad97-052ecd3e6e3d", "kWh", fe_demand)
 
         elif self._heat_system == "biomass":
-            self._get_lca_data("fb11f8ce-d3c7-4823-ba13-0c1f4a304799", "MJ", fe_demand)
+            self._get_lca_data("fb11f8ce-d3c7-4823-ba13-0c1f4a304799", "kWh", fe_demand)
 
         elif self._heat_generation == "night storage":
-            self._get_lca_data("149d05eb-7e8c-4755-9efa-347510b3ae4e", "MJ", fe_demand)
+            self._get_lca_data("149d05eb-7e8c-4755-9efa-347510b3ae4e", "kWh", fe_demand)
 
         elif "heatpump air" in self._heat_generation:
 
@@ -557,24 +569,24 @@ class HeatSupplySystem(HeatSupplySystem):
                 n_7 = 1
 
             if n_14:
-                self._get_lca_data("5b00afcd-8b26-4945-857f-e280946e823f", "MJ", fe_demand)
+                self._get_lca_data("5b00afcd-8b26-4945-857f-e280946e823f", "kWh", fe_demand)
 
             if n_10:
-                self._get_lca_data("05a620f5-e5ba-4593-a55c-690e2a47c8db", "MJ", fe_demand)
+                self._get_lca_data("05a620f5-e5ba-4593-a55c-690e2a47c8db", "kWh", fe_demand)
 
             if n_7:
-                self._get_lca_data("4607b899-9c83-4764-a621-8e79c94887ec", "MJ", fe_demand)
+                self._get_lca_data("4607b899-9c83-4764-a621-8e79c94887ec", "kWh", fe_demand)
 
         elif "heatpump ground" in self._heat_generation:
-            self._get_lca_data("3fd6d7dc-6618-42f4-b6be-f5b6f9a38763", "MJ", fe_demand)
+            self._get_lca_data("3fd6d7dc-6618-42f4-b6be-f5b6f9a38763", "kWh", fe_demand)
 
-        else:
+        else:  # district
 
             if self._heat_load < 120:
-                self._get_lca_data("3c3a8f6b-ec6f-4358-8e7d-f42f05f59c10", "MJ", fe_demand)
+                self._get_lca_data("3c3a8f6b-ec6f-4358-8e7d-f42f05f59c10", "kWh", fe_demand)
 
             else:
-                self._get_lca_data("9b123a02-9967-4a5c-8630-eb78aa4f6c45", "MJ", fe_demand)
+                self._get_lca_data("9b123a02-9967-4a5c-8630-eb78aa4f6c45", "kWh", fe_demand)
 
     def _get_lca_data(self, lca_id, unit, amount, service_life=None, data_class=None):
         """"LCA-data loader.

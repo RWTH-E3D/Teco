@@ -9237,7 +9237,7 @@
 	"6167bec3-0bc2-425a-9c87-479fa310f8f2": {
 	   "ref_flow": {
 		  "value": 1,
-		  "unit": "MJ"
+		  "unit": "kWh"
 	   },
 	   "pere": {
 		  "unit": "MJ",
@@ -9345,7 +9345,7 @@
 	"e58a3c28-4818-43e3-9e72-f08267926613": {
 	   "ref_flow": {
 		  "value": 1,
-		  "unit": "MJ"
+		  "unit": "kWh"
 	   },
 	   "pere": {
 		  "unit": "MJ",
@@ -9453,7 +9453,7 @@
 	"63854c13-11d1-4f97-ad97-052ecd3e6e3d": {
 	   "ref_flow": {
 		  "value": 1,
-		  "unit": "MJ"
+		  "unit": "kWh"
 	   },
 	   "pere": {
 		  "unit": "MJ",
@@ -9561,7 +9561,7 @@
 	"fb11f8ce-d3c7-4823-ba13-0c1f4a304799": {
 	   "ref_flow": {
 		  "value": 1,
-		  "unit": "MJ"
+		  "unit": "kWh"
 	   },
 	   "pere": {
 		  "unit": "MJ",
@@ -9669,7 +9669,7 @@
 	"149d05eb-7e8c-4755-9efa-347510b3ae4e": {
 	   "ref_flow": {
 		  "value": 1,
-		  "unit": "MJ"
+		  "unit": "kWh"
 	   },
 	   "pere": {
 		  "unit": "MJ",
@@ -9777,7 +9777,7 @@
 	"3fd6d7dc-6618-42f4-b6be-f5b6f9a38763": {
 	   "ref_flow": {
 		  "value": 1,
-		  "unit": "MJ"
+		  "unit": "kWh"
 	   },
 	   "pere": {
 		  "unit": "MJ",
@@ -9885,7 +9885,7 @@
 	"5b00afcd-8b26-4945-857f-e280946e823f": {
 	   "ref_flow": {
 		  "value": 1,
-		  "unit": "MJ"
+		  "unit": "kWh"
 	   },
 	   "pere": {
 		  "unit": "MJ",
@@ -9993,7 +9993,7 @@
 	"05a620f5-e5ba-4593-a55c-690e2a47c8db": {
 	   "ref_flow": {
 		  "value": 1,
-		  "unit": "MJ"
+		  "unit": "kWh"
 	   },
 	   "pere": {
 		  "unit": "MJ",
@@ -10101,7 +10101,7 @@
 	"4607b899-9c83-4764-a621-8e79c94887ec": {
 	   "ref_flow": {
 		  "value": 1,
-		  "unit": "MJ"
+		  "unit": "kWh"
 	   },
 	   "pere": {
 		  "unit": "MJ",
@@ -10209,7 +10209,7 @@
 	"9b123a02-9967-4a5c-8630-eb78aa4f6c45": {
 	   "ref_flow": {
 		  "value": 1,
-		  "unit": "MJ"
+		  "unit": "kWh"
 	   },
 	   "pere": {
 		  "unit": "MJ",
@@ -10317,7 +10317,7 @@
 	"3c3a8f6b-ec6f-4358-8e7d-f42f05f59c10": {
 	   "ref_flow": {
 		  "value": 1,
-		  "unit": "MJ"
+		  "unit": "kWh"
 	   },
 	   "pere": {
 		  "unit": "MJ",
@@ -10425,7 +10425,7 @@
 	"9adc2b1c-99d8-4bb2-944a-1cff285784eb": {
 	   "ref_flow": {
 		  "value": 1,
-		  "unit": "MJ"
+		  "unit": "kWh"
 	   },
 	   "pere": {
 		  "unit": "MJ",
