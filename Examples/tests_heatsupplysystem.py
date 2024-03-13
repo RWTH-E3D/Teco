@@ -22,7 +22,7 @@ if __name__ == '__main__':
         year_of_construction=1925,
         number_of_floors=2,
         height_of_floors=2.5,
-        net_leased_area=150,
+        net_leased_area=150.0,
         type_heat_supply_system=1)
 
 

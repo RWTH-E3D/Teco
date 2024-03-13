@@ -24,8 +24,8 @@ if __name__ == '__main__': #only executed if executed as the main programme
     prj.export_aixlib()  # model export
 
     # Simulation is started. Please exchange the file paths ;)
-    sim.simulate(path="C:\\Users\\clara\\TEASEROutput", prj=prj, loading_time=3600,
-                 result_path="C:\\Users\\clara\\TEASEROutput\\test")
+    sim.simulate(path="C:\\Users\\schmitz\\TEASEROutput", prj=prj, loading_time=3600,
+                 result_path="C:\\Users\\schmitz\\TEASEROutput\\test")
 
     # Instance of Utility class is created
     ut = Utility(parent=prj.buildings[0], name="Gas condensing boiler < 20 kW")

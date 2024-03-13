@@ -207,9 +207,9 @@ if __name__ == '__main__':
     
     prj.calc_all_buildings()
 
-    prj.export_aixlib(path = "C:\\Users\\clara\\TEASEROutput")
+    prj.export_aixlib(path = "C:\\Users\\schmitz\\TEASEROutput")
 
-    sim.simulate(path = "C:\\Users\\clara\\TEASEROutput", prj = prj, loading_time = 3600, result_path = "C:\\Users\\clara\\TEASEROutput\\results")
+    sim.simulate(path = "C:\\Users\\schmitz\\TEASEROutput", prj = prj, loading_time = 3600, result_path = "C:\\Users\\schmitz\\TEASEROutput\\results")
     
     lca_data_elec = En15804LcaData()
     lca_data_elec.load_lca_data_template("c869c47e-ce43-45b4-b640-b0cd1746e450", prj.data)
