@@ -15,15 +15,32 @@ if __name__ == '__main__':
 
     prj.use_b4 = True  # Parameters for the calculation of the life cycle assessment. Phase "b4" according to EN15804 is used
 
+
+    #prj.load_citygml(path = "C:\\Users\\clara\\Downloads\\Bedburg_LoD2.gml", method = "tabula_de")
     prj.add_residential(
-        method='tabula_de',
-        usage='single_family_house',
-        name="Typ I",
-        year_of_construction=1925,
-        number_of_floors=2,
-        height_of_floors=2.5,
-        net_leased_area=150,
-        type_heat_supply_system=1)
+           method='tabula_de',
+           usage='single_family_house',
+           name="Typ I",
+           year_of_construction=1925,
+           number_of_floors=2,
+           height_of_floors=2.5,
+           net_leased_area=150,
+           type_heat_supply_system=1)
+
+    for building in prj.buildings:
+
+        building.add_lca_data_heat_supply_system(False, 50)
+
+    """prj.used_library_calc = "AixLib"
+
+    prj.calc_all_buildings()
+
+    prj.export_aixlib(path="C:\\Users\\clara\\TEASEROutput")
+
+    for building in prj.buildings:
+
+        building.add_lca_data_heat_supply_system(False, 50)"""
+
 
 
 
