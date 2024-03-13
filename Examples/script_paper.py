@@ -5,8 +5,6 @@ Created on Mon Dec  6 15:30:02 2021
 @author: Linus Cuypers (cuypers@e3d.rwth-aachen.de)
 """
 
-
-
 from teco.project import Project
 from teco.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
 import csv
@@ -191,9 +189,10 @@ if __name__ == '__main__':
     prj = Project(load_data=True)
     
     prj.name = "Teaser+Eco_paper"
-    
+
+    prj.load_citygml(path="C:\\Users\\clara\\PycharmProjects\\pythonProject\\teco\\Examples\\Bedburg_LoD2.gml", method="tabula_de")
     #prj.load_citygml(path = "D:\\Sciebo\\SmartQuart_E3D\\Geometrie\\SmartQuart_LoD2 District Models\\Final\\Bedburg\\converted or combined\\Bedburg_LoD2.gml", method = "tabula_de")
-    prj.add_residential(
+    """prj.add_residential(
         method="tabula_de",
         usage="single_family_house",
         name="Typ_I",
@@ -201,7 +200,7 @@ if __name__ == '__main__':
         number_of_floors=2,
         height_of_floors=2.5,
         net_leased_area=167.0,
-        type_heat_supply_system=1)
+        type_heat_supply_system=1)"""
 
     prj.used_library_calc = "AixLib"
     
@@ -215,11 +214,10 @@ if __name__ == '__main__':
     lca_data_elec.load_lca_data_template("c869c47e-ce43-45b4-b640-b0cd1746e450", prj.data)
     
     utilities = En15804LcaData()
-
     
     for building in prj.buildings:
-        
-        #floor heating
+
+        """#floor heating
         building.add_lca_data_template("ed997c1e-274c-4d38-a5bf-2016693c91a3", building.net_leased_area)
         
         #hot water storage tank (500l -> 88.3 kg storage mass according to oekobaudat.de)
@@ -229,21 +227,17 @@ if __name__ == '__main__':
         building.add_lca_data_template("7d027677-b2e3-40dd-a4b1-91bd8f7383d5", 1)
         
         #uebergabestation
-        building.add_lca_data_template("dcd5e23a-9bec-40b6-b07c-1642fe696a2e", 30)
-        
-        
-        
-        utilities += building.lca_data
+        building.add_lca_data_template("dcd5e23a-9bec-40b6-b07c-1642fe696a2e", 30)"""
 
         building.calc_lca_data(False, 50)
-        
-        #print(building.lca_data.gwp.b6)
-        
-        
-        
+
         building.add_lca_data_elec(lca_data_elec)
-        
+
         building.add_lca_data_heat_supply_system(False, 50)
+
+        utilities += building.lca_data
+        
+        # print(building.lca_data.gwp.b6)
 
         print(building.lca_data.gwp.b6)
         
