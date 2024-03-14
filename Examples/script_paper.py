@@ -190,7 +190,7 @@ if __name__ == '__main__':
     
     prj.name = "Teaser+Eco_paper"
 
-    prj.load_citygml(path="C:\\Users\\clara\\PycharmProjects\\pythonProject\\teco\\Examples\\Bedburg_LoD2.gml", method="tabula_de")
+    prj.load_citygml(path="C:\\Users\\schmitz\\PycharmProjects\\teco\\Examples\\Bedburg_LoD2.gml", method="tabula_de")
     #prj.load_citygml(path = "D:\\Sciebo\\SmartQuart_E3D\\Geometrie\\SmartQuart_LoD2 District Models\\Final\\Bedburg\\converted or combined\\Bedburg_LoD2.gml", method = "tabula_de")
     """prj.add_residential(
         method="tabula_de",
@@ -238,8 +238,6 @@ if __name__ == '__main__':
         utilities += building.lca_data
         
         # print(building.lca_data.gwp.b6)
-
-        print(building.lca_data.gwp.b6)
         
     print("A1_A3: {} {}".format(utilities.gwp.a1_a3, utilities.gwp.unit))
     print("A4: {} {}".format(utilities.gwp.a4, utilities.gwp.unit))

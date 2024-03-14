@@ -183,9 +183,11 @@ class Building(Building):
             annual heating energy.
 
         """
+
         if self.simulated_heat_load is not None:
 
-            result = 0
+            sum_heat_load = 0
+            count = 0
 
             for data_tp in self.simulated_heat_load:
                 # Immediate verification: print the content of data_tp
@@ -194,11 +196,14 @@ class Building(Building):
                 # Data validation: check if data_tp is a tuple and has at least 2 elements
                 if isinstance(data_tp, tuple) and len(data_tp) >= 2:
                     hour, heat_load, *_ = data_tp  # Unpack the tuple, ignoring extra values
-                    result += heat_load
+                    sum_heat_load += heat_load  # [W]
                 else:
                     print(f"Unexpected data format: {data_tp}")
 
-            result *= 0.000001
+                count += 1
+
+            sum_heat_load /= 1000  # [kW]
+            result = [count, sum_heat_load]
             return result
             # result = 0
             #

@@ -16,7 +16,7 @@ if __name__ == '__main__':
     prj.use_b4 = True  # Parameters for the calculation of the life cycle assessment. Phase "b4" according to EN15804 is used
 
 
-    #prj.load_citygml(path = "C:\\Users\\clara\\Downloads\\Bedburg_LoD2.gml", method = "tabula_de")
+    #prj.load_citygml(path = "C:\\Users\\schmitz\\Downloads\\Bedburg_LoD2.gml", method = "tabula_de")
     prj.add_residential(
            method='tabula_de',
            usage='single_family_house',
@@ -35,7 +35,7 @@ if __name__ == '__main__':
 
     prj.calc_all_buildings()
 
-    prj.export_aixlib(path="C:\\Users\\clara\\TEASEROutput")
+    prj.export_aixlib(path="C:\\Users\\schmitz\\TEASEROutput")
 
     for building in prj.buildings:
 

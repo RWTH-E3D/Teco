@@ -85,7 +85,7 @@ class HeatSupplySystem(HeatSupplySystem):
 
         # print(self._lca_data.lca_data.gwp.b6)
 
-        print("A1_A3: {} {}".format(self._lca_data.gwp.a1_a3, self._lca_data.gwp.unit))
+        """print("A1_A3: {} {}".format(self._lca_data.gwp.a1_a3, self._lca_data.gwp.unit))
         print("A4: {} {}".format(self._lca_data.gwp.a4, self._lca_data.gwp.unit))
         print("A5: {} {}".format(self._lca_data.gwp.a5, self._lca_data.gwp.unit))
         print("B1: {} {}".format(self._lca_data.gwp.b1, self._lca_data.gwp.unit))
@@ -94,7 +94,7 @@ class HeatSupplySystem(HeatSupplySystem):
         print("C2: {} {}".format(self._lca_data.gwp.c2, self._lca_data.gwp.unit))
         print("C3: {} {}".format(self._lca_data.gwp.c3, self._lca_data.gwp.unit))
         print("C4: {} {}".format(self._lca_data.gwp.c4, self._lca_data.gwp.unit))
-        print("D: {} {}".format(self._lca_data.gwp.d, self._lca_data.gwp.unit))
+        print("D: {} {}".format(self._lca_data.gwp.d, self._lca_data.gwp.unit))"""
 
     def _lca_data_heat_transfer(self):
         """Helper function for calculation of the LCA data for heat transfer.

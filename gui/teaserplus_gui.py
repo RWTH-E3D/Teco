@@ -46,8 +46,8 @@ HEIGHT = 600
 SIZEFACTOR = 0
 SIZER = False
 
-teaser_path = os.path.join("C:/Users/schmitz/PycharmProjects/pythonProject/teco/teaser/teaser") #############Todo: CHANGE THIS TO YOUR TEASER PATH
-output_path = os.path.join("C:/Users/schmitz/Downloads/TecoOutput") #############Todo: CHANGE THIS TO YOUR OUTPUT PATH
+teaser_path = os.path.join("C:/Users/schmitz/PycharmProjects/teco/teaser/teaser") #############Todo: CHANGE THIS TO YOUR TEASER PATH
+output_path = os.path.join("C:/Users/schmitz/TecoOutput") #############Todo: CHANGE THIS TO YOUR OUTPUT PATH
 
 #TODO Find inconsistency of "sum" and "sumwithd" in output GUI window (values are equal, but sumwithd should be lower)
 # Separate phases A1, A2, A3 do not accurately reflect the data since most (but not all!) EPDs only have A1_A3 available.
@@ -72,7 +72,7 @@ class MainWindow(QtWidgets.QWidget):
         self.setLayout(self.vbox)
 
         # Loading banner
-        gf.load_banner(self, r"C:\Users\schmitz\PycharmProjects\pythonProject\teco\pictures\teaseerplusteco_main_header.png", 3.25)
+        gf.load_banner(self, r"C:\Users\schmitz\PycharmProjects\teco\pictures\teaseerplusteco_main_header.png", 3.25)
 
         # Setting Layout
         self.uGrid = QtWidgets.QGridLayout()
@@ -209,7 +209,7 @@ class MainWindow(QtWidgets.QWidget):
     def func_about(self) -> None:
         global POSX, POSY
         POSX, POSY = gf.windowPosition(self)
-        gf.next_window(self, about("C:/Users/schmitz/PycharmProjects/pythonProject/teco/gui/about_teaser.txt", "C:/Users/schmitz/PycharmProjects/pythonProject/teco/pictures/TEASER+_header.png"), False)
+        gf.next_window(self, about("C:/Users/schmitz/PycharmProjects/teco/gui/about_teaser.txt", "C:/Users/schmitz/PycharmProjects/pythonProject/teco/pictures/TEASER+_header.png"), False)
 
     def func_reset(self) -> None:
         global POSX, POSY
@@ -325,7 +325,7 @@ class TeaserEnrichment(QtWidgets.QWidget):
         self.vbox = QtWidgets.QVBoxLayout(self)
         self.setLayout(self.vbox)
 
-        gf.load_banner(self, "C:/Users/schmitz/PycharmProjects/pythonProject/teco/pictures/TEASER+_header.png", 4)
+        gf.load_banner(self, "C:/Users/schmitz/PycharmProjects/teco/pictures/TEASER+_header.png", 4)
 
         self.tbl_selBuildings = QtWidgets.QTableWidget()
         self.tbl_selBuildings.setColumnCount(7)
@@ -788,7 +788,7 @@ class Eco(QtWidgets.QWidget):
         self.vbox = QtWidgets.QVBoxLayout(self)
         self.setLayout(self.vbox)
 
-        gf.load_banner(self, r'C:\Users\schmitz\PycharmProjects\pythonProject\teco\pictures\Teco_headline.png', 4)
+        gf.load_banner(self, r'C:\Users\schmitz\PycharmProjects\teco\pictures\Teco_headline.png', 4)
 
         self.tbl_selBuildings = QtWidgets.QTableWidget()
         self.tbl_selBuildings.setColumnCount(11)
@@ -1144,7 +1144,7 @@ class Eco(QtWidgets.QWidget):
     def func_about(self) -> None:
         global POSX, POSY
         POSX, POSY = gf.windowPosition(self)
-        gf.next_window(self, about(r"C:\Users\schmitz\PycharmProjects\pythonProject\teco\gui\about_teco.txt", r'C:\Users\schmitz\PycharmProjects\pythonProject\teco\pictures\Teco_headline.png'), False)
+        gf.next_window(self, about(r"C:\Users\schmitz\PycharmProjects\teco\gui\about_teco.txt", r'C:\Users\schmitz\PycharmProjects\pythonProject\teco\pictures\Teco_headline.png'), False)
 
     def func_reset(self) -> None:
         global POSX, POSY
@@ -1751,7 +1751,7 @@ class SetupSimulation(QtWidgets.QWidget):
 
     def load_en15804_lca_data_gui(self, category, lca_data):
 
-        with open(r"C:\Users\schmitz\PycharmProjects\pythonProject\teco\teco\data\input\inputdata\LcaData_gui.json") as f:
+        with open(r"C:\Users\schmitz\PycharmProjects\teco\teco\data\input\inputdata\LcaData_gui.json") as f:
             data = json.load(f)
 
             for item_name, data_item in data[category].items():

@@ -27,7 +27,7 @@ if __name__ == '__main__':
         height_of_floors=2.5,
         net_leased_area=167)  # building is added. method and usage specify the enrichment method
 """
-    load_gml_lxml(path = "C:/Users/schmitz/PycharmProjects/pythonProject/teco/Examples/FZK-Haus-LoD2-KIT-IAI-KHH-B36-V1.gml", prj = prj, method = "tabula_de")
+    load_gml_lxml(path = "C:/Users/schmitz/PycharmProjects/teco/Examples/FZK-Haus-LoD2-KIT-IAI-KHH-B36-V1.gml", prj = prj, method = "tabula_de")
     prj.calc_all_buildings()  # simulation parameters are calculated
 
     prj.export_aixlib()  # model export

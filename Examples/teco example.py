@@ -30,7 +30,7 @@ if __name__ == '__main__':
         year_of_construction=1925,
         number_of_floors=2,
         height_of_floors=2.5,
-        net_leased_area=300,
+        net_leased_area=300.0,
         type_heat_supply_system=3) #building is added. method and usage specify the enrichment method
 
     prj.calc_all_buildings() #simulation parameters are calculated
