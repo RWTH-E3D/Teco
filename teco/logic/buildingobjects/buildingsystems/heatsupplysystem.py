@@ -26,7 +26,7 @@ class HeatSupplySystem(HeatSupplySystem):
         one heat supply system of one building.
     use_b4 : bool
         If true, environmental indicators of replaced heat supply elements are
-        added to stage B4. Otherwise they are added seperatly to the other stages
+        added to stage B4. Otherwise, they are added separately to the other stages
     period_lca_scenario : int
         Period of use taken into account for LCA. Default is the project
         period (period_lca_scenario in project class).
@@ -52,7 +52,7 @@ class HeatSupplySystem(HeatSupplySystem):
         ----------
         use_b4 : bool (optional)
             If true, environmental indicators of replaced heat supply elements are
-            added to stage B4. Otherwise they are added seperatly to the other stages
+            added to stage B4. Otherwise, they are added separately to the other stages
         period_lca_scenario : int [a] (optional)
             Period of use taken into account for LCA. Default is the project
             period (period_lca_scenario in project class).
@@ -83,18 +83,317 @@ class HeatSupplySystem(HeatSupplySystem):
         self._lca_data_heat_transfer()
         self._lca_data_fe()
 
-        # print(self._lca_data.lca_data.gwp.b6)
+    def calc_lca_data_ohneH(self, use_b4=None, period_lca_scenario=None):  # todo löschen
+        """Calculates the LCA-data of the heat supply system and sets it to the
+            attribute lca_data
 
-        """print("A1_A3: {} {}".format(self._lca_data.gwp.a1_a3, self._lca_data.gwp.unit))
-        print("A4: {} {}".format(self._lca_data.gwp.a4, self._lca_data.gwp.unit))
-        print("A5: {} {}".format(self._lca_data.gwp.a5, self._lca_data.gwp.unit))
-        print("B1: {} {}".format(self._lca_data.gwp.b1, self._lca_data.gwp.unit))
-        print("B6: {} {}".format(self._lca_data.gwp.b6, self._lca_data.gwp.unit))
-        print("C1: {} {}".format(self._lca_data.gwp.c1, self._lca_data.gwp.unit))
-        print("C2: {} {}".format(self._lca_data.gwp.c2, self._lca_data.gwp.unit))
-        print("C3: {} {}".format(self._lca_data.gwp.c3, self._lca_data.gwp.unit))
-        print("C4: {} {}".format(self._lca_data.gwp.c4, self._lca_data.gwp.unit))
-        print("D: {} {}".format(self._lca_data.gwp.d, self._lca_data.gwp.unit))"""
+        Parameters
+        ----------
+        use_b4 : bool (optional)
+            If true, environmental indicators of replaced heat supply elements are
+            added to stage B4. Otherwise, they are added separately to the other stages
+        period_lca_scenario : int [a] (optional)
+            Period of use taken into account for LCA. Default is the project
+            period (period_lca_scenario in project class).
+
+        """
+
+        if use_b4 is None:
+            try:
+                self._use_b4 = self.parent.parent.use_b4
+            except:
+                self._use_b4 = False
+
+        if period_lca_scenario is None:
+            try:
+                self._period_lca_scenario = self.parent.parent.period_lca_scenario
+            except:
+                print("Please enter a period for the LCA-scenario!")
+        else:
+            self._period_lca_scenario = period_lca_scenario
+
+        self.setting_values(self.type_heat_supply_system,self.type_of_retrofit)
+
+        self._lca_data_pipes()
+        self._lca_data_heat_generator()
+        self._lca_data_storage()
+        self._lca_data_pump()
+        self._lca_data_solar()
+        self._lca_data_heat_transfer()
+        self._lca_data_fe_ohneH()
+
+    def calc_lca_data_ohneHHE(self, use_b4=None, period_lca_scenario=None):  # todo löschen
+        """Calculates the LCA-data of the heat supply system and sets it to the
+            attribute lca_data
+
+        Parameters
+        ----------
+        use_b4 : bool (optional)
+            If true, environmental indicators of replaced heat supply elements are
+            added to stage B4. Otherwise, they are added separately to the other stages
+        period_lca_scenario : int [a] (optional)
+            Period of use taken into account for LCA. Default is the project
+            period (period_lca_scenario in project class).
+
+        """
+
+        if use_b4 is None:
+            try:
+                self._use_b4 = self.parent.parent.use_b4
+            except:
+                self._use_b4 = False
+
+        if period_lca_scenario is None:
+            try:
+                self._period_lca_scenario = self.parent.parent.period_lca_scenario
+            except:
+                print("Please enter a period for the LCA-scenario!")
+        else:
+            self._period_lca_scenario = period_lca_scenario
+
+        self.setting_values(self.type_heat_supply_system, self.type_of_retrofit)
+
+        self._lca_data_pipes()
+        self._lca_data_heat_generator()
+        self._lca_data_storage()
+        self._lca_data_pump()
+        self._lca_data_solar()
+        self._lca_data_heat_transfer()
+        self._lca_data_fe_ohneHHE()
+
+    def calc_lca_data_ohneTWHE(self, use_b4=None, period_lca_scenario=None):  # todo löschen
+        """Calculates the LCA-data of the heat supply system and sets it to the
+            attribute lca_data
+
+        Parameters
+        ----------
+        use_b4 : bool (optional)
+            If true, environmental indicators of replaced heat supply elements are
+            added to stage B4. Otherwise, they are added separately to the other stages
+        period_lca_scenario : int [a] (optional)
+            Period of use taken into account for LCA. Default is the project
+            period (period_lca_scenario in project class).
+
+        """
+
+        if use_b4 is None:
+            try:
+                self._use_b4 = self.parent.parent.use_b4
+            except:
+                self._use_b4 = False
+
+        if period_lca_scenario is None:
+            try:
+                self._period_lca_scenario = self.parent.parent.period_lca_scenario
+            except:
+                print("Please enter a period for the LCA-scenario!")
+        else:
+            self._period_lca_scenario = period_lca_scenario
+
+        self.setting_values(self.type_heat_supply_system, self.type_of_retrofit)
+
+        self._lca_data_pipes()
+        self._lca_data_heat_generator()
+        self._lca_data_storage()
+        self._lca_data_pump()
+        self._lca_data_solar()
+        self._lca_data_heat_transfer()
+        self._lca_data_fe_ohneTWHE()
+
+    def calc_lca_data_no_ce(self, use_b4=None, period_lca_scenario=None):  # todo löschen
+        """Calculates the LCA-data of the heat supply system and sets it to the
+            attribute lca_data
+
+        Parameters
+        ----------
+        use_b4 : bool (optional)
+            If true, environmental indicators of replaced heat supply elements are
+            added to stage B4. Otherwise, they are added separately to the other stages
+        period_lca_scenario : int [a] (optional)
+            Period of use taken into account for LCA. Default is the project
+            period (period_lca_scenario in project class).
+
+        """
+
+        if use_b4 is None:
+            try:
+                self._use_b4 = self.parent.parent.use_b4
+            except:
+                self._use_b4 = False
+
+        if period_lca_scenario is None:
+            try:
+                self._period_lca_scenario = self.parent.parent.period_lca_scenario
+            except:
+                print("Please enter a period for the LCA-scenario!")
+        else:
+            self._period_lca_scenario = period_lca_scenario
+
+        self.setting_values(self.type_heat_supply_system,self.type_of_retrofit)
+
+        self._lca_data_pipes()
+        self._lca_data_heat_generator()
+        self._lca_data_storage()
+        self._lca_data_pump()
+        self._lca_data_solar()
+        self._lca_data_heat_transfer()
+        self._lca_data_fe_no_ce()
+
+    def calc_lca_data_no_d(self, use_b4=None, period_lca_scenario=None):  # todo löschen
+        """Calculates the LCA-data of the heat supply system and sets it to the
+            attribute lca_data
+
+        Parameters
+        ----------
+        use_b4 : bool (optional)
+            If true, environmental indicators of replaced heat supply elements are
+            added to stage B4. Otherwise, they are added separately to the other stages
+        period_lca_scenario : int [a] (optional)
+            Period of use taken into account for LCA. Default is the project
+            period (period_lca_scenario in project class).
+
+        """
+
+        if use_b4 is None:
+            try:
+                self._use_b4 = self.parent.parent.use_b4
+            except:
+                self._use_b4 = False
+
+        if period_lca_scenario is None:
+            try:
+                self._period_lca_scenario = self.parent.parent.period_lca_scenario
+            except:
+                print("Please enter a period for the LCA-scenario!")
+        else:
+            self._period_lca_scenario = period_lca_scenario
+
+        self.setting_values(self.type_heat_supply_system,self.type_of_retrofit)
+
+        self._lca_data_pipes()
+        self._lca_data_heat_generator()
+        self._lca_data_storage()
+        self._lca_data_pump()
+        self._lca_data_solar()
+        self._lca_data_heat_transfer()
+        self._lca_data_fe_no_d()
+
+    def calc_lca_data_no_s(self, use_b4=None, period_lca_scenario=None):  # todo löschen
+        """Calculates the LCA-data of the heat supply system and sets it to the
+            attribute lca_data
+
+        Parameters
+        ----------
+        use_b4 : bool (optional)
+            If true, environmental indicators of replaced heat supply elements are
+            added to stage B4. Otherwise, they are added separately to the other stages
+        period_lca_scenario : int [a] (optional)
+            Period of use taken into account for LCA. Default is the project
+            period (period_lca_scenario in project class).
+
+        """
+
+        if use_b4 is None:
+            try:
+                self._use_b4 = self.parent.parent.use_b4
+            except:
+                self._use_b4 = False
+
+        if period_lca_scenario is None:
+            try:
+                self._period_lca_scenario = self.parent.parent.period_lca_scenario
+            except:
+                print("Please enter a period for the LCA-scenario!")
+        else:
+            self._period_lca_scenario = period_lca_scenario
+
+        self.setting_values(self.type_heat_supply_system,self.type_of_retrofit)
+
+        self._lca_data_pipes()
+        self._lca_data_heat_generator()
+        self._lca_data_storage()
+        self._lca_data_pump()
+        self._lca_data_solar()
+        self._lca_data_heat_transfer()
+        self._lca_data_fe_no_s()
+
+    def calc_lca_data_no_tw_for_h(self, use_b4=None, period_lca_scenario=None):  # todo löschen
+        """Calculates the LCA-data of the heat supply system and sets it to the
+            attribute lca_data
+
+        Parameters
+        ----------
+        use_b4 : bool (optional)
+            If true, environmental indicators of replaced heat supply elements are
+            added to stage B4. Otherwise, they are added separately to the other stages
+        period_lca_scenario : int [a] (optional)
+            Period of use taken into account for LCA. Default is the project
+            period (period_lca_scenario in project class).
+
+        """
+
+        if use_b4 is None:
+            try:
+                self._use_b4 = self.parent.parent.use_b4
+            except:
+                self._use_b4 = False
+
+        if period_lca_scenario is None:
+            try:
+                self._period_lca_scenario = self.parent.parent.period_lca_scenario
+            except:
+                print("Please enter a period for the LCA-scenario!")
+        else:
+            self._period_lca_scenario = period_lca_scenario
+
+        self.setting_values(self.type_heat_supply_system,self.type_of_retrofit)
+
+        self._lca_data_pipes()
+        self._lca_data_heat_generator()
+        self._lca_data_storage()
+        self._lca_data_pump()
+        self._lca_data_solar()
+        self._lca_data_heat_transfer()
+        self._lca_data_fe_no_tw_for_h()
+
+    def calc_lca_data_no_h_or_tw(self, use_b4=None, period_lca_scenario=None):  # todo löschen
+        """Calculates the LCA-data of the heat supply system and sets it to the
+            attribute lca_data
+
+        Parameters
+        ----------
+        use_b4 : bool (optional)
+            If true, environmental indicators of replaced heat supply elements are
+            added to stage B4. Otherwise, they are added separately to the other stages
+        period_lca_scenario : int [a] (optional)
+            Period of use taken into account for LCA. Default is the project
+            period (period_lca_scenario in project class).
+
+        """
+
+        if use_b4 is None:
+            try:
+                self._use_b4 = self.parent.parent.use_b4
+            except:
+                self._use_b4 = False
+
+        if period_lca_scenario is None:
+            try:
+                self._period_lca_scenario = self.parent.parent.period_lca_scenario
+            except:
+                print("Please enter a period for the LCA-scenario!")
+        else:
+            self._period_lca_scenario = period_lca_scenario
+
+        self.setting_values(self.type_heat_supply_system,self.type_of_retrofit)
+
+        self._lca_data_pipes()
+        self._lca_data_heat_generator()
+        self._lca_data_storage()
+        self._lca_data_pump()
+        self._lca_data_solar()
+        self._lca_data_heat_transfer()
+        self._lca_data_fe_no_h_or_tw()
 
     def _lca_data_heat_transfer(self):
         """Helper function for calculation of the LCA data for heat transfer.
@@ -330,7 +629,7 @@ class HeatSupplySystem(HeatSupplySystem):
 
             # gas tank
             if self.usable_area <= 180:
-                if self.parent.year_of_construction >= 2016 or self._year_of_retrofit >= 2016:
+                if self.parent.year_of_construction >= 2010 or self._year_of_retrofit >= 2010:
                     self._get_lca_data("6e520eb3-0b5e-4c7a-b702-244f93faff73", "pcs", 1.0, 18)
                 else:
                     if self.usable_area <= 130:
@@ -409,7 +708,7 @@ class HeatSupplySystem(HeatSupplySystem):
                     self._get_lca_data("2aa9cc62-46ee-447f-85e8-50d03e0574f4", "pcs", float(n_20), 20)
 
             # oil tank
-            if self.parent.year_of_construction >= 2016 or self._year_of_retrofit >= 2016:
+            if self.parent.year_of_construction >= 2010 or self._year_of_retrofit >= 2010:
                 amount_tank_1500 = self._n_res_units
 
             else:
@@ -538,6 +837,565 @@ class HeatSupplySystem(HeatSupplySystem):
         fedwater = FEDemandWater(parent=self)
 
         fe_demand = fedheating.calc_final_energy_demand_heating() + fedwater.calc_final_energy_demand_water()
+
+        if self._heat_system == "gas":
+
+            if "low temperature" in self._heat_generation:
+                self._get_lca_data("e58a3c28-4818-43e3-9e72-f08267926613", "kWh", fe_demand)
+
+            else:
+                self._get_lca_data("6167bec3-0bc2-425a-9c87-479fa310f8f2", "kWh", fe_demand)
+
+        elif self._heat_system == "oil":
+            self._get_lca_data("63854c13-11d1-4f97-ad97-052ecd3e6e3d", "kWh", fe_demand)
+
+        elif self._heat_system == "biomass":
+            self._get_lca_data("fb11f8ce-d3c7-4823-ba13-0c1f4a304799", "kWh", fe_demand)
+
+        elif self._heat_generation == "night storage":
+            self._get_lca_data("149d05eb-7e8c-4755-9efa-347510b3ae4e", "kWh", fe_demand)
+
+        elif "heatpump air" in self._heat_generation:
+
+            n_14 = 0
+            n_10 = 0
+            n_7 = 0
+
+            sizes = [14, 10, 7]
+            count = {}
+
+            for size in sizes:
+                devices_count = self._heat_load // size
+                if devices_count > 0:
+                    if size == 7:
+                        n_7 += int(devices_count)
+                    else:
+                        count[size] = int(devices_count)
+
+            if count:
+                n_14 = count.get(14, 0)
+                n_10 = count.get(10, 0)
+
+            if self._heat_load < 7 or not count:
+                n_7 = 1
+
+            if n_14:
+                self._get_lca_data("5b00afcd-8b26-4945-857f-e280946e823f", "kWh", fe_demand)
+
+            if n_10:
+                self._get_lca_data("05a620f5-e5ba-4593-a55c-690e2a47c8db", "kWh", fe_demand)
+
+            if n_7:
+                self._get_lca_data("4607b899-9c83-4764-a621-8e79c94887ec", "kWh", fe_demand)
+
+        elif "heatpump ground" in self._heat_generation:
+            self._get_lca_data("3fd6d7dc-6618-42f4-b6be-f5b6f9a38763", "kWh", fe_demand)
+
+        else:  # district
+
+            if self._heat_load < 120:
+                self._get_lca_data("3c3a8f6b-ec6f-4358-8e7d-f42f05f59c10", "kWh", fe_demand)
+
+            else:
+                self._get_lca_data("9b123a02-9967-4a5c-8630-eb78aa4f6c45", "kWh", fe_demand)
+
+    def _lca_data_fe_ohneH(self):  # todo löschen
+        """Helper function for calculation of the LCA data for final energy demand.
+        """
+
+        fedwater = FEDemandWater(parent=self)
+
+        fe_demand = fedwater.calc_final_energy_demand_water()
+
+        if self._heat_system == "gas":
+
+            if "low temperature" in self._heat_generation:
+                self._get_lca_data("e58a3c28-4818-43e3-9e72-f08267926613", "kWh", fe_demand)
+
+            else:
+                self._get_lca_data("6167bec3-0bc2-425a-9c87-479fa310f8f2", "kWh", fe_demand)
+
+        elif self._heat_system == "oil":
+            self._get_lca_data("63854c13-11d1-4f97-ad97-052ecd3e6e3d", "kWh", fe_demand)
+
+        elif self._heat_system == "biomass":
+            self._get_lca_data("fb11f8ce-d3c7-4823-ba13-0c1f4a304799", "kWh", fe_demand)
+
+        elif self._heat_generation == "night storage":
+            self._get_lca_data("149d05eb-7e8c-4755-9efa-347510b3ae4e", "kWh", fe_demand)
+
+        elif "heatpump air" in self._heat_generation:
+
+            n_14 = 0
+            n_10 = 0
+            n_7 = 0
+
+            sizes = [14, 10, 7]
+            count = {}
+
+            for size in sizes:
+                devices_count = self._heat_load // size
+                if devices_count > 0:
+                    if size == 7:
+                        n_7 += int(devices_count)
+                    else:
+                        count[size] = int(devices_count)
+
+            if count:
+                n_14 = count.get(14, 0)
+                n_10 = count.get(10, 0)
+
+            if self._heat_load < 7 or not count:
+                n_7 = 1
+
+            if n_14:
+                self._get_lca_data("5b00afcd-8b26-4945-857f-e280946e823f", "kWh", fe_demand)
+
+            if n_10:
+                self._get_lca_data("05a620f5-e5ba-4593-a55c-690e2a47c8db", "kWh", fe_demand)
+
+            if n_7:
+                self._get_lca_data("4607b899-9c83-4764-a621-8e79c94887ec", "kWh", fe_demand)
+
+        elif "heatpump ground" in self._heat_generation:
+            self._get_lca_data("3fd6d7dc-6618-42f4-b6be-f5b6f9a38763", "kWh", fe_demand)
+
+        else:  # district
+
+            if self._heat_load < 120:
+                self._get_lca_data("3c3a8f6b-ec6f-4358-8e7d-f42f05f59c10", "kWh", fe_demand)
+
+            else:
+                self._get_lca_data("9b123a02-9967-4a5c-8630-eb78aa4f6c45", "kWh", fe_demand)
+
+    def _lca_data_fe_ohneHHE(self):  # todo löschen
+        """Helper function for calculation of the LCA data for final energy demand.
+        """
+
+        fedheating = FEDemandHeating(parent=self)
+        fedwater = FEDemandWater(parent=self)
+
+        fe_demand = fedheating.calc_final_energy_demand_heating_ohneHHE() + fedwater.calc_final_energy_demand_water()
+
+        if self._heat_system == "gas":
+
+            if "low temperature" in self._heat_generation:
+                self._get_lca_data("e58a3c28-4818-43e3-9e72-f08267926613", "kWh", fe_demand)
+
+            else:
+                self._get_lca_data("6167bec3-0bc2-425a-9c87-479fa310f8f2", "kWh", fe_demand)
+
+        elif self._heat_system == "oil":
+            self._get_lca_data("63854c13-11d1-4f97-ad97-052ecd3e6e3d", "kWh", fe_demand)
+
+        elif self._heat_system == "biomass":
+            self._get_lca_data("fb11f8ce-d3c7-4823-ba13-0c1f4a304799", "kWh", fe_demand)
+
+        elif self._heat_generation == "night storage":
+            self._get_lca_data("149d05eb-7e8c-4755-9efa-347510b3ae4e", "kWh", fe_demand)
+
+        elif "heatpump air" in self._heat_generation:
+
+            n_14 = 0
+            n_10 = 0
+            n_7 = 0
+
+            sizes = [14, 10, 7]
+            count = {}
+
+            for size in sizes:
+                devices_count = self._heat_load // size
+                if devices_count > 0:
+                    if size == 7:
+                        n_7 += int(devices_count)
+                    else:
+                        count[size] = int(devices_count)
+
+            if count:
+                n_14 = count.get(14, 0)
+                n_10 = count.get(10, 0)
+
+            if self._heat_load < 7 or not count:
+                n_7 = 1
+
+            if n_14:
+                self._get_lca_data("5b00afcd-8b26-4945-857f-e280946e823f", "kWh", fe_demand)
+
+            if n_10:
+                self._get_lca_data("05a620f5-e5ba-4593-a55c-690e2a47c8db", "kWh", fe_demand)
+
+            if n_7:
+                self._get_lca_data("4607b899-9c83-4764-a621-8e79c94887ec", "kWh", fe_demand)
+
+        elif "heatpump ground" in self._heat_generation:
+            self._get_lca_data("3fd6d7dc-6618-42f4-b6be-f5b6f9a38763", "kWh", fe_demand)
+
+        else:  # district
+
+            if self._heat_load < 120:
+                self._get_lca_data("3c3a8f6b-ec6f-4358-8e7d-f42f05f59c10", "kWh", fe_demand)
+
+            else:
+                self._get_lca_data("9b123a02-9967-4a5c-8630-eb78aa4f6c45", "kWh", fe_demand)
+
+    def _lca_data_fe_ohneTWHE(self):  # todo löschen
+        """Helper function for calculation of the LCA data for final energy demand.
+        """
+
+        fedheating = FEDemandHeating(parent=self)
+        fedwater = FEDemandWater(parent=self)
+
+        fe_demand = fedheating.calc_final_energy_demand_heating() + fedwater.calc_final_energy_demand_water_ohneTWHE()
+
+        if self._heat_system == "gas":
+
+            if "low temperature" in self._heat_generation:
+                self._get_lca_data("e58a3c28-4818-43e3-9e72-f08267926613", "kWh", fe_demand)
+
+            else:
+                self._get_lca_data("6167bec3-0bc2-425a-9c87-479fa310f8f2", "kWh", fe_demand)
+
+        elif self._heat_system == "oil":
+            self._get_lca_data("63854c13-11d1-4f97-ad97-052ecd3e6e3d", "kWh", fe_demand)
+
+        elif self._heat_system == "biomass":
+            self._get_lca_data("fb11f8ce-d3c7-4823-ba13-0c1f4a304799", "kWh", fe_demand)
+
+        elif self._heat_generation == "night storage":
+            self._get_lca_data("149d05eb-7e8c-4755-9efa-347510b3ae4e", "kWh", fe_demand)
+
+        elif "heatpump air" in self._heat_generation:
+
+            n_14 = 0
+            n_10 = 0
+            n_7 = 0
+
+            sizes = [14, 10, 7]
+            count = {}
+
+            for size in sizes:
+                devices_count = self._heat_load // size
+                if devices_count > 0:
+                    if size == 7:
+                        n_7 += int(devices_count)
+                    else:
+                        count[size] = int(devices_count)
+
+            if count:
+                n_14 = count.get(14, 0)
+                n_10 = count.get(10, 0)
+
+            if self._heat_load < 7 or not count:
+                n_7 = 1
+
+            if n_14:
+                self._get_lca_data("5b00afcd-8b26-4945-857f-e280946e823f", "kWh", fe_demand)
+
+            if n_10:
+                self._get_lca_data("05a620f5-e5ba-4593-a55c-690e2a47c8db", "kWh", fe_demand)
+
+            if n_7:
+                self._get_lca_data("4607b899-9c83-4764-a621-8e79c94887ec", "kWh", fe_demand)
+
+        elif "heatpump ground" in self._heat_generation:
+            self._get_lca_data("3fd6d7dc-6618-42f4-b6be-f5b6f9a38763", "kWh", fe_demand)
+
+        else:  # district
+
+            if self._heat_load < 120:
+                self._get_lca_data("3c3a8f6b-ec6f-4358-8e7d-f42f05f59c10", "kWh", fe_demand)
+
+            else:
+                self._get_lca_data("9b123a02-9967-4a5c-8630-eb78aa4f6c45", "kWh", fe_demand)
+
+    def _lca_data_fe_no_ce(self):  # todo löschen
+        """Helper function for calculation of the LCA data for final energy demand.
+        """
+
+        fedheating = FEDemandHeating(parent=self)
+        fedwater = FEDemandWater(parent=self)
+
+        fe_demand = fedheating.calc_final_energy_demand_heating_no_ce() + fedwater.calc_final_energy_demand_water()
+
+        if self._heat_system == "gas":
+
+            if "low temperature" in self._heat_generation:
+                self._get_lca_data("e58a3c28-4818-43e3-9e72-f08267926613", "kWh", fe_demand)
+
+            else:
+                self._get_lca_data("6167bec3-0bc2-425a-9c87-479fa310f8f2", "kWh", fe_demand)
+
+        elif self._heat_system == "oil":
+            self._get_lca_data("63854c13-11d1-4f97-ad97-052ecd3e6e3d", "kWh", fe_demand)
+
+        elif self._heat_system == "biomass":
+            self._get_lca_data("fb11f8ce-d3c7-4823-ba13-0c1f4a304799", "kWh", fe_demand)
+
+        elif self._heat_generation == "night storage":
+            self._get_lca_data("149d05eb-7e8c-4755-9efa-347510b3ae4e", "kWh", fe_demand)
+
+        elif "heatpump air" in self._heat_generation:
+
+            n_14 = 0
+            n_10 = 0
+            n_7 = 0
+
+            sizes = [14, 10, 7]
+            count = {}
+
+            for size in sizes:
+                devices_count = self._heat_load // size
+                if devices_count > 0:
+                    if size == 7:
+                        n_7 += int(devices_count)
+                    else:
+                        count[size] = int(devices_count)
+
+            if count:
+                n_14 = count.get(14, 0)
+                n_10 = count.get(10, 0)
+
+            if self._heat_load < 7 or not count:
+                n_7 = 1
+
+            if n_14:
+                self._get_lca_data("5b00afcd-8b26-4945-857f-e280946e823f", "kWh", fe_demand)
+
+            if n_10:
+                self._get_lca_data("05a620f5-e5ba-4593-a55c-690e2a47c8db", "kWh", fe_demand)
+
+            if n_7:
+                self._get_lca_data("4607b899-9c83-4764-a621-8e79c94887ec", "kWh", fe_demand)
+
+        elif "heatpump ground" in self._heat_generation:
+            self._get_lca_data("3fd6d7dc-6618-42f4-b6be-f5b6f9a38763", "kWh", fe_demand)
+
+        else:  # district
+
+            if self._heat_load < 120:
+                self._get_lca_data("3c3a8f6b-ec6f-4358-8e7d-f42f05f59c10", "kWh", fe_demand)
+
+            else:
+                self._get_lca_data("9b123a02-9967-4a5c-8630-eb78aa4f6c45", "kWh", fe_demand)
+
+    def _lca_data_fe_no_d(self):  # todo löschen
+        """Helper function for calculation of the LCA data for final energy demand.
+        """
+
+        fedheating = FEDemandHeating(parent=self)
+        fedwater = FEDemandWater(parent=self)
+
+        fe_demand = fedheating.calc_final_energy_demand_heating_no_d() + fedwater.calc_final_energy_demand_water_no_d()
+
+        if self._heat_system == "gas":
+
+            if "low temperature" in self._heat_generation:
+                self._get_lca_data("e58a3c28-4818-43e3-9e72-f08267926613", "kWh", fe_demand)
+
+            else:
+                self._get_lca_data("6167bec3-0bc2-425a-9c87-479fa310f8f2", "kWh", fe_demand)
+
+        elif self._heat_system == "oil":
+            self._get_lca_data("63854c13-11d1-4f97-ad97-052ecd3e6e3d", "kWh", fe_demand)
+
+        elif self._heat_system == "biomass":
+            self._get_lca_data("fb11f8ce-d3c7-4823-ba13-0c1f4a304799", "kWh", fe_demand)
+
+        elif self._heat_generation == "night storage":
+            self._get_lca_data("149d05eb-7e8c-4755-9efa-347510b3ae4e", "kWh", fe_demand)
+
+        elif "heatpump air" in self._heat_generation:
+
+            n_14 = 0
+            n_10 = 0
+            n_7 = 0
+
+            sizes = [14, 10, 7]
+            count = {}
+
+            for size in sizes:
+                devices_count = self._heat_load // size
+                if devices_count > 0:
+                    if size == 7:
+                        n_7 += int(devices_count)
+                    else:
+                        count[size] = int(devices_count)
+
+            if count:
+                n_14 = count.get(14, 0)
+                n_10 = count.get(10, 0)
+
+            if self._heat_load < 7 or not count:
+                n_7 = 1
+
+            if n_14:
+                self._get_lca_data("5b00afcd-8b26-4945-857f-e280946e823f", "kWh", fe_demand)
+
+            if n_10:
+                self._get_lca_data("05a620f5-e5ba-4593-a55c-690e2a47c8db", "kWh", fe_demand)
+
+            if n_7:
+                self._get_lca_data("4607b899-9c83-4764-a621-8e79c94887ec", "kWh", fe_demand)
+
+        elif "heatpump ground" in self._heat_generation:
+            self._get_lca_data("3fd6d7dc-6618-42f4-b6be-f5b6f9a38763", "kWh", fe_demand)
+
+        else:  # district
+
+            if self._heat_load < 120:
+                self._get_lca_data("3c3a8f6b-ec6f-4358-8e7d-f42f05f59c10", "kWh", fe_demand)
+
+            else:
+                self._get_lca_data("9b123a02-9967-4a5c-8630-eb78aa4f6c45", "kWh", fe_demand)
+
+    def _lca_data_fe_no_s(self):  # todo löschen
+        """Helper function for calculation of the LCA data for final energy demand.
+        """
+
+        fedheating = FEDemandHeating(parent=self)
+        fedwater = FEDemandWater(parent=self)
+
+        fe_demand = fedheating.calc_final_energy_demand_heating_no_s() + fedwater.calc_final_energy_demand_water_no_s()
+
+        if self._heat_system == "gas":
+
+            if "low temperature" in self._heat_generation:
+                self._get_lca_data("e58a3c28-4818-43e3-9e72-f08267926613", "kWh", fe_demand)
+
+            else:
+                self._get_lca_data("6167bec3-0bc2-425a-9c87-479fa310f8f2", "kWh", fe_demand)
+
+        elif self._heat_system == "oil":
+            self._get_lca_data("63854c13-11d1-4f97-ad97-052ecd3e6e3d", "kWh", fe_demand)
+
+        elif self._heat_system == "biomass":
+            self._get_lca_data("fb11f8ce-d3c7-4823-ba13-0c1f4a304799", "kWh", fe_demand)
+
+        elif self._heat_generation == "night storage":
+            self._get_lca_data("149d05eb-7e8c-4755-9efa-347510b3ae4e", "kWh", fe_demand)
+
+        elif "heatpump air" in self._heat_generation:
+
+            n_14 = 0
+            n_10 = 0
+            n_7 = 0
+
+            sizes = [14, 10, 7]
+            count = {}
+
+            for size in sizes:
+                devices_count = self._heat_load // size
+                if devices_count > 0:
+                    if size == 7:
+                        n_7 += int(devices_count)
+                    else:
+                        count[size] = int(devices_count)
+
+            if count:
+                n_14 = count.get(14, 0)
+                n_10 = count.get(10, 0)
+
+            if self._heat_load < 7 or not count:
+                n_7 = 1
+
+            if n_14:
+                self._get_lca_data("5b00afcd-8b26-4945-857f-e280946e823f", "kWh", fe_demand)
+
+            if n_10:
+                self._get_lca_data("05a620f5-e5ba-4593-a55c-690e2a47c8db", "kWh", fe_demand)
+
+            if n_7:
+                self._get_lca_data("4607b899-9c83-4764-a621-8e79c94887ec", "kWh", fe_demand)
+
+        elif "heatpump ground" in self._heat_generation:
+            self._get_lca_data("3fd6d7dc-6618-42f4-b6be-f5b6f9a38763", "kWh", fe_demand)
+
+        else:  # district
+
+            if self._heat_load < 120:
+                self._get_lca_data("3c3a8f6b-ec6f-4358-8e7d-f42f05f59c10", "kWh", fe_demand)
+
+            else:
+                self._get_lca_data("9b123a02-9967-4a5c-8630-eb78aa4f6c45", "kWh", fe_demand)
+
+    def _lca_data_fe_no_tw_for_h(self):  # todo löschen
+        """Helper function for calculation of the LCA data for final energy demand.
+        """
+
+        fedheating = FEDemandHeating(parent=self)
+        fedwater = FEDemandWater(parent=self)
+
+        fe_demand = fedheating.calc_final_energy_demand_heating_no_tw_for_h() + fedwater.calc_final_energy_demand_water()
+
+        if self._heat_system == "gas":
+
+            if "low temperature" in self._heat_generation:
+                self._get_lca_data("e58a3c28-4818-43e3-9e72-f08267926613", "kWh", fe_demand)
+
+            else:
+                self._get_lca_data("6167bec3-0bc2-425a-9c87-479fa310f8f2", "kWh", fe_demand)
+
+        elif self._heat_system == "oil":
+            self._get_lca_data("63854c13-11d1-4f97-ad97-052ecd3e6e3d", "kWh", fe_demand)
+
+        elif self._heat_system == "biomass":
+            self._get_lca_data("fb11f8ce-d3c7-4823-ba13-0c1f4a304799", "kWh", fe_demand)
+
+        elif self._heat_generation == "night storage":
+            self._get_lca_data("149d05eb-7e8c-4755-9efa-347510b3ae4e", "kWh", fe_demand)
+
+        elif "heatpump air" in self._heat_generation:
+
+            n_14 = 0
+            n_10 = 0
+            n_7 = 0
+
+            sizes = [14, 10, 7]
+            count = {}
+
+            for size in sizes:
+                devices_count = self._heat_load // size
+                if devices_count > 0:
+                    if size == 7:
+                        n_7 += int(devices_count)
+                    else:
+                        count[size] = int(devices_count)
+
+            if count:
+                n_14 = count.get(14, 0)
+                n_10 = count.get(10, 0)
+
+            if self._heat_load < 7 or not count:
+                n_7 = 1
+
+            if n_14:
+                self._get_lca_data("5b00afcd-8b26-4945-857f-e280946e823f", "kWh", fe_demand)
+
+            if n_10:
+                self._get_lca_data("05a620f5-e5ba-4593-a55c-690e2a47c8db", "kWh", fe_demand)
+
+            if n_7:
+                self._get_lca_data("4607b899-9c83-4764-a621-8e79c94887ec", "kWh", fe_demand)
+
+        elif "heatpump ground" in self._heat_generation:
+            self._get_lca_data("3fd6d7dc-6618-42f4-b6be-f5b6f9a38763", "kWh", fe_demand)
+
+        else:  # district
+
+            if self._heat_load < 120:
+                self._get_lca_data("3c3a8f6b-ec6f-4358-8e7d-f42f05f59c10", "kWh", fe_demand)
+
+            else:
+                self._get_lca_data("9b123a02-9967-4a5c-8630-eb78aa4f6c45", "kWh", fe_demand)
+
+    def _lca_data_fe_no_h_or_tw(self):  # todo löschen
+        """Helper function for calculation of the LCA data for final energy demand.
+        """
+
+        fedheating = FEDemandHeating(parent=self)
+        fedwater = FEDemandWater(parent=self)
+
+        fe_demand = fedheating.calc_final_energy_demand_heating_no_h_or_tw() + fedwater.calc_final_energy_demand_water_no_tw()
 
         if self._heat_system == "gas":
 

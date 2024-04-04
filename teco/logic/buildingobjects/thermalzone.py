@@ -94,4 +94,3 @@ class ThermalZone(ThermalZone):
                 print("Error while adding {}".format(type(building_element).__name__))
             
         self.lca_data = lca_data
-        print(lca_data)

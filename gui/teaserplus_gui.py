@@ -47,7 +47,7 @@ SIZEFACTOR = 0
 SIZER = False
 
 teaser_path = os.path.join("C:/Users/schmitz/PycharmProjects/teco/teaser/teaser") #############Todo: CHANGE THIS TO YOUR TEASER PATH
-output_path = os.path.join("C:/Users/schmitz/TecoOutput") #############Todo: CHANGE THIS TO YOUR OUTPUT PATH
+output_path = os.path.join("C:/Users/schmitz/TeaserOutput") #############Todo: CHANGE THIS TO YOUR OUTPUT PATH
 
 #TODO Find inconsistency of "sum" and "sumwithd" in output GUI window (values are equal, but sumwithd should be lower)
 # Separate phases A1, A2, A3 do not accurately reflect the data since most (but not all!) EPDs only have A1_A3 available.
@@ -1659,23 +1659,63 @@ class SetupSimulation(QtWidgets.QWidget):
             lca_data_elec.name = self.comB_epd_electrical.currentText()
             self.load_en15804_lca_data_gui("electricity", lca_data_elec)
 
-            heat_energy_list = heat_energy_all.split("\n")
+            """heat_energy_list = heat_energy_all.split("\n")
             lca_data_heat_list = []
             for heat_energy in heat_energy_list:
                 lca_data_heat = En15804LcaData()
                 lca_data_heat.name = heat_energy
                 lca_data_heat_list.append(lca_data_heat)
-                self.load_en15804_lca_data_gui("heating", lca_data_heat)
+                self.load_en15804_lca_data_gui("heating", lca_data_heat)"""
+
+            resultsthesis = En15804LcaData()
 
             for building in prj_lca.buildings:
                 building.calc_lca_data(False, int(self.lbl_temporalBoundary.text()))
                 building.add_lca_data_elec(lca_data_elec)
-                for i,lca_data_heat in enumerate(lca_data_heat_list):
+                #building.add_lca_data_heat_supply_system(False, int(self.lbl_temporalBoundary.text()))
+                resultsthesis += building.lca_data
+                """for i,lca_data_heat in enumerate(lca_data_heat_list):
                     pef = self.__getattribute__(f"txtB_carrier{i+1}PEF").text()
                     if pef != "":
                         building.add_lca_data_heat_supply_system(lca_data_heat) # is this correct?
                     else:
-                        building.add_lca_data_heat_supply_system(lca_data_heat)
+                        building.add_lca_data_heat_supply_system(lca_data_heat)"""
+
+            print("GWP_Project")
+            print("A1_A3: {} {}".format(resultsthesis.gwp.a1_a3, resultsthesis.gwp.unit))
+            print("A4: {} {}".format(resultsthesis.gwp.a4, resultsthesis.gwp.unit))
+            print("A5: {} {}".format(resultsthesis.gwp.a5, resultsthesis.gwp.unit))
+            print("B1: {} {}".format(resultsthesis.gwp.b1, resultsthesis.gwp.unit))
+            print("B6: {} {}".format(resultsthesis.gwp.b6, resultsthesis.gwp.unit))
+            print("C1: {} {}".format(resultsthesis.gwp.c1, resultsthesis.gwp.unit))
+            print("C2: {} {}".format(resultsthesis.gwp.c2, resultsthesis.gwp.unit))
+            print("C3: {} {}".format(resultsthesis.gwp.c3, resultsthesis.gwp.unit))
+            print("C4: {} {}".format(resultsthesis.gwp.c4, resultsthesis.gwp.unit))
+            print("D: {} {}".format(resultsthesis.gwp.d, resultsthesis.gwp.unit))
+
+            print("PERT_Project")
+            print("A1_A3: {} {}".format(resultsthesis.pert.a1_a3, resultsthesis.pert.unit))
+            print("A4: {} {}".format(resultsthesis.pert.a4, resultsthesis.pert.unit))
+            print("A5: {} {}".format(resultsthesis.pert.a5, resultsthesis.pert.unit))
+            print("B1: {} {}".format(resultsthesis.pert.b1, resultsthesis.pert.unit))
+            print("B6: {} {}".format(resultsthesis.pert.b6, resultsthesis.pert.unit))
+            print("C1: {} {}".format(resultsthesis.pert.c1, resultsthesis.pert.unit))
+            print("C2: {} {}".format(resultsthesis.pert.c2, resultsthesis.pert.unit))
+            print("C3: {} {}".format(resultsthesis.pert.c3, resultsthesis.pert.unit))
+            print("C4: {} {}".format(resultsthesis.pert.c4, resultsthesis.pert.unit))
+            print("D: {} {}".format(resultsthesis.pert.d, resultsthesis.pert.unit))
+
+            print("PENRT_Project")
+            print("A1_A3: {} {}".format(resultsthesis.penrt.a1_a3, resultsthesis.penrt.unit))
+            print("A4: {} {}".format(resultsthesis.penrt.a4, resultsthesis.penrt.unit))
+            print("A5: {} {}".format(resultsthesis.penrt.a5, resultsthesis.penrt.unit))
+            print("B1: {} {}".format(resultsthesis.penrt.b1, resultsthesis.penrt.unit))
+            print("B6: {} {}".format(resultsthesis.penrt.b6, resultsthesis.penrt.unit))
+            print("C1: {} {}".format(resultsthesis.penrt.c1, resultsthesis.penrt.unit))
+            print("C2: {} {}".format(resultsthesis.penrt.c2, resultsthesis.penrt.unit))
+            print("C3: {} {}".format(resultsthesis.penrt.c3, resultsthesis.penrt.unit))
+            print("C4: {} {}".format(resultsthesis.penrt.c4, resultsthesis.penrt.unit))
+            print("D: {} {}".format(resultsthesis.penrt.d, resultsthesis.penrt.unit))
 
 
             global POSX, POSY
@@ -1687,6 +1727,8 @@ class SetupSimulation(QtWidgets.QWidget):
         else:
             gf.messageBox(self, "Error", "Please select all necessary data before continuing")
             return
+
+
 
     def func_return(self) -> None:
         self.hide()
