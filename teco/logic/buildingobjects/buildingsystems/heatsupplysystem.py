@@ -5,10 +5,10 @@
 """
 import math
 
-from teaser.teaser.logic.buildingobjects.buildingsystems.heatsupplysystem import HeatSupplySystem
+from teaser.logic.buildingobjects.buildingsystems.heatsupplysystem import HeatSupplySystem
 from teco.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
-from teaser.teaser.logic.buildingobjects.buildingsystems.fedemandwater import FEDemandWater
-from teaser.teaser.logic.buildingobjects.buildingsystems.fedemandheating import FEDemandHeating
+from teaser.logic.buildingobjects.buildingsystems.fedemandwater import FEDemandWater
+from teaser.logic.buildingobjects.buildingsystems.fedemandheating import FEDemandHeating
 
 
 class HeatSupplySystem(HeatSupplySystem):
