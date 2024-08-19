@@ -2,7 +2,7 @@
 
 from __future__ import division
 from teco.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
-from teaser.teaser.logic.buildingobjects.buildingphysics.buildingelement import BuildingElement
+from teaser.logic.buildingobjects.buildingphysics.buildingelement import BuildingElement
 import teco.data.input.buildingelement_input_json as buildingelement_input
 
 

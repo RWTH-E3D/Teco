@@ -39,8 +39,8 @@ if __name__ == '__main__':
     
     
     #Simulation is started. Please exchange the file paths ;)
-    sim.simulate(path="C:\\Users\\schmitz\\TEASEROutput", prj=prj, loading_time=3600,
-                 result_path="C:\\Users\\schmitz\\TEASEROutput\\test")
+    sim.simulate(path="C:\\Users\\user\\TEASEROutput", prj=prj, loading_time=3600,
+                 result_path="C:\\Users\\user\\TEASEROutput\\test")
 
     
     #Up to here, except for the "use_b4 parameter", all lines of code are TEASER+ 

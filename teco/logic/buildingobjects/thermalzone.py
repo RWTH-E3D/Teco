@@ -4,7 +4,7 @@
 """This module includes the ThermalZone class
 """
 from __future__ import division
-from teaser.teaser.logic.buildingobjects.thermalzone import ThermalZone
+from teaser.logic.buildingobjects.thermalzone import ThermalZone
 from teco.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
 
 
@@ -76,7 +76,7 @@ class ThermalZone(ThermalZone):
                 use_b4 = self.parent.parent.parent.use_b4
             except:
                 use_b4 = False
-        
+#Again this should be better?
         if period_lca_scenario is None:
             try:
                 period_lca_scenario = self.parent.parent.parent.period_lca_scenario

@@ -5,7 +5,8 @@
 """
 
 import uuid
-from teaser.teaser.logic.buildingobjects.building import Building
+import math
+from teaser.logic.buildingobjects.building import Building
 from teco.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
 from teco.logic.buildingobjects.buildingsystems.heatsupplysystem import HeatSupplySystem
 
@@ -78,7 +79,7 @@ class Building(Building):
     @simulated_heat_load.setter
     def simulated_heat_load(self, value):
         self._simulated_heat_load = value
-
+#b4 should be calculated separately; is it not included in the remaining phases if use_b4 = True?
     def calc_lca_data(self, use_b4 = None, period_lca_scenario = None):
         """calculates the environmental indicators of the building. Without
         environmental indicators from heating and electric demand
@@ -99,7 +100,7 @@ class Building(Building):
                 use_b4 = self.parent.parent.parent.use_b4
             except:
                 use_b4 = False
-        
+ #This should be better?
         if period_lca_scenario is None:
             try:
                 period_lca_scenario = self.parent.parent.parent.period_lca_scenario
@@ -118,7 +119,7 @@ class Building(Building):
             if self.additional_lca_data.ref_flow_unit == "pcs":
                 scalar = self.additional_lca_data.ref_flow_value
                 lca_data = lca_data + self.additional_lca_data * scalar
-
+#Why?
         if self.lca_data is not None:
             self.lca_data = self.lca_data + lca_data
         else:
@@ -166,7 +167,7 @@ class Building(Building):
         
         lca_data = lca_data * self._estimate_elec_demand
         # todo period lca scenario needed?
-
+#Huh?
         if self.lca_data is not None:
             self.lca_data = self.lca_data + lca_data
         else:
@@ -181,7 +182,7 @@ class Building(Building):
             annual heating energy.
 
         """
-
+#Why the new variable sum_heat_load?
         if self.simulated_heat_load is not None:
 
             sum_heat_load = 0

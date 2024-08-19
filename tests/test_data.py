@@ -4,15 +4,14 @@ Created July 2015
 @author: TEASER 4 Development Team
 """
 
-from teaser.teaser.logic import utilities
-from teaser.teaser.project import Project
+from teaser.logic import utilities
+from teaser.project import Project
 import math
 import os
 import helptest
 import warnings as warnings
 
 prj = Project(True)
-
 
 
 class Test_teaser(object):
@@ -22,7 +21,7 @@ class Test_teaser(object):
 
     def test_calc_vdi_room1(self):
         """Parameter Verification for rouvel room1"""
-        import teaser.teaser.examples.verification.verification_VDI_6007_room1 as room1
+        import teaser.examples.verification.verification_VDI_6007_room1 as room1
 
         room1_prj = room1.parameter_room1()
         zone_attr = room1_prj.buildings[0].thermal_zones[0].model_attr
@@ -48,7 +47,7 @@ class Test_teaser(object):
 
     def test_calc_vdi_room3(self):
         """Parameter Verification for room 3"""
-        import teaser.teaser.examples.verification.verification_VDI_6007_room3 as room3
+        import teaser.examples.verification.verification_VDI_6007_room3 as room3
 
         room3_prj = room3.parameter_room3()
         zone_attr = room3_prj.buildings[0].thermal_zones[0].model_attr
@@ -74,7 +73,7 @@ class Test_teaser(object):
 
     def test_calc_vdi_room8(self):
         """Parameter Verification for room 8"""
-        import teaser.teaser.examples.verification.verification_VDI_6007_room8 as room8
+        import teaser.examples.verification.verification_VDI_6007_room8 as room8
 
         room8_prj = room8.parameter_room8()
         zone_attr = room8_prj.buildings[0].thermal_zones[0].model_attr
@@ -140,7 +139,7 @@ class Test_teaser(object):
         Verification of the type building generation of an office building.
         Values are compared with TEASER3 values.
         """
-        from teaser.teaser.logic.archetypebuildings.bmvbs.office import Office
+        from teaser.logic.archetypebuildings.bmvbs.office import Office
 
         prj.set_default()
         test_office = Office(
@@ -276,7 +275,7 @@ class Test_teaser(object):
         Verification of the type building generation of an office building.
         Values are compared with TEASER3 values.
         """
-        from teaser.teaser.logic.archetypebuildings.bmvbs.custom.institute4 import Institute4
+        from teaser.logic.archetypebuildings.bmvbs.custom.institute4 import Institute4
 
         prj.set_default()
         test_institute4 = Institute4(

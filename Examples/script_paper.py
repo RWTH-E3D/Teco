@@ -5,6 +5,8 @@ Created on Mon Dec  6 15:30:02 2021
 @author: Linus Cuypers (cuypers@e3d.rwth-aachen.de)
 """
 
+
+
 from teco.project import Project
 from teco.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
 import csv
@@ -12,6 +14,7 @@ import csv
 import simulate as sim
 
 from datetime import datetime
+
 
 now = datetime.now()
 
@@ -25,7 +28,6 @@ def export_building_gwp_csv(project, path="building_gwp_export.csv"):
     type2 = En15804LcaData()
     type3 = En15804LcaData()
     type4 = En15804LcaData()
-    general_project = En15804LcaData()
 
     for building_ in project.buildings:
         if building_.name.endswith("_I"):
@@ -38,10 +40,8 @@ def export_building_gwp_csv(project, path="building_gwp_export.csv"):
             type4 = type4 + building_.lca_data
         else:
             print(building_.name)
-        general_project += building_.lca_data
 
-    head_row = ["building type", "a1", "a2", "a3", "a1_a3", "a4", "a5", "b1", "b2", "b3", "b4", "b5", "b6", "b7", "c1",
-                "c2", "c3", "c4", "d", "sum", "sum with d"]
+    head_row = ["building type", "a1", "a2", "a3", "a1_a3", "a4", "a5", "b1", "b2", "b3", "b4", "b5", "b6", "b7", "c1", "c2", "c3", "c4", "d", "sum", "sum with d"]
 
     type1_list = ["type1"]
     type1_list.extend(gwp_to_list(type1))
@@ -55,23 +55,112 @@ def export_building_gwp_csv(project, path="building_gwp_export.csv"):
     type4_list = ["type4"]
     type4_list.extend(gwp_to_list(type4))
 
-    general_project_gwp = ["general_project_gwp"]
-    general_project_gwp.extend(gwp_to_list(general_project))
-    general_project_odp = ["general_project_odp"]
-    general_project_odp.extend(odp_to_list(general_project))
-    general_project_ap = ["general_project_ap"]
-    general_project_ap.extend(ap_to_list(general_project))
-    general_project_pert = ["general_project_pert"]
-    general_project_pert.extend(pert_to_list(general_project))
-    general_project_penrt = ["general_project_penrt"]
-    general_project_penrt.extend(penrt_to_list(general_project))
+    export_list = [head_row, type1_list, type2_list, type3_list, type4_list]
 
-    export_list = [head_row, type1_list, type2_list, type3_list, type4_list, general_project_gwp,
-                   general_project_odp, general_project_ap, general_project_pert, general_project_penrt]
-
-    with open(path, "w", newline="") as csvfile:
-        writer = csv.writer(csvfile, dialect="excel")
+    with open(path, "w", newline = "") as csvfile:
+        writer = csv.writer(csvfile, dialect = "excel")
         writer.writerows(export_list)
+
+
+def export_be_gwp_csv(project, path="buildingelement_gwp_export.csv"):
+    outer_walls = En15804LcaData()
+    doors = En15804LcaData()
+    rooftops = En15804LcaData()
+    ground_floors = En15804LcaData()
+    windows = En15804LcaData()
+    inner_walls = En15804LcaData()
+    floors = En15804LcaData()
+    ceilings = En15804LcaData()
+
+    ow_area = 0
+    do_area = 0
+    rt_area = 0
+    gf_area = 0
+    wn_area = 0
+    iw_area = 0
+    fl_area = 0
+    cl_area = 0
+
+    for building in project.buildings:
+       for zone in building.thermal_zones:
+
+
+           for outer_wall in zone.outer_walls:
+               if outer_wall:
+                   outer_walls = outer_walls + outer_wall.lca_data
+                   ow_area += outer_wall.area
+           for door in zone.doors:
+               if door:
+                   doors = doors + door.lca_data
+                   do_area += door.area
+           for rooftop in zone.rooftops:
+               if rooftop:
+                   rooftops = rooftops + rooftop.lca_data
+                   rt_area += rooftop.area
+           for ground_floor in zone.ground_floors:
+               if ground_floor:
+                   ground_floors = ground_floors + ground_floor.lca_data
+                   gf_area += ground_floor.area
+           for window in zone.windows:
+               if window:
+                   windows = windows + window.lca_data
+                   wn_area += window.area
+           for inner_wall in zone.inner_walls:
+               if inner_wall:
+                   inner_walls = inner_walls + inner_wall.lca_data
+                   iw_area += inner_wall.area
+           for floor in zone.floors:
+               if floor:
+                   floors = floors + floor.lca_data
+                   fl_area += floor.area
+           for ceiling in zone.ceilings:
+               if ceiling:
+                   ceilings = ceilings + ceiling.lca_data
+                   cl_area += ceiling.area
+
+
+    head_row = ["buildingelement", "a1", "a2", "a3", "a1_a3", "a4", "a5", "b1", "b2", "b3", "b4", "b5", "b6", "b7", "c1", "c2", "c3", "c4", "d", "sum", "sum with d", "area"]
+
+    outer_walls_list = ["outer_walls"]
+    outer_walls_list.extend(gwp_to_list(outer_walls))
+    outer_walls_list.append(ow_area)
+
+    doors_list = ["doors"]
+#    doors_list.extend(gwp_to_list(doors))
+    doors_list.append(do_area)
+
+    rooftops_list = ["rooftops"]
+    rooftops_list.extend(gwp_to_list(rooftops))
+    rooftops_list.append(rt_area)
+
+    ground_floors_list = ["ground_floors"]
+    ground_floors_list.extend(gwp_to_list(ground_floors))
+    ground_floors_list.append(gf_area)
+
+    windows_list = ["windows"]
+    windows_list.extend(gwp_to_list(windows))
+    windows_list.append(wn_area)
+
+    inner_walls_list = ["inner_walls"]
+    inner_walls_list.extend(gwp_to_list(inner_walls))
+    inner_walls_list.append(iw_area)
+
+    floors_list = ["floors"]
+    floors_list.extend(gwp_to_list(floors))
+    floors_list.append(fl_area)
+
+    ceilings_list = ["ceilings"]
+    ceilings_list.extend(gwp_to_list(ceilings))
+    ceilings_list.append(cl_area)
+
+
+    export_list = [head_row, outer_walls_list, doors_list, rooftops_list, ground_floors_list, windows_list, inner_walls_list, floors_list, ceilings_list]
+
+    with open(path, "w", newline = "") as csvfile:
+        writer = csv.writer(csvfile, dialect = "excel")
+        writer.writerows(export_list)
+
+
 
 
 def gwp_to_list(lca_data):
@@ -98,146 +187,65 @@ def gwp_to_list(lca_data):
             ]
 
 
-def odp_to_list(lca_data):
-    return [lca_data.odp.a1,
-            lca_data.odp.a2,
-            lca_data.odp.a3,
-            lca_data.odp.a1_a3,
-            lca_data.odp.a4,
-            lca_data.odp.a5,
-            lca_data.odp.b1,
-            lca_data.odp.b2,
-            lca_data.odp.b3,
-            lca_data.odp.b4,
-            lca_data.odp.b5,
-            lca_data.odp.b6,
-            lca_data.odp.b7,
-            lca_data.odp.c1,
-            lca_data.odp.c2,
-            lca_data.odp.c3,
-            lca_data.odp.c4,
-            lca_data.odp.d,
-            lca_data.odp.sum_stages(False),
-            lca_data.odp.sum_stages(True)
-            ]
-
-
-def ap_to_list(lca_data):
-    return [lca_data.ap.a1,
-            lca_data.ap.a2,
-            lca_data.ap.a3,
-            lca_data.ap.a1_a3,
-            lca_data.ap.a4,
-            lca_data.ap.a5,
-            lca_data.ap.b1,
-            lca_data.ap.b2,
-            lca_data.ap.b3,
-            lca_data.ap.b4,
-            lca_data.ap.b5,
-            lca_data.ap.b6,
-            lca_data.ap.b7,
-            lca_data.ap.c1,
-            lca_data.ap.c2,
-            lca_data.ap.c3,
-            lca_data.ap.c4,
-            lca_data.ap.d,
-            lca_data.ap.sum_stages(False),
-            lca_data.ap.sum_stages(True)
-            ]
-
-
-def pert_to_list(lca_data):
-    return [lca_data.pert.a1,
-            lca_data.pert.a2,
-            lca_data.pert.a3,
-            lca_data.pert.a1_a3,
-            lca_data.pert.a4,
-            lca_data.pert.a5,
-            lca_data.pert.b1,
-            lca_data.pert.b2,
-            lca_data.pert.b3,
-            lca_data.pert.b4,
-            lca_data.pert.b5,
-            lca_data.pert.b6,
-            lca_data.pert.b7,
-            lca_data.pert.c1,
-            lca_data.pert.c2,
-            lca_data.pert.c3,
-            lca_data.pert.c4,
-            lca_data.pert.d,
-            lca_data.pert.sum_stages(False),
-            lca_data.pert.sum_stages(True)
-            ]
-
-
-def penrt_to_list(lca_data):
-    return [lca_data.penrt.a1,
-            lca_data.penrt.a2,
-            lca_data.penrt.a3,
-            lca_data.penrt.a1_a3,
-            lca_data.penrt.a4,
-            lca_data.penrt.a5,
-            lca_data.penrt.b1,
-            lca_data.penrt.b2,
-            lca_data.penrt.b3,
-            lca_data.penrt.b4,
-            lca_data.penrt.b5,
-            lca_data.penrt.b6,
-            lca_data.penrt.b7,
-            lca_data.penrt.c1,
-            lca_data.penrt.c2,
-            lca_data.penrt.c3,
-            lca_data.penrt.c4,
-            lca_data.penrt.d,
-            lca_data.penrt.sum_stages(False),
-            lca_data.penrt.sum_stages(True)
-            ]
-
-
 if __name__ == '__main__':
     prj = Project(load_data=True)
 
     prj.name = "Teaser+Eco_paper"
 
-    prj.weather_file_path = "C:\\Users\\schmitz\\PycharmProjects\\teco\\Examples\\TRY2015_535578100702_Jahr.mos"
-    # Bedburg = TRY2015_510139065530_Jahr.mos  ; Hamburg = TRY2015_535578100702_Jahr.mos
-
-    prj.load_citygml(path="C:\\Users\\schmitz\\PycharmProjects\\teco\\Examples\\Hamburg_no_buildingparts.gml", method="tabula_de")
-    """prj.add_residential(
+    #prj.load_citygml(path = "D:\\Sciebo\\SmartQuart_E3D\\Geometrie\\SmartQuart_LoD2 District Models\\Final\\Bedburg\\converted or combined\\Bedburg_LoD2.gml", method = "tabula_de")
+    prj.add_residential(
         method="tabula_de",
         usage="single_family_house",
-        name="Typ_VI",
+        name="Typ_I",
         year_of_construction=2015,
-        number_of_floors=3,
+        number_of_floors=2,
         height_of_floors=2.5,
-        net_leased_area=172.0,
-        type_heat_supply_system=3)"""
+        net_leased_area=167)
 
     prj.used_library_calc = "AixLib"
 
     prj.calc_all_buildings()
 
-    prj.export_aixlib(path="C:\\Users\\schmitz\\TEASEROutput")
+    prj.export_aixlib(path = "C:\\Users\\user\\TEASEROutput")
 
-    sim.simulate(path="C:\\Users\\schmitz\\TEASEROutput", prj=prj, loading_time=3600,
-                 result_path="C:\\Users\\schmitz\\TEASEROutput\\results")
+    sim.simulate(path = "C:\\Users\\user\\TEASEROutput", prj = prj, loading_time = 3600, result_path = "C:\\Users\\tayeb\\TEASEROutput\\results")
 
     lca_data_elec = En15804LcaData()
     lca_data_elec.load_lca_data_template("c869c47e-ce43-45b4-b640-b0cd1746e450", prj.data)
 
-
     utilities = En15804LcaData()
 
+
     for building in prj.buildings:
-        building.calc_lca_data(False, 50)
 
-        building.add_lca_data_elec(lca_data_elec)
+        #floor heating
+        building.add_lca_data_template("ed997c1e-274c-4d38-a5bf-2016693c91a3", building.net_leased_area)
 
-        building.add_lca_data_heat_supply_system(False, 50)
+        #hot water storage tank (500l -> 88.3 kg storage mass according to oekobaudat.de)
+        building.add_lca_data_template("d3f58b23-9526-43be-8a32-fb583dfebfaa", 88.3)
+
+        #heat pump
+        building.add_lca_data_template("7d027677-b2e3-40dd-a4b1-91bd8f7383d5", 1)
+
+        #uebergabestation
+        building.add_lca_data_template("dcd5e23a-9bec-40b6-b07c-1642fe696a2e", 30)
+
+
 
         utilities += building.lca_data
 
-    print("GWP_Project")
+        building.calc_lca_data(False, 50)
+
+        #print(building.lca_data.gwp.b6)
+
+
+
+        building.add_lca_data_elec(lca_data_elec)
+
+        building.add_lca_data_heating(1.525, lca_data_elec)
+
+        print(building.lca_data.gwp.b6)
+
     print("A1_A3: {} {}".format(utilities.gwp.a1_a3, utilities.gwp.unit))
     print("A4: {} {}".format(utilities.gwp.a4, utilities.gwp.unit))
     print("A5: {} {}".format(utilities.gwp.a5, utilities.gwp.unit))
@@ -249,35 +257,54 @@ if __name__ == '__main__':
     print("C4: {} {}".format(utilities.gwp.c4, utilities.gwp.unit))
     print("D: {} {}".format(utilities.gwp.d, utilities.gwp.unit))
 
-    print("PERT_Project")
-    print("A1_A3: {} {}".format(utilities.pert.a1_a3, utilities.pert.unit))
-    print("A4: {} {}".format(utilities.pert.a4, utilities.pert.unit))
-    print("A5: {} {}".format(utilities.pert.a5, utilities.pert.unit))
-    print("B1: {} {}".format(utilities.pert.b1, utilities.pert.unit))
-    print("B6: {} {}".format(utilities.pert.b6, utilities.pert.unit))
-    print("C1: {} {}".format(utilities.pert.c1, utilities.pert.unit))
-    print("C2: {} {}".format(utilities.pert.c2, utilities.pert.unit))
-    print("C3: {} {}".format(utilities.pert.c3, utilities.pert.unit))
-    print("C4: {} {}".format(utilities.pert.c4, utilities.pert.unit))
-    print("D: {} {}".format(utilities.pert.d, utilities.pert.unit))
-
-    print("PENRT_Project")
-    print("A1_A3: {} {}".format(utilities.penrt.a1_a3, utilities.penrt.unit))
-    print("A4: {} {}".format(utilities.penrt.a4, utilities.penrt.unit))
-    print("A5: {} {}".format(utilities.penrt.a5, utilities.penrt.unit))
-    print("B1: {} {}".format(utilities.penrt.b1, utilities.penrt.unit))
-    print("B6: {} {}".format(utilities.penrt.b6, utilities.penrt.unit))
-    print("C1: {} {}".format(utilities.penrt.c1, utilities.penrt.unit))
-    print("C2: {} {}".format(utilities.penrt.c2, utilities.penrt.unit))
-    print("C3: {} {}".format(utilities.penrt.c3, utilities.penrt.unit))
-    print("C4: {} {}".format(utilities.penrt.c4, utilities.penrt.unit))
-    print("D: {} {}".format(utilities.penrt.d, utilities.penrt.unit))
-
-
-    # export_building_gwp_csv(prj)
-    # export_be_gwp_csv(prj)
+    export_building_gwp_csv(prj)
+    export_be_gwp_csv(prj)
 
     now = datetime.now()
 
     current_time = now.strftime("%H:%M:%S")
     print("End =", current_time)
+
+
+"""
+def print_be_information(self):
+   prints area and gwp of all buildingelements from the building.
+
+  
+    outer_walls = {"area": 0, "gwp": None }
+    doors = {"area": 0, "gwp": None }
+    rooftops = {"area": 0, "gwp": None }
+    ground_floors = {"area": 0, "gwp": None }
+    windows = {"area": 0, "gwp": None }
+    inner_walls = {"area": 0, "gwp": None }
+    floors = {"area": 0, "gwp": None }
+    ceilings = {"area": 0, "gwp": None }
+    
+    for tz in self.thermal_zones:
+        for ow in tz.outer_walls:
+            outer_walls["area"] = outer_walls["area"] + ow.area
+        for do in tz.doors:
+            doors["area"] = doors["area"] + ow.area
+        for rt in tz.rooftops:
+            rooftops["area"] = rooftops["area"] + rt.area
+        for gf in tz.ground_floors:
+            ground_floors["area"] = ground_floors["area"] + gf.area
+        for wn in tz.windows:
+            windows["area"] = windows["area"] + wn.area
+        for iw in tz.inner_walls:
+            inner_walls["area"] = inner_walls["area"] + iw.area
+        for fl in tz.floors:
+            floors["area"] = floors["area"] + fl.area
+        for ce in tz.ceilings:
+            ceilings["area"] = ceilings["area"] + ce.area
+            
+            
+    print("outer walls area: {}".format(outer_walls["area"]))
+    print("doors area: {}".format(doors["area"]))
+    print("rooftops area: {}".format(rooftops["area"]))
+    print("ground_floors area: {}".format(ground_floors["area"]))
+    print("windows area: {}".format(windows["area"]))
+    print("inner_walls area: {}".format(inner_walls["area"]))
+    print("floors area: {}".format(floors["area"]))
+    print("ceilings area: {}".format(ceilings["area"]))
+"""
