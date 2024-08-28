@@ -16,15 +16,16 @@ if __name__ == '__main__':
         year_of_construction=2015,
         number_of_floors=2,
         height_of_floors=2.5,
-        net_leased_area=167.0)
+        net_leased_area=167.0,
+        type_heat_supply_system=2)
 
     prj.calc_all_buildings()  # simulation parameters are calculated
 
     prj.export_aixlib()  # model export
 
     # Simulation is started. Please exchange the file paths ;)
-    sim.simulate(path="C:\\Users\\MSchildt\\TEASEROutput", prj=prj, loading_time=3600,
-                 result_path="C:\\Users\\MSchildt\\TEASEROutput\\test")
+    sim.simulate(path="C:\\Users\\user\\TEASEROutput", prj=prj, loading_time=3600,
+                 result_path="C:\\Users\\user\\TEASEROutput\\test")
 
     # Instance of Utility class is created
     ut = Utility(parent=prj.buildings[0], name="Gas condensing boiler < 20 kW")

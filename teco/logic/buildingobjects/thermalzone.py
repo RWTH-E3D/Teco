@@ -57,7 +57,7 @@ class ThermalZone(ThermalZone):
         return building_elements
 
     def calc_lca_data(self, use_b4 = None, period_lca_scenario = None):
-        """sums up every LCA-data from building elements oft he thermalzone.
+        """sums up every LCA-data from building elements of the thermalzone.
  
     
         Parameters
@@ -76,8 +76,8 @@ class ThermalZone(ThermalZone):
                 use_b4 = self.parent.parent.parent.use_b4
             except:
                 use_b4 = False
-        
-        if period_lca_scenario == None:
+
+        if period_lca_scenario is None:
             try:
                 period_lca_scenario = self.parent.parent.parent.period_lca_scenario
             except:

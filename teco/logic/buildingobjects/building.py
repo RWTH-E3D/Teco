@@ -8,6 +8,7 @@ import uuid
 import math
 from teaser.logic.buildingobjects.building import Building
 from teco.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
+from teco.logic.buildingobjects.buildingsystems.heatsupplysystem import HeatSupplySystem
 
 
 class Building(Building):
@@ -32,6 +33,7 @@ class Building(Building):
             name=None,
             year_of_construction=None,
             net_leased_area=None,
+            type_heat_supply_system=None,
             with_ahu=False,
             internal_gains_mode=1,
     ):
@@ -43,6 +45,7 @@ class Building(Building):
             name,
             year_of_construction,
             net_leased_area,
+            type_heat_supply_system,
             with_ahu,
             internal_gains_mode,
         )
@@ -97,8 +100,8 @@ class Building(Building):
                 use_b4 = self.parent.parent.parent.use_b4
             except:
                 use_b4 = False
-        
-        if period_lca_scenario == None:
+
+        if period_lca_scenario is None:
             try:
                 period_lca_scenario = self.parent.parent.parent.period_lca_scenario
             except:
@@ -116,8 +119,11 @@ class Building(Building):
             if self.additional_lca_data.ref_flow_unit == "pcs":
                 scalar = self.additional_lca_data.ref_flow_value
                 lca_data = lca_data + self.additional_lca_data * scalar
-            
-        self.lca_data = lca_data
+
+        if self.lca_data is not None:
+            self.lca_data = self.lca_data + lca_data
+        else:
+            self.lca_data = lca_data
         
     def est_elec_demand(self):
         """roughly estimates the electricity demand of the building due to it´s
@@ -131,7 +137,7 @@ class Building(Building):
         a_ngf = self.net_leased_area
         h_B = 8 #hours lighting per day estimate from DIN 18599-10
         q_el_B = 10 * a_ngf*d_a * h_B * 0.001 #estimate from DIN 18599-4
-        q_el_wp = 0 #electrical energy for heat pump allready considered in heatload
+        q_el_wp = 0 #electrical energy for heat pump already considered in heatload
         
         q_el_ges_a = d_a * q_el_b * a_ngf * 0.001 + q_el_B + q_el_wp
         
@@ -161,13 +167,13 @@ class Building(Building):
                 print("Unit of the reference flow has to be MJ!")
         
         lca_data = lca_data * self._estimate_elec_demand
-        
+
         if self.lca_data is not None:
             self.lca_data = self.lca_data + lca_data
         else:
             self.lca_data = lca_data
     
-    def _calc_simulated_annual_heat_energy(self):
+    def calc_simulated_annual_heat_energy(self):
         """calculates the annual heating energy from the simulated heatload
 
         Returns
@@ -176,10 +182,12 @@ class Building(Building):
             annual heating energy.
 
         """
+#Why the new variable sum_heat_load?
         if self.simulated_heat_load is not None:
 
-            result = 0
-
+            sum_heat_load = 0
+            count = 0
+#ToDo find solution other than for loop to reduce runtime
             for data_tp in self.simulated_heat_load:
                 # Immediate verification: print the content of data_tp
                 #print(f"Current data_tp: {data_tp}")
@@ -187,11 +195,14 @@ class Building(Building):
                 # Data validation: check if data_tp is a tuple and has at least 2 elements
                 if isinstance(data_tp, tuple) and len(data_tp) >= 2:
                     hour, heat_load, *_ = data_tp  # Unpack the tuple, ignoring extra values
-                    result += heat_load
+                    sum_heat_load += heat_load  # [W]
                 else:
                     print(f"Unexpected data format: {data_tp}")
 
-            result *= 0.000001
+                count += 1
+
+            sum_heat_load /= 1000  # [kW]
+            result = [count, sum_heat_load]
             return result
             # result = 0
             #
@@ -203,38 +214,31 @@ class Building(Building):
             # result = result * 0.000001
             #
             # return result
-                
-                
-    
-    def add_lca_data_heating(self, efficiency, lca_data, annual_heat_energy = None):
-        """Calculates enviromental indicators resulting form heating
+
+    def add_lca_data_heat_supply_system(self, use_b4=None, period_lca_scenario=None):
+        """Calculates environmental indicators resulting form the
+        heating system (see class HeatSupplySystem)
 
         Parameters
         ----------
-        efficiency : float
-            overall efficiency of the heating-system.
-        annual_heat_load : float [MJ]
-            heat load of the building over a year.
+
         lca_data : En15804LcaData
             LCA-Dataset representing the used energy carrier.
 
         """
-        if annual_heat_energy is None:
-            annual_heat_energy = self._calc_simulated_annual_heat_energy()
-        
-        if lca_data.ref_flow_unit != "MJ":
-            try:
-                lca_data = lca_data.convert_ref_unit("MJ")
-            except:
-                print("Unit of the reference flow has to be MJ!")
-        lca_data = lca_data * (1/efficiency) * annual_heat_energy * self.parent.period_lca_scenario
-        lca_data.unit = "pcs"
-                
+
+        lca_data = En15804LcaData()
+
+        heat_supply_system = HeatSupplySystem(parent=self)
+
+        heat_supply_system.calc_lca_data(use_b4, period_lca_scenario)
+        lca_data += heat_supply_system.lca_data
+
         if self.lca_data is not None:
             self.lca_data = self.lca_data + lca_data
         else:
             self.lca_data = lca_data
-        
+
     def add_lca_data_template(self, lca_data_id, amount):
         """This function loads environmental indicators from the JSON,
         multiplies it with an amount and add it to the building LCA-Data

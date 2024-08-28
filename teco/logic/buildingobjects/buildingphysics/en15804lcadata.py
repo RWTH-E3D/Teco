@@ -157,8 +157,8 @@ class En15804LcaData(object):
             return False
         
     def _check_en15804indicatorvalue_class(self, value, var_name = None):
-        """fuction to check if value is En15804IndicatorValue-Object. The  
-        namf of the checked variable can be passed for the error-message
+        """function to check if value is En15804IndicatorValue-Object. The
+        name of the checked variable can be passed for the error-message
         
 
         Parameters
