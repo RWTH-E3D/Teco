@@ -2,6 +2,8 @@
 """This module includes the En15804LcaData-class"""
 
 import uuid
+import re
+from typing import Optional
 
 from teco.logic.buildingobjects.buildingphysics.en15804indicatorvalue import En15804IndicatorValue
 
@@ -67,25 +69,25 @@ class En15804LcaData(object):
             Exported electrical energy 
         eet : En15804IndicatorValue [MJ]
             Exported thermal energy
-        gwp : En15804IndicatorValue [kg CO2 eq.]
+        gwp : En15804IndicatorValue ["kg CO2 eq." or "kg_co2eq"]
             Global warming potential
-        odp : En15804IndicatorValue [kg R11 eq.]
+        odp : En15804IndicatorValue ["kg R11 eq." or "kg_cfc11eq"]
             Depletion potential of the stratospheric ozone layer 
-        pocp : En15804IndicatorValue [kg Ethene eq.]
+        pocp : En15804IndicatorValue ["kg Ethene eq." or "kg_nmvoceq"]
             Formation potential of tropospheric ozone 
-        ap : En15804IndicatorValue [kg SO2 eq.]
+        ap : En15804IndicatorValue ["kg SO2 eq." or "h+moleq"]
             Acidification potential of soil and water 
-        ep : En15804IndicatorValue [kg Phosphate eq.]
+        ep : En15804IndicatorValue ["kg Phosphate eq." or "nmoleq"]
             Eutrophication potential 
-        adpe : En15804IndicatorValue [kg Sb eq.]
+        adpe : En15804IndicatorValue ["kg Sb eq." or "kg_sbeq"]
             Abiotic depletion potential for non fossil resources
         adpf : En15804IndicatorValue [MJ]
             Abiotic depletion potential for fossil resources 
-        fallback : dict
-            Dictonarie with stages as key and LCA-datasets as values. 
+        fallback : dict [deprecated]
+            Dictonary with stages as key and LCA-datasets as values.
             The LCA dataset serves as the fallback for the specified stage
         _fallback_added : boolean
-            is True when fallbacks allready added to "lca_data"
+            is True when fallbacks already added to "lca_data"
     """
     def __init__(self, parent = None):
       
@@ -125,40 +127,51 @@ class En15804LcaData(object):
         
         self._fallback = None
         self._fallback_added = False
-        
-        
-    def _check_unit(self, unit, unit_expected, var_name = None):
-        """function to check if unit equals the excpected unit. The  
-        name of the checked variable can be passed for the error-message
-        
-        Parameters
-        ----------
-        unit : str
-            Unit to be checked
-        unit_expected : str
-            unit to be expected
-        var_name : str, optional
-            Name of the Variable used for the error-message. The default is 
-            None.
 
-        Returns
-        -------
-        Boolean
-
+    def _check_unit(self, unit, unit_expected, var_name=None):
+        """Return True if `unit` matches any acceptable variant in `unit_expected`.
+        `unit_expected` may be a str or a collection (list/tuple/set).
+        Missing/None units are accepted silently.
         """
-        
-        if unit == unit_expected:
+        # --- normalize function kept local to avoid import/name issues ---
+        def _norm(u):
+            if u is None:
+                return None
+            x = str(u).strip().lower()
+            if not x:
+                return None
+            # remove common separators
+            x = x.replace(' ', '').replace('_', '').replace('.', '').replace('-', '')
+            # normalize scientific tokens / synonyms
+            x = x.replace('co2e', 'co2eq')  # CO2e ~ CO2eq
+            x = x.replace('cfc11eq', 'r11eq')  # ODP synonyms
+            # handle unicode superscripts and plain forms
+            x = x.replace('m³', 'm^3').replace('m²', 'm^2')
+            x = re.sub(r'^m(\d)$', r'm^\1', x)  # m2 -> m^2, m3 -> m^3
+            return x
+
+        # normalize expected -> list
+        expect = (list(unit_expected)
+                  if isinstance(unit_expected, (list, tuple, set)) else [unit_expected])
+
+        expect_norm = {_norm(e) for e in expect}
+        given_norm = _norm(unit)
+
+        # Accept if unit missing/empty; nothing to validate.
+        if given_norm is None:
             return True
-        else:
-            if var_name:
-                print("Variable '{}' should be specified in {}".format(var_name, unit_expected))
-            else:
-                print("Please insert value in {}".format(unit_expected))
-            return False
-        
+        if given_norm in expect_norm:
+            return True
+
+        # Otherwise warn once
+        msg = (f"Variable '{var_name}' should be specified in one of: {expect}"
+               if var_name else f"Please insert value in one of: {expect}")
+        print(msg)
+        return False
+
     def _check_en15804indicatorvalue_class(self, value, var_name = None):
         """fuction to check if value is En15804IndicatorValue-Object. The  
-        namf of the checked variable can be passed for the error-message
+        name of the checked variable can be passed for the error-message
         
 
         Parameters
@@ -402,7 +415,7 @@ class En15804LcaData(object):
     @gwp.setter
     def gwp(self, value):
         if self._check_en15804indicatorvalue_class(value, var_name = "gwp"):
-            if self._check_unit(value.unit, "kg CO2 eq.", "gwp"):
+            if self._check_unit(value.unit, ["kg CO2 eq.", "kg_co2eq"], "gwp"):
                 self._gwp = value
     
     @property
@@ -412,7 +425,7 @@ class En15804LcaData(object):
     @odp.setter
     def odp(self, value):
         if self._check_en15804indicatorvalue_class(value, var_name = "odp"):
-            if self._check_unit(value.unit, "kg R11 eq.", "odp"):
+            if self._check_unit(value.unit, ["kg R11 eq.", "kg_cfc11eq"], "odp"):
                 self._odp = value
     
     @property
@@ -422,7 +435,7 @@ class En15804LcaData(object):
     @pocp.setter
     def pocp(self, value):
         if self._check_en15804indicatorvalue_class(value, var_name = "pocp"):
-            if self._check_unit(value.unit, "kg Ethene eq.", "pocp"):
+            if self._check_unit(value.unit, ["kg Ethene eq.", "kg_nmvoceq"], "pocp"):
                 self._pocp = value
     
     @property
@@ -432,7 +445,7 @@ class En15804LcaData(object):
     @ap.setter
     def ap(self, value):
         if self._check_en15804indicatorvalue_class(value, var_name = "ap"):
-            if self._check_unit(value.unit, "kg SO2 eq.", "ap"):
+            if self._check_unit(value.unit, ["kg SO2 eq.", "h+moleq"], "ap"):
                 self._ap = value
     
     @property
@@ -442,7 +455,7 @@ class En15804LcaData(object):
     @ep.setter
     def ep(self, value):
         if self._check_en15804indicatorvalue_class(value, var_name = "ep"):
-            if self._check_unit(value.unit, "kg Phosphate eq.", "ep"):
+            if self._check_unit(value.unit, ["kg Phosphate eq.", "nmoleq"], "ep"):
                 self._ep = value
     
     @property
@@ -452,7 +465,7 @@ class En15804LcaData(object):
     @adpe.setter
     def adpe(self, value):
         if self._check_en15804indicatorvalue_class(value, var_name = "adpe"):
-            if self._check_unit(value.unit, "kg Sb eq.", "adpe"):
+            if self._check_unit(value.unit, ["kg Sb eq.", "kg_sbeq"], "adpe"):
                 self._adpe = value
     
     @property
@@ -645,37 +658,12 @@ class En15804LcaData(object):
 
         lca_data_output.save_lca_data(lca_data=self,
                                      data_class=data_class)
-        
+
     def load_fallbacks(self, fallback_dictonarie, data_class):
-        """procedure to load fallbacks specified in the fallback-dictonarie
-        into the self.fallback attribute
+        """No-op: do not load any LCA fallbacks."""
+        self.fallback = None
+        return
 
-        Parameters
-        ----------
-        fallback_dictonarie : dict
-            Dictonarie with stages as key and LCA-dataset-uuid as value
-        data_class : DataClass
-            DataClass containing the bindings for LCA-data and LCA-data
-            -fallbacks (typically this is the data class stored in prj.data,
-            but the user can individually change that.)
-
-        Returns
-        -------
-        None.
-
-        """
-        if fallback_dictonarie is not None:
-            self.fallback = {}
-            for stage in fallback_dictonarie:
-                
-                fallback_id = fallback_dictonarie[stage]
-                
-                fallback_object = En15804LcaData(self.parent)
-                
-                self.fallback[stage] = fallback_object
-                
-                self.fallback[stage].load_lca_data_fallback_template(fallback_id, data_class)
-    
     def load_lca_data_fallback_template(self, lca_id, data_class=None):
         """LCA-data-fallback loader.
 
@@ -700,74 +688,131 @@ class En15804LcaData(object):
         lca_data_input.load_en15804_lca_data_fallback_id(lca_data=self,
                                      lca_id=lca_id,
                                      data_class=data_class)
-        
-    def convert_ref_unit(self, target_unit, area = None, thickness = None, density = None):
-        """converts the values of the environmental indicators to a new 
-        reference unit. All parameters are optional and are only used if they 
+
+    def convert_ref_unit(self, target_unit, area=None, thickness=None, density=None):
+        """converts the values of the environmental indicators to a new
+        reference unit. All parameters are optional and are only used if they
         are necessary for the conversion.
-        
-
-        Parameters
-        ----------
-        target_unit : str
-            target unit of the conversion
-        area : float, optional
-            area (e.g. area of a buildingelement)
-        thickness : float, optional
-            thickness (e.g. thickness of a layer). The default is None.
-        density : float, optional
-            density (e.g. the density of a material). The default is None.
-
-        Returns
-        -------
-        result : En15804LcaData
-            LCA-Data with new reference flow
-
         """
+
         result = En15804LcaData()
-        
-        if target_unit == "pcs":
+
+        # If there is no valid reference flow, we treat this LCA dataset as empty
+        # and simply ignore it in the conversion. This is exactly what we want
+        # when fallbacks or placeholders are present but not actually defined.
+        if self.ref_flow_unit is None or self.ref_flow_value is None:
+            # Return a zero dataset with the requested target unit.
+            result.ref_flow_unit = target_unit
+            result.ref_flow_value = 1
+            return result
+
+        # # DEBUG: optional basic context
+        # print(
+        #     f"[convert_ref_unit] lca_data_id={self.lca_data_id}, "
+        #     f"name={self.name!r}, "
+        #     f"ref_flow_value={self.ref_flow_value}, "
+        #     f"ref_flow_unit={self.ref_flow_unit!r}, "
+        #     f"target_unit={target_unit!r}, "
+        #     f"area={area}, thickness={thickness}, density={density}"
+        # )
+
+        if target_unit == "pc":
 
             if self.ref_flow_unit == "m^3":
                 scalar = (area * thickness)
-                
+
             elif self.ref_flow_unit == "kg":
                 scalar = (area * thickness * density)
 
             elif self.ref_flow_unit == "m^2":
                 scalar = area
-            
-            elif self.ref_flow_unit == "pcs":
+
+            elif self.ref_flow_unit == "pc":
                 scalar = 1
-                
+
             else:
-                scalar = 1
-                target_unit = self.ref_flow_unit
-                raise ValueError("Unable to convert {} into {}!".format(self.ref_flow_unit, target_unit))
-        
+                # DEBUG: detailed error
+                raise ValueError(
+                    "Unable to convert from ref_flow_unit {!r} to target_unit {!r} "
+                    "(lca_data_id={}, name={!r}, ref_flow_value={}, "
+                    "area={}, thickness={}, density={})".format(
+                        self.ref_flow_unit,
+                        target_unit,
+                        self.lca_data_id,
+                        self.name,
+                        self.ref_flow_value,
+                        area,
+                        thickness,
+                        density,
+                    )
+                )
+
         elif target_unit == "kg":
-            
+
             if self.ref_flow_unit == "m^3":
                 scalar = 1 / density
             elif self.ref_flow_unit == "m^2":
                 scalar = thickness / density
-            
+
             else:
-                scalar = 1
-                target_unit = self.unit
-                raise ValueError("Unable to convert unit into target unit!")
-        
+                raise ValueError(
+                    "Unable to convert from ref_flow_unit {!r} to target_unit {!r} "
+                    "(lca_data_id={}, name={!r}, ref_flow_value={}, "
+                    "area={}, thickness={}, density={})".format(
+                        self.ref_flow_unit,
+                        target_unit,
+                        self.lca_data_id,
+                        self.name,
+                        self.ref_flow_value,
+                        area,
+                        thickness,
+                        density,
+                    )
+                )
+
         elif target_unit == "m^2":
             if self.ref_flow_unit == "m^3":
-                scalar = 1/thickness
-            
+                scalar = 1 / thickness
+            else:
+                raise ValueError(
+                    "Unable to convert from ref_flow_unit {!r} to target_unit {!r} "
+                    "(lca_data_id={}, name={!r}, ref_flow_value={}, "
+                    "area={}, thickness={}, density={})".format(
+                        self.ref_flow_unit,
+                        target_unit,
+                        self.lca_data_id,
+                        self.name,
+                        self.ref_flow_value,
+                        area,
+                        thickness,
+                        density,
+                    )
+                )
+
+        else:
+            raise ValueError(
+                "Unsupported target_unit {!r} for convert_ref_unit "
+                "(lca_data_id={}, name={!r}, ref_flow_unit={!r}, ref_flow_value={}, "
+                "area={}, thickness={}, density={})".format(
+                    target_unit,
+                    self.lca_data_id,
+                    self.name,
+                    self.ref_flow_unit,
+                    self.ref_flow_value,
+                    area,
+                    thickness,
+                    density,
+                )
+            )
+
+        # At this point we *expect* scalar and ref_flow_value to be valid
         scalar = scalar / self.ref_flow_value
         result = self * scalar
         result.ref_flow_unit = target_unit
         result.ref_flow_value = 1
-        
+
         return result
-            
+
     def sum_to_b4(self):
         """function to sum up all every stage indicators to stage
         B4 'replacement'
@@ -866,122 +911,15 @@ class En15804LcaData(object):
         
         result.set_values(**values)
         return result
-    
+
     def add_fallbacks(self):
-        """adds the indicators from the lca-data-fallbacks specified in 
-        self.fallback to the matching stages of self.The attribute 
-        "_fallback_added" is True, if the fallbacks are allready added
+        """No-op: fallbacks are globally disabled.
 
-        Returns
-        -------
-        None.
-
+        Originally this method added indicator values from self.fallback[stage]
+        (per EN 15804 stage) into this dataset, possibly converting reference
+        units. For comparison with other simulations and to avoid issues with
+        partially defined fallback datasets, we skip this step entirely.
         """
-        
-        if self._fallback_added is False:
-            
-            pere_backup = self.pere
-            perm_backup = self.perm
-            pert_backup = self.pert
-            penre_backup = self.penre
-            penrm_backup = self.penrm
-            penrt_backup = self.penrt
-            sm_backup = self.sm
-            rsf_backup = self.rsf
-            nrsf_backup = self.nrsf
-            fw_backup = self.fw
-            hwd_backup = self.hwd
-            nhwd_backup = self.nhwd
-            rwd_backup = self.rwd
-            cru_backup = self.cru
-            mfr_backup = self.mfr
-            mer_backup = self.mer
-            eee_backup = self.eee
-            eet_backup = self.eet
-            gwp_backup = self.gwp
-            odp_backup = self.odp
-            pocp_backup = self.pocp
-            ap_backup = self.ap
-            ep_backup = self.ep
-            adpe_backup = self.adpe
-            adpf_backup = self.adpf
-
-
-            self._fallback_added = True
-            
-            for stage in self.fallback:
-                
-                if self.fallback[stage].ref_flow_unit != self.ref_flow_unit:
-                    try:
-                    
-                        self.fallback[stage].convert_ref_unit(
-                            target_unit = self.ref_flow_unit,
-                            density = self.parent.density,
-                            thickness = self.parent.parent.thickness                           
-                            )
-                    
-                    except:
-                        
-                        print("Error while trying to convert fallback {} of {} reference unit".format(self.fallback[stage].lca_data_id, self.lca_data_id),
-                             "{} to {}".format( self.fallback[stage].ref_flow_unit, self.ref_flow_unit))
-                        
-                        self.pere = pere_backup
-                        self.perm = perm_backup
-                        self.pert = pert_backup
-                        self.penre = penre_backup
-                        self.penrm = penrm_backup
-                        self.penrt = penrt_backup
-                        self.sm = sm_backup
-                        self.rsf = rsf_backup
-                        self.nrsf = nrsf_backup
-                        self.fw = fw_backup
-                        self.hwd = hwd_backup
-                        self.nhwd = nhwd_backup
-                        self.rwd = rwd_backup
-                        self.cru = cru_backup
-                        self.mfr = mfr_backup
-                        self.mer = mer_backup
-                        self.eee = eee_backup
-                        self.eet = eet_backup
-                        self.gwp = gwp_backup
-                        self.odp = odp_backup
-                        self.pocp = pocp_backup
-                        self.ap = ap_backup
-                        self.ep = ep_backup
-                        self.adpe = adpe_backup
-                        self.adpf = adpf_backup
-                        
-                        self.fallback_added = False
-                        break
-                      
-
-                    
-                
-                self.pere = self.pere.add_stage(stage, self.fallback[stage].pere)
-                self.perm = self.pere.add_stage(stage, self.fallback[stage].perm)
-                self.pert = self.pert.add_stage(stage, self.fallback[stage].pert)
-                self.penre = self.penre.add_stage(stage, self.fallback[stage].penre)
-                self.penrm = self.penrm.add_stage(stage, self.fallback[stage].penrm)
-                self.penrt = self.penrt.add_stage(stage, self.fallback[stage].penrt)
-                self.sm = self.sm.add_stage(stage, self.fallback[stage].sm)
-                self.rsf = self.rsf.add_stage(stage, self.fallback[stage].rsf)
-                self.nrsf = self.nrsf.add_stage(stage, self.fallback[stage].nrsf)
-                self.fw = self.fw.add_stage(stage, self.fallback[stage].fw)
-                self.hwd = self.hwd.add_stage(stage, self.fallback[stage].hwd)
-                self.nhwd = self.nhwd.add_stage(stage, self.fallback[stage].nhwd)
-                self.rwd = self.rwd.add_stage(stage, self.fallback[stage].rwd)
-                self.cru = self.cru.add_stage(stage, self.fallback[stage].cru)
-                self.mfr = self.mfr.add_stage(stage, self.fallback[stage].mfr)
-                self.mer = self.mer.add_stage(stage, self.fallback[stage].mer)
-                self.eee = self.eee.add_stage(stage, self.fallback[stage].eee)
-                self.eet = self.eet.add_stage(stage, self.fallback[stage].eet)
-                self.gwp = self.gwp.add_stage(stage, self.fallback[stage].gwp)
-                self.odp = self.odp.add_stage(stage, self.fallback[stage].odp)
-                self.pocp = self.pocp.add_stage(stage, self.fallback[stage].pocp)
-                self.ap = self.ap.add_stage(stage, self.fallback[stage].ap)
-                self.ep = self.ep.add_stage(stage, self.fallback[stage].ep)
-                self.adpe = self.adpe.add_stage(stage, self.fallback[stage].adpe)
-                self.adpf = self.adpf.add_stage(stage, self.fallback[stage].adpf)
-                
-
-            
+        # Mark as done so calling code does not try again.
+        self._fallback_added = True
+        return

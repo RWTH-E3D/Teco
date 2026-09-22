@@ -31,8 +31,10 @@ class Building(Building):
             name=None,
             year_of_construction=None,
             net_leased_area=None,
+            type_heat_supply_system=None,
             with_ahu=False,
             internal_gains_mode=1,
+            inner_wall_approximation_approach='teaser_default'
     ):
         """Constructor of Building Class
         """
@@ -42,8 +44,10 @@ class Building(Building):
             name,
             year_of_construction,
             net_leased_area,
+            type_heat_supply_system,
             with_ahu,
             internal_gains_mode,
+            inner_wall_approximation_approach
         )
 
         self._lca_data = None
@@ -78,7 +82,7 @@ class Building(Building):
 
     def calc_lca_data(self, use_b4 = None, period_lca_scenario = None):
         """calculates the environmental indicators of the building. Without
-        environmental indicators from heating and electric demand
+        environmental indicators from heating and electricity demand
         
         Parameters
         ----------
@@ -112,7 +116,7 @@ class Building(Building):
                 print("Error while adding lca-data from thermal zone")
                 
         if self.additional_lca_data is not None:
-            if self.additional_lca_data.ref_flow_unit == "pcs":
+            if self.additional_lca_data.ref_flow_unit == "pc":
                 scalar = self.additional_lca_data.ref_flow_value
                 lca_data = lca_data + self.additional_lca_data * scalar
             
@@ -121,7 +125,7 @@ class Building(Building):
     def est_elec_demand(self):
         """roughly estimates the electricity demand of the building due to it´s
         size, without electricity used for heating (e.g. for heat pumps)
-        
+        # ToDo generalize this for multiple building usage types, if possible (if at all)
         """
         
         q_el_ges_a = None
@@ -164,30 +168,72 @@ class Building(Building):
             self.lca_data = self.lca_data + lca_data
         else:
             self.lca_data = lca_data
-    
+
     def _calc_simulated_annual_heat_energy(self):
-        """calculates the annual heating energy from the simulated heatload
+        """Calculates the annual heating energy from the simulated heatload.
+
+        Accepts multiple input shapes in self.simulated_heat_load:
+          - [float, ...]                          # energy/power per step
+          - [(time, value, ...), ...]             # legacy tuple form
+          - [{"heat_load": value}, ...]           # dict form (fallback keys supported)
 
         Returns
         -------
-        result : Float
-            annual heating energy.
-
+        float
+            Annual heating energy in MJ to correspond to normalised EPD.
         """
-        if self.simulated_heat_load is not None:
+        series = self.simulated_heat_load
+        if not series:
+            return 0.0
 
-            result = 0
-            
-            for data_tp in self.simulated_heat_load:
+        result = 0.0
+        # Only warn once on unknown shapes to avoid log spam
+        warned_unknown = False
 
-                result = result + data_tp
-            
-            result = result * 0.000001
-            
-            return result
-                
-                
-    
+        for i, item in enumerate(series):
+            # 1) Flat numeric (current e3 pipeline)
+            if isinstance(item, (int, float)):
+                result += float(item)
+                continue
+
+            # 2) tuple/list: prefer the 2nd element as the value
+            if isinstance(item, (tuple, list)):
+                if len(item) >= 2 and isinstance(item[1], (int, float)):
+                    result += float(item[1])
+                    continue
+                # fallback: add first numeric element if present
+                for v in item:
+                    if isinstance(v, (int, float)):
+                        result += float(v)
+                        break
+                else:
+                    if not warned_unknown:
+                        print(f"Unexpected data format in simulated_heat_load (list/tuple without numeric): {item}")
+                        warned_unknown = True
+                continue
+
+            # 3) dict: try common value keys
+            if isinstance(item, dict):
+                for key in ("heat_load", "PHeater", "value", "y"):
+                    v = item.get(key, None)
+                    if isinstance(v, (int, float)):
+                        result += float(v)
+                        break
+                else:
+                    if not warned_unknown:
+                        print(f"Unexpected data format in simulated_heat_load (dict without numeric value): {item}")
+                        warned_unknown = True
+                continue
+
+            # 4) unknown type
+            if not warned_unknown:
+                print(f"Unexpected data type in simulated_heat_load: {type(item).__name__} -> {item}")
+                warned_unknown = True
+
+        # Wh -> MJ
+        result *= 0.0036
+        return result
+
     def add_lca_data_heating(self, efficiency, lca_data, annual_heat_energy = None):
         """Calculates enviromental indicators resulting form heating
 
@@ -210,7 +256,7 @@ class Building(Building):
             except:
                 print("Unit of the reference flow has to be MJ!")
         lca_data = lca_data * (1/efficiency) * annual_heat_energy * self.parent.period_lca_scenario
-        lca_data.unit = "pcs"
+        lca_data.unit = "pc"
                 
         if self.lca_data is not None:
             self.lca_data = self.lca_data + lca_data
@@ -219,7 +265,7 @@ class Building(Building):
         
     def add_lca_data_template(self, lca_data_id, amount):
         """This function loads environmental indicators from the JSON,
-        multiplies it with an amount and add it to the building LCA-Data
+        multiplies it with an amount and adds it to the building LCA-Data
 
         Parameters
         ----------
@@ -241,7 +287,7 @@ class Building(Building):
         """prints area of all buildingelements
         """
         outer_walls = {"area": 0, "gwp": None }
-        doors = {"area": 0, "gwp": None }
+        #doors = {"area": 0, "gwp": None }
         rooftops = {"area": 0, "gwp": None }
         ground_floors = {"area": 0, "gwp": None }
         windows = {"area": 0, "gwp": None }
@@ -252,8 +298,8 @@ class Building(Building):
         for tz in self.thermal_zones:
             for ow in tz.outer_walls:
                 outer_walls["area"] = outer_walls["area"] + ow.area
-            for do in tz.doors:
-                doors["area"] = doors["area"] + ow.area
+            # for do in tz.doors:
+            #     doors["area"] = doors["area"] + ow.area
             for rt in tz.rooftops:
                 rooftops["area"] = rooftops["area"] + rt.area
             for gf in tz.ground_floors:
@@ -269,7 +315,7 @@ class Building(Building):
                 
                 
         print("outer walls area: {}".format(outer_walls["area"]))
-        print("doors area: {}".format(doors["area"]))
+        #print("doors area: {}".format(doors["area"]))
         print("rooftops area: {}".format(rooftops["area"]))
         print("ground_floors area: {}".format(ground_floors["area"]))
         print("windows area: {}".format(windows["area"]))

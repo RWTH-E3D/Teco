@@ -4,7 +4,6 @@ import json
 import teco.logic.utilities as utilities
 import collections
 
-#ToDO: Test output -> is the change to teco utilities enough?
 
 def save_material(material, data_class):
     """Material saver.

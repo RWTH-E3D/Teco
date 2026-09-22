@@ -5,7 +5,6 @@ import warnings
 import collections
 import json
 
-#ToDO: Test output -> is the change to teco utilities enough?
 
 def save_type_element(element, data_class):
     """Save information about building element to json.

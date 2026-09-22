@@ -57,7 +57,7 @@ class ThermalZone(ThermalZone):
         return building_elements
 
     def calc_lca_data(self, use_b4 = None, period_lca_scenario = None):
-        """sums up every LCA-data from building elements oft he thermalzone.
+        """sums up every LCA-data from building elements of the thermalzone.
  
     
         Parameters
@@ -84,13 +84,30 @@ class ThermalZone(ThermalZone):
                 print("Please enter a period for the LCA-scenario!")
                 
         building_elements = self.get_buildingelements()
-        
-        for building_element in building_elements:
 
+        for building_element in building_elements:
             try:
                 building_element.calc_lca_data(use_b4, period_lca_scenario)
+
+                if getattr(building_element, "lca_data", None) is None:
+                    # Debug: this should not really happen for “good” elements
+                    print(
+                        "Building element has no LCA data: "
+                        f"type={type(building_element).__name__}, "
+                        f"zone={getattr(self, 'name', '?')}, "
+                        f"building={getattr(getattr(self.parent, 'parent', None), 'name', '?')}"
+                    )
+                    continue
+
                 lca_data = lca_data + building_element.lca_data
-            except:
-                print("Error while adding {}".format(type(building_element).__name__))
+
+            except Exception as e:
+                t = type(building_element).__name__
+                ld = getattr(building_element, "lca_data", None)
+                print(
+                    f"Error while adding {t} in zone={getattr(self, 'name', '?')}, "
+                    f"building={getattr(getattr(self.parent, 'parent', None), 'name', '?')}: "
+                    f"{e} (lca_data type={type(ld).__name__}, value={ld!r})"
+                )
             
         self.lca_data = lca_data

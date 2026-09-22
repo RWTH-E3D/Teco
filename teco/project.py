@@ -1,4 +1,4 @@
-"""This module extents the TEASERplus project module with LCA specific parameters,
+"""This module extents the TEASER(plus) project module with LCA specific parameters,
 which includes the Project class, which is the API for TEASER."""
 
 from teaser import project

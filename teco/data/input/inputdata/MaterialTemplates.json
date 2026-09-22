@@ -1,6 +1,1956 @@
 {
-    "version": "0.7",
-    "244edc8c-3a43-11e7-8ed1-2cd444b2e704": {
+  "version": "0.7",
+  "301": {
+    "name": "insulating plaster",
+    "density": 1291.0,
+    "thermal_conduc": 0.39,
+    "heat_capac": 1.291,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "7e8801e0-c0e4-4995-bf8a-883181f6aa20",
+    "service_life": 40
+  },
+  "302": {
+    "name": "gypsum",
+    "density": 850.0,
+    "thermal_conduc": 0.3,
+    "heat_capac": 1.0,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "e6c2de31-b1a6-4c5d-ba5e-df252391321b",
+    "service_life": 45
+  },
+  "303": {
+    "name": "interior plaster",
+    "density": 1400.0,
+    "thermal_conduc": 0.7,
+    "heat_capac": 0.85,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "9a670d29-efb9-4fde-95ab-182a0b1e7280",
+    "service_life": 50
+  },
+  "304": {
+    "name": "concrete_CEM_II_BS325R_wz05",
+    "density": 2420.0,
+    "thermal_conduc": 2.1,
+    "heat_capac": 1.0,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "Synthetic_2",
+    "service_life": 50
+  },
+  "305": {
+    "name": "reinforced concrete",
+    "density": 2400.0,
+    "thermal_conduc": 2.1,
+    "heat_capac": 0.776,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "Synthetic_2",
+    "service_life": 50
+  },
+  "306": {
+    "name": "aerated concrete blocks",
+    "density": 1600.0,
+    "thermal_conduc": 0.87,
+    "heat_capac": 1.05,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "Synthetic_6",
+    "service_life": 50
+  },
+  "307": {
+    "name": "EPS_040_15",
+    "density": 15.0,
+    "thermal_conduc": 0.04,
+    "heat_capac": 1.5,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "205b761d-e344-49c3-a3a9-bb1bfd59b916",
+    "service_life": 40
+  },
+  "308": {
+    "name": "mineral wool",
+    "density": 60.0,
+    "thermal_conduc": 0.04,
+    "heat_capac": 0.85,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "50d421e2-3a7b-4659-92a4-f20d6a52fcf0",
+    "service_life": 40
+  },
+  "309": {
+    "name": "exterior plaster",
+    "density": 1600.0,
+    "thermal_conduc": 0.87,
+    "heat_capac": 0.85,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "004f3f4e-5bb8-4d9e-a104-6999a9e8ad5b",
+    "service_life": 40
+  },
+  "310": {
+    "name": "concrete",
+    "density": 2400.0,
+    "thermal_conduc": 2.1,
+    "heat_capac": 0.776,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "Synthetic_2",
+    "service_life": 50
+  },
+  "311": {
+    "name": "exterior plaster",
+    "density": 1800.0,
+    "thermal_conduc": 0.87,
+    "heat_capac": 0.85,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "004f3f4e-5bb8-4d9e-a104-6999a9e8ad5b",
+    "service_life": 40
+  },
+  "312": {
+    "name": "hardwood",
+    "density": 600.0,
+    "thermal_conduc": 0.14,
+    "heat_capac": 1.5,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "e131431f-4d99-4d7a-ae0a-744a06de3524",
+    "service_life": 50
+  },
+  "313": {
+    "name": "oak",
+    "density": 685.0,
+    "thermal_conduc": 0.3,
+    "heat_capac": 1.5,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "17bcb2ce-39fd-400b-baf9-370c63589efd",
+    "service_life": 50
+  },
+  "314": {
+    "name": "concrete_wz05",
+    "density": 2400.0,
+    "thermal_conduc": 2.1,
+    "heat_capac": 0.776,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "Synthetic_2",
+    "service_life": 50
+  },
+  "315": {
+    "name": "styrofoam",
+    "density": 30.0,
+    "thermal_conduc": 0.035,
+    "heat_capac": 1.5,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "f2552bdf-c847-4ef8-9665-c37e8ef4d44d",
+    "service_life": 40
+  },
+  "316": {
+    "name": "rafters",
+    "density": 600.0,
+    "thermal_conduc": 0.13,
+    "heat_capac": 1.5,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.4,
+    "lca_id": "efa55966-4f29-4f15-bfec-8c08b3945923",
+    "service_life": 50
+  },
+  "317": {
+    "name": "gravel",
+    "density": 750.0,
+    "thermal_conduc": 0.19,
+    "heat_capac": 0.92,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "a7bad3b6-2123-483b-99b5-2ec481254be7",
+    "service_life": 30
+  },
+  "318": {
+    "name": "moving air layer",
+    "density": 1.184,
+    "thermal_conduc": 0.0261,
+    "heat_capac": 0.0010049999952316284,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "Synthetic_8",
+    "service_life": null
+  },
+  "319": {
+    "name": "roof tiles",
+    "density": 1786.0,
+    "thermal_conduc": 0.55,
+    "heat_capac": 0.889,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "a6d60a75-7a4e-4dfc-87cc-fd40f68d279a",
+    "service_life": 50
+  },
+  "320": {
+    "name": "floating cement screed",
+    "density": 1940.0,
+    "thermal_conduc": 1.4,
+    "heat_capac": 1.0,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "fe371be5-c72f-4203-8569-a085ef375ba4",
+    "service_life": 50
+  },
+  "321": {
+    "name": "hardwood",
+    "density": 650.0,
+    "thermal_conduc": 0.13,
+    "heat_capac": 1.5,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "e131431f-4d99-4d7a-ae0a-744a06de3524",
+    "service_life": 50
+  },
+  "322": {
+    "name": "floating cement screed",
+    "density": 2000.0,
+    "thermal_conduc": 1.4,
+    "heat_capac": 1.0,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "fe371be5-c72f-4203-8569-a085ef375ba4",
+    "service_life": 50
+  },
+  "323": {
+    "name": "cement screed",
+    "density": 2000.0,
+    "thermal_conduc": 1.4,
+    "heat_capac": 1.0,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "86d919ee-8f30-4ca4-9b7e-717aecba6ac0",
+    "service_life": 50
+  },
+  "324": {
+    "name": "polystyrene",
+    "density": 40.0,
+    "thermal_conduc": 0.035,
+    "heat_capac": 1.38,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "4e83c488-bb36-40b0-bfd4-b2aa7f1c0f04",
+    "service_life": 40
+  },
+  "325": {
+    "name": "reinforced concrete",
+    "density": 2400.0,
+    "thermal_conduc": 2.04,
+    "heat_capac": 0.776,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "Synthetic_7",
+    "service_life": 50
+  },
+  "326": {
+    "name": "aerated concrete blocks",
+    "density": 1100.0,
+    "thermal_conduc": 0.66,
+    "heat_capac": 1.05,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "Synthetic_6",
+    "service_life": 50
+  },
+  "327": {
+    "name": "reinforced concrete",
+    "density": 2400.0,
+    "thermal_conduc": 2.1,
+    "heat_capac": 0.778,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "Synthetic_2",
+    "service_life": 50
+  },
+  "328": {
+    "name": "reinforced concrete",
+    "density": 2104.0,
+    "thermal_conduc": 1.94,
+    "heat_capac": 0.776,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "Synthetic_2",
+    "service_life": 50
+  },
+  "329": {
+    "name": "mineral wool",
+    "density": 60.0,
+    "thermal_conduc": 0.09,
+    "heat_capac": 0.85,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "ac779922-219f-4730-9aef-a7da84d334c1",
+    "service_life": 40
+  },
+  "330": {
+    "name": "reinforced concrete",
+    "density": 2400.0,
+    "thermal_conduc": 2.04,
+    "heat_capac": 0.777,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "Synthetic_2",
+    "service_life": 50
+  },
+  "331": {
+    "name": "precast reinforced concrete",
+    "density": 2400.0,
+    "thermal_conduc": 2.04,
+    "heat_capac": 0.776,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "Synthetic_2",
+    "service_life": 50
+  },
+  "332": {
+    "name": "resting air layer",
+    "density": 1.184,
+    "thermal_conduc": 0.0261,
+    "heat_capac": 0.0010049999952316284,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "Synthetic_8",
+    "service_life": null
+  },
+  "333": {
+    "name": "concrete weather shell",
+    "density": 2400.0,
+    "thermal_conduc": 2.04,
+    "heat_capac": 0.776,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "Synthetic_2",
+    "service_life": 50
+  },
+  "334": {
+    "name": "bituminized felt",
+    "density": 1200.0,
+    "thermal_conduc": 5.0,
+    "heat_capac": 1.0,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "27ccffb8-02ec-466d-b925-f6db91d4ef71",
+    "service_life": 20
+  },
+  "335": {
+    "name": "stone wool",
+    "density": 60.0,
+    "thermal_conduc": 0.09,
+    "heat_capac": 0.84,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "155a3b83-ed73-4462-a4f1-69ce64e24981",
+    "service_life": 40
+  },
+  "336": {
+    "name": "floating cement screed",
+    "density": 2200.0,
+    "thermal_conduc": 2.0,
+    "heat_capac": 1.0,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "fe371be5-c72f-4203-8569-a085ef375ba4",
+    "service_life": 50
+  },
+  "337": {
+    "name": "interior plaster",
+    "density": 1600.0,
+    "thermal_conduc": 0.7,
+    "heat_capac": 0.85,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "7e0c008a-009d-4357-92c1-afb2cec3bc0a",
+    "service_life": 50
+  },
+  "338": {
+    "name": "plaster board",
+    "density": 732.0,
+    "thermal_conduc": 0.21,
+    "heat_capac": 1.384,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "edec09e1-c56e-4655-a094-c9a18e1563ac",
+    "service_life": 30
+  },
+  "339": {
+    "name": "plaster board",
+    "density": 900.0,
+    "thermal_conduc": 0.21,
+    "heat_capac": 1.384,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "0773f90c-78ef-4727-a966-3b005c1a1469",
+    "service_life": 30
+  },
+  "340": {
+    "name": "solid brick",
+    "density": 1800.0,
+    "thermal_conduc": 0.6,
+    "heat_capac": 0.85,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "127a23f5-d954-41c9-8f8a-ecca18aca691",
+    "service_life": 50
+  },
+  "341": {
+    "name": "perforated bricks",
+    "density": 1400.0,
+    "thermal_conduc": 0.6,
+    "heat_capac": 0.85,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "30514538-fcb4-483b-b5d5-c108d2037536",
+    "service_life": 50
+  },
+  "342": {
+    "name": "pumice hollow blocks",
+    "density": 1600.0,
+    "thermal_conduc": 0.56,
+    "heat_capac": 1.05,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "a1deced7-6fa9-4266-bc86-da75b3653b06",
+    "service_life": 50
+  },
+  "343": {
+    "name": "wood wool",
+    "density": 469.0,
+    "thermal_conduc": 0.08,
+    "heat_capac": 1.47,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "ee0c4b18-f9c9-44d1-8766-36db08856a2f",
+    "service_life": 40
+  },
+  "344": {
+    "name": "perforated bricks",
+    "density": 1200.0,
+    "thermal_conduc": 0.52,
+    "heat_capac": 0.85,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "30514538-fcb4-483b-b5d5-c108d2037536",
+    "service_life": 50
+  },
+  "345": {
+    "name": "wooden beams",
+    "density": 600.0,
+    "thermal_conduc": 0.14,
+    "heat_capac": 1.5,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "aeab0f39-5eab-422f-8c4b-822bb98aa63c",
+    "service_life": 50
+  },
+  "346": {
+    "name": "Aerated concrete",
+    "density": 600.0,
+    "thermal_conduc": 0.19,
+    "heat_capac": 1.05,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "Synthetic_6",
+    "service_life": 50
+  },
+  "347": {
+    "name": "wooden stand",
+    "density": 650.0,
+    "thermal_conduc": 0.21,
+    "heat_capac": 1.5,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "e70d9027-5315-481c-92e2-7b7d8a02eaba",
+    "service_life": 50
+  },
+  "348": {
+    "name": "Aerated concrete",
+    "density": 1100.0,
+    "thermal_conduc": 0.87,
+    "heat_capac": 1.05,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "Synthetic_6",
+    "service_life": 50
+  },
+  "349": {
+    "name": "porous vertically perforated bricks",
+    "density": 1000.0,
+    "thermal_conduc": 0.47,
+    "heat_capac": 0.85,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "30514538-fcb4-483b-b5d5-c108d2037536",
+    "service_life": 50
+  },
+  "350": {
+    "name": "lightweight concrete",
+    "density": 900.0,
+    "thermal_conduc": 0.43,
+    "heat_capac": 1.05,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "Synthetic_3",
+    "service_life": 50
+  },
+  "351": {
+    "name": "lime plaster",
+    "density": 1600.0,
+    "thermal_conduc": 0.7,
+    "heat_capac": 0.85,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "ddc96ae4-086c-4033-9e45-c5589f1661ba",
+    "service_life": 40
+  },
+  "352": {
+    "name": "exterior plaster",
+    "density": 1600.0,
+    "thermal_conduc": 0.79,
+    "heat_capac": 0.85,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "004f3f4e-5bb8-4d9e-a104-6999a9e8ad5b",
+    "service_life": 40
+  },
+  "353": {
+    "name": "exterior plaster",
+    "density": 1600.0,
+    "thermal_conduc": 0.8,
+    "heat_capac": 0.85,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "004f3f4e-5bb8-4d9e-a104-6999a9e8ad5b",
+    "service_life": 40
+  },
+  "354": {
+    "name": "solid pumice stones",
+    "density": 1000.0,
+    "thermal_conduc": 0.47,
+    "heat_capac": 1.05,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "2e31cc41-fa94-442a-b19b-48d82c3555d8",
+    "service_life": 50
+  },
+  "355": {
+    "name": "solid brick",
+    "density": 1800.0,
+    "thermal_conduc": 0.7,
+    "heat_capac": 0.85,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "127a23f5-d954-41c9-8f8a-ecca18aca691",
+    "service_life": 50
+  },
+  "356": {
+    "name": "perforated bricks",
+    "density": 1400.0,
+    "thermal_conduc": 0.58,
+    "heat_capac": 0.85,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "30514538-fcb4-483b-b5d5-c108d2037536",
+    "service_life": 50
+  },
+  "357": {
+    "name": "slag blocks",
+    "density": 1350.0,
+    "thermal_conduc": 0.7,
+    "heat_capac": 1.05,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "0a7ca5e9-a056-48a0-8cd6-db0b10d2005c",
+    "service_life": 50
+  },
+  "358": {
+    "name": "concrete_wz05",
+    "density": 2300.0,
+    "thermal_conduc": 1.6,
+    "heat_capac": 0.85,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "Synthetic_2",
+    "service_life": 50
+  },
+  "359": {
+    "name": "kamilit",
+    "density": 500.0,
+    "thermal_conduc": 0.04,
+    "heat_capac": 0.84,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "7395adfa-2a3f-43f1-be88-5d4a392968a5",
+    "service_life": 50
+  },
+  "360": {
+    "name": "polystyrene",
+    "density": 40.0,
+    "thermal_conduc": 0.04,
+    "heat_capac": 1.38,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "4e83c488-bb36-40b0-bfd4-b2aa7f1c0f04",
+    "service_life": 40
+  },
+  "361": {
+    "name": "kamilit",
+    "density": 60.0,
+    "thermal_conduc": 0.04,
+    "heat_capac": 0.84,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "7395adfa-2a3f-43f1-be88-5d4a392968a5",
+    "service_life": 50
+  },
+  "362": {
+    "name": "EPS perimeter insulation",
+    "density": 31.0,
+    "thermal_conduc": 0.04,
+    "heat_capac": 1.45,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "4e83c488-bb36-40b0-bfd4-b2aa7f1c0f04",
+    "service_life": 40
+  },
+  "363": {
+    "name": "chipboard",
+    "density": 700.0,
+    "thermal_conduc": 0.14,
+    "heat_capac": 1.7,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "0f2f2410-d9e2-4e0f-837a-987cb3186d81",
+    "service_life": 50
+  },
+  "364": {
+    "name": "cement",
+    "density": 1800.0,
+    "thermal_conduc": 0.35,
+    "heat_capac": 0.85,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "d368f4bb-ae22-4e33-b9e4-22a7b27966c6",
+    "service_life": 50
+  },
+  "365": {
+    "name": "washed plaster",
+    "density": 1800.0,
+    "thermal_conduc": 0.87,
+    "heat_capac": 0.85,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "44eada3f-2004-48b9-8152-22cd045bc3cf",
+    "service_life": 40
+  },
+  "366": {
+    "name": "facing bricks",
+    "density": 1400.0,
+    "thermal_conduc": 0.6,
+    "heat_capac": 1.155,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "127a23f5-d954-41c9-8f8a-ecca18aca691",
+    "service_life": 50
+  },
+  "367": {
+    "name": "lime gypsum plaster",
+    "density": 1900.0,
+    "thermal_conduc": 0.7,
+    "heat_capac": 0.85,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "004f3f4e-5bb8-4d9e-a104-6999a9e8ad5b",
+    "service_life": 40
+  },
+  "368": {
+    "name": "plaster",
+    "density": 1237.0,
+    "thermal_conduc": 0.7,
+    "heat_capac": 1.217,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "ddc96ae4-086c-4033-9e45-c5589f1661ba",
+    "service_life": 40
+  },
+  "369": {
+    "name": "plasterboard",
+    "density": 732.0,
+    "thermal_conduc": 0.21,
+    "heat_capac": 1.384,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "0773f90c-78ef-4727-a966-3b005c1a1469",
+    "service_life": 30
+  },
+  "370": {
+    "name": "gypsum",
+    "density": 906.0,
+    "thermal_conduc": 0.28,
+    "heat_capac": 1.5,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "69a2614b-ef34-4c3c-9221-963676658172",
+    "service_life": 45
+  },
+  "371": {
+    "name": "gypsum plasterboard",
+    "density": 900.0,
+    "thermal_conduc": 0.21,
+    "heat_capac": 1.228,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "f6878cee-a4bd-43da-a830-c64b975cb957",
+    "service_life": 45
+  },
+  "372": {
+    "name": "plank revetment",
+    "density": 600.0,
+    "thermal_conduc": 0.13,
+    "heat_capac": 1.5,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "86138863-3c1c-4345-9ae9-03ba28a5f9a7",
+    "service_life": 50
+  },
+  "373": {
+    "name": "rafters",
+    "density": 455.0,
+    "thermal_conduc": 0.23,
+    "heat_capac": 1.5,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.4,
+    "lca_id": "efa55966-4f29-4f15-bfec-8c08b3945923",
+    "service_life": 50
+  },
+  "374": {
+    "name": "wood wool board gypsum 420",
+    "density": 2000.0,
+    "thermal_conduc": 0.1,
+    "heat_capac": 2.0,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "1d9ca1d8-7ff3-4533-b828-a4c96bf31066",
+    "service_life": 40
+  },
+  "375": {
+    "name": "rafters",
+    "density": 455.0,
+    "thermal_conduc": 0.14,
+    "heat_capac": 1.5,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.4,
+    "lca_id": "efa55966-4f29-4f15-bfec-8c08b3945923",
+    "service_life": 50
+  },
+  "376": {
+    "name": "wooden beams",
+    "density": 650.0,
+    "thermal_conduc": 0.13,
+    "heat_capac": 1.5,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "aeab0f39-5eab-422f-8c4b-822bb98aa63c",
+    "service_life": 50
+  },
+  "377": {
+    "name": "glass wool",
+    "density": 120.0,
+    "thermal_conduc": 0.04,
+    "heat_capac": 0.84,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "7091503e-34e5-44cd-9acb-7c2f16f6097f",
+    "service_life": 50
+  },
+  "378": {
+    "name": "wood wool",
+    "density": 469.0,
+    "thermal_conduc": 0.09,
+    "heat_capac": 1.47,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "ee0c4b18-f9c9-44d1-8766-36db08856a2f",
+    "service_life": 40
+  },
+  "379": {
+    "name": "mineral wool",
+    "density": 200.0,
+    "thermal_conduc": 0.04,
+    "heat_capac": 0.85,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "d3661bd8-0107-4081-987b-4bdd5cfcb68d",
+    "service_life": 40
+  },
+  "380": {
+    "name": "polyethylene underlay",
+    "density": 900.0,
+    "thermal_conduc": 0.35,
+    "heat_capac": 2.3,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "6869f7c1-1b2b-4f30-afc9-823a0104f1d9",
+    "service_life": 40
+  },
+  "381": {
+    "name": "mineral wool",
+    "density": 350.0,
+    "thermal_conduc": 0.04,
+    "heat_capac": 0.85,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "d3661bd8-0107-4081-987b-4bdd5cfcb68d",
+    "service_life": 40
+  },
+  "382": {
+    "name": "roof battens",
+    "density": 600.0,
+    "thermal_conduc": 0.14,
+    "heat_capac": 1.5,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "e70d9027-5315-481c-92e2-7b7d8a02eaba",
+    "service_life": 50
+  },
+  "383": {
+    "name": "reedy mat",
+    "density": 215.0,
+    "thermal_conduc": 0.081,
+    "heat_capac": 2.0,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "51fa051b-38fb-422f-96e2-b2ee6e6f9445",
+    "service_life": 20
+  },
+  "384": {
+    "name": "roof battens",
+    "density": 600.0,
+    "thermal_conduc": 0.13,
+    "heat_capac": 1.5,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "e70d9027-5315-481c-92e2-7b7d8a02eaba",
+    "service_life": 50
+  },
+  "385": {
+    "name": "bituminized felt",
+    "density": 1100.0,
+    "thermal_conduc": 5.0,
+    "heat_capac": 1.0,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "27ccffb8-02ec-466d-b925-f6db91d4ef71",
+    "service_life": 20
+  },
+  "386": {
+    "name": "floorboards",
+    "density": 740.0,
+    "thermal_conduc": 0.21,
+    "heat_capac": 1.6,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "bbbae8e3-3023-42b1-a58b-3cae9d482e10",
+    "service_life": 50
+  },
+  "387": {
+    "name": "cement screed",
+    "density": 1950.0,
+    "thermal_conduc": 1.4,
+    "heat_capac": 1.0,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "86d919ee-8f30-4ca4-9b7e-717aecba6ac0",
+    "service_life": 50
+  },
+  "388": {
+    "name": "cement screed",
+    "density": 2100.0,
+    "thermal_conduc": 1.2,
+    "heat_capac": 2.058,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "86d919ee-8f30-4ca4-9b7e-717aecba6ac0",
+    "service_life": 50
+  },
+  "389": {
+    "name": "coconut fiber insulation",
+    "density": 50.0,
+    "thermal_conduc": 0.09,
+    "heat_capac": 1.273,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "b7b7c6be-122f-48d9-b1c2-9b81a6b7e95c",
+    "service_life": 40
+  },
+  "390": {
+    "name": "mineral wool",
+    "density": 150.0,
+    "thermal_conduc": 0.04,
+    "heat_capac": 0.85,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "ac779922-219f-4730-9aef-a7da84d334c1",
+    "service_life": 40
+  },
+  "391": {
+    "name": "bed lumber",
+    "density": 400.0,
+    "thermal_conduc": 0.14,
+    "heat_capac": 1.5,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "4dadfb92-ba5d-48de-bb7b-394c28911a90",
+    "service_life": 50
+  },
+  "392": {
+    "name": "ceiling bricks",
+    "density": 1788.0,
+    "thermal_conduc": 0.87,
+    "heat_capac": 0.868,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "cc0d7baa-755a-4a4a-baf3-4fe53d68a041",
+    "service_life": 50
+  },
+  "393": {
+    "name": "in situ-concrete",
+    "density": 2400.0,
+    "thermal_conduc": 2.04,
+    "heat_capac": 0.776,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "Synthetic_7",
+    "service_life": 50
+  },
+  "394": {
+    "name": "reinforced brick",
+    "density": 1788.0,
+    "thermal_conduc": 0.87,
+    "heat_capac": 0.868,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "Synthetic_5",
+    "service_life": 50
+  },
+  "395": {
+    "name": "prefabricated concrete beams",
+    "density": 1400.0,
+    "thermal_conduc": 0.66,
+    "heat_capac": 1.05,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "Synthetic_2",
+    "service_life": 50
+  },
+  "396": {
+    "name": "sand filling",
+    "density": 1800.0,
+    "thermal_conduc": 0.58,
+    "heat_capac": 0.84,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "0d027c8c-89dc-486e-8390-b4649f5e6ed8",
+    "service_life": 50
+  },
+  "397": {
+    "name": "concrete",
+    "density": 2400.0,
+    "thermal_conduc": 2.04,
+    "heat_capac": 0.776,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "Synthetic_2",
+    "service_life": 50
+  },
+  "398": {
+    "name": "mineral wool",
+    "density": 60.0,
+    "thermal_conduc": 0.035,
+    "heat_capac": 0.85,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "ac779922-219f-4730-9aef-a7da84d334c1",
+    "service_life": 40
+  },
+  "399": {
+    "name": "reinforced concrete",
+    "density": 2104.0,
+    "thermal_conduc": 2.04,
+    "heat_capac": 0.776,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "Synthetic_2",
+    "service_life": 50
+  },
+  "400": {
+    "name": "reinforced concrete",
+    "density": 2400.0,
+    "thermal_conduc": 2.1,
+    "heat_capac": 0.779,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "Synthetic_2",
+    "service_life": 50
+  },
+  "401": {
+    "name": "sheetrock",
+    "density": 732.0,
+    "thermal_conduc": 0.21,
+    "heat_capac": 1.384,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "f4ef6362-85e1-4aac-b263-d954d1acbcd1",
+    "service_life": 50
+  },
+  "402": {
+    "name": "levelling putty",
+    "density": 1600.0,
+    "thermal_conduc": 0.27,
+    "heat_capac": 1.0,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "c5151e24-55fa-4748-862f-855ab913470f",
+    "service_life": 50
+  },
+  "403": {
+    "name": "solid brick",
+    "density": 1800.0,
+    "thermal_conduc": 0.79,
+    "heat_capac": 0.85,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "127a23f5-d954-41c9-8f8a-ecca18aca691",
+    "service_life": 50
+  },
+  "404": {
+    "name": "hardwood",
+    "density": 650.0,
+    "thermal_conduc": 0.14,
+    "heat_capac": 1.5,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "e131431f-4d99-4d7a-ae0a-744a06de3524",
+    "service_life": 50
+  },
+  "405": {
+    "name": "hollow pumice blocks",
+    "density": 1600.0,
+    "thermal_conduc": 0.56,
+    "heat_capac": 1.05,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "2e31cc41-fa94-442a-b19b-48d82c3555d8",
+    "service_life": 50
+  },
+  "406": {
+    "name": "perforated bricks",
+    "density": 1200.0,
+    "thermal_conduc": 0.52,
+    "heat_capac": 0.9,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "30514538-fcb4-483b-b5d5-c108d2037536",
+    "service_life": 50
+  },
+  "407": {
+    "name": "perforated lime sandstone",
+    "density": 1400.0,
+    "thermal_conduc": 0.7,
+    "heat_capac": 0.868,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "cc0d7baa-755a-4a4a-baf3-4fe53d68a041",
+    "service_life": 50
+  },
+  "408": {
+    "name": "aerated concrete blocks",
+    "density": 600.0,
+    "thermal_conduc": 0.23,
+    "heat_capac": 1.0,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "Synthetic_4",
+    "service_life": 50
+  },
+  "409": {
+    "name": "aerated concrete blocks",
+    "density": 500.0,
+    "thermal_conduc": 0.19,
+    "heat_capac": 1.0,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "Synthetic_4",
+    "service_life": 50
+  },
+  "410": {
+    "name": "aerated concrete blocks",
+    "density": 700.0,
+    "thermal_conduc": 0.27,
+    "heat_capac": 1.0,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "Synthetic_4",
+    "service_life": 50
+  },
+  "411": {
+    "name": "perforated bricks",
+    "density": 800.0,
+    "thermal_conduc": 0.39,
+    "heat_capac": 0.85,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "30514538-fcb4-483b-b5d5-c108d2037536",
+    "service_life": 50
+  },
+  "412": {
+    "name": "perforated bricks",
+    "density": 1000.0,
+    "thermal_conduc": 0.47,
+    "heat_capac": 0.85,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "30514538-fcb4-483b-b5d5-c108d2037536",
+    "service_life": 50
+  },
+  "413": {
+    "name": "sand-lime brick",
+    "density": 1600.0,
+    "thermal_conduc": 0.79,
+    "heat_capac": 1.0,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "cc0d7baa-755a-4a4a-baf3-4fe53d68a041",
+    "service_life": 50
+  },
+  "414": {
+    "name": "mineral wool",
+    "density": 154.0,
+    "thermal_conduc": 0.04,
+    "heat_capac": 1.0,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "155a3b83-ed73-4462-a4f1-69ce64e24981",
+    "service_life": 40
+  },
+  "415": {
+    "name": "cellulose fiber",
+    "density": 200.0,
+    "thermal_conduc": 0.05,
+    "heat_capac": 2.005,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "5fac6347-55b0-47be-9118-d8229d7e62c4",
+    "service_life": 40
+  },
+  "416": {
+    "name": "lightweight building board",
+    "density": 595.0,
+    "thermal_conduc": 0.09,
+    "heat_capac": 1.7,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "bfa45a2b-0f25-4dea-b550-50f3d49a548f",
+    "service_life": 50
+  },
+  "417": {
+    "name": "pumice concrete",
+    "density": 1000.0,
+    "thermal_conduc": 0.35,
+    "heat_capac": 0.85,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "Synthetic_3",
+    "service_life": 50
+  },
+  "418": {
+    "name": "facing brick",
+    "density": 1400.0,
+    "thermal_conduc": 0.6,
+    "heat_capac": 1.155,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "127a23f5-d954-41c9-8f8a-ecca18aca691",
+    "service_life": 50
+  },
+  "419": {
+    "name": "soft fiberboard",
+    "density": 300.0,
+    "thermal_conduc": 0.06,
+    "heat_capac": 2.0,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "1c22a17e-aca4-4126-9fde-f02c33aa741e",
+    "service_life": 50
+  },
+  "420": {
+    "name": "solid brick",
+    "density": 1400.0,
+    "thermal_conduc": 0.6,
+    "heat_capac": 0.85,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "127a23f5-d954-41c9-8f8a-ecca18aca691",
+    "service_life": 50
+  },
+  "421": {
+    "name": "lime cement plaster",
+    "density": 1900.0,
+    "thermal_conduc": 0.87,
+    "heat_capac": 0.85,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "dca9f05c-036b-40e5-ae81-c957c2420fd8",
+    "service_life": 40
+  },
+  "422": {
+    "name": "cement board",
+    "density": 1800.0,
+    "thermal_conduc": 0.35,
+    "heat_capac": 1.4,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "161e1abd-fe38-45f6-8658-8bf4fa88eb7c",
+    "service_life": 50
+  },
+  "423": {
+    "name": "rafters",
+    "density": 600.0,
+    "thermal_conduc": 0.14,
+    "heat_capac": 1.5,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.4,
+    "lca_id": "e70d9027-5315-481c-92e2-7b7d8a02eaba",
+    "service_life": 50
+  },
+  "424": {
+    "name": "plasterboard",
+    "density": 900.0,
+    "thermal_conduc": 0.21,
+    "heat_capac": 1.384,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "f4ef6362-85e1-4aac-b263-d954d1acbcd1",
+    "service_life": 50
+  },
+  "425": {
+    "name": "laminated wood",
+    "density": 600.0,
+    "thermal_conduc": 0.13,
+    "heat_capac": 1.5,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "5c536009-b0a8-4539-86c2-c3b8247f7f1a",
+    "service_life": 50
+  },
+  "426": {
+    "name": "sarking felt",
+    "density": 546.0,
+    "thermal_conduc": 0.5,
+    "heat_capac": 1.55,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "8d0ee729-dbb3-4a45-ab4a-3e9acf2ba858",
+    "service_life": 20
+  },
+  "427": {
+    "name": "concrete roof tile",
+    "density": 672.0,
+    "thermal_conduc": 0.14,
+    "heat_capac": 0.85,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "Synthetic_3",
+    "service_life": 50
+  },
+  "428": {
+    "name": "hollow clay board",
+    "density": 700.0,
+    "thermal_conduc": 0.45,
+    "heat_capac": 0.85,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "4c009f04-44e1-42e3-a32e-4929294debab",
+    "service_life": 50
+  },
+  "429": {
+    "name": "anhydrite screed",
+    "density": 2100.0,
+    "thermal_conduc": 1.2,
+    "heat_capac": 1.0,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "96045987-0862-4f29-b4ec-798c2e14f23a",
+    "service_life": 30
+  },
+  "430": {
+    "name": "cement screed",
+    "density": 1940.0,
+    "thermal_conduc": 1.4,
+    "heat_capac": 1.0,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "fe371be5-c72f-4203-8569-a085ef375ba4",
+    "service_life": 50
+  },
+  "431": {
+    "name": "asphalt screed",
+    "density": 2100.0,
+    "thermal_conduc": 0.7,
+    "heat_capac": 0.699,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "c7381cc7-53b7-427e-9c0b-c9edc4152602",
+    "service_life": 50
+  },
+  "433": {
+    "name": "mineral wool",
+    "density": 120.0,
+    "thermal_conduc": 0.04,
+    "heat_capac": 0.85,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "ac779922-219f-4730-9aef-a7da84d334c1",
+    "service_life": 40
+  },
+  "434": {
+    "name": "in-situ concrete",
+    "density": 2400.0,
+    "thermal_conduc": 2.04,
+    "heat_capac": 0.776,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "Synthetic_2",
+    "service_life": 50
+  },
+  "435": {
+    "name": "solid bricks",
+    "density": 1800.0,
+    "thermal_conduc": 0.6,
+    "heat_capac": 0.85,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "127a23f5-d954-41c9-8f8a-ecca18aca691",
+    "service_life": 50
+  },
+  "436": {
+    "name": "screed",
+    "density": 1890.0,
+    "thermal_conduc": 1.4,
+    "heat_capac": 1.0,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "86d919ee-8f30-4ca4-9b7e-717aecba6ac0",
+    "service_life": 50
+  },
+  "437": {
+    "name": "asphalt screed",
+    "density": 2058.0,
+    "thermal_conduc": 1.4,
+    "heat_capac": 0.699,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "c7381cc7-53b7-427e-9c0b-c9edc4152602",
+    "service_life": 50
+  },
+  "438": {
+    "name": "asphalt screed",
+    "density": 2100.0,
+    "thermal_conduc": 1.4,
+    "heat_capac": 0.699,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "c7381cc7-53b7-427e-9c0b-c9edc4152602",
+    "service_life": 50
+  },
+  "439": {
+    "name": "reinforced concrete",
+    "density": 2400.0,
+    "thermal_conduc": 2.1,
+    "heat_capac": 0.8,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "Synthetic_2",
+    "service_life": 50
+  },
+  "440": {
+    "name": "reinforced concrete",
+    "density": 2400.0,
+    "thermal_conduc": 2.04,
+    "heat_capac": 0.778,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "Synthetic_2",
+    "service_life": 50
+  },
+  "441": {
+    "name": "peat fibre",
+    "density": 200.0,
+    "thermal_conduc": 0.06,
+    "heat_capac": 0.9,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "3f764d2e-320b-4996-8c28-0f38e8971044",
+    "service_life": 40
+  },
+  "442": {
+    "name": "kork",
+    "density": 200.0,
+    "thermal_conduc": 0.05,
+    "heat_capac": 1.88,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "dfb4dceb-e6a4-4fd8-bb42-f06b4e414e38",
+    "service_life": 40
+  },
+  "443": {
+    "name": "foamed clay",
+    "density": 400.0,
+    "thermal_conduc": 0.16,
+    "heat_capac": 0.85,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "67c9d57a-872a-4614-8be8-37ecaf9952e4",
+    "service_life": 50
+  },
+  "444": {
+    "name": "reinforced brick",
+    "density": 1800.0,
+    "thermal_conduc": 0.87,
+    "heat_capac": 0.85,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "Synthetic_1",
+    "service_life": 50
+  },
+  "445": {
+    "name": "reinforced concrete",
+    "density": 2100.0,
+    "thermal_conduc": 2.04,
+    "heat_capac": 0.776,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "Synthetic_2",
+    "service_life": 50
+  },
+  "446": {
+    "name": "reinforced concrete",
+    "density": 2400.0,
+    "thermal_conduc": 0.6,
+    "heat_capac": 0.776,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "Synthetic_2",
+    "service_life": 50
+  },
+  "447": {
+    "name": "window_pane",
+    "density": null,
+    "thermal_conduc": 0.76,
+    "heat_capac": null,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.7,
+    "lca_id": "dcf38066-e336-46a7-b0a8-b2453dd2872d",
+    "service_life": 30
+  },
+  "448": {
+    "name": "window_frame_pvc",
+    "density": null,
+    "thermal_conduc": null,
+    "heat_capac": null,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "73de9e80-8ed2-47d8-b5b6-854c84166f24",
+    "service_life": 50
+  },
+  "449": {
+    "name": "window_frame_aluminium",
+    "density": null,
+    "thermal_conduc": null,
+    "heat_capac": null,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "d0e0f205-2f4d-4c7f-b63a-23a9abd6e60a",
+    "service_life": 50
+  },
+  "450": {
+    "name": "window_frame_wood",
+    "density": null,
+    "thermal_conduc": null,
+    "heat_capac": null,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": 0.5,
+    "lca_id": "b0c75d7b-4cce-41cf-b785-1db434ee9c3f",
+    "service_life": 40
+  },
+  "451": {
+    "name": "exterior_window_shades",
+    "density": null,
+    "thermal_conduc": null,
+    "heat_capac": null,
+    "thickness_default": 0.1,
+    "thickness_list": [
+      0.2
+    ],
+    "solar_absorp": null,
+    "lca_id": "447dea90-8a8f-44f5-9451-3e15ce5fab10",
+    "service_life": 50
+  },
+  "244edc8c-3a43-11e7-8ed1-2cd444b2e704": {
         "name": "anti_must_plaster",
         "density": 465.4663,
         "thermal_conduc": 0.1062,
@@ -8250,8 +10200,8 @@
         "thickness_default": 0.04,
         "thickness_list": [],
         "solar_absorp": 0.5,
-        "lca_id": null,
-        "service_life": null
+        "lca_id": "Synthetic_8",
+        "service_life": 50
     },
     "ef4fc286-5b2b-11e7-a44d-901b0e0421f9": {
         "name": "Trespa_high_pressure_laminate",
@@ -8334,4 +10284,5 @@
         "lca_id": "2691d6e4-a41e-40d7-92ca-680f8785fc1d",
         "service_life": null
     }
+
 }
