@@ -1,0 +1,27 @@
+... loading "Internals" from "C:/Users/cuypers/PycharmProjects/bs2023_MaSc/output/models/tabula_de/bs2023_masc_tabula_de/ResidentialBuildingTabula/InternalGains_ResidentialBuildingTabula.txt"
+... loading "AHU" from "C:/Users/cuypers/PycharmProjects/bs2023_MaSc/output/models/tabula_de/bs2023_masc_tabula_de/ResidentialBuildingTabula/AHU_ResidentialBuildingTabula.txt"
+... loading "Tset" from "C:/Users/cuypers/PycharmProjects/bs2023_MaSc/output/models/tabula_de/bs2023_masc_tabula_de/ResidentialBuildingTabula/TsetHeat_ResidentialBuildingTabula.txt"
+... loading "Tset" from "C:/Users/cuypers/PycharmProjects/bs2023_MaSc/output/models/tabula_de/bs2023_masc_tabula_de/ResidentialBuildingTabula/TsetCool_ResidentialBuildingTabula.txt"
+... loading "Internals" from "C:/Users/cuypers/PycharmProjects/bs2023_MaSc/output/models/tabula_de/bs2023_masc_tabula_de/ResidentialBuildingTabula/InternalGains_ResidentialBuildingTabula.txt"
+... loading "AHU" from "C:/Users/cuypers/PycharmProjects/bs2023_MaSc/output/models/tabula_de/bs2023_masc_tabula_de/ResidentialBuildingTabula/AHU_ResidentialBuildingTabula.txt"
+... loading "Tset" from "C:/Users/cuypers/PycharmProjects/bs2023_MaSc/output/models/tabula_de/bs2023_masc_tabula_de/ResidentialBuildingTabula/TsetHeat_ResidentialBuildingTabula.txt"
+... loading "Tset" from "C:/Users/cuypers/PycharmProjects/bs2023_MaSc/output/models/tabula_de/bs2023_masc_tabula_de/ResidentialBuildingTabula/TsetCool_ResidentialBuildingTabula.txt"
+Model: bs2023_masc_tabula_de.ResidentialBuildingTabula.ResidentialBuildingTabula
+Integration started at 0 using integration method:
+cvode from sundials
+
+Integration terminated successfully at T = 3.1536e+007
+   CPU-time for integration                  : 6.6 seconds
+   CPU-time for initialization               : 0.313 seconds
+   Number of result points                   : 8761
+   Number of grid points                     : 0
+   Number of accepted steps                  : 124799
+   Number of rejected steps                  : 10731
+   Number of f-evaluations (dynamics)        : 229608
+   Number of non-linear iteration            : 188472
+   Number of non-linear convergence failures : 15
+   Number of Jacobian-evaluations            : 11358
+   Number of crossing function evaluations   : 138151
+   Number of model time events               : 8760
+   Number of state events                    : 1524
+   Number of step events                     : 0

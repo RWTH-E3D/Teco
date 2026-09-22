@@ -104,8 +104,10 @@ def _set_basic_data(element, element_in, data_class = None):
         if element_in["lca_data"] is not None:
             lca_data = En15804LcaData()
             lca_data.load_lca_data_template(element_in["lca_data"], data_class)
-            element.additional_lca_data = lca_data    
+            element.additional_lca_data = lca_data
         else:
             element.additional_lca_data = None
         element.service_life = element_in["service_life"]
+
+
         

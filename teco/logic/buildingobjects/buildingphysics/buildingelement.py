@@ -128,7 +128,7 @@ class BuildingElement(BuildingElement):
         
         if self.layer != []:
             lca_data = En15804LcaData()
-            lca_data.ref_flow_unit = "pcs"
+            lca_data.ref_flow_unit = "pc"
             
             
             if period_lca_scenario is None:
@@ -179,13 +179,13 @@ class BuildingElement(BuildingElement):
         """
         
         lca_data_be = En15804LcaData()
-        lca_data_be.ref_flow_unit = "pcs"
+        lca_data_be.ref_flow_unit = "pc"
                 
         for layer in self.layer:
             
             lca_data_layer = layer.material.lca_data
             lca_data_layer = lca_data_layer.convert_ref_unit(
-                                    target_unit = "pcs",
+                                    target_unit = "pc",
                                     area = self.area,
                                     thickness = layer.thickness,
                                     density = layer.material.density
@@ -193,8 +193,8 @@ class BuildingElement(BuildingElement):
             
             lca_data_be = lca_data_be + lca_data_layer
         if self.additional_lca_data is not None:
-            if self.additional_lca_data.ref_flow_unit != "pcs":
-                self.additional_lca_data = self.additional_lca_data.convert_ref_unit("pcs", area=self.area)
+            if self.additional_lca_data.ref_flow_unit != "pc":
+                self.additional_lca_data = self.additional_lca_data.convert_ref_unit("pc", area=self.area)
 
             lca_data_be = lca_data_be + self.additional_lca_data
             
@@ -218,7 +218,7 @@ class BuildingElement(BuildingElement):
         """
         
         lca_data_repl_layers = En15804LcaData()
-        lca_data_repl_layers.ref_flow_unit = "pcs"
+        lca_data_repl_layers.ref_flow_unit = "pc"
         
         repl_layers_1, repl_interval_1 = self._get_repl_layers(True)
         repl_layers_2, repl_interval_2 = self._get_repl_layers(False)
@@ -228,7 +228,7 @@ class BuildingElement(BuildingElement):
                 
                 lca_data_layer = layer.material.lca_data
                 lca_data_layer = lca_data_layer.convert_ref_unit(
-                                        target_unit = "pcs",
+                                        target_unit = "pc",
                                         area = self.area,
                                         thickness = layer.thickness,
                                         density = layer.material.density
@@ -240,7 +240,7 @@ class BuildingElement(BuildingElement):
                 
                 lca_data_layer = layer.material.lca_data
                 lca_data_layer = lca_data_layer.convert_ref_unit(
-                                        target_unit = "pcs",
+                                        target_unit = "pc",
                                         area = self.area,
                                         thickness = layer.thickness,
                                         density = layer.material.density

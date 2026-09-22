@@ -6,7 +6,7 @@
 class En15804IndicatorValue(object):
     """En15804IndicatorValue class
     
-    This class holds one value for every lifecycle-stage according to EN 15804.
+    This class holds one value for every lifecycle stage according to EN 15804.
     It can be used to set the value of an environmental indicator.    
     
     Parameters
@@ -92,7 +92,7 @@ class En15804IndicatorValue(object):
     
         
     def _validate_stage_value(self, value, stage_name):
-        """Function to validate the value of an stage.
+        """Function to validate the value of a stage.
 
         Parameters
         ----------
@@ -375,10 +375,19 @@ class En15804IndicatorValue(object):
                 new = En15804IndicatorValue()
                 new.set_values(**values)
                 return new
-            
+
             else:
-                print("Addends must have the same unit!")
-            
+                # DEBUG: show what actually mismatches
+                print(
+                    "Addends must have the same unit! "
+                    f"self.unit={self.unit!r}, other.unit={other.unit!r}"
+                )
+                # Optional: make this *hard* fail so you see a stack trace
+                raise ValueError(
+                    f"Unit mismatch in En15804IndicatorValue.__add__: "
+                    f"self.unit={self.unit!r}, other.unit={other.unit!r}"
+                )
+
         else:
             
             print("Addend must be an 'En15804IndicatorValue'-Object!")
@@ -409,7 +418,7 @@ class En15804IndicatorValue(object):
         Parameters
         ----------
         scalar : int, float
-            scalar to be mutliplied
+            scalar to be multiplied
 
         Returns
         -------
@@ -488,7 +497,7 @@ class En15804IndicatorValue(object):
         if self.c2 is not None: addends.append(self.c2)
         if self.c3 is not None: addends.append(self.c3)
         if self.c4 is not None: addends.append(self.c4)
-        if self.d is not None and add_stage_d is not None: addends.append(self.d)
+        if self.d is not None and add_stage_d: addends.append(self.d)
         
         return sum(addends)
 

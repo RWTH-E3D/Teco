@@ -72,10 +72,18 @@ class DataClass(object):
                 )
             )
             self.load_tb_binding()
+        elif self.used_statistic == "hub4lca":
+            self.path_tb = utils.get_full_path(
+                os.path.join(
+                    "data", "input", "inputdata", "TypeElements_HUB4LCA.json"
+                )
+            )
+            self.load_tb_binding()
         elif self.used_statistic == "kfw":
             self.path_tb = utils.get_full_path(
-                "data/input/inputdata/TypeElements_kfw.json"
-
+                os.path.join(
+                    "data", "input", "inputdata", "TypeElements_kfw.json"
+                )
             )
             self.load_tb_binding()
         elif self.used_statistic is None:

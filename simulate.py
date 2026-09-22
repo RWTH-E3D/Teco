@@ -1,134 +1,344 @@
+from __future__ import annotations
+import json
 import os
-import pandas as pd
-from buildingspy.simulate.Simulator import Simulator
-from buildingspy.io.outputfile import Reader
-import matplotlib.pyplot as plt
-from multiprocessing import Pool
-from timeit import default_timer as timer
 import re
-import shutil
+import gc
+from pathlib import Path
+from contextlib import contextmanager
+from timeit import default_timer as timer
+from multiprocessing import Pool
+from typing import Dict, List, Optional, Tuple, Union
+import errno
+
+import tqdm
+from buildingspy.simulate.OpenModelica import Simulator as OpenModelicaSimulator
+from buildingspy.simulate.Dymola import Simulator as DymolaSimulator
+
+# Local
+from .results_reader import ResultStreamReader
+from teaser.logic.utilities import create_path
 
 
-def simulate(path, prj, loading_time, result_path, visualization=False, save_in_gml=False):
-    """BuildingsPy: simulation, loading and saving results, visualization
-    :param save_in_gml: saves the heatload series in EnergyADE
-    :param visualization: Graphs the heatload, inner and outside temperature
-    :param result_path: path to the excated heating load Dataframe
-    :param loading_time: Initial TEASER+ loasing time
-    :param prj: TEASER+ Instance
-    :param path: Simulation Result path
+# ----------------------------- utils -----------------------------
+@contextmanager
+def timing(description: str):
+    """Context Manager for simulation time measurement.
+
+    Parameters
+    ----------
+    description : str, name and description of timer
     """
+    start = timer()
+    yield lambda: timer() - start
+    elapsed = timer() - start
+    print(f"{description}: {elapsed:.2f} Seconds")
 
-    """BuildingsPy: Setup / Simulation"""
-    start_simulation = timer()
-    li = []
-    for buildings in prj.buildings:
-        s = Simulator(modelName=prj.name + "." + buildings.name + "." + buildings.name,
-                          simulator="dymola", packagePath=path + "\\" + prj.name,
-                          outputDirectory=path + "\\" + 'BuildingsPyResults' + "\\" + prj.name + "\\results")
-        li.append(s)
+@contextmanager
+def pushd(new_dir: Path):
+    prev = Path.cwd()
+    os.makedirs(new_dir, exist_ok=True)
+    os.chdir(new_dir)
+    try:
+        yield
+    finally:
+        os.chdir(prev)
 
-    po = Pool()
-    po.map(simulateCase, li)
+@contextmanager
+def pushd(path: Path):
+    old = os.getcwd()
+    os.chdir(path)
+    try:
+        yield
+    finally:
+        os.chdir(old)
 
-    end_simulation = timer()
-    simulation_time = (end_simulation-start_simulation)
+def _to_posix(p: Union[str, Path]) -> str:
+    return Path(p).as_posix()
 
-    """Clean up"""
-    # for buildings in prj1.buildings:
-    #     shutil.rmtree(path + "\\" + prj1.name)
+def _simulator_factory(simulator: str):
+    if simulator.lower() in {"omc", "openmodelica"}:
+        return OpenModelicaSimulator
+    if simulator.lower() in {"dymola"}:
+        return DymolaSimulator
+    raise ValueError("simulator must be 'omc' / 'openmodelica' or 'dymola'")
 
-    """BuildingsPy: Load Results"""
-    df_results = pd.DataFrame()
-    start_post_processing = timer()
-    for buildings in prj.buildings:
-        if re.match(r"(\w+)bt_", buildings.name):
+
+# ---------------------- manifest loading ------------------------
+# We support two shapes produced by your export step:
+#  A) Full object:
+#     {
+#       "project": "MyProj",
+#       "engine": "omc",
+#       "packagePath": "/path/to/MyProj",
+#       "outputDir": "/path/to/BuildingsPyResults/results",
+#       "items": [ {"model": "MyProj.B1.B1", "type": "X"}, ... ]
+#     }
+#  B) Minimal list (legacy):
+#     [ {"model": "MyProj.B1.B1", "type": "X"}, ... ]
+
+ManifestItems = List[Dict[str, Optional[str]]]
+
+
+
+
+def load_manifest(
+        manifest_path: Union[str, Path],
+        default_base: Optional[Path] = None,
+        default_project: Optional[str] = None,
+) -> Tuple[str, str, ManifestItems, Optional[str]]:
+    """Return (packagePath, outputDir, items, engine_from_manifest).
+
+    Fills in paths when absent using `default_base`/`default_project`.
+    """
+    mp = Path(manifest_path)
+    data = json.loads(mp.read_text())
+
+    if isinstance(data, list):
+        items: ManifestItems = data
+        project = default_project or _infer_project_from_items(items)
+        base = default_base or mp.parent
+        package_path = _to_posix(base / project)
+        output_dir = _to_posix(base / "BuildingsPyResults" / "results")
+        engine = None
+    else:
+        items = data.get("items", [])
+        project = data.get("project") or default_project or _infer_project_from_items(items)
+        package_path = data.get("packagePath") or _to_posix((default_base or mp.parent) / (project or ""))
+        output_dir = data.get("outputDir") or _to_posix((default_base or mp.parent) / "BuildingsPyResults" / "results")
+        engine = data.get("engine")
+
+    if not items:
+        raise ValueError("Manifest has no items.")
+
+    return package_path, output_dir, items, engine
+
+
+def _infer_project_from_items(items: ManifestItems) -> str:
+    # Expect models like "Proj.Bldg.Bldg" – take the first token
+    for it in items:
+        m = re.match(r"([^.]+)\.\w+\.\w+", str(it.get("model", "")))
+        if m:
+            return m.group(1)
+    raise ValueError("Cannot infer project name from manifest items.")
+
+# ------------------------- worker task --------------------------
+
+def _simulate_one(task):
+    """
+    Run one model simulation in isolation.
+    - Gives each task a unique working dir to avoid dymosim.exe conflicts.
+    - Catches PermissionError from BuildingsPy cleanup so it can't crash the pool.
+    """
+    Sim = _simulator_factory(task["engine"])  # as in your file
+
+    # Results dir is already set per-model above in your code:
+    # out_dir = results_dir / model
+    model_dir = Path(str(task["outputDir"]))
+    model_dir.mkdir(parents=True, exist_ok=True)
+
+    # Make a truly unique working dir for this *process + model*
+    # (prevents any chance of two workers hitting the same dymosim.exe)
+    unique_tag = f"work_{os.getpid()}_{os.getppid()}"
+    work_dir = model_dir / unique_tag
+    work_dir.mkdir(parents=True, exist_ok=True)
+
+    # Instantiate simulator
+    s = Sim(
+        modelName=task["model"],
+        packagePath=task["packagePath"],
+        outputDirectory=str(model_dir),
+    )
+
+    # Ensure both output and working directories are set to our isolated folders
+    try:
+        s.setOutputDirectory(str(model_dir))
+    except Exception:
+        pass
+    try:
+        # This is the critical bit: compilation and run should happen here
+        s.setWorkingDirectory(str(work_dir))
+    except Exception:
+        pass
+
+    # Time grid & solver (use your existing values from task)
+    s.setSolver("dassl")
+    s.setStartTime(float(task.get("startTime", 0)))
+    s.setStopTime(float(task.get("stopTime", 31536000)))
+    s.setNumberOfIntervals(int(task.get("intervals", 8760)))
+
+    # Some setups need the translate() call before simulate()
+    # and some need to run *from* the working directory:
+    with pushd(work_dir):
+        try:
+            # Optional, harmless if not needed:
             try:
-                matchObj = re.match(r"(\w+)bt_", buildings.name)
-                results = os.path.join(path + "\\" + 'BuildingsPyResults' + "\\" +
-                                       prj.name + "\\results\\" + buildings.name)
-                r = Reader(results, "dymola")
-                (time1, heatload) = r.values('multizone.PHeater[1]')
-                if matchObj.group(1) in df_results.columns:
-                    hl = pd.Series(heatload)
-                    df_results[matchObj.group(1)] = df_results[matchObj.group(1)].add(hl)
-                else:
-                    df_results[matchObj.group(1)] = heatload
-            except:
-                print(f'failed simulation for building {buildings.name}')
-        else:
-            try:
-                if os.path.exists(path + "\\" + 'BuildingsPyResults' + "\\" +
-                                          prj.name + "\\results\\" + buildings.name + '.mat'):
-                    results = os.path.join(path + "\\" + 'BuildingsPyResults' + "\\" +
-                                           prj.name + "\\results\\" + buildings.name + '.mat')
-                else:
+                s.translate()
+            except Exception:
+                # Some BuildingsPy/Dymola versions translate inside simulate(); ignore failures here.
+                pass
 
-                    print('No results found for building: ' + buildings.name)
+            s.simulate()
 
-                r = Reader(results, "dymola")
-                (time1, heatload) = r.values('multizone.PHeater[1]')
-                # print(len(heatload))
+        except PermissionError as e:
+            # Windows race: buildingspy tries to delete dymosim.exe while another process uses it.
+            # That’s only cleanup; results are already written. Swallow it and continue.
+            print(f"[WARN] Ignored PermissionError during simulate(): {e}")
 
-                (time2, insidetemperature) = r.values('multizone.TAir[1]')
-                (time3, outsidetemperature) = r.values('weaDat.weaBus.TDryBul')
+        except OSError as e:
+            # Some Python versions wrap file lock as generic OSError(WinError 5 or 32)
+            if getattr(e, "winerror", None) in (5, 32) or e.errno in (errno.EACCES, errno.EBUSY):
+                print(f"[WARN] Ignored OSError during simulate() likely due to locked file: {e}")
+            else:
+                raise
 
-                """Write in a DataFrame, Each buiding gets a column for the heatload"""
-                df_results[f'{buildings.name}'] = heatload
+        # Optional: try to delete outputs, but ignore locks
+        try:
+            s.deleteOutputFiles()
+        except PermissionError as e:
+            print(f"[WARN] Could not delete some output files (locked): {e}")
+        except OSError as e:
+            if getattr(e, "winerror", None) in (5, 32) or e.errno in (errno.EACCES, errno.EBUSY):
+                print(f"[WARN] Skipping deletion due to locked file: {e}")
+            else:
+                raise
+        except Exception:
+            # Don’t let any cleanup noise kill the worker
+            pass
 
-                # df_results.to_csv(f'C:/Users/MaxPaine33/PycharmProjects/teaserplus/gmlfiles/Hamburg/'
-                #                   f'Results_pandas_csv/5_Buildings_test/{prj.name}_results.csv')
-
-            except Exception as e:
-                print(f'failed simulation for building {buildings.name} with error: {e}')
-
-        
-        buildings.simulated_heat_load = list(zip(time1.tolist(), heatload.tolist()))
-
-    if visualization:
-        """BuildingsPy: plot Results"""
-        fig = plt.figure(figsize=(12.8, 7.2), frameon=False, dpi=150)
-        ax = fig.add_subplot(211)
-        ax.plot(time1 / 3600, heatload / 1000, 'b', label=f'{buildings.name}', linewidth=1)
-        ax.set_xlabel('Time [h]')
-        ax.set_ylabel('Heat load [kW]')
-        ax.xaxis.get_major_ticks(1440)
-        ax.set_xlim(0, 8760)
-        ax.legend()
-
-        ax = fig.add_subplot(212)
-        ax.plot(time3 / 3600, outsidetemperature - 273.15, 'b', label='Outside Temperature', linewidth=1)
-        ax.plot(time2 / 3600, insidetemperature - 273.15, 'r', label='Inside Temperature', linewidth=1)
-        ax.set_xlabel('Time [h]')
-        ax.set_ylabel('temperature [$^\circ$C]')
-        ax.xaxis.get_major_ticks(1440)
-        ax.set_xlim(0, 8760)
-        ax.legend()
-        plt.show()
-
-    '''calculating the simulation time'''
-    end_post_processing = timer()
-    post_processing_time = (end_post_processing-start_post_processing)
-    df_results['loading time'] = loading_time
-    df_results['simulation time'] = simulation_time
-    df_results['post processing time'] = post_processing_time
-
-    df_results.to_csv(result_path)
-
-    if save_in_gml:
-        prj.save_citygml(path="../teaserplus_e3d/gmlfiles/ADE out", results=heatload)
+    return task["model"]
 
 
-def simulateCase(s):
+
+def simulate(
+    path: str,
+    manifest_path: str,
+    loading_time: float,
+    result_path: str,
+    simulator: Optional[str] = None,
+    *,
+    start_time: Optional[float] = None,
+    stop_time: Optional[float] = None,
+    intervals: Optional[int] = None,
+    keep_type_sum: bool = True,
+    processes: Optional[int] = 1,
+    read_results: bool = True,
+) -> None:
+    """Run BuildingsPy simulations based on an *external* manifest and
+    stream results to a long CSV.
+
+    Parameters
+    ----------
+    path : str
+        Base directory that contains the exported Modelica package.
+        Used as a fallback if the manifest omits absolute paths.
+    manifest_path : str
+        JSON file written by your export step. Supports the two shapes documented above.
+    loading_time : float
+        Previously measured TEASER+ loading time (logged to metadata).
+    result_path : str
+        Target CSV for long-format results: (building, timestep, heatload).
+    simulator : Optional[str]
+        Engine override ("omc"/"OpenModelica" or "dymola"). If None, use the value
+        from the manifest or default to "omc".
+    start_time, stop_time, intervals : Optional
+        Simulation horizon. If None, use defaults (0, 31536000, 8760).
+    keep_type_sum : bool
+        Maintain lightweight per-type running sums during streaming.
+    processes : Optional[int]
+        Max worker processes. Defaults to `os.cpu_count()`.
     """
-    sets the general parameters for the simulation
-    :param s: BuildingsPy Simulator object
-    """
-    s.showGUI()
-    # s.translate()
-    s.setSolver("Cvode")
-    print(s.printModelAndTime())
-    s.setStartTime(0)
-    s.setStopTime(31536000)
-    s.setNumberOfIntervals(8760)
-    s.simulate()
+
+    base = Path(path)
+
+    # 1) Load manifest created by the export step
+    package_path, output_dir, items, engine_in_manifest = load_manifest(
+        manifest_path, default_base=base
+    )
+
+    engine = (simulator or engine_in_manifest or "omc").lower()
+
+    # Defaults if not provided
+    st = 0 if start_time is None else float(start_time)
+    et = 31536000 if stop_time is None else float(stop_time)
+    iv = 8760 if intervals is None else int(intervals)
+
+    #Todo: double defaults set, look at sim runner -> get function!
+
+    # 2) Compose worker tasks (small payload only)
+    results_dir = Path(output_dir)
+    results_dir.mkdir(parents=True, exist_ok=True)
+
+    def _per_model_dir(model: str) -> Path:
+        # Use the model string as a distinct subdir; dots are allowed on all OSes
+        return results_dir / model
+
+    tasks: List[Dict[str, Union[str, int, float]]] = []
+    for it in items:
+        model = it["model"]
+        out_dir = _per_model_dir(model)
+        create_path(str(out_dir))
+        tasks.append(
+            {
+                "model": model,
+                "packagePath": package_path,
+                "outputDir": _to_posix(out_dir),
+                "engine": engine,
+                "startTime": st,
+                "stopTime": et,
+                "intervals": iv,
+            }
+        )
+
+    # 3) Ensure minimal memory footprint
+    gc.collect()
+
+    # 4) Run simulations in parallel
+    with timing("BuildingsPy-Simulation") as sim_time:
+        with Pool(processes=processes) as pool:
+            for _ in tqdm.tqdm(
+                pool.imap_unordered(_simulate_one, tasks),
+                total=len(tasks),
+                desc="Simulated Buildings",
+            ):
+                pass
+        total_sim_seconds = sim_time()
+
+    #ToDo: maybe optional Flag, so not always necessary
+
+    # 5) Stream results (one building at a time)
+    if read_results:
+        with timing("Post-processing") as post_time:
+            reader = ResultStreamReader(
+                manifest=[
+                    {
+                        "model": it["model"],
+                        "type": it.get("type"),
+                        "building": it.get("building"),
+                    }
+                    for it in items
+                ],
+                results_dir=results_dir,
+                target_csv=Path(result_path),
+                expected_len=int(iv),
+                keep_type_sum=keep_type_sum,
+                layout="wide",  # one row per building, columns = timesteps
+            )
+            reader.run()
+            reader.write_building_sums()
+            total_post_seconds = post_time()
+
+    # 6) Write metadata sidecar
+    meta = {
+        "engine": engine,
+        "loading_time_s": float(loading_time),
+        "simulation_time_s": float(total_sim_seconds),
+        "post_processing_time_s": float(total_post_seconds),
+        "result_csv": os.fspath(result_path),
+        "results_dir": _to_posix(results_dir),
+        "manifest": os.fspath(manifest_path),
+        "start_time": st,
+        "stop_time": et,
+        "intervals": iv,
+    }
+    Path(result_path).with_suffix(".meta.json").write_text(json.dumps(meta, indent=2))
+
